@@ -103,10 +103,10 @@
     <h1>Questions available</h1>
     <br>
 
-    <input class="form-control" type="text" placeholder="Search Standerd" [(ngModel)]="searchtext">
-    <input class="form-control" type="text" placeholder="Search Subject" [(ngModel)]="searchtext">
-    <input class="form-control" type="text" placeholder="Search Template" [(ngModel)]="searchtext">
-    <input class="form-control" type="text" placeholder="Search QuestionNo" [(ngModel)]="searchtext">
+    <input class="form-control" type="text" placeholder="🔍 Search Standerd" [(ngModel)]="searchtext1" (input)="filterQuestions()">
+    <input class="form-control" type="text" placeholder="🔍 Search Subject" [(ngModel)]="searchtext2" (input)="filterQuestions()">
+    <input class="form-control" type="text" placeholder="🔍 Search Template" [(ngModel)]="searchtext3" (input)="filterQuestions()">
+    <input class="form-control" type="text" placeholder="🔍 Search QuestionNo" [(ngModel)]="searchtext4" (input)="filterQuestions()">
 
 
     <br>
@@ -119,7 +119,8 @@
             <th>question no</th>
 
         </tr>
-        <tr *ngFor="let Qcontainer of questiondatabase | searchexam: searchtext">
+        <!--| searchexam: searchtext -->
+        <tr *ngFor="let Qcontainer of filteredQuestions  ">
             <td>{{Qcontainer.std}}</td>
             <td>{{Qcontainer.sub}}</td>
             <td>{{Qcontainer.template}}</td>
