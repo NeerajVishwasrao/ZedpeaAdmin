@@ -84,7 +84,7 @@
     width: 100%;
     min-height: 100%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     padding: 1rem;
     box-sizing: inherit;
@@ -196,3 +196,18 @@
       margin-block: 1.5rem;
     }
   }
+
+
+
+
+
+
+
+
+
+
+  .search-box {
+    margin-left: 7px;
+
+    margin-bottom: 7px;
+}

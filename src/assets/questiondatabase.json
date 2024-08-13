@@ -1,70 +1,90 @@
 [
     {
+        "id": 1,
         "std": "lkg",
         "sub": "eng",
         "template": "1",
-        "question": "323"
+        "question": "323",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
     },
-   
     {
+        "id": 2,
         "std": "lkg",
         "sub": "math",
         "template": "2",
-        "question": "3"
+        "question": "3",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+
     },
-   
     {
+        "id": 3,
         "std": "ukg",
         "sub": "eng",
         "template": "4",
-        "question": "23"
+        "question": "23",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+
     },
-   
     {
+        "id": 4,
         "std": "ukg",
         "sub": "evs",
         "template": "3",
-        "question": "1"
+        "question": "1",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+
     },
-   
     {
+        "id": 5,
         "std": "1",
         "sub": "mar",
         "template": "1",
-        "question": "87"
+        "question": "87",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+
     },
-   
     {
+        "id": 6,
         "std": "1",
         "sub": "mar",
         "template": "4",
-        "question": "56"
+        "question": "56",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+
     },
-    
     {
+        "id": 7,
         "std": "2",
         "sub": "math",
         "template": "2",
         "question": "32",
-        "null": ""
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
     },
-    
     {
+        "id": 8,
         "std": "2",
         "sub": "eng",
         "template": "1",
-        "question": "2"
+        "question": "2",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+
     },
     {
+        "id": 9,
         "std": "lkg",
         "sub": "eng",
         "template": "2",
-        "question": "3"
+        "question": "3",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+
     },
     {
+        "id": 10,
         "std": "ukg",
         "sub": "math",
         "template": "3",
-        "question": "4"
+        "question": "4",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+
     }
 ]
