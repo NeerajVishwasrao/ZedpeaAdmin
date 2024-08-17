@@ -1,0 +1,78 @@
+/* General main content styling */
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light grey background */
+}
+
+.content {
+    width: 100%;
+    max-width: 1200px; /* Control the max-width of the content */
+    background-color: #ffffff; /* White background for the content */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
+}
+
+/* Navbar specific styling */
+.navbar {
+    background-color: #e9ecef; /* Light grey background for navbar */
+    padding: 10px 15px;
+    border-radius: 8px; /* Rounded corners for the navbar */
+}
+
+/* Style for the navbar brand */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+    color: #007bff; /* Primary color for the brand */
+    margin-right: 30px;
+}
+
+/* Navbar buttons styling */
+.navbar-nav .nav-item .btn-outline-primary {
+    font-size: 16px;
+    font-weight: 500;
+    color: #007bff; /* Primary color for buttons */
+    padding: 10px 20px;
+    margin-right: 10px; /* Space between buttons */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.navbar-nav .nav-item .btn-outline-primary:hover {
+    background-color: #619bdd;
+    color: #ffffff; /* White color for text on hover */
+}
+
+/* Active state styling */
+.navbar-nav .nav-item .btn-outline-primary.active {
+    background-color: #0056b3;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Navbar collapse on small screens */
+.collapse.navbar-collapse {
+    justify-content: flex-start;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+        padding: 15px;
+    }
+
+    .navbar {
+        margin-bottom: 20px;
+    }
+
+    .navbar-nav .nav-item .btn-outline-primary {
+        margin-right: 5px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+

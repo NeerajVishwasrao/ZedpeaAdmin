@@ -1,11 +1,12 @@
-<p>login Form!</p>
+
 <form>
+    <p>login Form</p>
     <div class="mb-3 row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
             <div style="width: 50%;">
                 <input  name="email" [(ngModel)]="LoginCredentials.email" type="text" class="form-control" id="staticEmail" value=""
-                    placeholder="Email type 👉 'valid'">
+                    placeholder="Email type 'valid'">
             </div>
         </div>
     </div>
@@ -14,7 +15,7 @@
         <div class="col-sm-10">
             <div style="width: 50%;">
                 <input name="password" [(ngModel)]="LoginCredentials.password" type="password" class="form-control" id="inputPassword"
-                    placeholder="Password  type 👉 'valid'">
+                    placeholder="Password type 'valid'">
             </div>
         </div>
     </div>
@@ -23,7 +24,7 @@
     <div class="mb-3 row">
         <div class="col-sm-10">
             <div style="width: 25%;">
-                <button type="submit" class="form-control btn btn-primary mb-3" (click)="verify()">Confirm identity</button>
+                <button type="submit" class="form-control btn btn-primary mb-3" (click)="verify()">Login</button>
 
             </div>
         </div>
