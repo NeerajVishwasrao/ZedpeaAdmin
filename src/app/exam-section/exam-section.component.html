@@ -1,7 +1,9 @@
 
-<button style="margin-right: 7px; margin-left: 7px;" class="btn btn-outline-primary" routerLink="create-exam"> Create exam </button>
-<button style="margin-right: 7px;"  class="btn btn-outline-primary" routerLink="analysis_performance"> Annalysis performance</button>
-<button  style="margin-right: 7px;" class="btn btn-outline-primary" routerLink="showcreatedtests"> Show created exams</button>
-<button type="button" class="btn btn-danger" (click)="logout()">Log-out</button>
+<div class="button-container">
+    <button class="btn btn-outline-primary custom-btn" routerLink="create-exam">Create exam</button>
+    <button class="btn btn-outline-primary custom-btn" routerLink="analysis_performance">Analysis performance</button>
+    <button class="btn btn-outline-primary custom-btn" routerLink="showcreatedtests">Show created exams</button>
+    <button type="button" class="btn btn-danger custom-btn logout-btn" (click)="logout()">Logout</button>
+</div>
 
 <router-outlet></router-outlet>

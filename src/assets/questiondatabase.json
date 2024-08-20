@@ -86,5 +86,23 @@
         "question": "4",
         "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
 
+    },
+    {
+        "id": 11,
+        "std": "lkg",
+        "sub": "eng",
+        "template": "3",
+        "question": "4",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+
+    },
+    {
+        "id": 12,
+        "std": "ukg",
+        "sub": "math",
+        "template": "3",
+        "question": "4",
+        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+
     }
 ]

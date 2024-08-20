@@ -12,6 +12,7 @@ import { ServiceExamSectionService } from '../service/service-exam-section.servi
   templateUrl: './create-exam.component.html',
   styleUrl: './create-exam.component.css'
 })
+
 export class CreateExamComponent {
   router = inject(Router)
   serviveExamSection = inject(ServiceExamSectionService)
