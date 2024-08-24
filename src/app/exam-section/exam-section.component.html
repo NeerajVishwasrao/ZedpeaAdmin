@@ -1,9 +1,27 @@
-
+<!-- 
 <div class="button-container">
-    <button class="btn btn-outline-primary custom-btn" routerLink="create-exam">Create exam</button>
-    <button class="btn btn-outline-primary custom-btn" routerLink="analysis_performance">Analysis performance</button>
-    <button class="btn btn-outline-primary custom-btn" routerLink="showcreatedtests">Show created exams</button>
-    <button type="button" class="btn btn-danger custom-btn logout-btn" (click)="logout()">Logout</button>
-</div>
+    <button (click)="onclickforclass('Createexam')"  [ngClass]="{
+        'btn': true, 
+        'btn-outline-primary': Createexam, 
+        'btn-success': !Createexam
+      }"  routerLink="create-exam">Create exam</button>
+<br>
+    <button (click)="onclickforclass('Analysisperformance')"  [ngClass]="{
+        'btn': true, 
+        'btn-outline-primary': Analysisperformance, 
+        'btn-success': !Analysisperformance
+      }" routerLink="analysis_performance">Analysis performance</button>
+      <br>
 
-<router-outlet></router-outlet>
+    <button (click)="onclickforclass('Showcreatedexams')"  [ngClass]="{
+        'btn': true, 
+        'btn-outline-primary': Showcreatedexams, 
+        'btn-success': !Showcreatedexams
+      }"routerLink="showcreatedtests">Show created exams</button> 
+
+    <button type="button" class="btn btn-danger custom-btn logout-btn" (click)="logout()">Logout</button> 
+</div> -->
+<div style="margin-top: 9%;">
+
+  <router-outlet></router-outlet>
+</div>

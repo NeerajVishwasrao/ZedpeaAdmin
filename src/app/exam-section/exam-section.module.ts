@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 
 import { ExamSectionRoutingModule } from './exam-section-routing.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    
+  ],
   imports: [
     CommonModule,
-    ExamSectionRoutingModule
+    ExamSectionRoutingModule,
   ],
   exports:[
     ExamSectionRoutingModule,

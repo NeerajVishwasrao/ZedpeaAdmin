@@ -1,78 +1,166 @@
-/* General main content styling */
-.main {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f8f9fa; /* Light grey background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:#ada9a9; /* Semi-transparent background */
+  z-index: 1000; /* Ensure it's on top of other content */
+  /* display: none; Hidden by default */
 }
 
-.content {
+
+
+
+ html, body {
+    height: 100%;
+    font-family: Arial, sans-serif; 
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    position: fixed;
     width: 100%;
-    max-width: 1200px; /* Control the max-width of the content */
-    background-color: #ffffff; /* White background for the content */
+    height: 50px;
+    background-color: #eee8e8; /* Dark background color for card effect */
+    color: #e8dede; /* Light text color */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    z-index: 1000; /* Ensure it’s on top of other content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card-like shadow */
+    border-radius: 8px; /* Rounded corners */
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .brand-name {
+    font-size: 20px;
+    margin-left: 50px;
+    color: #6e26cd;
+    font-weight: bold;
+    align-items: center;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  
+  /* Menu toggle button styles */
+  .menu-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #f4eeee; /* Light background color for button */
+    color: #191616; /* Dark text color */
+    border: none;
+    padding: 5px 5px; /* Reduced padding for smaller button */
+    font-size: 18px; /* Smaller font size */
+    cursor: pointer;
+    border-radius: 4px; /* Slightly rounded corners */
+    z-index: 1000;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .menu-toggle:hover {
+    background-color: #e0e0e0; /* Lighter background color on hover */
+    color: #000; /* Darker text color on hover */
+  }
+  
+  /* Sidebar styles */
+  .sidebar-card {
+    position: fixed;
+    height: 100vh;
+    width: 250px;
+    background-color: #eee8e8; /* Dark background color for card effect */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card-like shadow */
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    border-radius: 8px; /* Rounded corners */
+  }
+  
+  .sidebar-card.active {
+    transform: translateX(0);
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Full height of the sidebar */
+    padding-top: 50px; /* Space below the navbar */
+  }
+  
+  /* Sidebar header */
+  .sidebar header {
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
-}
-
-/* Navbar specific styling */
-.navbar {
-    background-color: #e9ecef; /* Light grey background for navbar */
-    padding: 10px 15px;
-    border-radius: 8px; /* Rounded corners for the navbar */
-}
-
-/* Style for the navbar brand */
-.navbar-brand {
+    font-size: 20px;
     font-weight: bold;
-    font-size: 24px;
-    color: #007bff; /* Primary color for the brand */
-    margin-right: 30px;
-}
+    background-color: #444; 
+    color: #fff; /* Font color in the header */
+    text-align: center;
+    border-radius: 8px; /* Rounded corners for the header */
+    margin-bottom: 20px; /* Space below the header */
+  }
+  
+  /* Sidebar item styles */
+  .w3-bar-item {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #0e0d0d; /* Font color of sidebar items */
+    display: block;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+  }
+  .innernav {
 
-/* Navbar buttons styling */
-.navbar-nav .nav-item .btn-outline-primary {
-    font-size: 16px;
-    font-weight: 500;
-    color: #007bff; /* Primary color for buttons */
-    padding: 10px 20px;
-    margin-right: 10px; /* Space between buttons */
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Hover effect for buttons */
-.navbar-nav .nav-item .btn-outline-primary:hover {
-    background-color: #619bdd;
-    color: #ffffff; /* White color for text on hover */
-}
-
-/* Active state styling */
-.navbar-nav .nav-item .btn-outline-primary.active {
-    background-color: #0056b3;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-/* Navbar collapse on small screens */
-.collapse.navbar-collapse {
-    justify-content: flex-start;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .content {
-        padding: 15px;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #d02929; /* Font color of sidebar items */
+  display: block;
+  transition: background-color 0.3s, color 0.3s; 
+  }
+  .w3-bar-item:hover {
+    background-color: #555; /* Background color on hover */
+    color: #f4f4f4; /* Font color on hover */
+  }
+  
+  /* Logout button styles */
+  .logout-btn {
+    margin-top: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: #f74e5f; /* Background color for logout button */
+    color: #fff; /* Font color of the logout button */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners for the button */
+    padding: 10px; /* Button padding */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .logout-btn:hover {
+    background-color: #c82333; /* Darker background color on hover */
+    color: #fff; /* Keep font color white on hover */
+  }
+  
+  /* Main content styling */
+  router-outlet {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease; /* Smooth transition for content shift */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .sidebar-card {
+      width: 200px; /* Adjust width for smaller screens */
     }
-
-    .navbar {
-        margin-bottom: 20px;
+  
+    .menu-toggle {
+      display: block; /* Show the button on mobile */
     }
-
-    .navbar-nav .nav-item .btn-outline-primary {
-        margin-right: 5px;
-        padding: 8px 16px;
-        font-size: 14px;
+  
+    router-outlet {
+      margin-left: 0; /* Full width content when sidebar is hidden */
     }
-}
-
+  }
+  

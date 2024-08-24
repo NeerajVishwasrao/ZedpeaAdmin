@@ -22,7 +22,7 @@ export class LoginComponent {
     if (this.LoginCredentials.email == "valid" && this.LoginCredentials.password == "valid") {
 
      localStorage.setItem("password", this.LoginCredentials.password)
-       this.router.navigateByUrl("exam-section")
+       this.router.navigateByUrl("exam-section/create-exam")
 
     } else {
       alert("invalid credentials")

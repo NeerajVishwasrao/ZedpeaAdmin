@@ -17,6 +17,8 @@ export class CreateExamComponent {
   router = inject(Router)
   serviveExamSection = inject(ServiceExamSectionService)
 
+
+  
   itterator: number = 0;
 
   new_created_q: question[] = [];
