@@ -252,22 +252,12 @@
 <!-- Navbar -->
 <div [ngClass]="{ overlay: isfreeze }">
   <nav class="navbar">
-    <button
-      *ngIf="H_threeline"
-      class="menu-toggle"
-      (click)="toggleSidebar()"
-      (click)="freezepage()"
-      (click)="menudesign(1)"
-    >
+    <button *ngIf="H_threeline" class="menu-toggle" (click)="toggleSidebar()" (click)="freezepage()"
+      (click)="menudesign(1)">
       ☰
     </button>
-    <button
-      *ngIf="V_threeline"
-      class="menu-toggle"
-      (click)="toggleSidebar()"
-      (click)="freezepage()"
-      (click)="menudesign(2)"
-    >
+    <button *ngIf="V_threeline" class="menu-toggle" (click)="toggleSidebar()" (click)="freezepage()"
+      (click)="menudesign(2)">
       🔙
     </button>
 
@@ -278,66 +268,37 @@
 
   <!-- Sidebar -->
 
-  <div
-    class="w3-sidebar w3-bar-block sidebar-card"
-    [ngClass]="{ active: isSidebarActive }"
-  >
+  <div class="w3-sidebar w3-bar-block sidebar-card" [ngClass]="{ active: isSidebarActive }">
     <div class="sidebar">
       <!-- Exam Section with Dropdown -->
-      <div
-        class="w3-bar-item w3-button dropdown-toggle"
-        (click)="toggleDropdown()"
-      >
+      <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown()">
         Exam Section
       </div>
-      <div
-        style="background-color: rgb(245, 219, 159)"
-        *ngIf="isDropdownActive"
-      >
-        <div
-          class="innernav w3-bar-item"
-          (click)="goto_createexam()"
-          (click)="toggleSidebar()"
-          (click)="freezepage()"
-          (click)="menudesign(2)"
-        >
+      <div style="background-color: rgb(245, 219, 159)" *ngIf="isDropdownActive">
+        <div class="innernav w3-bar-item" (click)="goto_createexam()" (click)="toggleSidebar()" (click)="freezepage()"
+          (click)="menudesign(2)">
           Create Exam
         </div>
-        <div
-          class="innernav w3-bar-item"
-          (click)="goto_analysis_performance()"
-          (click)="toggleSidebar()"
-          (click)="freezepage()"
-          (click)="menudesign(2)"
-        >
+        <div class="innernav w3-bar-item" (click)="goto_analysis_performance()" (click)="toggleSidebar()"
+          (click)="freezepage()" (click)="menudesign(2)">
           Analysis Performance
         </div>
-        <div
-          class="innernav w3-bar-item"
-          (click)="goTo_showcreatedtests()"
-          (click)="toggleSidebar()"
-          (click)="freezepage()"
-          (click)="menudesign(2)"
-        >
+        <div class="innernav w3-bar-item" (click)="goTo_showcreatedtests()" (click)="toggleSidebar()"
+          (click)="freezepage()" (click)="menudesign(2)">
           Show Created tests
         </div>
       </div>
 
       <div class="w3-bar-item w3-button" routerLink="timetable">Timetable</div>
-      <div class="w3-bar-item w3-button" routerLink="attendance" >
+      <div class="w3-bar-item w3-button" routerLink="attendance">
         Attendance
       </div>
       <div class="w3-bar-item w3-button" routerLink="contact-students">
         Contact with students
       </div>
 
-      <div
-        class="btn btn-danger custom-btn logout-btn"
-        (click)="logout()"
-        (click)="toggleSidebar()"
-        (click)="freezepage()"
-        (click)="menudesign(2)"
-      >
+      <div class="btn btn-danger custom-btn logout-btn" (click)="logout()" (click)="toggleSidebar()"
+        (click)="freezepage()" (click)="menudesign(2)">
         Logout
       </div>
     </div>

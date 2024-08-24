@@ -30,6 +30,8 @@
     z-index: 1000; /* Ensure it’s on top of other content */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card-like shadow */
     border-radius: 8px; /* Rounded corners */
+    z-index: 1001; /* Ensure the sidebar is on top */
+
   }
   
   .navbar-brand {
@@ -70,14 +72,15 @@
   /* Sidebar styles */
   .sidebar-card {
     position: fixed;
-    height: 100vh;
-    width: 250px;
-    background-color: #eee8e8; /* Dark background color for card effect */
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card-like shadow */
-    transition: transform 0.3s ease;
-    transform: translateX(-100%);
-    border-radius: 8px; /* Rounded corners */
+  height: 100vh;
+  width: 250px;
+  background-color: #eee8e8; /* Dark background color for card effect */
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card-like shadow */
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+  border-radius: 8px; /* Rounded corners */
+  z-index: 1000; /* Ensure the sidebar is on top */
   }
   
   .sidebar-card.active {

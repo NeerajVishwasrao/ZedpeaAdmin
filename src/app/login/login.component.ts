@@ -10,8 +10,13 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
   router = inject(Router);
+
+  ngOnInit() {
+    if (localStorage.getItem("password")!=null) {
+      this.router.navigateByUrl("exam-section/create-exam")
+    }
+  }
   LoginCredentials: { email: string; password: string } = {
     email: "",
     password: ""
