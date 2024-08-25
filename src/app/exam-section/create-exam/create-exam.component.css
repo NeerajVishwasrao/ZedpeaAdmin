@@ -9,7 +9,7 @@
 
 /* Styles for the Added Questions section */
 .added-questions-section {
-  max-height: 300px; /* Adjust this height as needed */
+  max-height: 700px; /* Adjust this height as needed */
   overflow-y: auto;  /* Enables vertical scrolling */
 }
 
