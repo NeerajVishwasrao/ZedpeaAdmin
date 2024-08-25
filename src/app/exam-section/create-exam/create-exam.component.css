@@ -7,6 +7,19 @@
   margin-left: 300px;
 }
 
+/* Styles for the Added Questions section */
+.added-questions-section {
+  max-height: 300px; /* Adjust this height as needed */
+  overflow-y: auto;  /* Enables vertical scrolling */
+}
+
+/* Styles for the Questions section */
+.questions-container {
+  max-height: 500px; /* Adjust this height as needed */
+  overflow-y: auto;  /* Enables vertical scrolling */
+}
+
+
 /* Mobile view adjustments */
 @media (max-width: 768px) {
   .search-container {
