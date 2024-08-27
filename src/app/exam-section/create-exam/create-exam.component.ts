@@ -21,6 +21,7 @@ export class CreateExamComponent {
   
   itterator: number = 0;
 
+
   new_created_q: question[] = [];
   filteredQuestions: question[] = [];
   questiondatabase: question[] = [];
@@ -86,6 +87,8 @@ export class CreateExamComponent {
     //When you add a new array to CQArray, ensure that you are adding a new instance of the array, not modifying an existing one.
     // Use the spread operator to create a new instance of new_created_q [... this.new_created_q]
 
+    this.router.navigateByUrl("examdetail")
+
     this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
     console.log(this.CQArray);
     this.serviveExamSection.Add_this_Q(this.CQArray);
@@ -109,3 +112,4 @@ interface question {
   question: string;
   img: string
 }
+
