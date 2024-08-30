@@ -30,3 +30,26 @@
         </div>
     </div>
 </form>
+
+<div class="container">
+<div class="row mt-4">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>League</th>
+        <th>Member</th>
+        <th>#</th>
+        <th>Division</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of leaguelist">
+        <td>{{item.league_name}}</td>
+        <td>{{item.owners}}</td>
+        <td><span class="badge badge-pill badge-success">{{item.num_of_students}}</span></td>
+        <td>{{item.division}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
