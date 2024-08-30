@@ -39,7 +39,7 @@ student: any;
   
 
   logout() {
-    localStorage.removeItem("password");
+    localStorage.removeItem("uprofile");
     this.router.navigateByUrl("");
   }
 

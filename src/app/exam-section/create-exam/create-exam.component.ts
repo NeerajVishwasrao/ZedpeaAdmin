@@ -26,16 +26,22 @@ export class CreateExamComponent {
   filteredQuestions: question[] = [];
   questiondatabase: question[] = [];
   http = inject(HttpClient);
-  searchtext: string = ''
-  searchtext1: string = ''
-  searchtext2: string = ''
-  searchtext3: string = ''
-  searchtext4: string = ''
+  searchtext: string = '';
+  searchtext1: string = '';
+  searchtext2: string = '';
+  searchtext3: string = '';
+  searchtext4: string = '';
   id: number = 0;
-
+  user: any = '';
+ 
 
 
   ngOnInit() {
+
+    if (localStorage.getItem("uprofile") != null) {
+      this.user = localStorage.getItem("uprofile");
+    }
+
     console.log("before http get")
     this.http.get<question[]>("/assets/questiondatabase.json").subscribe(data => {
       console.log(data)

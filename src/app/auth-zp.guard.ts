@@ -3,7 +3,7 @@ import { CanActivateFn, Router } from '@angular/router';
 
 export const authZPGuard: CanActivateFn = (route, state) => {
   const router = inject(Router)
-  if (localStorage.getItem("password") != null) {
+  if (localStorage.getItem("uprofile") != null) {
     return true
   }
   else {

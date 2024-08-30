@@ -34,7 +34,7 @@ onclickforclass(buttonname:string){
 }
   // router = inject(Router)
   // logout() {
-  //   localStorage.removeItem("password");
+  //   localStorage.removeItem("uprofile");
   //   this.router.navigateByUrl("");
   // }
 

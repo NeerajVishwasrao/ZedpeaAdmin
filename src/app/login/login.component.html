@@ -2,11 +2,11 @@
 <form>
     <p>Login Form</p>
     <div class="mb-3 row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+        <label for="staticEmail" class="col-sm-2 col-form-label">League</label>
         <div class="col-sm-10">
             <div style="width: 50%;">
                 <input  name="email" [(ngModel)]="LoginCredentials.email" type="text" class="form-control" id="staticEmail" value=""
-                    placeholder="Email type 'valid'">
+                    placeholder="Enter league name">
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
         <div class="col-sm-10">
             <div style="width: 50%;">
                 <input name="password" [(ngModel)]="LoginCredentials.password" type="password" class="form-control" id="inputPassword"
-                    placeholder="Password type 'valid'">
+                    placeholder="******">
             </div>
         </div>
     </div>
