@@ -108,6 +108,10 @@ export class CreateExamComponent {
 
   }
 
+  filterList(key:any, type:string) {
+
+  }
+
 }
 
 interface question {

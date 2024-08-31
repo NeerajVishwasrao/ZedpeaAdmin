@@ -1,0 +1,137 @@
+<!-- <div class="table">
+    <h4>Exam creation search here 👇</h4>
+    <div class="search-container">
+        <input class="form-control search-box" type="text" placeholder="🔍 Standerd" [(ngModel)]="searchtext1"
+            (input)="filterQuestions()">
+        <input class="form-control search-box" type="text" placeholder="🔍 Subject" [(ngModel)]="searchtext2"
+            (input)="filterQuestions()">
+        <input class="form-control search-box" type="text" placeholder="🔍 Template" [(ngModel)]="searchtext3"
+            (input)="filterQuestions()">
+        <input class="form-control search-box" type="text" placeholder="🔍 QuestionNo" [(ngModel)]="searchtext4"
+            (input)="filterQuestions()">
+    </div>
+
+    <div class="main-content">
+
+        <div class="added-questions-section">
+            <h4 style="font-weight: bold;">Added Questions</h4>
+            <table class="table table-success table-striped">
+                <thead>
+                    <tr class="table-warning">
+                        <th>Standerd</th>
+                        <th>Subject</th>
+                        <th>Template</th>
+                        <th>Question No</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let Qcontainer of new_created_q">
+                        <td>{{Qcontainer.std}}</td>
+                        <td>{{Qcontainer.sub}}</td>
+                        <td>{{Qcontainer.template}}</td>
+                        <td>{{Qcontainer.question}}</td>
+                        <td><img style="height: 70px; width: 70px;" src="{{Qcontainer.img}}" alt="cant find img"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-outline-primary" (click)="savenewquestion()">Save Test</button>
+            <br><br>
+            <button class="btn btn-outline-primary" (click)="showcreatedtests()" routerLink="showcreatedtests">Show Created Exams</button>
+        </div>
+
+
+        <div class="questions-section">
+            <h4 style="font-weight: bold;">Questions</h4>
+            <div class="questions-container">
+                <div class="card" *ngFor="let Qcontainer of filteredQuestions">
+                    <img src="{{Qcontainer.img}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            <li>Standerd- {{Qcontainer.std}}</li>
+                            <li>Subject- {{Qcontainer.sub}}</li>
+                            <li>Template- {{Qcontainer.template}}</li>
+                            <li>Qno.- {{Qcontainer.question}}</li>
+                        </p>
+                        <p class="d-inline-flex gap-1">
+                            <button class="btn btn-primary" data-bs-toggle="button" id="{{Qcontainer.id}}" type="button" 
+                                data-bs-toggle="button" (click)="Add_this_Q(Qcontainer.id)">Add
+                                Question</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      
+    </div>
+</div> -->
+
+
+
+<div class="table">
+    <h4>Exam creation search here 👇 <span style="color: brown;">{{user}}</span></h4>
+    <div class="search-container">
+        <input class="form-control search-box" type="text" placeholder="🔍 Standerd" [(ngModel)]="searchtext1" (input)="filterQuestions()">
+        <input class="form-control search-box" type="text" placeholder="🔍 Subject" [(ngModel)]="searchtext2" (input)="filterQuestions()">
+        <input class="form-control search-box" type="text" placeholder="🔍 Template" [(ngModel)]="searchtext3" (input)="filterQuestions()">
+        <input class="form-control search-box" type="text" placeholder="🔍 QuestionNo" [(ngModel)]="searchtext4" (input)="filterQuestions()">
+    </div>
+
+    <div class="main-content">
+
+        <!-- Added Questions Section -->
+        <div class="added-questions-section">
+            <h4 style="font-weight: bold;">Added Questions</h4>
+            <table class="table table-success table-striped">
+                <thead>
+                    <tr class="table-warning">
+                        <th>Standerd</th>
+                        <th>Subject</th>
+                        <th>Template</th>
+                        <th>Question No</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let Qcontainer of new_created_q">
+                        <td>{{Qcontainer.std}}</td>
+                        <td>{{Qcontainer.sub}}</td>
+                        <td>{{Qcontainer.template}}</td>
+                        <td>{{Qcontainer.question}}</td>
+                        <td><img style="height: 70px; width: 70px;" src="{{Qcontainer.img}}" alt="cant find img"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-outline-primary" (click)="savenewquestion()">Save Test</button>
+            <br><br>
+            <button class="btn btn-outline-primary" (click)="showcreatedtests()" routerLink="showcreatedtests">Show Created Exams</button>
+        </div>
+
+        <!-- Questions Section -->
+        <div class="questions-section">
+            <h4 style="font-weight: bold;">Questions</h4>
+            <div class="questions-container">
+                <div class="card" *ngFor="let Qcontainer of filteredQuestions">
+                    <img src="{{Qcontainer.img}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            <li>Standerd- {{Qcontainer.std}}</li>
+                            <li>Subject- {{Qcontainer.sub}}</li>
+                            <li>Template- {{Qcontainer.template}}</li>
+                            <li>Qno.- {{Qcontainer.question}}</li>
+                        </p>
+                        <p class="d-inline-flex gap-1">
+                            <button class="btn btn-primary" data-bs-toggle="button" 
+                            id="{{Qcontainer.id}}" 
+                            type="button" (click)="Add_this_Q(Qcontainer.id)">Add Question</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+</div>
