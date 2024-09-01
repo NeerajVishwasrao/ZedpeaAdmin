@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject, NgModule } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { ServiceExamSectionService } from '../service/service-exam-section.service';
+import { ServiceExamSectionService } from '../../service/service-exam-section.service';
 
 @Component({
   selector: 'app-create-exam',
@@ -14,7 +14,6 @@ import { ServiceExamSectionService } from '../service/service-exam-section.servi
 })
 
 export class CreateExamComponent {
-
   router = inject(Router)
   serviveExamSection = inject(ServiceExamSectionService)
 

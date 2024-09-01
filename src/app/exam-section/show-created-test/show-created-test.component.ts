@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ServiceExamSectionService } from '../service/service-exam-section.service';
+import { ServiceExamSectionService } from '../../service/service-exam-section.service';
 import { NgFor } from '@angular/common';
 
 @Component({

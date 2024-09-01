@@ -19,6 +19,7 @@ export class LoginService {
 
     league() {
         // this is just the HTTP call, 
+        console.log("in login service")
         return this.http.get<any>('http://zedpea.co.in/api/leauge.php');
 
         // we still need to handle the reception of the token

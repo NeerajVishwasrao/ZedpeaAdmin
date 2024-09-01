@@ -63,4 +63,11 @@ if (point==1) {
   this.H_threeline=true
 }
   }
+
+
+
+  
+// studentdata() {
+//   this.router.navigateByUrl("/student")
+// }
 }

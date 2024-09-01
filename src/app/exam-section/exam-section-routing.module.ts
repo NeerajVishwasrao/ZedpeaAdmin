@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExamSectionComponent } from './exam-section.component';
+import { CreateStudentComponent } from '../create-classroom/create-student.component';
 
 const routes: Routes = [
 
@@ -11,8 +12,9 @@ const routes: Routes = [
       { path: "create-exam", loadChildren: () => import('./create-exam/create-exam.module').then(m => m.CreateExamModule) },
       { path: "showcreatedtests", loadChildren: () => import('./show-created-test/showcrt-routing-module.module').then(m => m.ShowcrtRoutingModuleModule) }
     ]
-  }
+  },
 
+ 
 ];
 
 @NgModule({
