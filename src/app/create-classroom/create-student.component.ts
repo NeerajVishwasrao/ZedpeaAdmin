@@ -1,29 +1,25 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceExamSectionService } from '../service/service-exam-section.service';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-create-student',
   standalone: true,
-  imports: [],
+  imports: [NgFor, NgIf],
   templateUrl: './create-student.component.html',
-  styleUrl: './create-student.component.css'
+  styleUrls: ['./create-student.component.css']
 })
 export class CreateStudentComponent {
-  databasename: any;
+  router = inject(Router);
+  serviceExamSection = inject(ServiceExamSectionService);
+  varr: any[] = [];
 
-  // router = inject(Router)
-  // serviveExamSection = inject(ServiceExamSectionService)
-  
-  
-//   constructor(private serviveExamSection: ServiceExamSectionService,private router:Router) {}
-
-//   ngOnInit(): void {
-//     this.serviveExamSection.get_student_data().subscribe(
-//       (data) => {
-//         this.databasename = data; 
-        
-//       }
-//     );
-// }
+  ngOnInit(): void {
+    this.serviceExamSection.get_student_data().subscribe(
+      (data: any) => {
+        this.varr = data; 
+      }
+    );
+  }
 }

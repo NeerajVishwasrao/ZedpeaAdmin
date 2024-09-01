@@ -12,11 +12,13 @@ export class ServiceExamSectionService {
   // return this.behaviorsubject.asObservable();
 
   http = inject(HttpClient);
+
   private studenturl='/assets/studentdatabase.json';
 
   QarrayContainer: any
+  store:any
 
-  
+
   constructor() { }
 
   Add_this_Q(QarrayContainer: any) {
@@ -28,4 +30,10 @@ export class ServiceExamSectionService {
     return this.http.get<any>(this.studenturl);
   }
 
+
+  method1(info:string):void
+   {
+    this.store=info;
+    
+   }
 }

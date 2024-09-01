@@ -14,6 +14,9 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 })
 
 export class CreateExamComponent {
+studentdata() {
+this.router.navigateByUrl("student")
+}
   router = inject(Router)
   serviveExamSection = inject(ServiceExamSectionService)
 

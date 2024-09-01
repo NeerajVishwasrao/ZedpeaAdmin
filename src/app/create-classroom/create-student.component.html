@@ -1,39 +1,87 @@
-<!-- <div class="row">
-    <div class="questions-section">
-        <div class="questions-container">
-            <div class="card" *ngFor="let Qcontainer of filteredQuestions">
-                <img src="{{Qcontainer.img}}" class="card-img-top" alt="...">
+<div style="margin-top: 50px;">
+<div class="col-12">
+  <table>
+  <tr>
+      <th>
+      <a class="btn btn-dark" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">
+          <span class="fa fa-user-o fa-2x pull-left">Filters</span>
+      </a>
+      </th>
+      <th>
+      <div class="btn-group">
+          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+          <span class="fa fa-book fa-2x pull-left">Subject</span>
+          </button>
+          <div class="dropdown-menu">
+          <a class="dropdown-item" href="javascript:void(0);" >All</a>
+          <a class="dropdown-item" href="javascript:void(0);" ><i class="fa fa-circle text-primary" aria-hidden="true"></i> Maths</a>
+          <a class="dropdown-item" href="javascript:void(0);"><i class="fa fa-circle text-danger" aria-hidden="true"></i> Marathi</a>
+          <a class="dropdown-item" href="javascript:void(0);" ><i class="fa fa-circle text-warning" aria-hidden="true"></i> English</a>
+          <a class="dropdown-item" href="javascript:void(0);"><i class="fa fa-circle text-warning" aria-hidden="true"></i> EVS</a>
+          </div>
+      </div>
+      </th>
+      <th>
+      <div class="btn-group">
+          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+          <span class="fa fa-graduation-cap fa-2x pull-left">Grade</span>
+          </button>
+          <div class="dropdown-menu">
+          <a class="dropdown-item" href="javascript:void(0);" >All</a>
+          <a class="dropdown-item" href="javascript:void(0);" ><i class="fa fa-delicious" aria-hidden="true"></i> LKG</a>
+          <a class="dropdown-item" href="javascript:void(0);" ><i class="fa fa-users" aria-hidden="true"></i> UKG</a>
+          <a class="dropdown-item" href="javascript:void(0);" ><i class="fa fa-bullseye" aria-hidden="true"></i> STD 1</a>
+          <a class="dropdown-item" href="javascript:void(0);"><i class="fa fa-bullseye" aria-hidden="true"></i> STD 2</a>
+          </div>
+      </div>
+      </th>
+      <th>
+      <div class="btn-group">
+          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+          <span class="fa fa-hourglass fa-2x pull-left">Type</span>
+          </button>
+          <div class="dropdown-menu">
+          <a class="dropdown-item" href="javascript:void(0);" >All</a>
+          <a class="dropdown-item" href="javascript:void(0);" ><i class="fa fa-play" aria-hidden="true"></i> 1</a>
+          <a class="dropdown-item" href="javascript:void(0);" ><i class="fa fa-random" aria-hidden="true"></i> 2</a>
+          <a class="dropdown-item" href="javascript:void(0);" ><i class="fa fa-pause" aria-hidden="true"></i> 3</a>
+          <a class="dropdown-item" href="javascript:void(0);" ><i class="fa fa-play" aria-hidden="true"></i> 4</a>
+          <a class="dropdown-item" href="javascript:void(0);" ><i class="fa fa-random" aria-hidden="true"></i> 5</a>
+          </div>
+      </div>
+      </th>
+  </tr>
+  </table>
+</div>
+
+
+
+<div class="container mt-4">
+  <div class="card shadow-sm" style="width: 100%; max-width: 800px; margin: auto;">
+    <div class="card-body" style="height: 500px; overflow-y: auto;">
+      <div class="row">
+        <div class="col-sm-6" *ngFor="let student of varr">
+          <div class="card mb-4 shadow-sm" style="max-width: 300px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img *ngIf="student.img" [src]="student.img" class="card-img" alt="Student Image" style="height: 150px; width: 100%; object-fit: cover;">
+              </div>
+              <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                        <li>Standerd- {{Qcontainer.std}}</li>
-                        <li>Subject- {{Qcontainer.sub}}</li>
-                    </p>
-                    <p class="d-inline-flex gap-1">
-                        <button class="btn btn-primary" data-bs-toggle="button" 
-                        id="{{Qcontainer.id}}" 
-                        type="button" (click)="Add_this_Q(Qcontainer.id)">Add Question</button>
-                    </p>
+                  
+                  <ul class="list-unstyled">
+                    <li><strong>Name:</strong> {{student.name}}</li>
+                    <li><strong>Roll No:</strong> {{student.rollno}}</li>
+                    <li><strong>Standard:</strong> {{student.std}}</li>
+                    <li><strong>Address:</strong> {{student.address}}</li>
+                  </ul>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
-  
-
-  -->
-<div>
-    hello
-
-    df
-</div>
-<div>
-    hello
-
-    df
-</div>
-<div>
-    hello
-
-    df
 </div>

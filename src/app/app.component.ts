@@ -10,6 +10,7 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
 freezepage() {
   this.isfreeze= !this.isfreeze
 }
@@ -29,7 +30,9 @@ goto_analysis_performance() {
 }
 
 
-
+goTo_showcreatedclassroom() {
+  this.router.navigateByUrl("student")
+  }
 
 student: any;
 

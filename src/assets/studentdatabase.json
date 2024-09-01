@@ -1,72 +1,86 @@
 [
     {
         "id": 1,
+        "name":"Arjun Kumar",
+        "rollno":"1",
         "std": "lkg",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "address":"Shirur-Pune",
+        "img":"/assets/dummy.jpg"
     },
     {
         "id": 2,
+        "name":"Arjun Kumar",
+        "rollno":"1",
         "std": "lkg",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "address":"Shirur-Pune",
+        "img":"/assets/dummy.jpg"
 
     },
     {
-        "id": 3,
-        "std": "ukg",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
-
+       "id": 3,
+        "name":"Arjun Kumar",
+        "rollno":"1",
+        "std": "lkg",
+        "address":"Shirur-Pune",
+        "img":"/assets/dummy.jpg"
     },
     {
         "id": 4,
-        "std": "ukg",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
-
+        "name":"Arjun Kumar",
+        "rollno":"1",
+        "std": "lkg",
+        "address":"Shirur-Pune",
+        "img":"/assets/dummy.jpg"
     },
     {
         "id": 5,
-        "std": "1",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "name":"Arjun Kumar",
+        "rollno":"1",
+        "std": "lkg",
+        "address":"Shirur-Pune",
+        "img":"/assets/dummy.jpg"
 
     },
     {
         "id": 6,
-        "std": "1",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "name":"Arjun Kumar",
+        "rollno":"1",
+        "std": "lkg",
+        "address":"Shirur-Pune",
+        "img":"/assets/dummy.jpg"
 
     },
     {
         "id": 7,
-        "std": "2",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "name":"Arjun Kumar",
+        "rollno":"1",
+        "std": "lkg",
+        "address":"Shirur-Pune",
+        "img":"/assets/dummy.jpg"
     },
     {
-        "id": 8,
-        "std": "2",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+       "id": 8,
+        "name":"Arjun Kumar",
+        "rollno":"1",
+        "std": "lkg",
+        "address":"Shirur-Pune",
+        "img":"/assets/dummy.jpg"
 
     },
     {
         "id": 9,
+        "name":"Arjun Kumar",
+        "rollno":"1",
         "std": "lkg",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
-
+        "address":"Shirur-Pune",
+        "img":"/assets/dummy.jpg"
     },
     {
         "id": 10,
-        "std": "ukg",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
-
-    },
-    {
-        "id": 11,
+        "name":"Arjun Kumar",
+        "rollno":"1",
         "std": "lkg",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
-
-    },
-    {
-        "id": 12,
-        "std": "ukg",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
-
+        "address":"Shirur-Pune",
+        "img":"/assets/dummy.jpg"
     }
 ]
