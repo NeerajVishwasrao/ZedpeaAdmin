@@ -6,6 +6,12 @@
   color: black;
 }
 
+.added{
+
+}
+.not_added{
+  
+}
 .search-container {
   display: flex;
   gap: 10px;

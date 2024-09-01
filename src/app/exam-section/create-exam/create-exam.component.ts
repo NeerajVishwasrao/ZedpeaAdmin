@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, NgModule } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
@@ -8,17 +8,18 @@ import { ServiceExamSectionService } from '../service/service-exam-section.servi
 @Component({
   selector: 'app-create-exam',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink, RouterOutlet],
+  imports: [NgFor, FormsModule, RouterLink, RouterOutlet,NgClass],
   templateUrl: './create-exam.component.html',
   styleUrl: './create-exam.component.css'
 })
 
 export class CreateExamComponent {
+
   router = inject(Router)
   serviveExamSection = inject(ServiceExamSectionService)
 
 
-  
+
   itterator: number = 0;
 
 
@@ -33,7 +34,20 @@ export class CreateExamComponent {
   searchtext4: string = '';
   id: number = 0;
   user: any = '';
- 
+  
+isadded1: boolean=false;
+isadded4: boolean=false;
+isadded3: boolean=false;
+isadded2: boolean=false;
+
+qarrayadder:number=0;
+  isadded10: boolean =false;
+  isadded9: boolean =false;
+  isadded8: boolean =false;
+  isadded7: boolean =false;
+  isadded6: boolean =false;
+  isadded5: boolean =false;
+isadded11: any;
 
 
   ngOnInit() {
@@ -53,27 +67,67 @@ export class CreateExamComponent {
   }
 
 
-  filterQuestions() {
+  filterQuestions(data: string, innerdata: String) {
     // Return original data if any search text is empty
     // in js empty string is declared as false;
     //include cheaks if substring is present is string or not
     //qcontainer indicated first element of questiondatabase array
     // ctrl + shift + p for emoji
-    console.log(this.searchtext1)
-    if (!this.searchtext1 && !this.searchtext2 && !this.searchtext3 && !this.searchtext4) {
-      this.filteredQuestions = this.questiondatabase;
+
+    if (innerdata == "subject") {
+      this.searchtext2 = data;
+
+    } else if (innerdata == "class") {
+      this.searchtext1 = data;
+    }
+    else if (innerdata = "status") {
+      this.searchtext3 = data
     }
     this.filteredQuestions = this.questiondatabase.filter(Qcontainer =>
       Qcontainer.std.toLowerCase().includes(this.searchtext1.toLowerCase()) &&
       Qcontainer.sub.toLowerCase().includes(this.searchtext2.toLowerCase()) &&
-      Qcontainer.template.toLowerCase().includes(this.searchtext3.toLowerCase()) &&
-      Qcontainer.question.toLowerCase().includes(this.searchtext4.toLowerCase())
+      Qcontainer.template.toLowerCase().includes(this.searchtext3.toLowerCase())
 
     );
   }
+  allq() {
+    this.filteredQuestions = this.questiondatabase
+  }
+
 
 
   Add_this_Q(idq: number) {
+   var demo="isadded"+ ++this.qarrayadder;
+if (demo=="isadded1") {
+  this.isadded1=true;
+  
+} else if(demo=="isadded2") {
+  this.isadded2=true;
+}
+else if (demo=="isadded3"){
+  this.isadded3=true;
+}
+else if (demo=="isadded4") {
+   this.isadded4=true;
+}
+else if (demo=="isadded5") {
+   this.isadded5=true;
+}
+else if (demo=="isadded6") {
+   this.isadded6=true;
+}
+else if (demo=="isadded7") {
+   this.isadded7=true;
+}
+else if (demo=="isadded8") {
+  this.isadded8=true;
+}
+else if (demo=="isadded9") {
+  this.isadded9=true;
+}
+else if (demo=="isadded10") {
+  this.isadded10=true;
+}
     console.log("question adding method calling" + idq);
 
     for (let index = 0; index < this.questiondatabase.length; index++) {
@@ -81,8 +135,8 @@ export class CreateExamComponent {
         this.new_created_q[this.itterator++] = this.questiondatabase[index]
       }
     }
-    const vdeng=idq.toString();
-    
+    const vdeng = idq.toString();
+
   }
 
 
@@ -98,8 +152,8 @@ export class CreateExamComponent {
     this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
     console.log(this.CQArray);
     this.serviveExamSection.Add_this_Q(this.CQArray);
-    this.new_created_q=[];
-     this.itterator=0
+    this.new_created_q = [];
+    this.itterator = 0
   }
 
 
@@ -108,7 +162,7 @@ export class CreateExamComponent {
 
   }
 
-  filterList(key:any, type:string) {
+  filterList(key: any, type: string) {
 
   }
 

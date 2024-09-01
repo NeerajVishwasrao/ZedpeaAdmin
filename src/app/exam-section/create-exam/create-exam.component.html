@@ -10,17 +10,17 @@
     </div>
 
     <div class="alert alert-success">
-        <button type="button" class="btn btn-light">1</button>
-        <button type="button" class="btn btn-light">2</button>
-        <button type="button" class="btn btn-light">3</button>
-        <button type="button" class="btn btn-light">4</button>
-        <button type="button" class="btn btn-light">5</button>
-        <button type="button" class="btn btn-light">6</button>
-        <button type="button" class="btn btn-light">7</button>
-        <button type="button" class="btn btn-light">8</button>
-        <button type="button" class="btn btn-light">9</button>
-        <button type="button" class="btn btn-light">10</button>
-        <button type="button" class="btn btn-success">Save</button>
+        <button type="button" [ngClass]="isadded1?'btn btn-danger': 'btn btn-light'">1</button>
+        <button type="button" [ngClass]="isadded2?'btn btn-danger': 'btn btn-light'">2</button>
+        <button type="button" [ngClass]="isadded3?'btn btn-danger': 'btn btn-light'">3</button>
+        <button type="button" [ngClass]="isadded4?'btn btn-danger': 'btn btn-light'">4</button>
+        <button type="button" [ngClass]="isadded5?'btn btn-danger': 'btn btn-light'">5</button>
+        <button type="button" [ngClass]="isadded6?'btn btn-danger': 'btn btn-light'">6</button>
+        <button type="button" [ngClass]="isadded7?'btn btn-danger': 'btn btn-light'">7</button>
+        <button type="button" [ngClass]="isadded8?'btn btn-danger': 'btn btn-light'">8</button>
+        <button type="button" [ngClass]="isadded9?'btn btn-danger': 'btn btn-light'">9</button>
+        <button type="button" [ngClass]="isadded10?'btn btn-danger': 'btn btn-light'">10</button>
+        <button type="button" [ngClass]="isadded11?'btn btn-danger': 'btn btn-light'">Save</button>
     </div>
 
     <div class="row">
@@ -40,11 +40,11 @@
                     <span class="fa fa-book fa-2x pull-left">Subject</span>
                     </button>
                     <div class="dropdown-menu">
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('','')">All</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Maths','subject')"><i class="fa fa-circle text-primary" aria-hidden="true"></i> Maths</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Marathi','subject')"><i class="fa fa-circle text-danger" aria-hidden="true"></i> Marathi</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('English','subject')"><i class="fa fa-circle text-warning" aria-hidden="true"></i> English</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('English','subject')"><i class="fa fa-circle text-warning" aria-hidden="true"></i> EVS</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="allq()">All</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('math','subject')"><i class="fa fa-circle text-primary" aria-hidden="true"></i> Maths</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('mar','subject')"><i class="fa fa-circle text-danger" aria-hidden="true"></i> Marathi</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('eng','subject')"><i class="fa fa-circle text-warning" aria-hidden="true"></i> English</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('evs','subject')"><i class="fa fa-circle text-warning" aria-hidden="true"></i> EVS</a>
                     </div>
                 </div>
                 </th>
@@ -54,11 +54,11 @@
                     <span class="fa fa-graduation-cap fa-2x pull-left">Grade</span>
                     </button>
                     <div class="dropdown-menu">
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('','')">All</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Saras','class')"><i class="fa fa-delicious" aria-hidden="true"></i> LKG</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Sarika','class')"><i class="fa fa-users" aria-hidden="true"></i> UKG</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Kalpi','class')"><i class="fa fa-bullseye" aria-hidden="true"></i> STD 1</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Kalpi','class')"><i class="fa fa-bullseye" aria-hidden="true"></i> STD 2</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="allq()">All</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('LKG','class')"><i class="fa fa-delicious" aria-hidden="true"></i> LKG</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('UKG','class')"><i class="fa fa-users" aria-hidden="true"></i> UKG</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('1','class')"><i class="fa fa-bullseye" aria-hidden="true"></i> STD 1</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('2','class')"><i class="fa fa-bullseye" aria-hidden="true"></i> STD 2</a>
                     </div>
                 </div>
                 </th>
@@ -68,13 +68,12 @@
                     <span class="fa fa-hourglass fa-2x pull-left">Type</span>
                     </button>
                     <div class="dropdown-menu">
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('','')">All</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Start','status')"><i class="fa fa-play" aria-hidden="true"></i> MT01</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Restart','status')"><i class="fa fa-random" aria-hidden="true"></i> MR01</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Resume','status')"><i class="fa fa-pause" aria-hidden="true"></i> EN01</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Start','status')"><i class="fa fa-play" aria-hidden="true"></i> MT02</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Restart','status')"><i class="fa fa-random" aria-hidden="true"></i> MR02</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterList('Resume','status')"><i class="fa fa-pause" aria-hidden="true"></i> EN03</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="allq()">All</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('1','status')"><i class="fa fa-play" aria-hidden="true"></i> 1</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('2','status')"><i class="fa fa-random" aria-hidden="true"></i> 2</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('3','status')"><i class="fa fa-pause" aria-hidden="true"></i> 3</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('4','status')"><i class="fa fa-play" aria-hidden="true"></i> 4</a>
+                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('5','status')"><i class="fa fa-random" aria-hidden="true"></i> 5</a>
                     </div>
                 </div>
                 </th>
