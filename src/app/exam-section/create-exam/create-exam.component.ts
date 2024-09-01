@@ -15,12 +15,12 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 
 export class CreateExamComponent {
 saved: boolean=false;
+
 studentdata() {
   this.router.navigateByUrl("student")
 }
   router = inject(Router)
   serviveExamSection = inject(ServiceExamSectionService)
-
 
 
   itterator: number = 0;
