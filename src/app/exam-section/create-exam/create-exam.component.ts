@@ -14,8 +14,9 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 })
 
 export class CreateExamComponent {
-canclebiggerthan10warning() {
-this.biggerthan10=false}
+  canclebiggerthan10warning() {
+    this.biggerthan10 = false
+  }
   saved: boolean = false;
   biggerthan10: boolean = false;
   studentdata() {
@@ -80,26 +81,7 @@ this.biggerthan10=false}
     //qcontainer indicated first element of questiondatabase array
     // ctrl + shift + p for emoji
 
-    // if (innerdata == "subject") {
-    //   this.searchtext2 = data;
 
-    // } else if (innerdata == "class") {
-    //   this.searchtext1 = data;
-    // }
-    // else if (innerdata = "status") {
-    //   this.searchtext3 = data
-    // }
-    // else if (innerdata=="subject" &&data=="not") {
-    //   this.searchtext2 = ""
-
-    // }
-    // else if (innerdata=="class" &&data=="not") {
-    //   this.searchtext1 = ""
-
-    // }
-    // else if (innerdata=="type" &&data=="not") {
-    //   this.searchtext3 = ""
-    // }
     this.filteredQuestions = this.questiondatabase.filter(Qcontainer =>
       Qcontainer.std.toLowerCase().includes(this.searchtext1.toLowerCase()) &&
       Qcontainer.sub.toLowerCase().includes(this.searchtext2.toLowerCase()) &&
