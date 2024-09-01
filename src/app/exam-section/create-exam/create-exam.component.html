@@ -1,96 +1,118 @@
-
 <div class="container">
     <div class="row">
-         <div class="col-12">
+        <div class="col-12">
             <h2><span style="color: brown;">{{user}}</span></h2>
-            <a type="button" class="btn btn-outline-primary"  (click)="studentdata()">Students <i class="badge badge-pill badge-light">10</i></a>
+            <a type="button" class="btn btn-outline-primary" (click)="studentdata()">Students <i
+                    class="badge badge-pill badge-light">10</i></a>
 
-            <a type="button" class="btn btn-outline-warning">Exams <i class="badge badge-pill badge-light">{{CQArray.length}}</i></a>
-            <a type="button" class="btn btn-outline-success">Add Exam <i class="badge badge-pill badge-light">+</i></a>
+            <a type="button" class="btn btn-outline-primary">Exams <i
+                    class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
+            <a type="button" class="btn btn-outline-primary">Add Exam <i class="badge badge-pill badge-light">+</i></a>
         </div>
     </div>
 
-<div *ngIf="saved">
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Exam Created!</strong> Your Exam name is something
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="toggleAll()"></button>
-      </div>
+
+    <div *ngIf="biggerthan10">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Maximum 10 You can SAVE!</strong> Your can create exam of 10 question
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                (click)="canclebiggerthan10warning()"></button>
+        </div>
     </div>
 
-    <div class="alert alert-success">
-        <button type="button" [ngClass]="isadded1?'btn btn-danger': 'btn btn-light'">1</button>
-        <button type="button" [ngClass]="isadded2?'btn btn-danger': 'btn btn-light'">2</button>
-        <button type="button" [ngClass]="isadded3?'btn btn-danger': 'btn btn-light'">3</button>
-        <button type="button" [ngClass]="isadded4?'btn btn-danger': 'btn btn-light'">4</button>
-        <button type="button" [ngClass]="isadded5?'btn btn-danger': 'btn btn-light'">5</button>
-        <button type="button" [ngClass]="isadded6?'btn btn-danger': 'btn btn-light'">6</button>
-        <button type="button" [ngClass]="isadded7?'btn btn-danger': 'btn btn-light'">7</button>
-        <button type="button" [ngClass]="isadded8?'btn btn-danger': 'btn btn-light'">8</button>
-        <button type="button" [ngClass]="isadded9?'btn btn-danger': 'btn btn-light'">9</button>
-        <button type="button" [ngClass]="isadded10?'btn btn-danger': 'btn btn-light'">10</button>
-        <button  type="button" ngClass="btn btn-success" (click)="savenewquestion()" [disabled]="!isadded10"  >Save</button>
+    <div *ngIf="saved; else saveoption">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Exam Created !</strong>  Your Exam name is something
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                (click)="toggleAll()"></button>
+        </div>
     </div>
-
+    <ng-template #saveoption>
+        <div class="alert alert-success">
+            <button type="button" [ngClass]="isadded1?'btn btn-secondary': 'btn btn-light'">1</button>
+            <button type="button" [ngClass]="isadded2?'btn btn-secondary': 'btn btn-light'">2</button>
+            <button type="button" [ngClass]="isadded3?'btn btn-secondary': 'btn btn-light'">3</button>
+            <button type="button" [ngClass]="isadded4?'btn btn-secondary': 'btn btn-light'">4</button>
+            <button type="button" [ngClass]="isadded5?'btn btn-secondary': 'btn btn-light'">5</button>
+            <button type="button" [ngClass]="isadded6?'btn btn-secondary': 'btn btn-light'">6</button>
+            <button type="button" [ngClass]="isadded7?'btn btn-secondary': 'btn btn-light'">7</button>
+            <button type="button" [ngClass]="isadded8?'btn btn-secondary': 'btn btn-light'">8</button>
+            <button type="button" [ngClass]="isadded9?'btn btn-secondary': 'btn btn-light'">9</button>
+            <button type="button" [ngClass]="isadded10?'btn btn-secondary': 'btn btn-light'">10</button>
+            <button type="button" [ngClass]="isadded10?'btn btn-primary': 'btn btn-light'" (click)="savenewquestion()"
+                [disabled]="!isadded10">Save</button>
+        </div>
+    </ng-template>
     <div class="row">
         <h2>Question Set</h2>
 
         <div class="col-12">
             <table>
-            <tr>
-                <th>
-                <a class="btn btn-dark" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">
-                    <span class="fa fa-user-o fa-2x pull-left">Filters</span>
-                </a>
-                </th>
-                <th>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    <span class="fa fa-book fa-2x pull-left">Subject</span>
-                    </button>
-                    <div class="dropdown-menu">
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="allq()">All</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('math','subject')"><i class="fa fa-circle text-primary" aria-hidden="true"></i> Maths</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('mar','subject')"><i class="fa fa-circle text-danger" aria-hidden="true"></i> Marathi</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('eng','subject')"><i class="fa fa-circle text-warning" aria-hidden="true"></i> English</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('evs','subject')"><i class="fa fa-circle text-warning" aria-hidden="true"></i> EVS</a>
-                    </div>
-                </div>
-                </th>
-                <th>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    <span class="fa fa-graduation-cap fa-2x pull-left">Grade</span>
-                    </button>
-                    <div class="dropdown-menu">
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="allq()">All</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('LKG','class')"><i class="fa fa-delicious" aria-hidden="true"></i> LKG</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('UKG','class')"><i class="fa fa-users" aria-hidden="true"></i> UKG</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('1','class')"><i class="fa fa-bullseye" aria-hidden="true"></i> STD 1</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('2','class')"><i class="fa fa-bullseye" aria-hidden="true"></i> STD 2</a>
-                    </div>
-                </div>
-                </th>
-                <th>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-                    <span class="fa fa-hourglass fa-2x pull-left">Type</span>
-                    </button>
-                    <div class="dropdown-menu">
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="allq()">All</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('1','status')"><i class="fa fa-play" aria-hidden="true"></i> 1</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('2','status')"><i class="fa fa-random" aria-hidden="true"></i> 2</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('3','status')"><i class="fa fa-pause" aria-hidden="true"></i> 3</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('4','status')"><i class="fa fa-play" aria-hidden="true"></i> 4</a>
-                    <a class="dropdown-item" href="javascript:void(0);" (click)="filterQuestions('5','status')"><i class="fa fa-random" aria-hidden="true"></i> 5</a>
-                    </div>
-                </div>
-                </th>
-            </tr>
+                <tr>
+                    <th>
+
+                        <button class="btn btn-warning">Filter</button>
+                    </th>
+                    <th>
+                        <div class="btn-group">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect01">🔍 Std</label>
+                                <select class="form-select" id="inputGroupSelect01" (change)="filterQuestions()"
+                                    [(ngModel)]="searchtext1">
+                                    <option value="" selected>All</option>
+                                    <option value="lkg">LKG</option>
+                                    <option value="ukg">UKG</option>
+                                    <option value="1">First</option>
+                                    <option value="2">Second</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="btn-group">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect02">🔍Sub</label>
+                                <select class="form-select" (change)="filterQuestions()" id="inputGroupSelect02"
+                                    [(ngModel)]="searchtext2">
+                                    <option value="" selected>All</option>
+                                    <option value="eng">English</option>
+                                    <option value="math">math</option>
+                                    <option value="mar">Marathi</option>
+                                    <option value="evs">EVS</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="btn-group">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect03">🔍 Type</label>
+                                <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()"
+                                    [(ngModel)]="searchtext3">
+                                    <option value="" selected>All</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    <option value="4">Four</option>
+                                    <option value="5">Five</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                    </th>
+                    <th>
+
+                    </th>
+
+                </tr>
             </table>
         </div>
     </div>
 
-    
+
     <div class="row">
         <div class="questions-section">
             <div class="questions-container">
@@ -105,9 +127,8 @@
                             <li>Qno.- {{Qcontainer.question}}</li>
                         </p>
                         <p class="d-inline-flex gap-1">
-                            <button class="btn btn-primary" data-bs-toggle="button" 
-                            id="{{Qcontainer.id}}" 
-                            type="button" (click)="Add_this_Q(Qcontainer.id)">Add Question</button>
+                            <button class="btn btn-primary" data-bs-toggle="button" id="{{Qcontainer.id}}" type="button"
+                                (click)="Add_this_Q(Qcontainer.id)">Add Question</button>
                         </p>
                     </div>
                 </div>
@@ -115,5 +136,5 @@
         </div>
     </div>
 
-    
- </div>
+
+</div>
