@@ -5,9 +5,16 @@
             <h2><span style="color: brown;">{{user}}</span></h2>
             <a type="button" class="btn btn-outline-primary"  (click)="studentdata()">Students <i class="badge badge-pill badge-light">10</i></a>
 
-            <a type="button" class="btn btn-outline-warning">Exams <i class="badge badge-pill badge-light">0</i></a>
+            <a type="button" class="btn btn-outline-warning">Exams <i class="badge badge-pill badge-light">{{CQArray.length}}</i></a>
             <a type="button" class="btn btn-outline-success">Add Exam <i class="badge badge-pill badge-light">+</i></a>
         </div>
+    </div>
+
+<div *ngIf="saved">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Exam Created!</strong> Your Exam name is something
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="toggleAll()"></button>
+      </div>
     </div>
 
     <div class="alert alert-success">
@@ -21,7 +28,7 @@
         <button type="button" [ngClass]="isadded8?'btn btn-danger': 'btn btn-light'">8</button>
         <button type="button" [ngClass]="isadded9?'btn btn-danger': 'btn btn-light'">9</button>
         <button type="button" [ngClass]="isadded10?'btn btn-danger': 'btn btn-light'">10</button>
-        <button type="button" [ngClass]="isadded11?'btn btn-danger': 'btn btn-light'">Save</button>
+        <button  type="button" ngClass="btn btn-success" (click)="savenewquestion()" [disabled]="!isadded10"  >Save</button>
     </div>
 
     <div class="row">

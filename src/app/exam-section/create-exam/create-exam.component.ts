@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, NgModule } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
@@ -8,12 +8,16 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 @Component({
   selector: 'app-create-exam',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink, RouterOutlet,NgClass],
+  imports: [NgFor, FormsModule, RouterLink, RouterOutlet,NgClass,NgIf],
   templateUrl: './create-exam.component.html',
   styleUrl: './create-exam.component.css'
 })
 
 export class CreateExamComponent {
+saved: boolean=false;
+studentdata() {
+  this.router.navigateByUrl("student")
+}
   router = inject(Router)
   serviveExamSection = inject(ServiceExamSectionService)
 
@@ -145,7 +149,7 @@ else if (demo=="isadded10") {
   savenewquestion() {
     //When you add a new array to CQArray, ensure that you are adding a new instance of the array, not modifying an existing one.
     // Use the spread operator to create a new instance of new_created_q [... this.new_created_q]
-
+this.saved=true;
     this.router.navigateByUrl("examdetail")
 
     this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
@@ -160,8 +164,19 @@ else if (demo=="isadded10") {
     this.router.navigateByUrl("exam-section/showcreatedtests")
 
   }
-
-  filterList(key: any, type: string) {
+  toggleAll(){
+    this.saved=!this.saved;
+    this.isadded1=false
+    this.isadded2=false
+    this.isadded3=false
+    this.isadded4=false
+    this.isadded5=false
+    this.isadded6=false
+    this.isadded7=false
+    this.isadded8=false
+    this.isadded9=false
+    this.isadded10=false
+    this.qarrayadder=0
 
   }
 
