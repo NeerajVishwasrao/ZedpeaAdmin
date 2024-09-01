@@ -12,14 +12,14 @@
     </div>
 
 
-    <div *ngIf="biggerthan10">
+    <div *ngIf="biggerthan10;  else createexam">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Maximum 10 You can SAVE!</strong> Your can create exam of 10 question
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
                 (click)="canclebiggerthan10warning()"></button>
         </div>
     </div>
-
+    <ng-template #createexam>
     <div *ngIf="saved; else saveoption">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Exam Created !</strong>  Your Exam name is something
@@ -27,6 +27,7 @@
                 (click)="toggleAll()"></button>
         </div>
     </div>
+    </ng-template>
     <ng-template #saveoption>
         <div class="alert alert-success">
             <button type="button" [ngClass]="isadded1?'btn btn-secondary': 'btn btn-light'">1</button>
