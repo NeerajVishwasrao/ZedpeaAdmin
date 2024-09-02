@@ -14,6 +14,7 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 })
 
 export class CreateExamComponent {
+showQNO: boolean=false;
   canclebiggerthan10warning() {
     this.biggerthan10 = false
   }
@@ -100,6 +101,7 @@ export class CreateExamComponent {
 
 
   Add_this_Q(idq: number) {
+    this.showQNO=true;
     if (this.isadded10 == false) {
 
       var demo = "isadded" + ++this.qarrayadder;
@@ -183,6 +185,7 @@ export class CreateExamComponent {
     this.isadded9 = false
     this.isadded10 = false
     this.qarrayadder = 0
+    this.showQNO=false;
   }
 
 }

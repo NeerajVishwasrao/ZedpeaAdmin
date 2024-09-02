@@ -16,6 +16,8 @@ export const routes: Routes = [
 
     {
          path: 'student', component: CreateStudentComponent ,
+         canActivate:[authZPGuard]
+
     }
     
    

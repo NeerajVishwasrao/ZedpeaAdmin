@@ -1,6 +1,7 @@
 import { Component, Inject, inject } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
+import * as bootstrap from 'bootstrap'; // <-- Import Bootstrap JavaScript
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,13 @@ import { NgClass, NgIf } from '@angular/common';
 })
 export class AppComponent {
 
+  ngAfterViewInit() {
+    // Initialize responsive nav dropdowns
+    var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+    var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+      return new bootstrap.Dropdown(dropdownToggleEl)
+    })
+  }
 freezepage() {
   this.isfreeze= !this.isfreeze
 }

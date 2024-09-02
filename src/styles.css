@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.mybutton {
+  transition-duration: 0.2s;
+  background-color: #04AA6D; /* Green */
+  color: white;
+}
+
+.mybutton:hover {
+  background-color: rgb(234, 238, 224); /* Green */
+  color: #04AA6D;
+}
