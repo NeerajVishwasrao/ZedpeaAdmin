@@ -1,14 +1,13 @@
-
 <div style="margin-top: 50px;">
   <div class="container mt-4">
     <div class="card shadow-sm" style="width: 100%; max-width: 800px; margin: auto;">
       <div class="card-body" style="height: 500px; overflow-y: auto;">
         <div class="row">
           <div class="col-sm-6" *ngFor="let student of varr">
-            <div class="card mb-4 shadow-sm" style="max-width: 300px;">
+            <div class="card mb-4 shadow-sm student-card">
               <div class="row no-gutters">
                 <div class="col-md-4">
-                  <img *ngIf="student.img" [src]="student.img" class="card-img" alt="Student Image" style="height: 150px; width: 100%; object-fit: cover;">
+                  <img *ngIf="student.img" [src]="student.img" class="card-img" alt="Student Image">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
