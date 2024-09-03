@@ -15,6 +15,8 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 
 export class CreateExamComponent {
 showQNO: boolean=false;
+popupMessage: any;
+isPopupVisible: any;
   canclebiggerthan10warning() {
     this.biggerthan10 = false
   }
@@ -73,6 +75,7 @@ showQNO: boolean=false;
 
   }
 
+  
 
   filterQuestions() {
     console.log("getting  called")

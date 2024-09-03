@@ -9,25 +9,25 @@
     },
     {
         "id": 2,
-        "name":"Arjun Kumar",
-        "rollno":"1",
-        "std": "lkg",
+        "name":"Tejas Wagh",
+        "rollno":"2",
+        "std": "second",
         "address":"Shirur-Pune",
         "img":"/assets/dummy.jpg"
 
     },
     {
        "id": 3,
-        "name":"Arjun Kumar",
-        "rollno":"1",
-        "std": "lkg",
+        "name":"Ajay Kumar",
+        "rollno":"3",
+        "std": "first",
         "address":"Shirur-Pune",
         "img":"/assets/dummy.jpg"
     },
     {
         "id": 4,
-        "name":"Arjun Kumar",
-        "rollno":"1",
+        "name":"Om jadhav",
+        "rollno":"4",
         "std": "lkg",
         "address":"Shirur-Pune",
         "img":"/assets/dummy.jpg"
@@ -35,16 +35,16 @@
     {
         "id": 5,
         "name":"Arjun Kumar",
-        "rollno":"1",
-        "std": "lkg",
+        "rollno":"5",
+        "std": "ukg",
         "address":"Shirur-Pune",
         "img":"/assets/dummy.jpg"
 
     },
     {
         "id": 6,
-        "name":"Arjun Kumar",
-        "rollno":"1",
+        "name":"Arjun yadav",
+        "rollno":"6",
         "std": "lkg",
         "address":"Shirur-Pune",
         "img":"/assets/dummy.jpg"
@@ -53,16 +53,16 @@
     {
         "id": 7,
         "name":"Arjun Kumar",
-        "rollno":"1",
-        "std": "lkg",
+        "rollno":"7",
+        "std": "second",
         "address":"Shirur-Pune",
         "img":"/assets/dummy.jpg"
     },
     {
        "id": 8,
-        "name":"Arjun Kumar",
-        "rollno":"1",
-        "std": "lkg",
+        "name":"Sachin Rakshe",
+        "rollno":"8",
+        "std": "first",
         "address":"Shirur-Pune",
         "img":"/assets/dummy.jpg"
 
@@ -70,7 +70,7 @@
     {
         "id": 9,
         "name":"Arjun Kumar",
-        "rollno":"1",
+        "rollno":"9",
         "std": "lkg",
         "address":"Shirur-Pune",
         "img":"/assets/dummy.jpg"
@@ -78,8 +78,8 @@
     {
         "id": 10,
         "name":"Arjun Kumar",
-        "rollno":"1",
-        "std": "lkg",
+        "rollno":"10",
+        "std": "ukg",
         "address":"Shirur-Pune",
         "img":"/assets/dummy.jpg"
     }
