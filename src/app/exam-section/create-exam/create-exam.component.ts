@@ -22,9 +22,7 @@ isPopupVisible: any;
   }
   saved: boolean = false;
   biggerthan10: boolean = false;
-  studentdata() {
-    this.router.navigateByUrl("student")
-  }
+
   router = inject(Router)
   serviveExamSection = inject(ServiceExamSectionService)
 
@@ -57,6 +55,10 @@ isPopupVisible: any;
   isadded6: boolean = false;
   isadded5: boolean = false;
   isadded11: any;
+
+  goto_studentdata() {
+    this.router.navigateByUrl("student")
+  }
 
 
   ngOnInit() {

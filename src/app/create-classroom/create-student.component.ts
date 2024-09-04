@@ -18,14 +18,22 @@ export class CreateStudentComponent {
   searchtext2: string = '';
   searchtext3: string = '';
   searchtext4: string = '';
+  isnewstudent: string = '';
 
 user: any;
 studentName: any;
 rollNo: any;
  
+goto_createexam() {
+  this.router.navigateByUrl("exam-section/create-exam")
+}
 
-studentdata() {
-throw new Error('Method not implemented.');
+goto_studentdata() {
+  this.router.navigateByUrl("student")
+}
+
+add_student() {
+  this.isnewstudent = 'Yes';
 }
 
   selectedStudents: any[] = [];

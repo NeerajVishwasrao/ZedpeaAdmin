@@ -23,13 +23,13 @@
 
 /* Styles for the Added Questions section */
 .added-questions-section {
-  max-height: 700px; /* Adjust this height as needed */
+  min-height: 700px; /* Adjust this height as needed */
   overflow-y: auto;  /* Enables vertical scrolling */
 }
 
 /* Styles for the Questions section */
 .questions-container {
-  max-height: 400px; /* Adjust this height as needed */
+  min-height: 400px; /* Adjust this height as needed */
   overflow-y: auto;  /* Enables vertical scrolling */
 }
 
@@ -44,6 +44,18 @@
   .search-box {
     width: 100%; /* Full width for each input box on mobile */
   }
+
+  /* Styles for the Added Questions section */
+.added-questions-section {
+  max-height: 700px; /* Adjust this height as needed */
+  overflow-y: auto;  /* Enables vertical scrolling */
+}
+
+/* Styles for the Questions section */
+.questions-container {
+  max-height: 400px; /* Adjust this height as needed */
+  overflow-y: auto;  /* Enables vertical scrolling */
+}
 }
 
 .main-content {
