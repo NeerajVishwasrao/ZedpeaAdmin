@@ -12,6 +12,17 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./create-student.component.css']
 })
 export class CreateStudentComponent {
+Goto_Exmas() {
+  this.router.navigateByUrl("exam-section/showcreatedtests")}
+
+disstudents: boolean=true;
+
+addexamdisable: any;
+disexam: any;
+CQArray: any;
+Goto_AddExams() {
+  this.router.navigateByUrl("exam-section/create-exams")
+}
 
   searchtext: any = '';
   searchtext1: string = '';
@@ -24,17 +35,7 @@ user: any;
 studentName: any;
 rollNo: any;
  
-goto_createexam() {
-  this.router.navigateByUrl("exam-section/create-exam")
-}
 
-goto_studentdata() {
-  this.router.navigateByUrl("student")
-}
-
-add_student() {
-  this.isnewstudent = 'Yes';
-}
 
   selectedStudents: any[] = [];
   savedStudentGroups: any[][] = [];

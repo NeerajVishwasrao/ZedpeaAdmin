@@ -1,28 +1,70 @@
 <!-- {{Qcontainer}} -->
- <div>will see here created exam </div>
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid justify-content-start">
+        <div class="d-none d-lg-flex">
+
+            <h2 class="navbar-brand"> 🏅{{user}} </h2>
+        </div>
+        <!-- Buttons visible on larger screens -->
+        <div class="d-none d-lg-flex">
+
+            <button class="btn btn-outline-success me-2" [disabled]="false" type="button">
+                <a (click)="Goto_Students()">Students <i class="badge badge-pill badge-light">10</i></a>
+            </button>
+
+            <button class="btn btn-outline-success me-2" [disabled]="disexam" type="button">
+                <a >Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
+            </button>
+
+            <button class="btn btn-outline-success me-2" [disabled]=addexamdisable type="button">
+                <a (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a>
+            </button>
+
+        </div>
+
+        <!-- Dropdown visible on smaller screens -->
+        <div class="dropdown d-lg-none">
+            <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                Menu
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" (click)="Goto_Students()">Students <i
+                            class="badge badge-pill badge-light">10</i></a></li>
+                <li><a class="dropdown-item">Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
+                </li>
+                <li><a class="dropdown-item" (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a></li>
+            </ul>
+        </div>
+       
+
+        </div>
+</nav>
+<div>will see here created exam </div>
 <div style="display: flex; flex-wrap: wrap;">
 
-        <div *ngFor="let exam of Qcontainer" style="margin-right: 20px;">
-            <p>Test Created number: {{ incrementIndex() }}</p>
-            <table class="table table-success table-striped ">
-                <thead>
-                    <tr class="table-warning">
-                        <th>Standard</th>
-                        <th>Subject</th>
-                        <th>Template</th>
-                        <th>Question No</th>
-                        <th>Image</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let question of exam">
-                        <td>{{ question.std }}</td>
-                        <td>{{ question.sub }}</td>
-                        <td>{{ question.template }}</td>
-                        <td>{{ question.question }}</td>
-                        <td><img style="height: 70px; width: 70px;" src="{{ question.img }}" alt="can't find img"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div *ngFor="let exam of Qcontainer" style="margin-right: 20px;">
+        <p>Test Created number: {{ incrementIndex() }}</p>
+        <table class="table table-success table-striped ">
+            <thead>
+                <tr class="table-warning">
+                    <th>Standard</th>
+                    <th>Subject</th>
+                    <th>Template</th>
+                    <th>Question No</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let question of exam">
+                    <td>{{ question.std }}</td>
+                    <td>{{ question.sub }}</td>
+                    <td>{{ question.template }}</td>
+                    <td>{{ question.question }}</td>
+                    <td><img style="height: 70px; width: 70px;" src="{{ question.img }}" alt="can't find img"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -15,9 +15,8 @@ export const routes: Routes = [
     },
 
     {
-         path: 'student', component: CreateStudentComponent ,
-         canActivate:[authZPGuard]
-
+        path:'creteclassroom',loadChildren:()=>import('./create-classroom/create-classroom.module').then(m=>m.CreateClassroomModule),
+        canActivate:[authZPGuard]
     }
     
    

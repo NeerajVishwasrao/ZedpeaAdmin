@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
 import { NgFor } from '@angular/common';
 
@@ -11,8 +11,17 @@ import { NgFor } from '@angular/common';
   styleUrl: './show-created-test.component.css'
 })
 export class ShowCreatedTestComponent {
+addexamdisable: any;
+CQArray: any;
+user: any;
+disexam: boolean=true;
+Goto_AddExams() {
+  this.router.navigateByUrl("exam-section/create-exam")}
+Goto_Students() {
+this.router.navigateByUrl("creteclassroom")}
   index: number = 1
   Qcontainer: any
+  router=inject(Router);
   serviceExamSection = inject(ServiceExamSectionService);
   ngOnInit() {
     this.Qcontainer = this.serviceExamSection.QarrayContainer
