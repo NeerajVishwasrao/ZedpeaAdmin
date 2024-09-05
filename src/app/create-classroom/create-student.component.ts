@@ -13,6 +13,17 @@ import { studentdata } from './studentdata.model';
   styleUrls: ['./create-student.component.css']
 })
 export class CreateStudentComponent {
+Goto_Exmas() {
+  this.router.navigateByUrl("exam-section/showcreatedtests")}
+
+disstudents: boolean=true;
+
+addexamdisable: any;
+disexam: any;
+CQArray: any;
+Goto_AddExams() {
+  this.router.navigateByUrl("exam-section/create-exams")
+}
 
 Studentdata:any;
 
@@ -30,19 +41,7 @@ studentName: any;
 rollNo: any;
 
  
-goto_createexam() {
-  this.router.navigateByUrl("exam-section/create-exam")
-}
 
-goto_studentdata() {
-  this.router.navigateByUrl("student")
-}
-
-add_student() {
-  // this.isnewstudent = 'Yes';
-  this.isnewstudent = !this.isnewstudent;
-  console.log('Add Student button clicked', this.isnewstudent);
-}
 
   selectedStudents: any[] = [];
   savedStudentGroups: any[][] = [];

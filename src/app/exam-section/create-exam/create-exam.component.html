@@ -7,15 +7,19 @@
       </div>
       <!-- Buttons visible on larger screens -->
       <div class="d-none d-lg-flex">
-        <button class="btn btn-outline-success me-2" type="button">
-          <a (click)="goto_studentdata()">Students <i class="badge badge-pill badge-light">10</i></a>
+
+        <button class="btn btn-outline-success me-2" [disabled]="false" type="button">
+          <a (click)="Goto_Students()">Students <i class="badge badge-pill badge-light">10</i></a>
         </button>
-        <button class="btn btn-outline-success me-2" type="button">
-          <a>Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
+
+        <button class="btn btn-outline-success me-2" [disabled]="false" type="button">
+          <a (click)="Goto_Exams()">Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
         </button>
-        <button class="btn btn-outline-success me-2" type="button">
-          <a>Add Exam <i class="badge badge-pill badge-light">+</i></a>
+
+        <button class="btn btn-outline-success me-2" [disabled]=addexamdisable type="button">
+          <a (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a>
         </button>
+
       </div>
 
       <!-- Dropdown visible on smaller screens -->
@@ -50,11 +54,11 @@
           <div class="btn-group">
             <div class="input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">Std</label>
-              <select class="form-select" id="inputGroupSelect01" (change)="filterQuestions()"
-                [(ngModel)]="searchtext1"  style="width: 120px;">
+              <select class="form-select" id="inputGroupSelect01" (change)="filterQuestions()" [(ngModel)]="searchtext1"
+                style="width: 120px;">
                 <option value="" selected>All</option>
-                <option value="lkg">LKG</option>
-                <option value="ukg">UKG</option>
+                <option value="k1">k1</option>
+                <option value="k2">k2</option>
                 <option value="1">First</option>
                 <option value="2">Second</option>
               </select>
@@ -65,12 +69,12 @@
           <div class="btn-group">
             <div class="input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect02">Sub</label>
-              <select class="form-select" id="inputGroupSelect02" (change)="filterQuestions()"
-                [(ngModel)]="searchtext2"  style="width: 120px;">
+              <select class="form-select" id="inputGroupSelect02" (change)="filterQuestions()" [(ngModel)]="searchtext2"
+                style="width: 120px;">
                 <option value="" selected>All</option>
                 <option value="eng">English</option>
                 <option value="math">Math</option>
-                <option value="mar">Marathi</option>
+                <option value="marathi">Marathi</option>
                 <option value="evs">EVS</option>
               </select>
             </div>
@@ -79,14 +83,14 @@
           <div class="btn-group">
             <div class="input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect03">Type</label>
-              <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()"
-                [(ngModel)]="searchtext3"  style="width: 120px;">
+              <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()" [(ngModel)]="searchtext3"
+                style="width: 120px;">
                 <option value="" selected>All</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="4">Four</option>
-                <option value="5">Five</option>
+                <option value="mr01">One</option>
+                <option value="mr02">Two</option>
+                <option value="mr03">Three</option>
+                <option value="mr04">Four</option>
+                <option value="mr05">Five</option>
               </select>
             </div>
           </div>
@@ -103,7 +107,7 @@
               <select class="form-select" id="inputGroupSelect01" (change)="filterQuestions()" [(ngModel)]="searchtext1"
                 style="width: 120px; height: 30px; font-size: 12px;">
                 <option value="" selected>🔍 All</option>
-                <option value="lkg">LKG</option>
+                <option value="K1">LKG</option>
                 <option value="ukg">UKG</option>
                 <option value="1">First</option>
                 <option value="2">Second</option>
@@ -121,7 +125,7 @@
                 <option value="" selected>🔍 All</option>
                 <option value="eng">English</option>
                 <option value="math">Math</option>
-                <option value="mar">Marathi</option>
+                <option value="Marathi">Marathi</option>
                 <option value="evs">EVS</option>
               </select>
             </div>
@@ -134,11 +138,11 @@
               <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()" [(ngModel)]="searchtext3"
                 style="width: 120px; height: 30px; font-size: 12px;">
                 <option value="" selected>🔍 All</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="4">Four</option>
-                <option value="5">Five</option>
+                <option value="mr01">One</option>
+                <option value="m102">Two</option>
+                <option value="mr03">Three</option>
+                <option value="mr04">Four</option>
+                <option value="mr05">Five</option>
               </select>
             </div>
           </div>
@@ -196,11 +200,11 @@
       <button type="button" [ngClass]="isadded8?'btn btn-secondary': 'btn btn-light'">8</button>
       <button type="button" [ngClass]="isadded9?'btn btn-secondary': 'btn btn-light'">9</button>
       <button type="button" [ngClass]="isadded10?'btn btn-secondary': 'btn btn-light'">10</button>
-      
+
       <div class="form-group" *ngIf="isadded10">
         <label for="usr">Exam Name:</label>
         <input type="text" class="form-control" id="examname">
-        
+
         <label for="select-grade">Select Grade:</label>
         <select class="form-control" id="select-grade" name="select-grade">
           <option>K1</option>
@@ -208,14 +212,14 @@
           <option>STD1</option>
           <option>STD2</option>
         </select>
-  
-  
+
+
         <label for="comment">Description:</label>
         <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
       </div>
 
       <button type="button" [ngClass]="isadded10?'btn btn-primary': 'btn btn-light'" (click)="savenewquestion()"
-      [disabled]="!isadded10">Save</button>
+        [disabled]="!isadded10">Save</button>
 
 
     </div>
@@ -291,20 +295,30 @@
   <div class="row">
     <div class="questions-section">
       <div class="questions-container">
-        <div class="card" style="width: 18rem;" *ngFor="let Qcontainer of filteredQuestions">
-          <img src="{{Qcontainer.img}}" class="card-img-top" alt="...">
+        <div class="card" style="width: 18rem; height: 26rem;" *ngFor="let Qcontainer of filteredQuestions">
+          <img src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp" class="card-img-top"
+            alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">
-              <li>Standard- {{Qcontainer.std}}</li>
-              <li>Subject- {{Qcontainer.sub}}</li>
+              <li>Qnumber- {{Qcontainer.qnumber}}</li>
+              <li>Title- {{Qcontainer.title}}</li>
               <li>Template- {{Qcontainer.template}}</li>
-              <li>Qno.- {{Qcontainer.question}}</li>
+              <li>Topic.- {{Qcontainer.topic}}</li>
+              <li>Discription.- {{Qcontainer.description}}</li>
+              <li>template.- {{Qcontainer.template}}</li>
+              <li>grade.- {{Qcontainer.grade}}</li>
+              <li>subject.- {{Qcontainer.qsubject}}</li>
+              <li>author.- {{Qcontainer.author}}</li>
+
+
+
+
             </p>
             <!-- <p class="d-inline-flex gap-1"> -->
             <button class="btn mybutton"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-              id="{{Qcontainer.id}}" type="button" (click)="Add_this_Q(Qcontainer.id)">Add Question</button>
+              id="{{Qcontainer.qnumber}}" type="button" (click)="Add_this_Q(Qcontainer.qnumber)">Add Question</button>
             <!-- </p> -->
           </div>
         </div>

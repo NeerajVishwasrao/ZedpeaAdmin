@@ -39,7 +39,7 @@ goto_analysis_performance() {
 
 
 goTo_showcreatedclassroom() {
-  this.router.navigateByUrl("student")
+  this.router.navigateByUrl("creteclassroom")
   }
 
 student: any;

@@ -14,9 +14,25 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 })
 
 export class CreateExamComponent {
-showQNO: boolean=false;
-popupMessage: any;
-isPopupVisible: any;
+[x: string]: any;
+
+Goto_AddExams() {
+  this.router.navigateByUrl("creteclassroom")
+
+}
+
+Goto_Exams() {
+  this.router.navigateByUrl("exam-section/showcreatedtests")
+
+}
+
+Goto_Students() {
+  this.router.navigateByUrl("creteclassroom")
+}
+
+  showQNO: boolean = false;
+  popupMessage: any;
+  isPopupVisible: any;
   canclebiggerthan10warning() {
     this.biggerthan10 = false
   }
@@ -58,18 +74,24 @@ isPopupVisible: any;
   isadded11: any;
 
   goto_studentdata() {
-    this.router.navigateByUrl("student")
+    this.router.navigateByUrl("creteclassroom")
   }
 
-
+   addexamdisable:Boolean=true
   ngOnInit() {
-
     if (localStorage.getItem("uprofile") != null) {
       this.user = localStorage.getItem("uprofile");
     }
 
+    var demoobj: Qdata = {
+      qSubject: "Marathi",
+      author: "kalpi",
+      grade: "k1",
+      qType: ""
+    }
+
     console.log("before http get")
-    this.http.get<question[]>("/assets/questiondatabase.json").subscribe(data => {
+    this.http.post<question[]>("https://zedpea.co.in/api/questions.php", demoobj).subscribe(data => {
       console.log(data)
       this.questiondatabase = data;
       this.filteredQuestions = data;
@@ -78,7 +100,7 @@ isPopupVisible: any;
 
   }
 
-  
+
 
   filterQuestions() {
     console.log("getting  called")
@@ -88,10 +110,9 @@ isPopupVisible: any;
     //qcontainer indicated first element of questiondatabase array
     // ctrl + shift + p for emoji
 
-
     this.filteredQuestions = this.questiondatabase.filter(Qcontainer =>
-      Qcontainer.std.toLowerCase().includes(this.searchtext1.toLowerCase()) &&
-      Qcontainer.sub.toLowerCase().includes(this.searchtext2.toLowerCase()) &&
+      Qcontainer.grade.toLowerCase().includes(this.searchtext1.toLowerCase()) &&
+      Qcontainer.qsubject.toLowerCase().includes(this.searchtext2.toLowerCase()) &&
       Qcontainer.template.toLowerCase().includes(this.searchtext3.toLowerCase())
 
     );
@@ -106,8 +127,8 @@ isPopupVisible: any;
 
 
 
-  Add_this_Q(idq: number) {
-    this.showQNO=true;
+  Add_this_Q(idq: any) {
+    this.showQNO = true;
     if (this.isadded10 == false) {
 
       var demo = "isadded" + ++this.qarrayadder;
@@ -144,7 +165,7 @@ isPopupVisible: any;
       console.log("question adding method calling" + idq);
 
       for (let index = 0; index < this.questiondatabase.length; index++) {
-        if (idq == this.questiondatabase[index].id) {
+        if (idq == this.questiondatabase[index].qnumber) {
           this.new_created_q[this.itterator++] = this.questiondatabase[index]
         }
       }
@@ -191,17 +212,26 @@ isPopupVisible: any;
     this.isadded9 = false
     this.isadded10 = false
     this.qarrayadder = 0
-    this.showQNO=false;
+    this.showQNO = false;
   }
 
 }
 
 interface question {
-  id: number;
-  std: string;
-  sub: string;
-  template: string;
-  question: string;
-  img: string
+  qnumber: string
+  title: string
+  topic: string
+  description: string
+  diagram: string
+  template: string
+  grade: string
+  qsubject: string
+  author: string
 }
 
+interface Qdata {
+  qSubject: string,
+  author: string,
+  grade: string,
+  qType: string
+}
