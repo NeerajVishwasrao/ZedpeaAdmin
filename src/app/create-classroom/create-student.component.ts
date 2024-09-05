@@ -4,6 +4,7 @@ import { ServiceExamSectionService } from '../service/service-exam-section.servi
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { studentdata } from './studentdata.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-student',
@@ -13,8 +14,15 @@ import { studentdata } from './studentdata.model';
   styleUrls: ['./create-student.component.css']
 })
 export class CreateStudentComponent {
+
+Goto_AddStudent() {
+throw new Error('Method not implemented.');
+}
+
 Goto_Exmas() {
-  this.router.navigateByUrl("exam-section/showcreatedtests")}
+  this.router.navigateByUrl("exam-section/showcreatedtests")
+
+this.serviceExamSection.Add_this_Q(this.CQArray)}
 
 disstudents: boolean=true;
 
@@ -22,7 +30,7 @@ addexamdisable: any;
 disexam: any;
 CQArray: any;
 Goto_AddExams() {
-  this.router.navigateByUrl("exam-section/create-exams")
+  this.router.navigateByUrl("exam-section/create-exam")
 }
 
 Studentdata:any;
@@ -48,14 +56,25 @@ rollNo: any;
 
   router = inject(Router);
   serviceExamSection = inject(ServiceExamSectionService);
+  http = inject(HttpClient);
+
   varr: any[] = [];
- 
+
+  getstuobj:demoobj=
+
+  {
+    leagueId: "101"
+ }
 
 
   ngOnInit(): void {
-    this.serviceExamSection.get_student_data().subscribe(
+   this.http.post<any>('https://zedpea.co.in/api/students.php',this.getstuobj)
+    .subscribe(
       (data: any) => {
         this.varr = data; 
+
+      
+
       }
     );
 
@@ -113,3 +132,7 @@ rollNo: any;
 
   
 }
+
+  interface demoobj{
+    leagueId:string
+ }

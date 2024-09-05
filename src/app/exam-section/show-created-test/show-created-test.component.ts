@@ -11,6 +11,9 @@ import { NgFor } from '@angular/common';
   styleUrl: './show-created-test.component.css'
 })
 export class ShowCreatedTestComponent {
+senddata(_t32: any) {
+throw new Error('Method not implemented.');
+}
 addexamdisable: any;
 CQArray: any;
 user: any;
@@ -20,11 +23,15 @@ Goto_AddExams() {
 Goto_Students() {
 this.router.navigateByUrl("creteclassroom")}
   index: number = 1
-  Qcontainer: any
+  Qcontainer: any[]=[]
   router=inject(Router);
   serviceExamSection = inject(ServiceExamSectionService);
   ngOnInit() {
-    this.Qcontainer = this.serviceExamSection.QarrayContainer
+    this.serviceExamSection.getallexmas().subscribe(
+      (val)=>{
+        this.Qcontainer =val
+      }
+    )
   }
   incrementIndex(){
     return this.index++

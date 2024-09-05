@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { studentdata } from '../create-classroom/studentdata.model';
 
 
@@ -23,13 +23,12 @@ export class ServiceExamSectionService {
 }
 
 
-  // private behaviorsubject = new BehaviorSubject<any>(null);
-  // this.behaviorsubject.next(info)
+   private behaviorsubject = new BehaviorSubject<any>(null);
   // return this.behaviorsubject.asObservable();
 
   http = inject(HttpClient);
 
-  private studenturl = '/assets/studentdatabase.json';
+  private studenturl = 'https://zedpea.co.in/api/students.php';
   // private studenturl='https://zedpea.co.in/api/students.php';
 
   QarrayContainer: any
@@ -40,11 +39,12 @@ export class ServiceExamSectionService {
 
   Add_this_Q(QarrayContainer: any) {
     this.QarrayContainer = QarrayContainer;
+    this.behaviorsubject.next(QarrayContainer)
+
   }
 
-  get_student_data(): Observable<any> {
-
-    return this.http.get<any>(this.studenturl);
+  getallexmas():Observable<any[]>{
+   return this.behaviorsubject.asObservable()
   }
 
 

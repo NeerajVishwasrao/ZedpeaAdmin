@@ -13,7 +13,7 @@
             </button>
 
             <button class="btn btn-outline-success me-2" [disabled]="disexam" type="button">
-                <a >Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
+                <a >Exams <i class="badge badge-pill badge-primary">{{Qcontainer.length}}</i></a>
             </button>
 
             <button class="btn btn-outline-success me-2" [disabled]=addexamdisable type="button">
@@ -32,7 +32,7 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" (click)="Goto_Students()">Students <i
                             class="badge badge-pill badge-light">10</i></a></li>
-                <li><a class="dropdown-item">Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
+                <li><a class="dropdown-item">Exams <i class="badge badge-pill badge-primary">{{Qcontainer.length}}</i></a>
                 </li>
                 <li><a class="dropdown-item" (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a></li>
             </ul>
@@ -44,27 +44,23 @@
 <div>will see here created exam </div>
 <div style="display: flex; flex-wrap: wrap;">
 
-    <div *ngFor="let exam of Qcontainer" style="margin-right: 20px;">
-        <p>Test Created number: {{ incrementIndex() }}</p>
-        <table class="table table-success table-striped ">
-            <thead>
-                <tr class="table-warning">
-                    <th>Standard</th>
-                    <th>Subject</th>
-                    <th>Template</th>
-                    <th>Question No</th>
-                    <th>Image</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let question of exam">
-                    <td>{{ question.std }}</td>
-                    <td>{{ question.sub }}</td>
-                    <td>{{ question.template }}</td>
-                    <td>{{ question.question }}</td>
-                    <td><img style="height: 70px; width: 70px;" src="{{ question.img }}" alt="can't find img"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <div *ngFor="let exam of Qcontainer" style="margin-right: 20px">
+          <!-- <p>Test Created number: {{ incrementIndex() }}</p> -->
+      
+          <div class="card-body"   >
+            <div class="card" (click)="senddata(exam)">
+              <img
+                src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+                class="card-img-top"
+                alt="..."
+              />
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <li>f</li>
+                <li>j</li>
+              </p>
+              <p class="d-inline-flex gap-1"></p>
+            </div>
+          </div>
+      
 </div>

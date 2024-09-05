@@ -2,50 +2,169 @@
   <div style="margin-left: 30px; margin-right: 30px;">
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid justify-content-start">
-          <div class="d-none d-lg-flex">
-  
-              <h2 class="navbar-brand"> 🏅{{user}} </h2>
-          </div>
+        <div class="d-none d-lg-flex">
+
+          <h2 class="navbar-brand"> 🏅{{user}} </h2>
+        </div>
+        <!-- Buttons visible on larger screens -->
+        <div class="d-none d-lg-flex">
+
+          <button class="btn btn-outline-success me-2" [disabled]="disstudents" type="button">
+            <a>Students <i class="badge badge-pill badge-light">10</i></a>
+          </button>
+
+          <button class="btn btn-outline-success me-2" [disabled]="disexam" type="button">
+            <a (click)="Goto_Exmas()">Exams <i class="badge badge-pill badge-primary"></i></a>
+          </button>
+
+          <button class="btn btn-outline-success me-2" [disabled]=addexamdisable type="button">
+            <a (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a>
+          </button>
+
+          <button class="btn btn-outline-success me-2" [disabled]=addexamdisable type="button">
+            <a (click)="Goto_AddStudent()">Add Student <i class="badge badge-pill badge-light">+</i></a>
+          </button>
+
+        </div>
+
+        <!-- Dropdown visible on smaller screens -->
+        <div class="dropdown d-lg-none">
+          <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton"
+            data-bs-toggle="dropdown" aria-expanded="false"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+            Menu
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item">Students <i class="badge badge-pill badge-light">10</i></a></li>
+            <li><a class="dropdown-item" (click)="Goto_Exmas()">Exams <i class="badge badge-pill badge-primary"></i></a>
+            </li>
+            <li><a class="dropdown-item" (click)="Goto_AddExams()">Add Exam <i
+                  class="badge badge-pill badge-light">+</i></a></li>
+          </ul>
+        </div>
+
+
+        <div class="ms-auto">
+
+
           <!-- Buttons visible on larger screens -->
+
           <div class="d-none d-lg-flex">
-  
-              <button class="btn btn-outline-success me-2" [disabled]="disstudents" type="button">
-                  <a >Students <i class="badge badge-pill badge-light">10</i></a>
-              </button>
-  
-              <button class="btn btn-outline-success me-2" [disabled]="disexam" type="button">
-                  <a (click)="Goto_Exmas()" >Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
-              </button>
-  
-              <button class="btn btn-outline-success me-2" [disabled]=addexamdisable type="button">
-                  <a (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a>
-              </button>
-  
+
+            <div class="btn-group">
+
+              <h2 class="navbar-brand">Search 🔍</h2>
+            </div>
+
+
+
+            <div class="btn-group">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Std</label>
+                <select class="form-select" id="inputGroupSelect01" (change)="filterQuestions()"
+                  [(ngModel)]="searchtext1" style="width: 120px;">
+                  <option value="" selected>All</option>
+                  <option value="k1">k1</option>
+                  <option value="k2">k2</option>
+                  <option value="1">First</option>
+                  <option value="2">Second</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="btn-group">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect02">Sub</label>
+                <select class="form-select" id="inputGroupSelect02" (change)="filterQuestions()"
+                  [(ngModel)]="searchtext2" style="width: 120px;">
+                  <option value="" selected>All</option>
+                  <option value="eng">English</option>
+                  <option value="math">Math</option>
+                  <option value="marathi">Marathi</option>
+                  <option value="evs">EVS</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="btn-group">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect03">Type</label>
+                <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()"
+                  [(ngModel)]="searchtext3" style="width: 120px;">
+                  <option value="" selected>All</option>
+                  <option value="mr01">One</option>
+                  <option value="mr02">Two</option>
+                  <option value="mr03">Three</option>
+                  <option value="mr04">Four</option>
+                  <option value="mr05">Five</option>
+                </select>
+              </div>
+            </div>
           </div>
-  
+
+
+
           <!-- Dropdown visible on smaller screens -->
           <div class="dropdown d-lg-none">
-              <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                  data-bs-toggle="dropdown" aria-expanded="false"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                  Menu
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <li><a class="dropdown-item" >Students <i
-                              class="badge badge-pill badge-light">10</i></a></li>
-                  <li><a class="dropdown-item" (click)="Goto_Exmas()">Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
-                  </li>
-                  <li><a class="dropdown-item" (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a></li>
-              </ul>
+            <div class="btn-group">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  style="width: 50px; height: 30px; font-size: 12px;">Std</label>
+                <select class="form-select" id="inputGroupSelect01" (change)="filterQuestions()"
+                  [(ngModel)]="searchtext1" style="width: 120px; height: 30px; font-size: 12px;">
+                  <option value="" selected>🔍 All</option>
+                  <option value="K1">LKG</option>
+                  <option value="ukg">UKG</option>
+                  <option value="1">First</option>
+                  <option value="2">Second</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="btn-group">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect02"
+                  style="width: 50px; height: 30px; font-size: 12px;">Sub</label>
+                <select class="form-select" id="inputGroupSelect02" (change)="filterQuestions()"
+                  [(ngModel)]="searchtext2" style="width: 120px; height: 30px; font-size: 12px;">
+                  <option value="" selected>🔍 All</option>
+                  <option value="eng">English</option>
+                  <option value="math">Math</option>
+                  <option value="Marathi">Marathi</option>
+                  <option value="evs">EVS</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="btn-group">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect03"
+                  style="width: 50px; height: 30px; font-size: 12px;">Type</label>
+                <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()"
+                  [(ngModel)]="searchtext3" style="width: 120px; height: 30px; font-size: 12px;">
+                  <option value="" selected>🔍 All</option>
+                  <option value="mr01">One</option>
+                  <option value="m102">Two</option>
+                  <option value="mr03">Three</option>
+                  <option value="mr04">Four</option>
+                  <option value="mr05">Five</option>
+                </select>
+              </div>
+            </div>
+
           </div>
-         
-  
-          </div>
-  </nav>
+
+        </div>
+
+
+      </div>
+    </nav>
 
     <!-- Rest of your content remains unchanged -->
     <div style="margin-top: 50px;">
-      <div class="container mt-4" >
+      <div class="container mt-4">
         <div class="card shadow-sm" style="width: 100%; max-width: 800px; margin: auto;">
           <div class="card-body" style="height: 500px; overflow-y: auto;">
             <div class="row">
@@ -53,15 +172,18 @@
                 <div class="card mb-4 shadow-sm student-card">
                   <div class="row no-gutters">
                     <div class="col-md-4">
-                      <img *ngIf="student.img" [src]="student.img" class="card-img" alt="Student Image">
+                      <img  src="/assets/dummy.jpg" class="card-img" alt="Student Image">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
                         <ul class="list-unstyled">
-                          <li><strong>Name:</strong> {{student.name}}</li>
-                          <li><strong>Roll No:</strong> {{student.rollno}}</li>
-                          <li><strong>Standard:</strong> {{student.std}}</li>
-                          <li><strong>Address:</strong> {{student.address}}</li>
+                          <li><strong>id:</strong> {{student.stud}}</li>
+                          <li><strong>Name:</strong> {{student.student_name}}</li>
+                          <li><strong>grade:</strong> {{student.grade}}</li>
+                          <li><strong>usernm:</strong> {{student.username}}</li>
+                          <li><strong>reward:</strong> {{student.rewards}}</li>
+                          <li><strong> package</strong> {{student.package}}</li>
+                        
                         </ul>
                         <p class="d-inline-flex gap-1">
                           <button class="btn btn-primary" type="button"
@@ -80,37 +202,37 @@
       </div>
     </div>
   </div>
-  
+
 
   <!-- Enroll Students -->
-  
+
   <div class="card custom-card">
     <div class="card-body">
-        <div class="form-group">
-            <label for="studname">Student Name:</label>
-            <input type="text" class="form-control" id="studname" [(ngModel)]="StudentName">
+      <div class="form-group">
+        <label for="studname">Student Name:</label>
+        <input type="text" class="form-control" id="studname" [(ngModel)]="StudentName">
 
-            <label for="rollnumber">Roll Number:</label>
-            <input type="text" class="form-control" id="studentid" [(ngModel)]="StudentRoll">
+        <label for="rollnumber">Roll Number:</label>
+        <input type="text" class="form-control" id="studentid" [(ngModel)]="StudentRoll">
 
-            <label for="selectgrade">Select Grade:</label>
-            <select class="form-control" id="selectgrade" [(ngModel)]="StudentSelect">
-                <option>K1</option>
-                <option>K2</option>
-                <option>STD1</option>
-                <option>STD2</option>
-            </select>
+        <label for="selectgrade">Select Grade:</label>
+        <select class="form-control" id="selectgrade" [(ngModel)]="StudentSelect">
+          <option>K1</option>
+          <option>K2</option>
+          <option>STD1</option>
+          <option>STD2</option>
+        </select>
 
-            <label for="susername">Username:</label>
-            <input type="text" class="form-control" id="susername" [(ngModel)]="Susername">
+        <label for="susername">Username:</label>
+        <input type="text" class="form-control" id="susername" [(ngModel)]="Susername">
 
-            <label for="spassword">Roll Number:</label>
-            <input type="text" class="form-control" id="spassword" [(ngModel)]="Spassword">
-        </div>
+        <label for="spassword">Roll Number:</label>
+        <input type="text" class="form-control" id="spassword" [(ngModel)]="Spassword">
+      </div>
 
-        <button type="button" class="btn btn-success" (click)="saveSelectedStudents()">Save</button>
+      <button type="button" class="btn btn-success" (click)="saveSelectedStudents()">Save</button>
     </div>
-</div>
+  </div>
 
 
 </div>

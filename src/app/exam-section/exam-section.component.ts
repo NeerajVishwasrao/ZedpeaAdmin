@@ -10,6 +10,9 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './exam-section.component.css'
 })
 export class ExamSectionComponent {
+senddata(_t4: any) {
+throw new Error('Method not implemented.');
+}
 Analysisperformance: boolean=true;
 Createexam: boolean=true;
 Showcreatedexams: boolean=true;
