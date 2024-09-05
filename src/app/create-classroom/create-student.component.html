@@ -5,16 +5,17 @@
         <div class="d-none d-lg-flex">
           <h2 class="navbar-brand"> 🏅{{user}} </h2>
         </div>
+
         <!-- Buttons visible on larger screens -->
         <div class="d-none d-lg-flex">
-          <button class="btn btn-outline-success me-2" type="button">
-            <a (click)="goto_studentdata()">Students <i class="badge badge-pill badge-light">10</i></a>
+          <button class="btn btn-outline-success me-2" type="button" (click)="goto_studentdata()">
+            Students <i class="badge badge-pill badge-light">10</i>
           </button>
-          <button class="btn btn-outline-success me-2" type="button">
-            <a  (click)="goto_createexam()">Exams <i class="badge badge-pill badge-primary">0</i></a>
+          <button class="btn btn-outline-success me-2" type="button" (click)="goto_createexam()">
+            Exams <i class="badge badge-pill badge-primary">0</i>
           </button>
-          <button class="btn btn-outline-success me-2" type="button">
-            <a>Add Student <i class="badge badge-pill badge-light">+</i></a>
+          <button class="btn btn-outline-success me-2" type="button" (click)="add_student()">
+            Add Student <i class="badge badge-pill badge-light">+</i>
           </button>
         </div>
 
@@ -28,10 +29,14 @@
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li><a class="dropdown-item" (click)="goto_studentdata()">Students <i
                   class="badge badge-pill badge-light">10</i></a></li>
-            <li><a class="dropdown-item">Exams <i class="badge badge-pill badge-primary"></i></a></li>
-            <li><a class="dropdown-item" (click)="add_student()">Add Student <i class="badge badge-pill badge-light">+</i></a></li>
+            <li><a class="dropdown-item" (click)="goto_createexam()">Exams <i
+                  class="badge badge-pill badge-primary"></i></a></li>
+            <li><a class="dropdown-item" (click)="add_student()">Add Student <i
+                  class="badge badge-pill badge-light">+</i></a></li>
           </ul>
         </div>
+
+
 
         <div class="ms-auto">
           <!-- Buttons visible on larger screens -->
@@ -138,7 +143,8 @@
                           <li><strong>Address:</strong> {{student.address}}</li>
                         </ul>
                         <p class="d-inline-flex gap-1">
-                          <button class="btn btn-primary" type="button" (click)="Add_this_Student(student.id)">Update</button>
+                          <button class="btn btn-primary" type="button"
+                            (click)="Add_this_Student(student.id)">Update</button>
                         </p>
                       </div>
                     </div>
@@ -149,35 +155,41 @@
           </div>
         </div>
 
-        <!-- Enroll Students -->
-        <div class="mt-4" *ngIf="isnewstudent">
-          <div class="form-group">
-            <label for="studname">Student Name:</label>
-            <input type="text" class="form-control" id="studname">
-
-            <label for="rollnumber">Roll Number:</label>
-            <input type="text" class="form-control" id="studentid">
-            
-            <label for="selectgrade">Select Grade:</label>
-            <select class="form-control" id="selectgrade" >
-              <option>K1</option>
-              <option>K2</option>
-              <option>STD1</option>
-              <option>STD2</option>
-            </select>
-      
-            <label for="susername">Username:</label>
-            <input type="text" class="form-control" id="susername">
-
-            <label for="spassword">Roll Number:</label>
-            <input type="text" class="form-control" id="spassword">
-          </div>
-    
-          <button type="button" class="btn btn-success" (click)="saveSelectedStudents()">Save</button>
-        </div>
-
 
       </div>
     </div>
   </div>
+  
+
+  <!-- Enroll Students -->
+  
+  <div class="card custom-card">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="studname">Student Name:</label>
+            <input type="text" class="form-control" id="studname" [(ngModel)]="StudentName">
+
+            <label for="rollnumber">Roll Number:</label>
+            <input type="text" class="form-control" id="studentid" [(ngModel)]="StudentRoll">
+
+            <label for="selectgrade">Select Grade:</label>
+            <select class="form-control" id="selectgrade" [(ngModel)]="StudentSelect">
+                <option>K1</option>
+                <option>K2</option>
+                <option>STD1</option>
+                <option>STD2</option>
+            </select>
+
+            <label for="susername">Username:</label>
+            <input type="text" class="form-control" id="susername" [(ngModel)]="Susername">
+
+            <label for="spassword">Roll Number:</label>
+            <input type="text" class="form-control" id="spassword" [(ngModel)]="Spassword">
+        </div>
+
+        <button type="button" class="btn btn-success" (click)="saveSelectedStudents()">Save</button>
+    </div>
+</div>
+
+
 </div>

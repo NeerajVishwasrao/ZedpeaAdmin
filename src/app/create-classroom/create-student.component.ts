@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ServiceExamSectionService } from '../service/service-exam-section.service';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { studentdata } from './studentdata.model';
 
 @Component({
   selector: 'app-create-student',
@@ -13,16 +14,21 @@ import { FormsModule } from '@angular/forms';
 })
 export class CreateStudentComponent {
 
+Studentdata:any;
+
+  isnewstudent: boolean = false; 
+
   searchtext: any = '';
   searchtext1: string = '';
   searchtext2: string = '';
   searchtext3: string = '';
   searchtext4: string = '';
-  isnewstudent: string = '';
+ 
 
-user: any;
+ user: any = '';
 studentName: any;
 rollNo: any;
+
  
 goto_createexam() {
   this.router.navigateByUrl("exam-section/create-exam")
@@ -33,7 +39,9 @@ goto_studentdata() {
 }
 
 add_student() {
-  this.isnewstudent = 'Yes';
+  // this.isnewstudent = 'Yes';
+  this.isnewstudent = !this.isnewstudent;
+  console.log('Add Student button clicked', this.isnewstudent);
 }
 
   selectedStudents: any[] = [];
@@ -51,6 +59,11 @@ add_student() {
         this.varr = data; 
       }
     );
+
+
+    if (localStorage.getItem("uprofile") != null) {
+      this.user = localStorage.getItem("uprofile");
+    }
   }
 
   filterQuestions() {
@@ -74,14 +87,28 @@ add_student() {
     console.log("add student method calling")
   }
 
-  saveSelectedStudents() {
-    if (this.selectedStudents.length > 0) {
-      this.savedStudentGroups.push([...this.selectedStudents]);  
-      this.selectedStudents = []; 
-      console.log("Selected students :", this.savedStudentGroups);
-    }
-  }
 
+  StudentName:string='';
+  StudentRoll:number=0;
+  StudentSelect:string='';
+  Susername:string='';
+  Spassword:string='';
+
+  saveSelectedStudents() {
+    // if (this.selectedStudents.length > 0) {
+    //   this.savedStudentGroups.push([...this.selectedStudents]);  
+    //   this.selectedStudents = []; 
+    //   console.log("Selected students :", this.savedStudentGroups);
+    // }
+
+
+    console.log("Form Submited : ",this.StudentName,this.StudentRoll,this.StudentSelect,this. Susername,this.Spassword);
+       this.StudentSelect='';
+       this.StudentName='';
+       this. Susername='';
+       this.StudentRoll;
+       this.Spassword='';
+  }
 
 
 

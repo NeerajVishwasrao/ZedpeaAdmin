@@ -15,3 +15,10 @@
   width: 100%;
 
 }
+.custom-card {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+

@@ -17,6 +17,8 @@ export class LoginComponent {
   leaguelist: Array<any> = [];
 
   ngOnInit() {
+    // localStorage.setItem("uprofile","tejas")
+
     if (localStorage.getItem("uprofile")!=null) {
       this.router.navigateByUrl("exam-section/create-exam")
     }else{

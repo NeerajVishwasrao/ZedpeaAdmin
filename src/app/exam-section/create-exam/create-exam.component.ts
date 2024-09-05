@@ -40,6 +40,7 @@ isPopupVisible: any;
   searchtext3: string = '';
   searchtext4: string = '';
   id: number = 0;
+  
   user: any = '';
 
   isadded1: boolean = false;

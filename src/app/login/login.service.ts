@@ -11,7 +11,7 @@ export class LoginService {
       
     myleague(user:LUser) {
         // this is just the HTTP call, 
-        return this.http.post<any>('http://zedpea.co.in/api/myleauge.php', user);
+        return this.http.post<any>('https://zedpea.co.in/api/myleague.php', user);
 
         // we still need to handle the reception of the token
         // .shareReplay();
@@ -20,7 +20,7 @@ export class LoginService {
     league() {
         // this is just the HTTP call, 
         console.log("in login service")
-        return this.http.get<any>('http://zedpea.co.in/api/leauge.php');
+        return this.http.get<any>('https://zedpea.co.in/api/league.php');
 
         // we still need to handle the reception of the token
         // .shareReplay();
