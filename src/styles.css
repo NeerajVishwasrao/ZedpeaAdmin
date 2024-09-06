@@ -12,7 +12,7 @@
 
 
 .custom-btn {
-  background: linear-gradient(135deg, #04AA6D, #a5f3b4);
+  background: linear-gradient(135deg, #60a98e, #a5f3b4);
   border: none;
   color: white;
   font-size: 0.8rem; /* Smaller font size */
@@ -69,3 +69,4 @@
   border-bottom: none !important; /* Remove the bottom border */
   border-bottom-left-radius: 0 !important; /* Remove the bottom-left curve */
     border-bottom-right-radius: 0 !important; /* Remove the bottom-right curve */
+}
