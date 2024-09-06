@@ -20,7 +20,7 @@ export class LoginComponent {
     // localStorage.setItem("uprofile","tejas")
 
     if (localStorage.getItem("uprofile")!=null) {
-      this.router.navigateByUrl("exam-section/create-exam")
+      this.router.navigateByUrl("Exam-Center/AddExam")
     }else{
       this.loginService.league()
       .subscribe(
@@ -61,7 +61,7 @@ export class LoginComponent {
         if (this.response.length) {
 
           localStorage.setItem("uprofile",this.response[0].league_name)
-            this.router.navigateByUrl("exam-section/create-exam")
+            this.router.navigateByUrl("exam-section/addexams")
      
          } else {
             alert("Invalid Credentials")

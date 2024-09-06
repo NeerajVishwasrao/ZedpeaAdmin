@@ -9,20 +9,20 @@
         <!-- Buttons visible on larger screens -->
         <div class="d-none d-lg-flex">
 
-          <button class="btn btn-outline-warning me-2" [disabled]="disstudents" type="button">
-            <a (click)="Goto_Students()">Students <i class="badge badge-pill badge-light">10</i></a>
+          <button class="btn btn-outline-secondary me-2" [disabled]=true type="button">
+            Students <i class="badge badge-pill badge-light">10</i>
           </button>
 
-          <button class="btn btn-outline-success me-2"  type="button">
-            <a (click)="Goto_AddStudent()">Add Student <i class="badge badge-pill badge-light">+</i></a>
+          <button class="btn btn-outline-success me-2" (click)="goto_AddStudent()" type="button">
+            Add Student <i class="badge badge-pill badge-light">+</i>
           </button>
 
-          <button class="btn btn-outline-success me-2" [disabled]="disexam" type="button">
-            <a (click)="Goto_Exmas()">Exams <i class="badge badge-pill badge-primary"></i></a>
+          <button class="btn btn-outline-success me-2" (click)="goto_Exmas()" type="button">
+            Exams <i class="badge badge-pill badge-primary"></i>
           </button>
 
-          <button class="btn btn-outline-success me-2" [disabled]=addexamdisable type="button">
-            <a (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a>
+          <button class="btn btn-outline-success me-2" (click)="goto_AddExams()" type="button">
+            Add Exam <i class="badge badge-pill badge-light">+</i>
           </button>
 
         </div>
@@ -35,10 +35,11 @@
             Menu
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item">Students <i class="badge badge-pill badge-light">10</i></a></li>
-            <li><a class="dropdown-item" (click)="Goto_Exmas()">Exams <i class="badge badge-pill badge-primary"></i></a>
+            <li><a class="dropdown-item" (click)="goto_AddStudent()">Add Student <i
+                  class="badge badge-pill badge-light">10</i></a></li>
+            <li><a class="dropdown-item" (click)="goto_Exmas()">Exams <i class="badge badge-pill badge-primary"></i></a>
             </li>
-            <li><a class="dropdown-item" (click)="Goto_AddExams()">Add Exam <i
+            <li><a class="dropdown-item" (click)="goto_AddExams()">Add Exam <i
                   class="badge badge-pill badge-light">+</i></a></li>
           </ul>
         </div>
@@ -161,35 +162,36 @@
 
       </div>
     </nav>
+  </div>
+  <!-- Rest of your content remains unchanged -->
 
-    <!-- Rest of your content remains unchanged -->
-    <div style="margin-top: 50px;">
-      <div class="container mt-4">
-        <div class="card shadow-sm" style="width: 100%; max-width: 800px; margin: auto;">
-          <div class="card-body" style="height: 500px; overflow-y: auto;">
-            <div class="row">
-              <div class="col-sm-6" *ngFor="let student of varr">
-                <div class="card mb-4 shadow-sm student-card">
-                  <div class="row no-gutters">
-                    <div class="col-md-4">
-                      <img  src="/assets/dummy.jpg" class="card-img" alt="Student Image">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <ul class="list-unstyled">
-                          <li><strong>id:</strong> {{student.stud}}</li>
-                          <li><strong>Name:</strong> {{student.student_name}}</li>
-                          <li><strong>grade:</strong> {{student.grade}}</li>
-                          <li><strong>usernm:</strong> {{student.username}}</li>
-                          <li><strong>reward:</strong> {{student.rewards}}</li>
-                          <li><strong> package</strong> {{student.package}}</li>
-                        
-                        </ul>
-                        <p class="d-inline-flex gap-1">
-                          <button class="btn btn-primary" type="button"
-                            (click)="Add_this_Student(student.id)">Update</button>
-                        </p>
-                      </div>
+
+  <div style="margin-top: 50px;">
+    <div class="container mt-4">
+      <div class="card shadow-sm" style="width: 100%; max-width: 800px; margin: auto;">
+        <div class="card-body" style="height: 500px; overflow-y: auto;">
+          <div class="row">
+            <div class="col-sm-6" *ngFor="let student of varr">
+              <div class="card mb-4 shadow-sm student-card">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/assets/dummy.jpg" class="card-img" alt="Student Image">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li><strong>id:</strong> {{student.stud}}</li>
+                        <li><strong>Name:</strong> {{student.student_name}}</li>
+                        <li><strong>grade:</strong> {{student.grade}}</li>
+                        <li><strong>usernm:</strong> {{student.username}}</li>
+                        <li><strong>reward:</strong> {{student.rewards}}</li>
+                        <li><strong> package</strong> {{student.package}}</li>
+
+                      </ul>
+                      <p class="d-inline-flex gap-1">
+                        <button class="btn btn-primary" type="button"
+                          (click)="Add_this_Student(student.id)">Update</button>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -197,11 +199,12 @@
             </div>
           </div>
         </div>
-
-
       </div>
+
+
     </div>
   </div>
+
 
 
 

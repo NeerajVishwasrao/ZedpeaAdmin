@@ -6,11 +6,12 @@ import * as bootstrap from 'bootstrap'; // <-- Import Bootstrap JavaScript
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, NgClass,NgIf], // Ensure NgClass is included if needed
+  imports: [RouterOutlet, RouterLink, NgClass, NgIf], // Ensure NgClass is included if needed
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
 
   ngAfterViewInit() {
     // Initialize responsive nav dropdowns
@@ -19,35 +20,36 @@ export class AppComponent {
       return new bootstrap.Dropdown(dropdownToggleEl)
     })
   }
-freezepage() {
-  this.isfreeze= !this.isfreeze
-}
-  router=inject(Router)
-isfreeze: boolean=false;
+  freezepage() {
+    this.isfreeze = !this.isfreeze
+  }
+  router = inject(Router)
+  isfreeze: boolean = false;
 
-goto_createexam() {
-  this.router.navigateByUrl("exam-section/create-exam")}
-
-
-
-goTo_showcreatedtests() {
-this.router.navigateByUrl("exam-section/showcreatedtests")
-}
-goto_analysis_performance() {
-  this.router.navigateByUrl("exam-section/analysis_performance")
-}
-
-
-goTo_showcreatedclassroom() {
-  this.router.navigateByUrl("creteclassroom")
+  goto_createexam() {
+    this.router.navigateByUrl("exam-section/create-exam")
   }
 
-student: any;
+
+
+  goTo_showcreatedtests() {
+    this.router.navigateByUrl("exam-section/showcreatedtests")
+  }
+  goto_analysis_performance() {
+    this.router.navigateByUrl("exam-section/analysis_performance")
+  }
+
+
+  goTo_showcreatedclassroom() {
+    this.router.navigateByUrl("creteclassroom")
+  }
+
+  student: any;
 
   title = 'Teachers Dashboard';
   isSidebarActive = false;
   isDropdownActive = false;
-  
+
 
   logout() {
     localStorage.removeItem("uprofile");
@@ -57,28 +59,36 @@ student: any;
   toggleSidebar() {
     this.isSidebarActive = !this.isSidebarActive;
   }
+  isExamCenterActive: boolean = false;
+  IsClassroomActive: boolean = false;
 
-  toggleDropdown() {
-    this.isDropdownActive = !this.isDropdownActive;
-    console.log(this.isDropdownActive+"tukelsang")
-  }
+  toggleDropdown(section: string) {
 
-  H_threeline:boolean=true
-  V_threeline:boolean=false
-  menudesign(point:number){
-if (point==1) {
-  this.V_threeline=true
-  this.H_threeline=false
-} else {
-  this.V_threeline=false
-  this.H_threeline=true
-}
-  }
-
-
-
+    if (section == "Exam-Center") {
+      this.isExamCenterActive = !this.isExamCenterActive
+    }
+    else if (section == "ClassRoom") {
+      this.IsClassroomActive = !this.IsClassroomActive
+    }
   
-// studentdata() {
-//   this.router.navigateByUrl("/student")
-// }
+  }
+
+  H_threeline: boolean = true
+  V_threeline: boolean = false
+  menudesign(point: number) {
+    if (point == 1) {
+      this.V_threeline = true
+      this.H_threeline = false
+    } else {
+      this.V_threeline = false
+      this.H_threeline = true
+    }
+  }
+
+
+
+
+  // studentdata() {
+  //   this.router.navigateByUrl("/student")
+  // }
 }

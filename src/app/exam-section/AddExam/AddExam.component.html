@@ -8,20 +8,20 @@
       <!-- Buttons visible on larger screens -->
       <div class="d-none d-lg-flex">
 
-        <button class="btn btn-outline-success me-2" type="button">
-          <a (click)="Goto_Students()">Students <i class="badge badge-pill badge-light">10</i></a>
+        <button class="btn btn-outline-success me-2" (click)="goto_Students()"type="button">
+          Students <i class="badge badge-pill badge-light">10</i>
         </button>
 
-        <button class="btn btn-outline-success me-2" type="button">
-          <a (click)="Goto_AddStudent()">Add Student <i class="badge badge-pill badge-light">+</i></a>
+        <button class="btn btn-outline-success me-2" (click)="goto_AddStudent()"type="button">
+          Add Student <i class="badge badge-pill badge-light">+</i>
         </button>
 
-        <button class="btn btn-outline-success me-2" type="button">
-          <a (click)="Goto_Exams()">Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
+        <button class="btn btn-outline-success me-2" (click)="goto_Exams()"type="button">
+          Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i>
         </button>
 
-        <button class="btn btn-outline-warning me-2" [disabled]=addexamdisable type="button">
-          <a (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a>
+        <button class="btn btn-outline-secondary me-2" [disabled]=true type="button">
+          Add Exam <i class="badge badge-pill badge-light">+</i>
         </button>
       </div>
 
@@ -33,10 +33,10 @@
           Menu
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" (click)="goto_studentdata()">Students <i
+          <li><a class="dropdown-item" (click)="goto_Students()">Students <i
                 class="badge badge-pill badge-light">10</i></a></li>
-          <li><a class="dropdown-item">Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a></li>
-          <li><a class="dropdown-item">Add Exam <i class="badge badge-pill badge-light">+</i></a></li>
+          <li><a class="dropdown-item" (click)="goto_Exams()">Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a></li>
+          <li><a class="dropdown-item" (click)="goto_AddStudent()">Add Student <i class="badge badge-pill badge-light">+</i></a></li>
         </ul>
       </div>
 

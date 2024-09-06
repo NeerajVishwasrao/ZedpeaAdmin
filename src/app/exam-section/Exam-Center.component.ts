@@ -6,8 +6,8 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   selector: 'app-exam-section',
   standalone: true,
   imports: [RouterLink, RouterOutlet,NgClass],
-  templateUrl: './exam-section.component.html',
-  styleUrl: './exam-section.component.css'
+  templateUrl: './Exam-Center.component.html',
+  styleUrl: './Exam-Center.component.css'
 })
 export class ExamSectionComponent {
 senddata(_t4: any) {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, NgClass } from '@angular/common';
 
-import { ExamSectionRoutingModule } from './exam-section-routing.module';
+import { ExamSectionRoutingModule } from './Exam-Center-routing.module';
 
 
 @NgModule({

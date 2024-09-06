@@ -20,10 +20,10 @@
   <div class="w3-sidebar w3-bar-block sidebar-card" [ngClass]="{ active: isSidebarActive }">
     <div class="sidebar">
       <!-- Exam Section with Dropdown -->
-      <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown()">
+      <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown('Exam-Center')">
         Exam Center
       </div>
-      <div style="background-color: rgb(245, 219, 159)" *ngIf="isDropdownActive">
+      <div style="background-color: rgb(245, 219, 159)" *ngIf="isExamCenterActive">
         <div class="innernav w3-bar-item" (click)="goto_createexam()" (click)="toggleSidebar()" (click)="freezepage()"
           (click)="menudesign(2)">
           Add Exam
@@ -37,10 +37,10 @@
       <div class="w3-bar-item w3-button" routerLink="timetable">Timetable</div>
   
       <!-- Students Section with Dropdown -->
-      <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown()">
+      <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown('ClassRoom')">
         Classroom
       </div>
-      <div style="background-color: rgb(245, 219, 159)" *ngIf="isDropdownActive">
+      <div style="background-color: rgb(245, 219, 159)" *ngIf="IsClassroomActive">
         <div class="innernav w3-bar-item" (click)="goTo_showcreatedclassroom()" (click)="toggleSidebar()"
           (click)="freezepage()" (click)="menudesign(2)">
           Enrollment

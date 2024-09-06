@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ShowcrtRoutingModuleRoutingModule } from './showcrt-routing-module-routing.module';
+import { ShowcrtRoutingModuleRoutingModule } from './ShowExams.routing.module';
 
 
 @NgModule({

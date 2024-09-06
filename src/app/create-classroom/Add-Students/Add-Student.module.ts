@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CreateClassroomRoutingModule } from './create-classroom-routing.module';
+import { CreateClassroomRoutingModule } from './Add-Student-routing.module';
 
 
 @NgModule({

@@ -1,31 +1,28 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { ServiceExamSectionService } from '../service/service-exam-section.service';
+import { ServiceExamSectionService } from '../../service/service-exam-section.service';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { studentdata } from './studentdata.model';
+import { studentdata } from './Add-Student.model';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-student',
   standalone: true,
   imports: [NgFor, NgIf,FormsModule],
-  templateUrl: './create-student.component.html',
-  styleUrls: ['./create-student.component.css']
+  templateUrl: './Add-Student.component.html',
+  styleUrls: ['./Add-Student.component.css']
 })
 export class CreateStudentComponent {
 
-Goto_AddStudent() {
-  this.router.navigateByUrl("creteclassroom")
-}
 
 Goto_Students() {
-  this.router.navigateByUrl("showstudent")
+  this.router.navigateByUrl("Show-Student")
 
 }
 
 Goto_Exmas() {
-  this.router.navigateByUrl("exam-section/showcreatedtests")
+  this.router.navigateByUrl("Exam-Center/ShowExam")
 
 this.serviceExamSection.Add_this_Q(this.CQArray)}
 
@@ -35,7 +32,7 @@ addexamdisable: any;
 disexam: any;
 CQArray: any;
 Goto_AddExams() {
-  this.router.navigateByUrl("exam-section/create-exam")
+  this.router.navigateByUrl("Exam-Center/AddExam")
 }
 
 Studentdata:any;

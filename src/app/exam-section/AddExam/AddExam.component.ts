@@ -9,25 +9,25 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
   selector: 'app-create-exam',
   standalone: true,
   imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf],
-  templateUrl: './create-exam.component.html',
-  styleUrl: './create-exam.component.css'
+  templateUrl: './AddExam.component.html',
+  styleUrl: './AddExam.component.css'
 })
 
 export class CreateExamComponent {
-[x: string]: any;
 
-Goto_AddExams() {
-  this.router.navigateByUrl("creteclassroom")
 
-}
 
-Goto_Exams() {
-  this.router.navigateByUrl("exam-section/showcreatedtests")
+goto_Exams() {
+  this.router.navigateByUrl("Exam-Center/ShowExam")
 
 }
+goto_AddStudent() {
+    
+  this.router.navigateByUrl("Add-Student")
 
-Goto_Students() {
-  this.router.navigateByUrl("showstudent")
+  }
+goto_Students() {
+  this.router.navigateByUrl("Show-Student")
 }
 
   showQNO: boolean = false;
@@ -73,9 +73,7 @@ Goto_Students() {
   isadded5: boolean = false;
   isadded11: any;
 
-  goto_studentdata() {
-    this.router.navigateByUrl("creteclassroom")
-  }
+
 
    addexamdisable:Boolean=true
   ngOnInit() {
@@ -196,15 +194,11 @@ Goto_Students() {
 
 
   showcreatedtests() {
-    this.router.navigateByUrl("exam-section/showcreatedtests")
+    this.router.navigateByUrl("exam-section/ShowExams")
 
   }
 
-  Goto_AddStudent() {
-    
-    this.router.navigateByUrl("creteclassroom")
-
-    }
+  
     
   toggleAll() {
     this.saved = !this.saved;
