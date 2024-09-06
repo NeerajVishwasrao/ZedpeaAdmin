@@ -9,19 +9,21 @@
         <!-- Buttons visible on larger screens -->
         <div class="d-none d-lg-flex">
 
-          <button class="btn btn-outline-secondary me-2" [disabled]=true type="button">
+          <button class="btn btn-outline-secondary me-2 custom-no-border" [disabled]=true type="button">
             Students <i class="badge badge-pill badge-light">10</i>
           </button>
 
-          <button class="btn btn-outline-success me-2" (click)="goto_AddStudent()" type="button">
+
+
+          <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_AddStudent()" type="button">
             Add Student <i class="badge badge-pill badge-light">+</i>
           </button>
 
-          <button class="btn btn-outline-success me-2" (click)="goto_Exmas()" type="button">
-            Exams <i class="badge badge-pill badge-primary"></i>
+          <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_Exmas()" type="button">
+            Exams <i class="badge badge-pill badge-primary">0</i>
           </button>
 
-          <button class="btn btn-outline-success me-2" (click)="goto_AddExams()" type="button">
+          <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_AddExams()" type="button">
             Add Exam <i class="badge badge-pill badge-light">+</i>
           </button>
 
@@ -29,7 +31,7 @@
 
         <!-- Dropdown visible on smaller screens -->
         <div class="dropdown d-lg-none">
-          <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton"
+          <button class="btn btn-outline-success dropdown-toggle custom-btnSmall" type="button" id="dropdownMenuButton"
             data-bs-toggle="dropdown" aria-expanded="false"
             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
             Menu
@@ -54,7 +56,7 @@
 
             <div class="btn-group">
 
-              <h2 class="navbar-brand">Search 🔍</h2>
+              <h2 class="navbar-brand">🔍</h2>
             </div>
 
 
@@ -189,8 +191,8 @@
 
                       </ul>
                       <p class="d-inline-flex gap-1">
-                        <button class="btn btn-primary" type="button"
-                          (click)="Add_this_Student(student.id)">Update</button>
+                        <button class="btn mybutton" type="button"  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                          (click)="Add_this_Student(student.id)"> Update </button>
                       </p>
                     </div>
                   </div>

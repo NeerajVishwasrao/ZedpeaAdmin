@@ -9,3 +9,63 @@
   background-color: rgb(234, 238, 224); /* Green */
   color: #04AA6D;
 }
+
+
+.custom-btn {
+  background: linear-gradient(135deg, #04AA6D, #a5f3b4);
+  border: none;
+  color: white;
+  font-size: 0.8rem; /* Smaller font size */
+  padding: 7px 14px; /* Smaller padding */
+  border-radius: 20px; /* Slightly rounded */
+  transition: all 0.2s ease; /* Faster transition */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* Slight shadow */
+}
+
+.custom-btn:hover {
+  background: linear-gradient(135deg, #026440, #498949); /* Darker hover state */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+  transform: translateY(-1px); /* Slight hover effect */
+}
+
+.custom-btn i {
+  margin-left: 6px;
+  font-size: 0.8rem; /* Smaller icon size */
+  background-color: #fff;
+  color: #155724;
+  padding: 2px 4px;
+  border-radius: 50%;
+}
+
+
+
+.custom-btnSmall {
+  background: linear-gradient(135deg, #04AA6D, #a5f3b4);
+  border: none;
+  color: white;
+  font-size: 0.75rem; /* Smaller font size */
+  padding: 4px 10px; /* Smaller padding */
+  border-radius: 25px; /* Slightly smaller rounding */
+  transition: all 0.2s ease; /* Smooth transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+}
+
+
+.custom-btnSmall:hover {
+  background: linear-gradient(135deg, #04AA6D, #75d775); /* Darker hover state */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+  transform: translateY(-1px); /* Slight hover effect */
+}
+
+.custom-btnSmall i {
+  margin-left: 6px;
+  font-size: 0.8rem; /* Smaller icon size */
+  background-color: #fff;
+  color: #155724;
+  padding: 2px 4px;
+  border-radius: 50%;
+}
+.custom-no-border {
+  border-bottom: none !important; /* Remove the bottom border */
+  border-bottom-left-radius: 0 !important; /* Remove the bottom-left curve */
+    border-bottom-right-radius: 0 !important; /* Remove the bottom-right curve */

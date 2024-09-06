@@ -27,13 +27,13 @@ export class AppComponent {
   isfreeze: boolean = false;
 
   goto_createexam() {
-    this.router.navigateByUrl("exam-section/create-exam")
+    this.router.navigateByUrl("Exam-Center/AddExam")
   }
 
 
 
   goTo_showcreatedtests() {
-    this.router.navigateByUrl("exam-section/showcreatedtests")
+    this.router.navigateByUrl("Exam-Center/ShowExam")
   }
   goto_analysis_performance() {
     this.router.navigateByUrl("exam-section/analysis_performance")
@@ -41,7 +41,13 @@ export class AppComponent {
 
 
   goTo_showcreatedclassroom() {
-    this.router.navigateByUrl("creteclassroom")
+    this.router.navigateByUrl("Show-Student")
+
+  }
+
+  gotoAddStudent(){
+    this.router.navigateByUrl("Add-Student")
+
   }
 
   student: any;
