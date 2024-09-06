@@ -19,14 +19,14 @@ CQArray: any;
 user: any;
 disexam: boolean=true;
 Goto_AddExams() {
-  this.router.navigateByUrl("exam-section/create-exam")}
+  this.router.navigateByUrl("")}
 
   Goto_AddStudent() {
-    throw new Error('Method not implemented.');
+    this.router.navigateByUrl("creteclassroom")
     }
     
 Goto_Students() {
-this.router.navigateByUrl("creteclassroom")}
+this.router.navigateByUrl("showstudents")}
   index: number = 1
   Qcontainer: any[]=[]
   router=inject(Router);

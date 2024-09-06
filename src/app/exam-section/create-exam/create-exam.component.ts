@@ -27,7 +27,7 @@ Goto_Exams() {
 }
 
 Goto_Students() {
-  this.router.navigateByUrl("creteclassroom")
+  this.router.navigateByUrl("showstudent")
 }
 
   showQNO: boolean = false;
@@ -201,7 +201,9 @@ Goto_Students() {
   }
 
   Goto_AddStudent() {
-    throw new Error('Method not implemented.');
+    
+    this.router.navigateByUrl("creteclassroom")
+
     }
     
   toggleAll() {

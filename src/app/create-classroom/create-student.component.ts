@@ -16,11 +16,12 @@ import { HttpClient } from '@angular/common/http';
 export class CreateStudentComponent {
 
 Goto_AddStudent() {
-throw new Error('Method not implemented.');
+  this.router.navigateByUrl("creteclassroom")
 }
 
 Goto_Students() {
-  this.router.navigateByUrl("creteclassroom")
+  this.router.navigateByUrl("showstudent")
+
 }
 
 Goto_Exmas() {
