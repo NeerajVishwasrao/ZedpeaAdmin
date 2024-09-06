@@ -199,6 +199,11 @@ Goto_Students() {
     this.router.navigateByUrl("exam-section/showcreatedtests")
 
   }
+
+  Goto_AddStudent() {
+    throw new Error('Method not implemented.');
+    }
+    
   toggleAll() {
     this.saved = !this.saved;
     this.isadded1 = false

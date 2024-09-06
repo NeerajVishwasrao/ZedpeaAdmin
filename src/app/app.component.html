@@ -28,22 +28,33 @@
           (click)="menudesign(2)">
           Add Exam
         </div>
-        <div class="innernav w3-bar-item" (click)="goTo_showcreatedtests()" (click)="toggleSidebar()"
-          (click)="freezepage()" (click)="menudesign(2)">
+        <div class="innernav w3-bar-item" (click)="goTo_showcreatedtests()" (click)="toggleSidebar()" (click)="freezepage()"
+          (click)="menudesign(2)">
           Show Exam
         </div>
       </div>
-
+  
       <div class="w3-bar-item w3-button" routerLink="timetable">Timetable</div>
-
-      <div class="w3-bar-item w3-button" routerLink="student" (click)="goTo_showcreatedclassroom()"
-        (click)="toggleSidebar()" (click)="freezepage()" (click)="menudesign(2)">
-        Create Classroom</div>
-
+  
+      <!-- Students Section with Dropdown -->
+      <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown()">
+        Classroom
+      </div>
+      <div style="background-color: rgb(245, 219, 159)" *ngIf="isDropdownActive">
+        <div class="innernav w3-bar-item" (click)="goTo_showcreatedclassroom()" (click)="toggleSidebar()"
+          (click)="freezepage()" (click)="menudesign(2)">
+          Enrollment
+        </div>
+        <div class="innernav w3-bar-item" (click)="goTo_showcreatedclassroom()" (click)="toggleSidebar()"
+          (click)="freezepage()" (click)="menudesign(2)">
+          Students
+        </div>
+      </div>
+  
       <div class="w3-bar-item w3-button" routerLink="attendance">Attendance</div>
       <div class="w3-bar-item w3-button" routerLink="plans">Pricing & Plans</div>
 
-
+      <!-- User Control -->
       <div class="btn btn-danger custom-btn logout-btn" (click)="logout()" (click)="toggleSidebar()"
         (click)="freezepage()" (click)="menudesign(2)">
         Logout

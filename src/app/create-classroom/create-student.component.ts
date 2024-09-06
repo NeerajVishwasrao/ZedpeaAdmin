@@ -19,6 +19,10 @@ Goto_AddStudent() {
 throw new Error('Method not implemented.');
 }
 
+Goto_Students() {
+  this.router.navigateByUrl("creteclassroom")
+}
+
 Goto_Exmas() {
   this.router.navigateByUrl("exam-section/showcreatedtests")
 

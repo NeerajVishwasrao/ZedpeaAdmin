@@ -7,19 +7,23 @@
         </div>
         <!-- Buttons visible on larger screens -->
         <div class="d-none d-lg-flex">
-
-            <button class="btn btn-outline-success me-2" [disabled]="false" type="button">
-                <a (click)="Goto_Students()">Students <i class="badge badge-pill badge-light">10</i></a>
-            </button>
-
-            <button class="btn btn-outline-success me-2" [disabled]="disexam" type="button">
-                <a >Exams <i class="badge badge-pill badge-primary">{{Qcontainer.length}}</i></a>
-            </button>
-
-            <button class="btn btn-outline-success me-2" [disabled]=addexamdisable type="button">
-                <a (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a>
-            </button>
-
+        
+          <button class="btn btn-outline-success me-2" type="button">
+            <a (click)="Goto_Students()">Students <i class="badge badge-pill badge-light">10</i></a>
+          </button>
+        
+          <button class="btn btn-outline-success me-2" type="button">
+            <a (click)="Goto_AddStudent()">Add Student <i class="badge badge-pill badge-light">+</i></a>
+          </button>
+        
+          <button class="btn btn-outline-warning me-2" [disabled]="disexam" type="button">
+            <a>Exams <i class="badge badge-pill badge-primary">{{Qcontainer.length}}</i></a>
+          </button>
+        
+          <button class="btn btn-outline-success me-2" type="button">
+            <a (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a>
+          </button>
+        
         </div>
 
         <!-- Dropdown visible on smaller screens -->

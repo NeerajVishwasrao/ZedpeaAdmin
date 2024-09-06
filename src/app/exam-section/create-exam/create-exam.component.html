@@ -8,18 +8,21 @@
       <!-- Buttons visible on larger screens -->
       <div class="d-none d-lg-flex">
 
-        <button class="btn btn-outline-success me-2" [disabled]="false" type="button">
+        <button class="btn btn-outline-success me-2" type="button">
           <a (click)="Goto_Students()">Students <i class="badge badge-pill badge-light">10</i></a>
         </button>
 
-        <button class="btn btn-outline-success me-2" [disabled]="false" type="button">
+        <button class="btn btn-outline-success me-2" type="button">
+          <a (click)="Goto_AddStudent()">Add Student <i class="badge badge-pill badge-light">+</i></a>
+        </button>
+
+        <button class="btn btn-outline-success me-2" type="button">
           <a (click)="Goto_Exams()">Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
         </button>
 
-        <button class="btn btn-outline-success me-2" [disabled]=addexamdisable type="button">
+        <button class="btn btn-outline-warning me-2" [disabled]=addexamdisable type="button">
           <a (click)="Goto_AddExams()">Add Exam <i class="badge badge-pill badge-light">+</i></a>
         </button>
-
       </div>
 
       <!-- Dropdown visible on smaller screens -->
@@ -295,25 +298,20 @@
   <div class="row">
     <div class="questions-section">
       <div class="questions-container">
-        <div class="card" style="width: 18rem; height: 26rem;" *ngFor="let Qcontainer of filteredQuestions">
+        <div class="card" style="width: 18rem; height: 21rem;" *ngFor="let Qcontainer of filteredQuestions">
           <img src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp" class="card-img-top"
             alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">{{Qcontainer.title}} 
+              ({{Qcontainer.grade}})
+            </h5>
             <p class="card-text">
               <li>Qnumber- {{Qcontainer.qnumber}}</li>
-              <li>Title- {{Qcontainer.title}}</li>
               <li>Template- {{Qcontainer.template}}</li>
+              <li>subject.- {{Qcontainer.qsubject}}</li>
               <li>Topic.- {{Qcontainer.topic}}</li>
               <li>Discription.- {{Qcontainer.description}}</li>
-              <li>template.- {{Qcontainer.template}}</li>
-              <li>grade.- {{Qcontainer.grade}}</li>
-              <li>subject.- {{Qcontainer.qsubject}}</li>
               <li>author.- {{Qcontainer.author}}</li>
-
-
-
-
             </p>
             <!-- <p class="d-inline-flex gap-1"> -->
             <button class="btn mybutton"

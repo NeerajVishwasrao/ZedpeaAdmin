@@ -20,6 +20,11 @@ user: any;
 disexam: boolean=true;
 Goto_AddExams() {
   this.router.navigateByUrl("exam-section/create-exam")}
+
+  Goto_AddStudent() {
+    throw new Error('Method not implemented.');
+    }
+    
 Goto_Students() {
 this.router.navigateByUrl("creteclassroom")}
   index: number = 1
