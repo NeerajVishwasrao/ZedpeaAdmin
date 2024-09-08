@@ -11,6 +11,15 @@ import { NgFor } from '@angular/common';
   styleUrl: './ShowExams.component.css'
 })
 export class ShowCreatedTestComponent {
+deleteTest(_t36: any) {
+throw new Error('Method not implemented.');
+}
+shareTest(_t36: any) {
+throw new Error('Method not implemented.');
+}
+editTest(_t36: any) {
+throw new Error('Method not implemented.');
+}
 Showsingletest(exam:any) {
 this.router.navigateByUrl("Show-single-exam");
 this.serviceExamSection.sendOnetest(exam);
@@ -42,6 +51,7 @@ this.serviceExamSection.sendOnetest(exam);
     this.serviceExamSection.getallexmas().subscribe(
       (val) => {
         this.Qcontainer = val
+        console.log("here is array or array all tests "+this.Qcontainer)
       }
     )
 

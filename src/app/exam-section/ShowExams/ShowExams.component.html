@@ -36,7 +36,8 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><a class="dropdown-item" (click)="goto_Students()">Students <i
                 class="badge badge-pill badge-light">10</i></a></li>
-          <li><a class="dropdown-item" (click)="goto_AddStudent()">Add Student <i class="badge badge-pill badge-primary"></i></a>
+          <li><a class="dropdown-item" (click)="goto_AddStudent()">Add Student <i
+                class="badge badge-pill badge-primary"></i></a>
           </li>
           <li><a class="dropdown-item" (click)="goto_AddExams()">Add Exam <i
                 class="badge badge-pill badge-light">+</i></a></li>
@@ -48,23 +49,59 @@
   </nav>
 </div>
 <div>will see here created exam </div>
-<div style="display: flex; flex-wrap: wrap;">
-
-  <div *ngFor="let exam of Qcontainer" style="margin-right: 20px">
-    <!-- <p>Test Created number: {{ incrementIndex() }}</p> -->
-
-    <div class="card-body" (click)="Showsingletest(exam)" style="height: 250px; width:300px">
-      <div class="card" >
-        <img src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp" class="card-img-top"
-          alt="..." />
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          <li>f</li>
-          <li>j</li>
-         
-        </p>
-        <p class="d-inline-flex gap-1"></p>
+<div style="">
+  <div class="container mt-5">
+    <div class="card shadow-sm mx-auto" style="max-width: 1000px;">
+      <div class="card-body" style="min-height: 500px; overflow-y: auto;">
+        <div class="row">
+          <div class="col-sm-6 mb-4" *ngFor="let exam of Qcontainer">
+            <div class="card exam-card shadow-sm h-100" (click)="Showsingletest(exam)">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp" class="card-img-top rounded-start" alt="Exam Image">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <ul class="list-unstyled mb-4">
+                      <li><strong>Test Name: </strong> {{ exam.name }}</li>
+                      <li><strong>Test Grade: </strong> {{ exam.grade }}</li>
+                      <li><strong>Test Description: </strong> {{ exam.description }}</li>
+                    </ul>
+                    <div class="btn-group">
+                      <button class="btn btn-outline-warning me-2" type="button" (click)="editTest(exam)">✏️</button>
+                      <button class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">➤</button>
+                      <button class="btn btn-outline-danger" type="button" (click)="deleteTest(exam)">🗑</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

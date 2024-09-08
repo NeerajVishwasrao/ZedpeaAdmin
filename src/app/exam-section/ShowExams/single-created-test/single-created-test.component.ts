@@ -16,7 +16,7 @@ export class CreatedTestComponent {
   Service=inject(ServiceExamSectionService)
 
 goback() {
-  this.router.navigateByUrl("Exam-Center/AddExam")
+  this.router.navigateByUrl("Exam-Center/ShowExam")
 }
    question:any
   examsectionservice=inject(ServiceExamSectionService)

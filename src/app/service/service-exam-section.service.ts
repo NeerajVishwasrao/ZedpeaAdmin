@@ -8,31 +8,9 @@ import { studentdata } from '../create-classroom/Add-Students/Add-Student.model'
   providedIn: 'root'
 })
 export class ServiceExamSectionService {
-  exam:any
+  exam: any
 
-
-  returnShowonetest():Observable<any[]> {
-    this.behaviorsubject.next(this.exam);
-    return this.behaviorsubject.asObservable();
-
-  }
-
-  
-  students(user: studentdata) {
-
-    return this.http.post<any>('https://zedpea.co.in/api/students.php', user);
-
-  }
-
-  mystudents() {
-    // this is just the HTTP call, 
-    console.log("in login service")
-    return this.http.get<any>('https://zedpea.co.in/api/mystudents.php');
-
-}
-
-
-   private behaviorsubject = new BehaviorSubject<any>(null);
+  private behaviorsubject = new BehaviorSubject<any>(null);
   // return this.behaviorsubject.asObservable();
 
   http = inject(HttpClient);
@@ -44,16 +22,39 @@ export class ServiceExamSectionService {
   store: any
 
 
+  returnShowonetest(): Observable<any[]> {
+    this.behaviorsubject.next(this.exam);
+    return this.behaviorsubject.asObservable();
+
+  }
+
+
+  students(user: studentdata) {
+
+    return this.http.post<any>('https://zedpea.co.in/api/students.php', user);
+
+  }
+
+  mystudents() {
+    // this is just the HTTP call, 
+    console.log("in login service")
+    return this.http.get<any>('https://zedpea.co.in/api/mystudents.php');
+
+  }
+
+
+
   constructor() { }
 
   Add_this_Q(QarrayContainer: any) {
     this.QarrayContainer = QarrayContainer;
-    this.behaviorsubject.next(QarrayContainer)
 
   }
 
-  getallexmas():Observable<any[]>{
-   return this.behaviorsubject.asObservable()
+  getallexmas(): Observable<any[]> {
+    this.behaviorsubject.next(this.QarrayContainer)
+
+    return this.behaviorsubject.asObservable()
   }
 
 
@@ -61,7 +62,7 @@ export class ServiceExamSectionService {
     this.store = info;
 
   }
-  sendOnetest(exam:string){
-    this.exam=exam
+  sendOnetest(exam: string) {
+    this.exam = exam
   }
 }
