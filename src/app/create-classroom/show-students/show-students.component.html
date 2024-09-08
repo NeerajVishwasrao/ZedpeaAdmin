@@ -141,7 +141,7 @@
 
   <div style="margin-top: 50px;">
     <div class="container mt-4">
-      <div class="card shadow-sm" style="width: 100%; max-width: 2000px; margin: auto;">
+      <div class="card shadow-sm" style="width: 100%; max-width: 1000px; margin: auto;">
         <div class="card-body" style="min-height: 500px; overflow-y: auto;">
           <div class="row">
             <div class="col-sm-6" *ngFor="let student of varr">
@@ -155,23 +155,24 @@
                     <div class="card-body">
                       <ul class="list-unstyled">
                         <li><strong>Id:</strong> {{student.stud}}</li>
-                        <li><strong>grade:</strong> {{student.grade}}</li>
-                        <li><strong>usernm:</strong> {{student.username}}</li>
-                        <li><strong>reward:</strong> {{student.rewards}}</li>
-                        <li><strong> package</strong> {{student.package}}</li>
+                        <li><strong>Grade:</strong> {{student.grade}}</li>
+                        <li><strong>Username:</strong> {{student.username}}</li>
+                        <li><strong>Reward:</strong> {{student.rewards}}</li>
+                        <li><strong> Package</strong> {{student.package}}</li>
 
 
                       </ul>
 
-                      <div class="btn-group ">
-                      <button class="btn btn-outline-warning me-2" type="button" (click)="openForm()">
-                        ✏️
-                      </button>
-                      <button class="btn btn-outline-danger" type="button">
-                        🗑
-                      </button>
-                    </div>
+                      <div class="d-flex justify-content-end">
+                        <button class="btn btn-outline-warning me-2" type="button" (click)="openForm()">
+                          ✏️
+                        </button>
+                        <button class="btn btn-outline-danger" type="button">
+                          🗑
+                        </button>
+                      </div>
                   </div>
+
                     <!-- <p class="d-inline-flex gap-1">
                         <button class="btn mybutton" type="button"  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                           (click)="Add_this_Student(student.id)"> Update </button>
