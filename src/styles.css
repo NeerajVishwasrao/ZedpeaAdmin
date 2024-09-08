@@ -43,7 +43,7 @@
 .custom-btn i:hover {
   background-color: #0f766e;
   color: #ffffff;
-  transform: scale(1.1); /* Slight scale effect on hover */
+  transform: scale(1.2); /* Slight scale effect on hover */
 }
 
 .custom-btn:focus {
@@ -103,4 +103,5 @@
   border-bottom: none !important; /* Remove the bottom border */
   border-bottom-left-radius: 0 !important; /* Remove the bottom-left curve */
     border-bottom-right-radius: 0 !important; /* Remove the bottom-right curve */
+    
 }
