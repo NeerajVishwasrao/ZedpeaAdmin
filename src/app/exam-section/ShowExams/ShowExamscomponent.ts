@@ -11,12 +11,12 @@ import { NgFor } from '@angular/common';
   styleUrl: './ShowExams.component.css'
 })
 export class ShowCreatedTestComponent {
-Showsingletest() {
+Showsingletest(exam:any) {
 this.router.navigateByUrl("Show-single-exam");
+this.serviceExamSection.sendOnetest(exam);
+
 }
-  senddata(exam: any) {
-    this.serviceExamSection.sendOnetest(exam);
-  }
+ 
   addexamdisable: any;
   CQArray: any;
   user: string="Tejas";
@@ -45,10 +45,10 @@ this.router.navigateByUrl("Show-single-exam");
       }
     )
 
-    let objUprofile = localStorage.getItem("uprofile");
-    if (objUprofile != null) {
-      this.user = JSON.parse(objUprofile)['league_name'];
-    }
+    // let objUprofile = localStorage.getItem("uprofile");
+    // if (objUprofile != null) {
+    //   this.user = JSON.parse(objUprofile)['league_name'];
+    // }
   }
 
 

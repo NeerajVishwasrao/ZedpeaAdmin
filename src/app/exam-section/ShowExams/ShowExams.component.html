@@ -16,7 +16,7 @@
           Add Student <i class="badge badge-pill badge-light">+</i>
         </button>
 
-        <button class="btn btn-outline-secondary me-2 custom-no-border" [disabled]=true type="button">
+        <button class="btn btn-outline-secondary me-2 custom-no-border" disabled="true" type="button">
           <a>Exams <i class="badge badge-pill badge-primary">0</i></a>
         </button>
 
@@ -53,8 +53,8 @@
   <div *ngFor="let exam of Qcontainer" style="margin-right: 20px">
     <!-- <p>Test Created number: {{ incrementIndex() }}</p> -->
 
-    <div class="card-body" (click)="Showsingletest()">
-      <div class="card" (click)="senddata(exam)">
+    <div class="card-body" (click)="Showsingletest(exam)" style="height: 250px; width:300px">
+      <div class="card" >
         <img src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp" class="card-img-top"
           alt="..." />
         <h5 class="card-title">Card title</h5>
