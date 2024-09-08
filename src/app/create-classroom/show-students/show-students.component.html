@@ -54,7 +54,7 @@
   <div style="margin-top: 50px;">
     <div class="container mt-4">
       <div class="card shadow-sm" style="width: 100%; max-width: 800px; margin: auto;">
-        <div class="card-body" style="height: 500px; overflow-y: auto;">
+        <div class="card-body" style="min-height: 500px; overflow-y: auto;">
           <div class="row">
             <div class="col-sm-6" *ngFor="let student of varr">
               <div class="card mb-4 shadow-sm student-card">
@@ -65,13 +65,12 @@
                   <div class="col-md-8">
                     <div class="card-body">
                       <ul class="list-unstyled">
-                        <li><strong>id:</strong> {{student.stud}}</li>
+                        <li><strong>Id:</strong> {{student.stud}}</li>
                         <li><strong>Name:</strong> {{student.student_name}}</li>
-                        <li><strong>grade:</strong> {{student.grade}}</li>
-                        <li><strong>usernm:</strong> {{student.username}}</li>
-                        <li><strong>reward:</strong> {{student.rewards}}</li>
-                        <li><strong> package</strong> {{student.package}}</li>
-
+                        <li><strong>Grade:</strong> {{student.grade}}</li>
+                        <li><strong>Username:</strong> {{student.username}}</li>
+                        <li><strong>Reward:</strong> {{student.rewards}}</li>
+                        <li><strong>Package</strong> {{student.package}}</li>
                       </ul>
                       <p class="d-inline-flex gap-1">
                         <button class="btn mybutton" type="button"  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
