@@ -12,13 +12,18 @@ import * as bootstrap from 'bootstrap'; // <-- Import Bootstrap JavaScript
 })
 export class AppComponent {
 
-
+  titleuser = 'League';
   ngAfterViewInit() {
     // Initialize responsive nav dropdowns
     var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
     var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
       return new bootstrap.Dropdown(dropdownToggleEl)
     })
+
+    let objUprofile = localStorage.getItem("uprofile");
+    if (objUprofile != null) {
+      this.titleuser = JSON.parse(objUprofile)['league_name'];
+    }
   }
   freezepage() {
     this.isfreeze = !this.isfreeze
@@ -52,7 +57,6 @@ export class AppComponent {
 
   student: any;
 
-  title = 'Teachers Dashboard';
   isSidebarActive = false;
   isDropdownActive = false;
 

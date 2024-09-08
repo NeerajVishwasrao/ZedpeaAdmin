@@ -77,8 +77,9 @@ goto_Students() {
 
    addexamdisable:Boolean=true
   ngOnInit() {
-    if (localStorage.getItem("uprofile") != null) {
-      this.user = localStorage.getItem("uprofile");
+    let objUprofile = localStorage.getItem("uprofile");
+    if (objUprofile != null) {
+      this.user = JSON.parse(objUprofile)['league_name'];
     }
 
     var demoobj: Qdata = {

@@ -3,8 +3,7 @@
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid justify-content-start">
         <div class="d-none d-lg-flex">
-
-          <h2 class="navbar-brand"> 🏅{{user}} </h2>
+          <h2 class="navbar-brand"> 📚 </h2>
         </div>
         <!-- Buttons visible on larger screens -->
         <div class="d-none d-lg-flex">
@@ -143,7 +142,7 @@
   <div style="margin-top: 50px;">
     <div class="container mt-4">
       <div class="card shadow-sm" style="width: 100%; max-width: 800px; margin: auto;">
-        <div class="card-body" style="height: 500px; overflow-y: auto;">
+        <div class="card-body" style="min-height: 500px; overflow-y: auto;">
           <div class="row">
             <div class="col-sm-6" *ngFor="let student of varr">
               <div class="card mb-4 shadow-sm student-card">
@@ -154,7 +153,7 @@
                   <div class="col-md-8">
                     <div class="card-body">
                       <ul class="list-unstyled">
-                        <li><strong>id:</strong> {{student.stud}}</li>
+                        <li><strong>Id:</strong> {{student.stud}}</li>
                         <li><strong>Name:</strong> {{student.student_name}}</li>
                         <li><strong>grade:</strong> {{student.grade}}</li>
                         <li><strong>usernm:</strong> {{student.username}}</li>

@@ -44,6 +44,11 @@ this.router.navigateByUrl("Show-single-exam");
         this.Qcontainer = val
       }
     )
+
+    let objUprofile = localStorage.getItem("uprofile");
+    if (objUprofile != null) {
+      this.user = JSON.parse(objUprofile)['league_name'];
+    }
   }
 
 

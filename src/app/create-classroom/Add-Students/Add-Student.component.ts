@@ -80,9 +80,9 @@ rollNo: any;
       }
     );
 
-
-    if (localStorage.getItem("uprofile") != null) {
-      this.user = localStorage.getItem("uprofile");
+    let objUprofile = localStorage.getItem("uprofile");
+    if (objUprofile != null) {
+      this.user = JSON.parse(objUprofile)['league_name'];
     }
   }
 
