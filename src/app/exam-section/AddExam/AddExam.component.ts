@@ -199,7 +199,37 @@ goto_Students() {
 
   }
 
-  
+  message: any = 'Push';
+  newExam: NewExamObj =
+  {
+    "leagueId": "104",
+    "examTitle": "Maths Type 1",
+    "description": "AUG test for K1 Maths",
+    "grade": "k1",
+    "q1": "mt01_q1",
+    "q2": "mt01_q2",
+    "q3": "mt01_q3",
+    "q4": "mt01_q4",
+    "q5": "mt01_q5",
+    "q6": "mt01_q6",
+    "q7": "mt01_q7",
+    "q8": "mt01_q8",
+    "q9": "mt01_q9",
+    "q10": "mt01_q10"
+ }
+ 
+
+  pushNewExam() {
+    let objUprofile = localStorage.getItem("uprofile");
+    if (objUprofile != null) {
+      this.newExam.leagueId = JSON.parse(objUprofile)['league_id'];
+    }
+
+    this.http.post<any>("https://zedpea.co.in/api/newexam.php", this.newExam)
+    .subscribe(data => {
+      this.message = data.message; 
+    })
+  }
     
   toggleAll() {
     this.saved = !this.saved;
@@ -236,4 +266,21 @@ interface Qdata {
   author: string,
   grade: string,
   qType: string
+}
+
+interface NewExamObj {
+  leagueId: string,
+  examTitle: string,
+  description: string,
+  grade: string,
+  q1: string,
+  q2: string,
+  q3: string,
+  q4: string,
+  q5: string,
+  q6: string,
+  q7: string,
+  q8: string,
+  q9: string,
+  q10: string
 }

@@ -30,7 +30,7 @@ export class CreateStudentComponent {
   
   isnewstudent: boolean = false;
   message: any = 'Save';
-  newStudent: studentObj =
+  newStudent: StudentObj =
   {
     "studentId": '',
     "studentName": '',
@@ -56,7 +56,7 @@ export class CreateStudentComponent {
   }
 }
 
-interface studentObj {
+interface StudentObj {
   "studentId": string,
   "studentName": string,
   "grade": string,
