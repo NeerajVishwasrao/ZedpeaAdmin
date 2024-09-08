@@ -77,10 +77,10 @@ goto_Students() {
 
    addexamdisable:Boolean=true
   ngOnInit() {
-    let objUprofile = localStorage.getItem("uprofile");
-    if (objUprofile != null) {
-      this.user = JSON.parse(objUprofile)['league_name'];
-    }
+    // let objUprofile = localStorage.getItem("uprofile");
+    // if (objUprofile != null) {
+    //   this.user = JSON.parse(objUprofile)['league_name'];
+    // }
 
     var demoobj: Qdata = {
       qSubject: "Marathi",
