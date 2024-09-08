@@ -6,16 +6,12 @@
     color: black;
   }
   .exam-card {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s, background-color 0.2s;
+    background-color: white; /* Default card color */
   }
   
   .exam-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-img-top {
-    object-fit: cover;
-    height: 150px;
+    background-color: #f0f0f5; /* New background color on hover */
   }
   
