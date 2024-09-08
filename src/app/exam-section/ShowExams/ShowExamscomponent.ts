@@ -11,8 +11,11 @@ import { NgFor } from '@angular/common';
   styleUrl: './ShowExams.component.css'
 })
 export class ShowCreatedTestComponent {
-  senddata(_t32: any) {
-    throw new Error('Method not implemented.');
+Showsingletest() {
+this.router.navigateByUrl("Show-single-exam");
+}
+  senddata(exam: any) {
+    this.serviceExamSection.sendOnetest(exam);
   }
   addexamdisable: any;
   CQArray: any;

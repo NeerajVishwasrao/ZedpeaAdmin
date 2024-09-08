@@ -22,6 +22,10 @@ export const routes: Routes = [
     {
         path:'Show-Student',loadChildren:()=>import('./create-classroom/show-students/show-student.module').then(m=>m.ShowStudentModule),
         canActivate:[authZPGuard]
+    },
+    {
+        path:'Show-single-exam',loadChildren:()=>import('./exam-section/ShowExams/single-created-test/single-creted-test.module').then(m=>m.CretedTestModule),
+        canActivate:[authZPGuard]
     }
    
 ];

@@ -61,7 +61,7 @@ export class LoginComponent {
         if (this.response.length) {
 
           localStorage.setItem("uprofile",this.response[0].league_name)
-            this.router.navigateByUrl("exam-section/addexams")
+          this.router.navigateByUrl("Exam-Center/AddExam")
      
          } else {
             alert("Invalid Credentials")
