@@ -53,8 +53,8 @@
   <div *ngFor="let exam of Qcontainer" style="margin-right: 20px">
     <!-- <p>Test Created number: {{ incrementIndex() }}</p> -->
 
-    <div class="card-body" (click)="Showsingletest()" style="height: 250px; width:300px">
-      <div class="card" (click)="senddata(exam)">
+    <div class="card-body" (click)="Showsingletest(exam)" style="height: 250px; width:300px">
+      <div class="card" >
         <img src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp" class="card-img-top"
           alt="..." />
         <h5 class="card-title">Card title</h5>
