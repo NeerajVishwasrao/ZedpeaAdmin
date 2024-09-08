@@ -41,6 +41,11 @@ export class ShowCreatedTestComponent {
         this.Qcontainer = val
       }
     )
+
+    let objUprofile = localStorage.getItem("uprofile");
+    if (objUprofile != null) {
+      this.user = JSON.parse(objUprofile)['league_name'];
+    }
   }
 
 

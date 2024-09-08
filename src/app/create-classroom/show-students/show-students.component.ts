@@ -33,7 +33,6 @@ export class ShowStudentsComponent {
   disexam: any;
   CQArray: any;
 
-
   Studentdata: any;
 
   isnewstudent: boolean = false;
@@ -44,13 +43,8 @@ export class ShowStudentsComponent {
   searchtext3: string = '';
   searchtext4: string = '';
 
-
-  user: any = '';
   studentName: any;
   rollNo: any;
-
-
-
 
   selectedStudents: any[] = [];
   savedStudentGroups: any[][] = [];
@@ -61,28 +55,25 @@ export class ShowStudentsComponent {
 
   varr: any[] = [];
 
-  getstuobj: demoobj =
-
+  leagueUser: user =
     {
       leagueId: "101"
     }
 
 
   ngOnInit(): void {
-    this.http.post<any>('https://zedpea.co.in/api/students.php', this.getstuobj)
+    
+    let objUprofile = localStorage.getItem("uprofile");
+    if (objUprofile != null) {
+      this.leagueUser.leagueId = JSON.parse(objUprofile)['league_id'];
+    }
+
+    this.http.post<any>('https://zedpea.co.in/api/students.php', this.leagueUser)
       .subscribe(
         (data: any) => {
           this.varr = data;
-
-
-
         }
       );
-
-
-    if (localStorage.getItem("uprofile") != null) {
-      this.user = localStorage.getItem("uprofile");
-    }
   }
 
   filterQuestions() {
@@ -134,7 +125,7 @@ export class ShowStudentsComponent {
 
 }
 
-interface demoobj {
+interface user {
   leagueId: string
 }
 

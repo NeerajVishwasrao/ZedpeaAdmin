@@ -3,8 +3,7 @@
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid justify-content-start">
         <div class="d-none d-lg-flex">
-
-          <h2 class="navbar-brand"> 🏅{{user}} </h2>
+          <h2 class="navbar-brand"> 📚 </h2>
         </div>
         <!-- Buttons visible on larger screens -->
         <div class="d-none d-lg-flex">
@@ -45,122 +44,6 @@
                   class="badge badge-pill badge-light">+</i></a></li>
           </ul>
         </div>
-
-
-        <div class="ms-auto">
-
-
-          <!-- Buttons visible on larger screens -->
-
-          <div class="d-none d-lg-flex">
-
-            <div class="btn-group">
-
-              <h2 class="navbar-brand">🔍</h2>
-            </div>
-
-
-
-            <div class="btn-group">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">Std</label>
-                <select class="form-select" id="inputGroupSelect01" (change)="filterQuestions()"
-                  [(ngModel)]="searchtext1" style="width: 120px;">
-                  <option value="" selected>All</option>
-                  <option value="k1">k1</option>
-                  <option value="k2">k2</option>
-                  <option value="1">First</option>
-                  <option value="2">Second</option>
-                </select>
-              </div>
-            </div>
-
-
-            <div class="btn-group">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect02">Sub</label>
-                <select class="form-select" id="inputGroupSelect02" (change)="filterQuestions()"
-                  [(ngModel)]="searchtext2" style="width: 120px;">
-                  <option value="" selected>All</option>
-                  <option value="eng">English</option>
-                  <option value="math">Math</option>
-                  <option value="marathi">Marathi</option>
-                  <option value="evs">EVS</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="btn-group">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect03">Type</label>
-                <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()"
-                  [(ngModel)]="searchtext3" style="width: 120px;">
-                  <option value="" selected>All</option>
-                  <option value="mr01">One</option>
-                  <option value="mr02">Two</option>
-                  <option value="mr03">Three</option>
-                  <option value="mr04">Four</option>
-                  <option value="mr05">Five</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-
-
-          <!-- Dropdown visible on smaller screens -->
-          <div class="dropdown d-lg-none">
-            <div class="btn-group">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  style="width: 50px; height: 30px; font-size: 12px;">Std</label>
-                <select class="form-select" id="inputGroupSelect01" (change)="filterQuestions()"
-                  [(ngModel)]="searchtext1" style="width: 120px; height: 30px; font-size: 12px;">
-                  <option value="" selected>🔍 All</option>
-                  <option value="K1">LKG</option>
-                  <option value="ukg">UKG</option>
-                  <option value="1">First</option>
-                  <option value="2">Second</option>
-                </select>
-              </div>
-            </div>
-
-
-            <div class="btn-group">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect02"
-                  style="width: 50px; height: 30px; font-size: 12px;">Sub</label>
-                <select class="form-select" id="inputGroupSelect02" (change)="filterQuestions()"
-                  [(ngModel)]="searchtext2" style="width: 120px; height: 30px; font-size: 12px;">
-                  <option value="" selected>🔍 All</option>
-                  <option value="eng">English</option>
-                  <option value="math">Math</option>
-                  <option value="Marathi">Marathi</option>
-                  <option value="evs">EVS</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="btn-group">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect03"
-                  style="width: 50px; height: 30px; font-size: 12px;">Type</label>
-                <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()"
-                  [(ngModel)]="searchtext3" style="width: 120px; height: 30px; font-size: 12px;">
-                  <option value="" selected>🔍 All</option>
-                  <option value="mr01">One</option>
-                  <option value="m102">Two</option>
-                  <option value="mr03">Three</option>
-                  <option value="mr04">Four</option>
-                  <option value="mr05">Five</option>
-                </select>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
 
       </div>
     </nav>
