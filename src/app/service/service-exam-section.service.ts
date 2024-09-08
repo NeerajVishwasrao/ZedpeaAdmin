@@ -8,7 +8,12 @@ import { studentdata } from '../create-classroom/Add-Students/Add-Student.model'
   providedIn: 'root'
 })
 export class ServiceExamSectionService {
+  exam:any
+  returnShowonetest():Observable<any[]> {
+    this.behaviorsubject.next(this.exam);
+    return this.behaviorsubject.asObservable();
 
+  }
   students(user: studentdata) {
 
     return this.http.post<any>('https://zedpea.co.in/api/students.php', user);
@@ -51,5 +56,8 @@ export class ServiceExamSectionService {
   method1(info: string): void {
     this.store = info;
 
+  }
+  sendOnetest(exam:string){
+    this.exam=exam
   }
 }

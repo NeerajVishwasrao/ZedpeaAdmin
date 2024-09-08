@@ -1,0 +1,38 @@
+<div style="margin-left: 30px; margin-right: 30px;">
+
+<div style="margin-top: 35px;">
+<table class="table table-bordered table-striped ">
+  <thead class="table-dark ">
+    <tr >
+      <th>Qnumber</th>
+      <th>Template</th>
+      <th>subject</th>
+      <th>Topic </th>
+      <th>Discription</th>
+      <th>author</th>
+      <th>img</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Qcontainer of question">
+      <td>Qnumber- {{Qcontainer.qnumber}}</td>
+      <td>Template- {{Qcontainer.template}}</td>
+      <td>subject.- {{Qcontainer.qsubject}}</td>
+      <td>Topic.- {{Qcontainer.topic}}</td>
+      <td>Discription.- {{Qcontainer.description}}</td>
+      <td>author.- {{Qcontainer.author}}</td>
+      <td>
+        <img
+          style="height: 70px; width: 70px"
+          src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+          alt="can't find img"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-outline-primary" (click)="goback()">go back</button>
+</div>
+</div>

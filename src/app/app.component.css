@@ -85,6 +85,7 @@
   
   .sidebar-card.active {
     transform: translateX(0);
+    
   }
   
   .sidebar {
