@@ -149,24 +149,35 @@
                 <div class="row no-gutters">
                   <div class="col-md-4">
                     <img src="/assets/dummy.jpg" class="card-img" alt="Student Image">
+                    <h5 class="text-center mt-2">{{student.student_name}}</h5>
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
                       <ul class="list-unstyled">
                         <li><strong>Id:</strong> {{student.stud}}</li>
-                        <li><strong>Name:</strong> {{student.student_name}}</li>
                         <li><strong>grade:</strong> {{student.grade}}</li>
                         <li><strong>usernm:</strong> {{student.username}}</li>
                         <li><strong>reward:</strong> {{student.rewards}}</li>
                         <li><strong> package</strong> {{student.package}}</li>
-                        
+
 
                       </ul>
-                      <p class="d-inline-flex gap-1">
+
+                      <div class="btn-group"></div>
+                      <button class="btn btn-outline-primary me-2" type="button" (click)="openForm()">
+                        ✏️
+                      </button>
+                      <button class="btn btn-outline-danger" type="button">
+                        🗑
+                      </button>
+                    </div>
+                    
+                    <!-- <p class="d-inline-flex gap-1">
                         <button class="btn mybutton" type="button"  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                           (click)="Add_this_Student(student.id)"> Update </button>
-                      </p>
-                    </div>
+                      </p> -->
+
+                      
                   </div>
                 </div>
               </div>
@@ -174,13 +185,13 @@
           </div>
         </div>
       </div>
-
-
     </div>
+
+
   </div>
-
-
-
-
-
 </div>
+
+
+
+
+

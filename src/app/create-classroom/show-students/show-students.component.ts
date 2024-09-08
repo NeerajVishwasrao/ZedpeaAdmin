@@ -14,6 +14,11 @@ import { NgFor } from '@angular/common';
 })
 export class ShowStudentsComponent {
 
+openForm() {
+throw new Error('Method not implemented.');
+}
+
+
   goto_AddStudent() {
     this.router.navigateByUrl("Add-Student")
 
@@ -128,4 +133,6 @@ export class ShowStudentsComponent {
 interface user {
   leagueId: string
 }
+
+
 
