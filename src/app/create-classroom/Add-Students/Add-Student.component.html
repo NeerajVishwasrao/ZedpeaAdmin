@@ -34,19 +34,14 @@
             Menu
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" (click)="Goto_Students()">Students <i
-                  class="badge badge-pill badge-light">10</i></a></li>
-            <li><a class="dropdown-item" (click)="Goto_Exmas()">Exams <i class="badge badge-pill badge-primary"></i></a>
-            </li>
-            <li><a class="dropdown-item" (click)="Goto_AddExams()">Add Exam <i
-                  class="badge badge-pill badge-light">+</i></a></li>
+            <li><a class="dropdown-item" (click)="Goto_Students()">Students 
+              <i class="badge badge-pill badge-light">10</i></a></li>
+            <li><a class="dropdown-item" (click)="Goto_Exmas()">Exams 
+              <i class="badge badge-pill badge-primary"></i></a></li>
+            <li><a class="dropdown-item" (click)="Goto_AddExams()">Add Exam 
+              <i class="badge badge-pill badge-light">+</i></a></li>
           </ul>
         </div>
-
-
-
-
-
       </div>
     </nav>
 
@@ -59,13 +54,13 @@
     <div class="card-body">
       <div class="form-group">
         <label for="studname">Student Name:</label>
-        <input type="text" class="form-control" id="studname" [(ngModel)]="StudentName">
+        <input type="text" class="form-control" id="studname" [(ngModel)]="newStudent.studentName">
 
         <label for="rollnumber">Roll Number:</label>
-        <input type="text" class="form-control" id="studentid" [(ngModel)]="StudentRoll">
+        <input type="text" class="form-control" id="studentid" [(ngModel)]="newStudent.studentId">
 
         <label for="selectgrade">Select Grade:</label>
-        <select class="form-control" id="selectgrade" [(ngModel)]="StudentSelect">
+        <select class="form-control" id="selectgrade" [(ngModel)]="newStudent.grade">
           <option>K1</option>
           <option>K2</option>
           <option>STD1</option>
@@ -73,13 +68,13 @@
         </select>
 
         <label for="susername">Username:</label>
-        <input type="text" class="form-control" id="susername" [(ngModel)]="Susername">
+        <input type="text" class="form-control" id="susername" [(ngModel)]="newStudent.username">
 
         <label for="spassword">Password:</label>
-        <input type="text" class="form-control" id="spassword" [(ngModel)]="Spassword">
+        <input type="text" class="form-control" id="spassword" [(ngModel)]="newStudent.passkey">
       </div>
 
-      <button type="button" class="btn mybutton" (click)="saveSelectedStudents()">Save</button>
+      <button type="button" class="btn mybutton" (click)="saveSelectedStudents()">{{message}}</button>
     </div>
   </div>
 
