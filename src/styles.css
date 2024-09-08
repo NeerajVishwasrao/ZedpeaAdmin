@@ -105,3 +105,10 @@
     border-bottom-right-radius: 0 !important; /* Remove the bottom-right curve */
     
 }
+
+
+
+.exam-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f5; /* New background color on hover */
+}

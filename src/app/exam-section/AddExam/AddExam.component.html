@@ -7,15 +7,15 @@
       <!-- Buttons visible on larger screens -->
       <div class="d-none d-lg-flex">
 
-        <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_Students()"type="button">
+        <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_Students()" type="button">
           Students <i class="badge badge-pill badge-light">&#9733;</i>
         </button>
 
-        <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_AddStudent()"type="button">
+        <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_AddStudent()" type="button">
           Add Student <i class="badge badge-pill badge-light">+</i>
         </button>
 
-        <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_Exams()"type="button">
+        <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_Exams()" type="button">
           Exams <i class="badge badge-pill badge-primary">&#9733;</i>
         </button>
 
@@ -34,8 +34,10 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><a class="dropdown-item" (click)="goto_Students()">Students <i
                 class="badge badge-pill badge-light">10</i></a></li>
-          <li><a class="dropdown-item" (click)="goto_Exams()">Exams <i class="badge badge-pill badge-primary">{{CQArray.length}}</i></a></li>
-          <li><a class="dropdown-item" (click)="goto_AddStudent()">Add Student <i class="badge badge-pill badge-light">+</i></a></li>
+          <li><a class="dropdown-item" (click)="goto_Exams()">Exams <i
+                class="badge badge-pill badge-primary">{{CQArray.length}}</i></a></li>
+          <li><a class="dropdown-item" (click)="goto_AddStudent()">Add Student <i
+                class="badge badge-pill badge-light">+</i></a></li>
         </ul>
       </div>
 
@@ -223,7 +225,7 @@
       <button type="button" [ngClass]="isadded10?'btn btn-info': 'btn btn-light'" (click)="savenewquestion()"
         [disabled]="!isadded10">Save</button>
 
-        <button type="button" [ngClass]="isadded10?'btn btn-danger': 'btn btn-light'" (click)="pushNewExam()"
+      <button type="button" [ngClass]="isadded10?'btn btn-danger': 'btn btn-light'" (click)="pushNewExam()"
         [disabled]="!isadded10">{{message}}</button>
 
 
@@ -300,27 +302,27 @@
   <div class="row">
     <div class="questions-section">
       <div class="questions-container">
-        <div class="card" style="width: 18rem; height: 21rem;" *ngFor="let Qcontainer of filteredQuestions">
-          <img src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp" class="card-img-top"
-            alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{Qcontainer.title}} 
-              ({{Qcontainer.grade}})
-            </h5>
-            <p class="card-text">
-              <li>Qnumber- {{Qcontainer.qnumber}}</li>
-              <li>Template- {{Qcontainer.template}}</li>
-              <li>subject.- {{Qcontainer.qsubject}}</li>
-              <li>Topic.- {{Qcontainer.topic}}</li>
-              <li>Discription.- {{Qcontainer.description}}</li>
-              <li>author.- {{Qcontainer.author}}</li>
-            </p>
-            <!-- <p class="d-inline-flex gap-1"> -->
-            <button class="btn mybutton"
-              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-              id="{{Qcontainer.qnumber}}" type="button" (click)="Add_this_Q(Qcontainer.qnumber)">Add Question</button>
-            <!-- </p> -->
-          </div>
+        <div class="card " style="width: 18rem; height: 21rem;" *ngFor="let Qcontainer of filteredQuestions">
+            <img src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp" class="card-img-top"
+              alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{Qcontainer.title}}
+                ({{Qcontainer.grade}})
+              </h5>
+              <p class="card-text exam-card ">
+                <li>Qnumber- {{Qcontainer.qnumber}}</li>
+                <li>Template- {{Qcontainer.template}}</li>
+                <li>subject.- {{Qcontainer.qsubject}}</li>
+                <li>Topic.- {{Qcontainer.topic}}</li>
+                <li>Discription.- {{Qcontainer.description}}</li>
+                <li>author.- {{Qcontainer.author}}</li>
+              </p>
+              <!-- <p class="d-inline-flex gap-1"> -->
+              <button class="btn mybutton"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                id="{{Qcontainer.qnumber}}" type="button" (click)="Add_this_Q(Qcontainer.qnumber)">Add Question</button>
+              <!-- </p> -->
+            </div>
         </div>
       </div>
     </div>
