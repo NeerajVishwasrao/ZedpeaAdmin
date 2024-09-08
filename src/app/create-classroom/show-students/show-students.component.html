@@ -78,30 +78,17 @@
 
             <div class="btn-group">
               <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect02">Sub</label>
-                <select class="form-select" id="inputGroupSelect02" (change)="filterQuestions()"
-                  [(ngModel)]="searchtext2" style="width: 120px;">
-                  <option value="" selected>All</option>
-                  <option value="eng">English</option>
-                  <option value="math">Math</option>
-                  <option value="marathi">Marathi</option>
-                  <option value="evs">EVS</option>
-                </select>
+                <label class="input-group-text" for="inputName">Name</label>
+                <input type="text" class="form-control" id="inputName" placeholder="Enter name"
+                  [(ngModel)]="searchtext1" (input)="filterQuestions()" style="width: 120px;">
               </div>
             </div>
 
             <div class="btn-group">
               <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect03">Type</label>
-                <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()"
-                  [(ngModel)]="searchtext3" style="width: 120px;">
-                  <option value="" selected>All</option>
-                  <option value="mr01">One</option>
-                  <option value="mr02">Two</option>
-                  <option value="mr03">Three</option>
-                  <option value="mr04">Four</option>
-                  <option value="mr05">Five</option>
-                </select>
+                <label class="input-group-text" for="inputRollNo">Roll No</label>
+                <input type="text" class="form-control" id="inputRollNo" placeholder="Enter roll no"
+                  [(ngModel)]="searchtext2" (input)="filterQuestions()" style="width: 120px;">
               </div>
             </div>
           </div>
@@ -128,32 +115,17 @@
 
             <div class="btn-group">
               <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect02"
-                  style="width: 50px; height: 30px; font-size: 12px;">Sub</label>
-                <select class="form-select" id="inputGroupSelect02" (change)="filterQuestions()"
-                  [(ngModel)]="searchtext2" style="width: 120px; height: 30px; font-size: 12px;">
-                  <option value="" selected>🔍 All</option>
-                  <option value="eng">English</option>
-                  <option value="math">Math</option>
-                  <option value="Marathi">Marathi</option>
-                  <option value="evs">EVS</option>
-                </select>
+                <label class="input-group-text" for="inputName">Name</label>
+                <input type="text" class="form-control" id="inputName" placeholder="Enter name"
+                  [(ngModel)]="searchtext1" (input)="filterQuestions()" style="width: 120px;">
               </div>
             </div>
 
             <div class="btn-group">
               <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect03"
-                  style="width: 50px; height: 30px; font-size: 12px;">Type</label>
-                <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()"
-                  [(ngModel)]="searchtext3" style="width: 120px; height: 30px; font-size: 12px;">
-                  <option value="" selected>🔍 All</option>
-                  <option value="mr01">One</option>
-                  <option value="m102">Two</option>
-                  <option value="mr03">Three</option>
-                  <option value="mr04">Four</option>
-                  <option value="mr05">Five</option>
-                </select>
+                <label class="input-group-text" for="inputRollNo">Roll No</label>
+                <input type="text" class="form-control" id="inputRollNo" placeholder="Enter roll no"
+                  [(ngModel)]="searchtext2" (input)="filterQuestions()" style="width: 120px;">
               </div>
             </div>
 
@@ -188,6 +160,7 @@
                         <li><strong>usernm:</strong> {{student.username}}</li>
                         <li><strong>reward:</strong> {{student.rewards}}</li>
                         <li><strong> package</strong> {{student.package}}</li>
+                        
 
                       </ul>
                       <p class="d-inline-flex gap-1">
