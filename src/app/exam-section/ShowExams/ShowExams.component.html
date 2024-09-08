@@ -9,7 +9,7 @@
       <div class="d-none d-lg-flex">
 
         <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_Students()" type="button">
-          Students <i class="badge badge-pill badge-light">10</i>
+          Students <i class="badge badge-pill badge-light">&#9733;</i>
         </button>
 
         <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_AddStudent()" type="button">
@@ -17,7 +17,7 @@
         </button>
 
         <button class="btn btn-outline-secondary me-2 custom-no-border" disabled="true" type="button">
-          <a>Exams <i class="badge badge-pill badge-primary">0</i></a>
+          <a>Exams <i class="badge badge-pill badge-primary">{{examsList.length}}</i></a>
         </button>
 
         <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_AddExams()" type="button">
@@ -50,11 +50,16 @@
 </div>
 <div>will see here created exam </div>
 <div style="">
+
+
+
+
+  
   <div class="container mt-5">
     <div class="card shadow-sm mx-auto" style="max-width: 1000px;">
       <div class="card-body" style="min-height: 500px; overflow-y: auto;">
         <div class="row">
-          <div class="col-sm-6 mb-4" *ngFor="let exam of Qcontainer">
+          <div class="col-sm-6 mb-4" *ngFor="let exam of examsList">
             <div class="card exam-card shadow-sm h-100" (click)="Showsingletest(exam)">
               <div class="row g-0">
                 <div class="col-md-4">
@@ -103,5 +108,24 @@
 
 
 
+
+
+<h1>Saved exams </h1>
+<div style="display: flex; flex-wrap: wrap;">
+
+  <div class="card" *ngFor="let exam of examsList" style="margin: 10px">
+    <div class="card-header" (click)="Showsingletest(exam)" style="min-height: 200px; width:300px">
+      <img src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp" 
+        class="card-img-top" alt="..." />
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{exam.pname}} ({{exam.grade}})</h5>
+      <p class="card-text">
+        <li>{{exam.practid}}</li>
+        <li>Desc: {{exam.pdesc}}</li>
+      </p>
+      <p class="d-inline-flex gap-1"></p>
+    </div>
+  </div>
 
 </div>
