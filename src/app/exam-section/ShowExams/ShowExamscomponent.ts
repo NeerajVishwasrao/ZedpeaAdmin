@@ -11,16 +11,10 @@ import { NgFor } from '@angular/common';
   styleUrl: './ShowExams.component.css'
 })
 export class ShowCreatedTestComponent {
-Showsingletest(exam:any) {
-this.router.navigateByUrl("Show-single-exam");
-this.serviceExamSection.sendOnetest(exam);
 
-}
- 
   addexamdisable: any;
-  CQArray: any;
-  user: string="Tejas";
   disexam: boolean = true;
+
   goto_AddExams() {
     this.router.navigateByUrl("Exam-Center/AddExam")
   }
@@ -32,27 +26,44 @@ this.serviceExamSection.sendOnetest(exam);
   goto_Students() {
     this.router.navigateByUrl("Show-Student")
   }
+
+  Showsingletest(exam: any) {
+    this.router.navigateByUrl("Show-single-exam");
+    this.serviceExamSection.sendOnetest(exam);
+
+  }
+
   index: number = 1
-  Qcontainer: any[] = []
+  examsList: any[] = []
   router = inject(Router);
   serviceExamSection = inject(ServiceExamSectionService);
 
+  leagueUser: user =
+    {
+      leagueId: "101"
+    }
 
-  ngOnInit() {
-    this.serviceExamSection.getallexmas().subscribe(
-      (val) => {
-        this.Qcontainer = val
+  ngOnInit(): void {
+
+    let objUprofile = localStorage.getItem("uprofile");
+    if (objUprofile != null) {
+      this.leagueUser.leagueId = JSON.parse(objUprofile)['league_id'];
+    }
+
+    this.serviceExamSection.getallexmass(this.leagueUser).subscribe(
+      (data: any[]) => {
+        this.examsList = data
       }
     )
 
-    // let objUprofile = localStorage.getItem("uprofile");
-    // if (objUprofile != null) {
-    //   this.user = JSON.parse(objUprofile)['league_name'];
-    // }
   }
 
 
   incrementIndex() {
     return this.index++
   }
+}
+
+interface user {
+  leagueId: string
 }

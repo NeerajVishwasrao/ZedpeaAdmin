@@ -52,8 +52,8 @@ export class ServiceExamSectionService {
 
   }
 
-  getallexmas():Observable<any[]>{
-   return this.behaviorsubject.asObservable()
+  getallexmass(leagueUser: user){
+    return this.http.post<any>('https://zedpea.co.in/api/exams.php', leagueUser);
   }
 
 
@@ -64,4 +64,8 @@ export class ServiceExamSectionService {
   sendOnetest(exam:string){
     this.exam=exam
   }
+}
+
+interface user {
+  leagueId: string
 }
