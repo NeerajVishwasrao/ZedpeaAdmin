@@ -14,7 +14,7 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 })
 
 export class CreateExamComponent {
-
+  popupVisible: boolean=false;
 
 
 goto_Exams() {
@@ -183,6 +183,7 @@ goto_Students() {
   savenewquestion() {
     //When you add a new array to CQArray, ensure that you are adding a new instance of the array, not modifying an existing one.
     // Use the spread operator to create a new instance of new_created_q [... this.new_created_q]
+    this.popupVisible = true;
     this.saved = true;
     this.router.navigateByUrl("examdetail")
 
@@ -193,6 +194,7 @@ goto_Students() {
     this.itterator = 0
   }
 
+ 
 
   showcreatedtests() {
     this.router.navigateByUrl("exam-section/ShowExams")

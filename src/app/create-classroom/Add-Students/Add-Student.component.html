@@ -49,12 +49,12 @@
 
 
   <!-- Enroll Students -->
-
   <div class="card custom-card mt-4">
     <div class="card-body">
       <div class="form-group">
         <label for="studname">Student Name:</label>
-        <input type="text" class="form-control" id="studname" [(ngModel)]="newStudent.studentName">
+        <input type="text" class="form-control" id="studname" [(ngModel)]="newStudent.studentName" (blur)="validateStudentName()">
+        <small class="text-danger" *ngIf="nameValidationMessage">{{nameValidationMessage}}</small><br>
 
         <label for="rollnumber">Roll Number:</label>
         <input type="text" class="form-control" id="studentid" [(ngModel)]="newStudent.studentId">
@@ -68,10 +68,13 @@
         </select>
 
         <label for="susername">Username:</label>
-        <input type="text" class="form-control" id="susername" [(ngModel)]="newStudent.username">
+        <input type="text" class="form-control" id="susername" [(ngModel)]="newStudent.username" (blur)="validateUsername()">
+        <small class="text-danger" *ngIf="usernameValidationMessage">{{usernameValidationMessage}}</small><br>
 
         <label for="spassword">Password:</label>
-        <input type="text" class="form-control" id="spassword" [(ngModel)]="newStudent.passkey">
+        <input type="text" class="form-control" id="spassword" [(ngModel)]="newStudent.passkey" (blur)="validatePassword()">
+        <small class="text-danger" *ngIf="passwordValidationMessage">{{passwordValidationMessage}}</small>
+    </div>
       </div>
 
       <button type="button" class="btn mybutton" (click)="saveSelectedStudents()">{{message}}</button>
@@ -79,4 +82,3 @@
   </div>
 
 
-</div>

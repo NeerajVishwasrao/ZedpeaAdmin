@@ -40,6 +40,41 @@ export class CreateStudentComponent {
     "leagueId": '101'
   }
 
+  nameValidationMessage: string = '';
+  usernameValidationMessage: string = '';
+  passwordValidationMessage: string = '';
+
+  validateUsername() {
+    if (!this.newStudent.username) {
+      this.usernameValidationMessage = 'Username is required';
+    } else if (this.newStudent.username.length < 4) {
+      this.usernameValidationMessage = 'Username must be at least 4 characters long';
+    } else {
+      this.usernameValidationMessage = '';
+    }
+  }
+
+  validatePassword() {
+    if (!this.newStudent.passkey) {
+      this.passwordValidationMessage = 'Password is required';
+    } else if (this.newStudent.passkey.length < 6) {
+      this.passwordValidationMessage = 'Password must be at least 6 characters long';
+    } else if (!/\d/.test(this.newStudent.passkey) || !/[!@#$%^&*]/.test(this.newStudent.passkey)) {
+      this.passwordValidationMessage = 'Password must contain at least one number and one special character';
+    } else {
+      this.passwordValidationMessage = '';
+    }
+  }
+
+  validateStudentName() {
+    const firstChar = this.newStudent.studentName.charAt(0);
+    if (!/^[a-zA-Z]/.test(firstChar)) {
+      this.nameValidationMessage = 'The name must start with an alphabet!';
+    } else {
+      this.nameValidationMessage = ''; 
+    }
+  }
+
   ngOnInit(): void {
     let objUprofile = localStorage.getItem("uprofile");
     if (objUprofile != null) {
@@ -48,11 +83,15 @@ export class CreateStudentComponent {
   }
 
   saveSelectedStudents() {
+    this.validateStudentName();
+    this.validateUsername();
+    this.validatePassword();
     this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
     .subscribe( data => {
         this.message = data.message; 
       }
     );
+   
   }
 }
 
