@@ -85,7 +85,7 @@ export class CreateStudentComponent {
   saveSelectedStudents() {
     const isUsernameValid = this.validateUsername();
     const isPasswordValid = this.validatePassword();
-    const isStudentnameValid=this.validateStudentName();
+    const isStudentnameValid= this.validateUsername();
     this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
     .subscribe( data => {
         this.message = data.message; 
