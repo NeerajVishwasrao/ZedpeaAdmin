@@ -9,33 +9,31 @@
   background-color: rgb(234, 238, 224); /* Green */
   color: #04AA6D;
 }
-
-/* custom chatgpt biggerbutto disign */
 .custom-btn {
   background: linear-gradient(135deg, #065a3b, #0f766e); /* Gradient background */
   border: none;
   color: white;
-  font-size: 0.75rem; /* Smaller font size */
-  padding: 6px 12px; /* Reduced padding */
-  border-radius: 20px; /* Slightly rounded edges */
+  font-size: 0.65rem; /* Reduced font size */
+  padding: 2px 10px; /* Further reduced vertical padding */
+  border-radius: 12px; /* More compact rounded edges */
   transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Softer shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Softer shadow */
   text-transform: uppercase;
   letter-spacing: 0.03em; /* Subtle letter spacing for readability */
 }
 
 .custom-btn:hover {
   background: linear-gradient(135deg, #033d29, #0b6354); /* Darker gradient on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Elevated shadow on hover */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Elevated shadow on hover */
   transform: translateY(-1px); /* Minor lift effect */
 }
 
 .custom-btn i {
-  margin-left: 6px;
-  font-size: 0.7rem; /* Smaller icon size */
+  margin-left: 4px;
+  font-size: 0.6rem; /* Smaller icon size */
   background-color: #ffffff;
   color: #0f766e;
-  padding: 2px 4px; /* Smaller padding */
+  padding: 1px; /* Further reduced padding */
   border-radius: 50%;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease; /* Smooth icon changes */
 }
@@ -48,8 +46,11 @@
 
 .custom-btn:focus {
   outline: none;
-  box-shadow: 0 0 6px rgba(0, 150, 136, 0.4); /* Subtle glow effect on focus */
+  box-shadow: 0 0 4px rgba(0, 150, 136, 0.4); /* Softer glow effect on focus */
 }
+
+
+
 
 
 

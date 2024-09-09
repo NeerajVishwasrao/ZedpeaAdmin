@@ -57,9 +57,9 @@
 
           <div class="btn-group">
             <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Std</label>
+              <label class="input-group-text" for="inputGroupSelect01"   style="width: 60px; height: 30px; font-size: 12px;">Std</label>
               <select class="form-select" id="inputGroupSelect01" (change)="filterQuestions()" [(ngModel)]="searchtext1"
-                style="width: 120px;">
+              style="width: 100px; height: 30px; font-size: 12px;">
                 <option value="" selected>All</option>
                 <option value="k1">k1</option>
                 <option value="k2">k2</option>
@@ -72,9 +72,9 @@
 
           <div class="btn-group">
             <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect02">Sub</label>
+              <label class="input-group-text" for="inputGroupSelect02"   style="width: 60px; height: 30px; font-size: 12px;">Sub</label>
               <select class="form-select" id="inputGroupSelect02" (change)="filterQuestions()" [(ngModel)]="searchtext2"
-                style="width: 120px;">
+              style="width: 100px; height: 30px; font-size: 12px;">
                 <option value="" selected>All</option>
                 <option value="eng">English</option>
                 <option value="math">Math</option>
@@ -86,9 +86,9 @@
 
           <div class="btn-group">
             <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect03">Type</label>
+              <label class="input-group-text" for="inputGroupSelect03"   style="width: 60px; height: 30px; font-size: 12px;">Type</label>
               <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()" [(ngModel)]="searchtext3"
-                style="width: 120px;">
+              style="width: 100px; height: 30px; font-size: 12px;">
                 <option value="" selected>All</option>
                 <option value="mr01">One</option>
                 <option value="mr02">Two</option>
@@ -302,7 +302,7 @@
   <div class="row">
     <div class="questions-section">
       <div class="questions-container">
-        <div class="card " style="width: 18rem; height: 21rem;" *ngFor="let Qcontainer of filteredQuestions">
+        <div class="card " style="width: 15rem; height: 21rem;" *ngFor="let Qcontainer of filteredQuestions">
             <img src="/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp" class="card-img-top"
               alt="...">
             <div class="card-body">
