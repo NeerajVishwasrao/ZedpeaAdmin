@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-student',
   standalone: true,
-  imports: [NgFor, NgIf,FormsModule],
+  imports: [NgFor, NgIf,FormsModule,NgClass],
   templateUrl: './Add-Student.component.html',
   styleUrls: ['./Add-Student.component.css']
 })
@@ -82,12 +82,13 @@ ValidationResult: string='';
       this.newStudent.leagueId = JSON.parse(objUprofile)['league_id'];
     }
   }
+   iscorrect:Boolean=false
 
   saveSelectedStudents() {
     const isUsernameValid = this.validateStudentName();
     const isPasswordValid = this.validatePassword();
     const isStudentnameValid= this.validateUsername();
-
+    
 
     if(this.nameValidationMessage=="" && this.usernameValidationMessage=="" &&  this.nameValidationMessage=="")
       {
@@ -95,12 +96,16 @@ ValidationResult: string='';
       this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
       .subscribe( data => {
           this.message = data.message; 
+          this.iscorrect = true
+          this.ValidationResult="Data Inserted Successfully ";
+
         }
       );
     }
     else{
       console.log("else")
-      this.ValidationResult="Something went wrong";
+      this.ValidationResult="Something Wrong";
+      this.iscorrect=false
     }
    
    

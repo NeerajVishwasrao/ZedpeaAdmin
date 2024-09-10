@@ -78,7 +78,7 @@
       </div>
 
       <button type="button" class="btn mybutton" (click)="saveSelectedStudents()">{{message}}</button>
-      <small ngClass="text-danger" *ngIf="ValidationResult">{{ValidationResult}}</small>
+      <small [ngClass]="iscorrect?'text-success':'text-danger'" *ngIf="ValidationResult">{{ValidationResult}}</small>
 
     </div>
   </div>

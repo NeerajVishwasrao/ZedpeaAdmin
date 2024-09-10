@@ -51,10 +51,10 @@ export class ShowStudentsComponent {
 
   ngOnInit(): void {
     
-    // let objUprofile = localStorage.getItem("uprofile");
-    // if (objUprofile != null) {
-    //   this.leagueUser.leagueId = JSON.parse(objUprofile)['league_id'];
-    // }
+    let objUprofile = localStorage.getItem("uprofile");
+    if (objUprofile != null) {
+      this.leagueUser.leagueId = JSON.parse(objUprofile)['league_id'];
+    }
 
     this.http.post<any>('https://zedpea.co.in/api/students.php', this.leagueUser)
       .subscribe(
