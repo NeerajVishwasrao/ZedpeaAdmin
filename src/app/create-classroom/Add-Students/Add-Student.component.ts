@@ -15,6 +15,7 @@ import { HttpClient } from '@angular/common/http';
 export class CreateStudentComponent {
   router = inject(Router);
   http = inject(HttpClient);
+ValidationResult: string='';
 
   Goto_Students() {
     this.router.navigateByUrl("Show-Student")
@@ -32,12 +33,12 @@ export class CreateStudentComponent {
   message: any = 'Save';
   newStudent: StudentObj =
   {
-    "studentId": '',
-    "studentName": '',
-    "grade": '',
-    "username": '',
-    "passkey": '',
-    "leagueId": '101'
+    studentId: '',
+    studentName: '',
+    grade: '',
+    username: '',
+    passkey: '',
+    leagueId: '101'
   }
 
   nameValidationMessage: string = '';
@@ -83,14 +84,25 @@ export class CreateStudentComponent {
   }
 
   saveSelectedStudents() {
-    const isUsernameValid = this.validateUsername();
+    const isUsernameValid = this.validateStudentName();
     const isPasswordValid = this.validatePassword();
     const isStudentnameValid= this.validateUsername();
-    this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
-    .subscribe( data => {
-        this.message = data.message; 
-      }
-    );
+
+
+    if(this.nameValidationMessage=="" && this.usernameValidationMessage=="" &&  this.nameValidationMessage=="")
+      {
+        console.log("sssssssssssssss")
+      this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
+      .subscribe( data => {
+          this.message = data.message; 
+        }
+      );
+    }
+    else{
+      console.log("else")
+      this.ValidationResult="Something went wrong";
+    }
+   
    
   }
 }

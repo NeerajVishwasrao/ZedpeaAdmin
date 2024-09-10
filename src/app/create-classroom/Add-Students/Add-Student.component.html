@@ -49,7 +49,7 @@
 
 
   <!-- Enroll Students -->
-  <div class="card custom-card mt-4">
+  <div class="card custom-card mt-4"  style="background-color:  #f5f3f1;">
     <div class="card-body">
       <div class="form-group">
         <label for="studname">Student Name:</label>
@@ -78,6 +78,8 @@
       </div>
 
       <button type="button" class="btn mybutton" (click)="saveSelectedStudents()">{{message}}</button>
+      <small ngClass="text-danger" *ngIf="ValidationResult">{{ValidationResult}}</small>
+
     </div>
   </div>
 

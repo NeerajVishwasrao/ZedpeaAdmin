@@ -13,7 +13,7 @@ import * as bootstrap from 'bootstrap'; // <-- Import Bootstrap JavaScript
 export class AppComponent {
 
   titleuser = 'League';
-  ngAfterViewInit() {
+  ngOnInit() {
     // Initialize responsive nav dropdowns
     var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
     var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
