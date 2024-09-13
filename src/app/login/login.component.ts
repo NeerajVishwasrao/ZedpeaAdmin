@@ -1,20 +1,23 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 import { LoginService } from './login.service';
 import { LUser } from './luser.model';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, NgFor],
+  imports: [FormsModule, NgFor, NgClass],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+togglePasswordVisibility() {
+this.showPassword = !this.showPassword}
   router = inject(Router);
   leaguelist: Array<any> = [];
+showPassword: boolean=false;
 
   ngOnInit() {
     // localStorage.setItem("uprofile","tejas")

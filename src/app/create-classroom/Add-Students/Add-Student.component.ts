@@ -92,7 +92,6 @@ ValidationResult: string='';
 
     if(this.nameValidationMessage=="" && this.usernameValidationMessage=="" &&  this.nameValidationMessage=="")
       {
-        console.log("sssssssssssssss")
       this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
       .subscribe( data => {
           this.message = data.message; 
