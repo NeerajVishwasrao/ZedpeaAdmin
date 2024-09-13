@@ -179,24 +179,17 @@
   </div>
 
 
-  <div *ngIf="biggerthan10;  else createexam">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <strong>Maximum 10 You can SAVE!</strong> Cut this to countinue
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
-        (click)="canclebiggerthan10warning()"></button>
+
+
+  <div *ngIf="saved; else saveoption">
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup-content">
+        <strong>Exam Saved Successfully!</strong>
+        <button class="btn btn-primary close-btn" (click)="toggleAll()">Close</button>
+      </div>
     </div>
   </div>
 
-  <ng-template #createexam>
-    <div *ngIf="saved; else saveoption">
-      <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-content">
-          <strong>Exam Created Successfully!</strong>
-          <button class="btn btn-primary close-btn" (click)="toggleAll()">Close</button>
-        </div>
-      </div>
-    </div>
-  </ng-template>
 
 
   <ng-template #saveoption>
@@ -216,25 +209,31 @@
         <div class="popup-overlay" id="popupOverlay">
           <!-- <div class="popup-content"> -->
 
-
-
-          <div class="card" style="width: 40rem; height: 30rem;">
-            <h5 class="card-header">Featured</h5>
+          <div class="card" style="width: 40rem; height: 32rem;">
             <div class="card-body">
+              <div class="card-header">
+                <strong>10 Qustions Added</strong>
+              </div>
+              <br>
+
               <label for="usr">Exam Name:</label>
               <input type="text" class="form-control" id="examname">
+              <br>
 
               <label for="select-grade">Select Grade:</label>
               <select class="form-control" id="select-grade" name="select-grade">
+
                 <option>K1</option>
                 <option>K2</option>
                 <option>STD1</option>
                 <option>STD2</option>
               </select>
+              <br>
 
 
               <label for="comment">Description:</label>
-              <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+              <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Add Description"></textarea>
+              <br>
 
               <button type="button" [ngClass]="isadded10?'btn btn-info': 'btn btn-light'" (click)="savenewquestion()"
                 [disabled]="!isadded10">Save</button>
@@ -243,12 +242,12 @@
 
               <button type="button" [ngClass]="isadded10?'btn btn-danger': 'btn btn-light'" (click)="pushNewExam()"
                 [disabled]="!isadded10">{{message}}</button>
-              
+
             </div>
           </div>
 
 
-     
+
         </div>
       </div>
     </div>
