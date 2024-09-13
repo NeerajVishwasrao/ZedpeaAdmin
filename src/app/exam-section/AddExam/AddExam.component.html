@@ -183,15 +183,18 @@
         (click)="canclebiggerthan10warning()"></button>
     </div>
   </div>
+
   <ng-template #createexam>
     <div *ngIf="saved; else saveoption">
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Exam Created !</strong> Cut this to countinue
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
-          (click)="toggleAll()"></button>
+      <div class="popup-overlay" id="popupOverlay" style="display: flex; justify-content: center; align-items: center;">
+        <div class="popup-content" style="width: 300px; height: 100px; background-color: #fdf7f7; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+          <strong>Exam Created Successfully!</strong>
+          <button class="btn btn-primary close-btn" (click)="toggleAll()" style="margin-top: 20px; ">Close</button>
+        </div>
       </div>
     </div>
   </ng-template>
+
   <ng-template #saveoption>
     <div *ngIf="showQNO" class="alert alert-success">
       <button type="button" [ngClass]="isadded1?'btn btn-secondary': 'btn btn-light'">1</button>
@@ -226,7 +229,6 @@
         [disabled]="!isadded10">Save</button>
 
         
-
         
       <button type="button" [ngClass]="isadded10?'btn btn-danger': 'btn btn-light'" (click)="pushNewExam()"
         [disabled]="!isadded10">{{message}}</button>
@@ -333,3 +335,5 @@
 
 
 </div>
+
+

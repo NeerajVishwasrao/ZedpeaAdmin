@@ -14,6 +14,9 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 })
 
 export class CreateExamComponent {
+closePopup() {
+throw new Error('Method not implemented.');
+}
   popupVisible: boolean=false;
 
 
@@ -248,6 +251,8 @@ goto_Students() {
     this.qarrayadder = 0
     this.showQNO = false;
   }
+
+  
 
 }
 
