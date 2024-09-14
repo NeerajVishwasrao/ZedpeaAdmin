@@ -181,77 +181,104 @@
 
 
 
-  <div *ngIf="saved; else saveoption">
+  <div *ngIf="saved;">
     <div class="popup-overlay" id="popupOverlay">
       <div class="popup-content">
         <strong>Exam Saved Successfully!</strong>
-        <button class="btn btn-primary close-btn" (click)="toggleAll()">Close</button>
+        <button class="btn btn-primary close-btn" (click)="toggleAll(2)">Close</button>
       </div>
     </div>
   </div>
 
+  <div class="d-none d-lg-flex">
+
+    <div class="alert alert-warning alert-dismissible fade show "
+      style="z-index: 1000; position: fixed; right: 0; top: 1; width: 20%;" role="alert">
+      <strong>{{itterator2}} / 10 </strong>Questions added.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
 
-  <ng-template #saveoption>
-    <div *ngIf="showQNO" class="alert alert-success">
-      <button type="button" [ngClass]="isadded1?'btn btn-secondary': 'btn btn-light'">1</button>
-      <button type="button" [ngClass]="isadded2?'btn btn-secondary': 'btn btn-light'">2</button>
-      <button type="button" [ngClass]="isadded3?'btn btn-secondary': 'btn btn-light'">3</button>
-      <button type="button" [ngClass]="isadded4?'btn btn-secondary': 'btn btn-light'">4</button>
-      <button type="button" [ngClass]="isadded5?'btn btn-secondary': 'btn btn-light'">5</button>
-      <button type="button" [ngClass]="isadded6?'btn btn-secondary': 'btn btn-light'">6</button>
-      <button type="button" [ngClass]="isadded7?'btn btn-secondary': 'btn btn-light'">7</button>
-      <button type="button" [ngClass]="isadded8?'btn btn-secondary': 'btn btn-light'">8</button>
-      <button type="button" [ngClass]="isadded9?'btn btn-secondary': 'btn btn-light'">9</button>
-      <button type="button" [ngClass]="isadded10?'btn btn-secondary': 'btn btn-light'">10</button>
-
-      <div class="form-group" *ngIf="isadded10">
-        <div class="popup-overlay" id="popupOverlay">
-          <!-- <div class="popup-content"> -->
-
-          <div class="card" style="width: 40rem; height: 32rem;background-color:  #f5f3f1;">
-            <div class="card-body">
-              <div class="card-header">
-                <strong>10 Qustions Added</strong>
-              </div>
-              <br>
-
-              <label for="usr">Exam Name:</label>
-              <input type="text" class="form-control" id="examname">
-              <br>
-
-              <label for="select-grade">Select Grade:</label>
-              <select class="form-control" id="select-grade" name="select-grade">
-
-                <option>K1</option>
-                <option>K2</option>
-                <option>STD1</option>
-                <option>STD2</option>
-              </select>
-              <br>
+    <div *ngIf="showQNO" class="alert alert-success p-2" style="width: 80%;">
+      <button type="button" [ngClass]="isadded1 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">1</button>
+      <button type="button" [ngClass]="isadded2 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">2</button>
+      <button type="button" [ngClass]="isadded3 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">3</button>
+      <button type="button" [ngClass]="isadded4 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">4</button>
+      <button type="button" [ngClass]="isadded5 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">5</button>
+      <button type="button" [ngClass]="isadded6 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">6</button>
+      <button type="button" [ngClass]="isadded7 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">7</button>
+      <button type="button" [ngClass]="isadded8 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">8</button>
+      <button type="button" [ngClass]="isadded9 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">9</button>
+      <button type="button" [ngClass]="isadded10 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">10</button>
+    </div>
+    
+    
+  </div>
 
 
-              <label for="comment">Description:</label>
-              <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Add Description"></textarea>
-              <br>
+  <div class="dropdown d-lg-none">
+    <div *ngIf="showQNO" class="alert alert-success p-0">
+      <button type="button" [ngClass]="isadded1 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">1</button>
+      <button type="button" [ngClass]="isadded2 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">2</button>
+      <button type="button" [ngClass]="isadded3 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">3</button>
+      <button type="button" [ngClass]="isadded4 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">4</button>
+      <button type="button" [ngClass]="isadded5 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">5</button>
+      <button type="button" [ngClass]="isadded6 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">6</button>
+      <button type="button" [ngClass]="isadded7 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">7</button>
+      <button type="button" [ngClass]="isadded8 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">8</button>
+      <button type="button" [ngClass]="isadded9 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">9</button>
+      <button type="button" [ngClass]="isadded10 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">10</button>
+    </div>
+  </div>
+  
 
-              <button type="button" [ngClass]="isadded10?'btn btn-info': 'btn btn-light'" (click)="savenewquestion()"
-                [disabled]="!isadded10">Save</button>
+  <div class="form-group" *ngIf="isadded10">
+    <div class="popup-overlay" id="popupOverlay">
+      <!-- <div class="popup-content"> -->
 
-
-
-              <button type="button" [ngClass]="isadded10?'btn btn-danger': 'btn btn-light'" (click)="pushNewExam()"
-                [disabled]="!isadded10">{{message}}</button>
-
-            </div>
+      <div class="card" style="width: 40rem; height: 32rem;background-color:  #f5f3f1;">
+        <div class="card-body">
+          <div class="card-header">
+            <strong>10 Qustions Added</strong>
           </div>
+          <br>
+
+          <label for="usr">Exam Name:</label>
+          <input type="text" class="form-control" id="examname">
+          <br>
+
+          <label for="select-grade">Select Grade:</label>
+          <select class="form-control" id="select-grade" name="select-grade">
+
+            <option>K1</option>
+            <option>K2</option>
+            <option>STD1</option>
+            <option>STD2</option>
+          </select>
+          <br>
 
 
+          <label for="comment">Description:</label>
+          <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Add Description"></textarea>
+          <br>
+
+          <button type="button" [ngClass]="isadded10?'btn btn-info': 'btn btn-light'"
+            (click)="savenewquestion()">Save</button>
+
+
+
+          <button type="button" [ngClass]="isadded10?'btn btn-danger': 'btn btn-light'"
+            (click)="pushNewExam()">{{message}}</button>
+
+          <button type="button" class="btn btn-secondary" (click)="toggleAll(1)">Discard</button>
 
         </div>
       </div>
+
+
+
     </div>
-  </ng-template>
+  </div>
 
   <!-- <div class="row">
 
@@ -341,7 +368,8 @@
             <!-- <p class="d-inline-flex gap-1"> -->
             <button class="btn mybutton"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-              id="{{Qcontainer.qnumber}}" type="button" (click)="Add_this_Q(Qcontainer.qnumber)">Add Question</button>
+              id="{{Qcontainer.qnumber}}" type="button" (click)="Add_this_Q(Qcontainer.qnumber)">Add
+              Question</button>
             <!-- </p> -->
           </div>
         </div>

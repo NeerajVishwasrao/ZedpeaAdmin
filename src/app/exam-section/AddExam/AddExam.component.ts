@@ -14,24 +14,24 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 })
 
 export class CreateExamComponent {
-closePopup() {
-throw new Error('Method not implemented.');
-}
-  popupVisible: boolean=false;
+  closePopup() {
+    throw new Error('Method not implemented.');
+  }
+  popupVisible: boolean = false;
 
 
-goto_Exams() {
-  this.router.navigateByUrl("Exam-Center/ShowExam")
-
-}
-goto_AddStudent() {
-    
-  this.router.navigateByUrl("Add-Student")
+  goto_Exams() {
+    this.router.navigateByUrl("Exam-Center/ShowExam")
 
   }
-goto_Students() {
-  this.router.navigateByUrl("Show-Student")
-}
+  goto_AddStudent() {
+
+    this.router.navigateByUrl("Add-Student")
+
+  }
+  goto_Students() {
+    this.router.navigateByUrl("Show-Student")
+  }
 
   showQNO: boolean = false;
   popupMessage: any;
@@ -59,7 +59,7 @@ goto_Students() {
   searchtext3: string = '';
   searchtext4: string = '';
   id: number = 0;
-  
+
   user: any = '';
 
   isadded1: boolean = false;
@@ -78,7 +78,7 @@ goto_Students() {
 
 
 
-   addexamdisable:Boolean=true
+  addexamdisable: Boolean = true
   ngOnInit() {
     // let objUprofile = localStorage.getItem("uprofile");
     // if (objUprofile != null) {
@@ -127,9 +127,11 @@ goto_Students() {
     this.searchtext2 = ""
   }
 
-
+  itterator2 = 0
 
   Add_this_Q(idq: any) {
+
+    ++this.itterator2
     this.showQNO = true;
     if (this.isadded10 == false) {
 
@@ -187,7 +189,6 @@ goto_Students() {
     //When you add a new array to CQArray, ensure that you are adding a new instance of the array, not modifying an existing one.
     // Use the spread operator to create a new instance of new_created_q [... this.new_created_q]
     this.popupVisible = true;
-    this.saved = true;
     this.router.navigateByUrl("examdetail")
 
     this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
@@ -195,9 +196,10 @@ goto_Students() {
     this.serviveExamSection.Add_this_Q(this.CQArray);
     this.new_created_q = [];
     this.itterator = 0
+    this.toggleAll(2);
   }
 
- 
+
 
   showcreatedtests() {
     this.router.navigateByUrl("exam-section/ShowExams")
@@ -206,23 +208,23 @@ goto_Students() {
 
   message: any = 'Push';
   newExam: NewExamObj =
-  {
-    "leagueId": "104",
-    "examTitle": "Maths Type 1",
-    "description": "AUG test for K1 Maths",
-    "grade": "k1",
-    "q1": "mt01_q1",
-    "q2": "mt01_q2",
-    "q3": "mt01_q3",
-    "q4": "mt01_q4",
-    "q5": "mt01_q5",
-    "q6": "mt01_q6",
-    "q7": "mt01_q7",
-    "q8": "mt01_q8",
-    "q9": "mt01_q9",
-    "q10": "mt01_q10"
- }
- 
+    {
+      "leagueId": "104",
+      "examTitle": "Maths Type 1",
+      "description": "AUG test for K1 Maths",
+      "grade": "k1",
+      "q1": "mt01_q1",
+      "q2": "mt01_q2",
+      "q3": "mt01_q3",
+      "q4": "mt01_q4",
+      "q5": "mt01_q5",
+      "q6": "mt01_q6",
+      "q7": "mt01_q7",
+      "q8": "mt01_q8",
+      "q9": "mt01_q9",
+      "q10": "mt01_q10"
+    }
+
 
   pushNewExam() {
     let objUprofile = localStorage.getItem("uprofile");
@@ -231,13 +233,12 @@ goto_Students() {
     }
 
     this.http.post<any>("https://zedpea.co.in/api/newexam.php", this.newExam)
-    .subscribe(data => {
-      this.message = data.message; 
-    })
+      .subscribe(data => {
+        this.message = data.message;
+      })
   }
-    
-  toggleAll() {
-    this.saved = !this.saved;
+
+  toggleAll(discardindexis1: number) {
     this.isadded1 = false
     this.isadded2 = false
     this.isadded3 = false
@@ -250,9 +251,19 @@ goto_Students() {
     this.isadded10 = false
     this.qarrayadder = 0
     this.showQNO = false;
+    this.new_created_q = [];
+    this.itterator = 0
+    this.itterator2 = 0
+    if (discardindexis1 != 1) {
+      this.saved = !this.saved;
+
+    }
+
+
+
   }
 
-  
+
 
 }
 
