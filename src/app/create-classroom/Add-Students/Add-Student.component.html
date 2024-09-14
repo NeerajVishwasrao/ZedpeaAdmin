@@ -60,12 +60,13 @@
         <input type="text" class="form-control" id="studentid" [(ngModel)]="newStudent.studentId">
 
         <label for="selectgrade">Select Grade:</label>
-        <select class="form-control" id="selectgrade" [(ngModel)]="newStudent.grade">
+        <select class="form-control" id="selectgrade" [(ngModel)]="newStudent.grade" (blur)=validateGrade()>
           <option>K1</option>
           <option>K2</option>
           <option>STD1</option>
           <option>STD2</option>
         </select>
+        <small class="text-danger" *ngIf="gradeValidationMessage">{{gradeValidationMessage}}</small> <br>
 
         <label for="susername">Username:</label>
         <input type="text" class="form-control" id="susername" [(ngModel)]="newStudent.username" (blur)="validateUsername()">

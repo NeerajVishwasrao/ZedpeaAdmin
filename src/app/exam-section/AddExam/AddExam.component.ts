@@ -188,6 +188,11 @@ export class CreateExamComponent {
   savenewquestion() {
     //When you add a new array to CQArray, ensure that you are adding a new instance of the array, not modifying an existing one.
     // Use the spread operator to create a new instance of new_created_q [... this.new_created_q]
+
+    this.validateUsername();
+    this.validateGrade();
+    
+
     this.popupVisible = true;
     this.router.navigateByUrl("examdetail")
 
@@ -263,7 +268,27 @@ export class CreateExamComponent {
 
   }
 
+  newForm: { username: string } = { username: '' };
+  usernameValidationMessage: string = '';
+  validateUsername() {
+    if (!this.newForm.username) {
+      this.usernameValidationMessage = 'Name is required';
+    } else if (this.newForm.username.length < 4) {
+      this.usernameValidationMessage = 'Username must be at least 4 characters long';
+    } else {
+      this.usernameValidationMessage = '';
+    }
+  }
 
+  selectedGrade: string = '';
+  gradeValidationMessage: string = '';
+  validateGrade() {
+    if (!this.selectedGrade) {
+      this.gradeValidationMessage = 'Grade is required';
+    } else {
+      this.gradeValidationMessage = '';
+    }
+  }
 
 }
 
