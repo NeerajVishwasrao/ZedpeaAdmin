@@ -139,10 +139,10 @@ export class CreateStudentComponent {
 }
 
 interface StudentObj {
-  "studentId": string,
-  "studentName": string,
-  "grade": string,
-  "username": string,
-  "passkey": string,
-  "leagueId": string
+  studentId: string,
+  studentName: string,
+  grade: string,
+username: string,
+  passkey: string,
+  leagueId: string
 }
