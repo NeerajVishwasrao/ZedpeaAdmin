@@ -76,6 +76,16 @@ ValidationResult: string='';
     }
   }
 
+  selectedGrade: string = '';
+  gradeValidationMessage: string = '';
+  validateGrade() {
+    if (!this.selectedGrade) {
+      this.gradeValidationMessage = 'Grade is required';
+    } else {
+      this.gradeValidationMessage = '';
+    }
+  }
+
   ngOnInit(): void {
     let objUprofile = localStorage.getItem("uprofile");
     if (objUprofile != null) {
@@ -90,7 +100,7 @@ ValidationResult: string='';
     const isStudentnameValid= this.validateUsername();
     
 
-    if(this.nameValidationMessage=="" && this.usernameValidationMessage=="" &&  this.nameValidationMessage=="")
+    if(this.nameValidationMessage=="" && this.usernameValidationMessage=="" &&  this.nameValidationMessage=="" && this. gradeValidationMessage=="")
       {
       this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
       .subscribe( data => {

@@ -217,17 +217,19 @@
               <br>
 
               <label for="usr">Exam Name:</label>
-              <input type="text" class="form-control" id="examname">
+              <input type="text" class="form-control" id="examname" (blur)="validateUsername()">
+              <small class="text-danger" *ngIf="usernameValidationMessage">{{usernameValidationMessage}}</small><br>
               <br>
 
               <label for="select-grade">Select Grade:</label>
-              <select class="form-control" id="select-grade" name="select-grade">
+              <select class="form-control" id="select-grade" name="select-grade" (blur)=validateGrade() >
 
                 <option>K1</option>
                 <option>K2</option>
                 <option>STD1</option>
                 <option>STD2</option>
               </select>
+              <small class="text-danger" *ngIf="gradeValidationMessage">{{gradeValidationMessage}}</small>
               <br>
 
 
