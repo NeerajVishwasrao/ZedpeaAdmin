@@ -1,6 +1,6 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, NgModule } from '@angular/core';
+import { Component, HostListener, inject, NgModule } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
@@ -188,20 +188,20 @@ export class CreateExamComponent {
   savenewquestion() {
     //When you add a new array to CQArray, ensure that you are adding a new instance of the array, not modifying an existing one.
     // Use the spread operator to create a new instance of new_created_q [... this.new_created_q]
+    if (this.validExamName() && this.validGrade()) {
 
-    this.validateUsername();
-    this.validateGrade();
-    
+      this.popupVisible = true;
+      this.router.navigateByUrl("examdetail")
 
-    this.popupVisible = true;
-    this.router.navigateByUrl("examdetail")
+      this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
+      console.log(this.CQArray);
+      this.serviveExamSection.Add_this_Q(this.CQArray);
+      this.new_created_q = [];
+      this.itterator = 0
+      this.toggleAll(2);
+    }
 
-    this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
-    console.log(this.CQArray);
-    this.serviveExamSection.Add_this_Q(this.CQArray);
-    this.new_created_q = [];
-    this.itterator = 0
-    this.toggleAll(2);
+
   }
 
 
@@ -268,28 +268,67 @@ export class CreateExamComponent {
 
   }
 
-  newForm: { username: string } = { username: '' };
-  usernameValidationMessage: string = '';
-  validateUsername() {
-    if (!this.newForm.username) {
+  usernameValidationMessage: string = ""
+
+  QadditionAdditionForm: QadditionAdditionFormTemp =
+    {
+      examname: "",
+      grade: "",
+      discreption: ""
+    }
+
+  validExamName(): boolean {
+    if (!this.QadditionAdditionForm.examname) {
       this.usernameValidationMessage = 'Name is required';
-    } else if (this.newForm.username.length < 4) {
+      return false
+    } else if (this.QadditionAdditionForm.examname.length < 4) {
       this.usernameValidationMessage = 'Username must be at least 4 characters long';
+      return false
+
     } else {
       this.usernameValidationMessage = '';
+      return true
     }
   }
 
   selectedGrade: string = '';
   gradeValidationMessage: string = '';
-  validateGrade() {
-    if (!this.selectedGrade) {
+  
+  validGrade(): boolean {
+    if (!this.QadditionAdditionForm.grade) {
       this.gradeValidationMessage = 'Grade is required';
+      console.log("invaliddfgdfg")
+      return false
     } else {
       this.gradeValidationMessage = '';
+      return true
     }
   }
 
+
+
+
+
+  isScrolledDown: boolean = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    if (window.scrollY > 180) {
+      this.isScrolledDown = true;
+      console.log('Page is scrolled down');
+    } else {
+      this.isScrolledDown = false;
+      console.log('Page is at the top');
+    }
+  }
+
+
+}
+
+interface QadditionAdditionFormTemp {
+  examname: string
+  grade: string
+  discreption: string
 }
 
 interface question {

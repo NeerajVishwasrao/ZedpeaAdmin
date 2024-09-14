@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-create-student',
   standalone: true,
-  imports: [NgFor, NgIf,FormsModule,NgClass],
+  imports: [NgFor, NgIf, FormsModule, NgClass],
   templateUrl: './Add-Student.component.html',
   styleUrls: ['./Add-Student.component.css']
 })
@@ -15,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 export class CreateStudentComponent {
   router = inject(Router);
   http = inject(HttpClient);
-ValidationResult: string='';
+  ValidationResult: string = '';
 
   Goto_Students() {
     this.router.navigateByUrl("Show-Student")
@@ -28,61 +28,81 @@ ValidationResult: string='';
   Goto_AddExams() {
     this.router.navigateByUrl("Exam-Center/AddExam")
   }
-  
+
   isnewstudent: boolean = false;
   message: any = 'Save';
   newStudent: StudentObj =
-  {
-    studentId: '',
-    studentName: '',
-    grade: '',
-    username: '',
-    passkey: '',
-    leagueId: '101'
-  }
+    {
+      studentId: '',
+      studentName: '',
+      grade: '',
+      username: '',
+      passkey: '',
+      leagueId: '101'
+    }
 
   nameValidationMessage: string = '';
   usernameValidationMessage: string = '';
   passwordValidationMessage: string = '';
 
-  validateUsername() {
+  validateUsername(): boolean {
     if (!this.newStudent.username) {
       this.usernameValidationMessage = 'Username is required';
+      return false;
+
     } else if (this.newStudent.username.length < 4) {
       this.usernameValidationMessage = 'Username must be at least 4 characters long';
+      return false;
+
     } else {
       this.usernameValidationMessage = '';
+      return true
+
     }
   }
 
-  validatePassword() {
+  validatePassword(): boolean {
     if (!this.newStudent.passkey) {
       this.passwordValidationMessage = 'Password is required';
+      return false;
+
     } else if (this.newStudent.passkey.length < 6) {
       this.passwordValidationMessage = 'Password must be at least 6 characters long';
+      return false;
+
     } else if (!/\d/.test(this.newStudent.passkey) || !/[!@#$%^&*]/.test(this.newStudent.passkey)) {
       this.passwordValidationMessage = 'Password must contain at least one number and one special character';
+      return false;
+
     } else {
       this.passwordValidationMessage = '';
+      return true
+
     }
   }
 
-  validateStudentName() {
+  validateStudentName(): boolean {
     const firstChar = this.newStudent.studentName.charAt(0);
     if (!/^[a-zA-Z]/.test(firstChar)) {
       this.nameValidationMessage = 'The name must start with an alphabet!';
+      return false
     } else {
-      this.nameValidationMessage = ''; 
+      this.nameValidationMessage = '';
+      return true
     }
   }
 
   selectedGrade: string = '';
   gradeValidationMessage: string = '';
-  validateGrade() {
-    if (!this.selectedGrade) {
+
+
+  validateGrade(): boolean {
+    if (this.selectedGrade == "select") {
       this.gradeValidationMessage = 'Grade is required';
+      return false;
     } else {
       this.gradeValidationMessage = '';
+      return true;
     }
   }
 
@@ -92,32 +112,29 @@ ValidationResult: string='';
       this.newStudent.leagueId = JSON.parse(objUprofile)['league_id'];
     }
   }
-   iscorrect:Boolean=false
+  iscorrect: Boolean = false
 
   saveSelectedStudents() {
-    const isUsernameValid = this.validateStudentName();
-    const isPasswordValid = this.validatePassword();
-    const isStudentnameValid= this.validateUsername();
-    
 
-    if(this.nameValidationMessage=="" && this.usernameValidationMessage=="" &&  this.nameValidationMessage=="" && this. gradeValidationMessage=="")
-      {
+
+
+    if (this.validateStudentName() && this.validatePassword() && this.validateUsername() && this.validateGrade()) {
       this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
-      .subscribe( data => {
-          this.message = data.message; 
+        .subscribe(data => {
+          this.message = data.message;
           this.iscorrect = true
-          this.ValidationResult="Data Inserted Successfully ";
+          this.ValidationResult = "Data Inserted Successfully ";
 
         }
-      );
+        );
     }
-    else{
+    else {
       console.log("else")
-      this.ValidationResult="Something Wrong";
-      this.iscorrect=false
+      this.ValidationResult = "Something Wrong";
+      this.iscorrect = false
     }
-   
-   
+
+
   }
 }
 
@@ -129,4 +146,3 @@ interface StudentObj {
   "passkey": string,
   "leagueId": string
 }
-  

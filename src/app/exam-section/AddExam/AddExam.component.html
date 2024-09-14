@@ -192,14 +192,16 @@
 
   <div class="d-none d-lg-flex">
 
-    <div class="alert alert-warning alert-dismissible fade show "
-      style="z-index: 1000; position: fixed; right: 0; top: 1; width: 20%;" role="alert">
-      <strong>{{itterator2}} / 10 </strong>Questions added.
+    <div class="alert alert-warning alert-dismissible fade show  " *ngIf="isScrolledDown"
+      style="z-index: 1000; position: fixed; right: 0; top: 1; width: 15%; " role="alert">
+
+      
+      <strong>{{itterator2}} / 10 </strong>Questions added !
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
 
-    <div *ngIf="showQNO" class="alert alert-success p-2" style="width: 80%;">
+    <div *ngIf="showQNO" class="alert alert-success p-2" style="width: 100%;">
       <button type="button" [ngClass]="isadded1 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">1</button>
       <button type="button" [ngClass]="isadded2 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">2</button>
       <button type="button" [ngClass]="isadded3 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">3</button>
@@ -211,8 +213,8 @@
       <button type="button" [ngClass]="isadded9 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">9</button>
       <button type="button" [ngClass]="isadded10 ? 'btn btn-secondary me-3' : 'btn btn-light me-3'">10</button>
     </div>
-    
-    
+
+
   </div>
 
 
@@ -230,7 +232,7 @@
       <button type="button" [ngClass]="isadded10 ? 'btn btn-secondary btn-sm' : 'btn btn-light btn-sm'">10</button>
     </div>
   </div>
-  
+
 
   <div class="form-group" *ngIf="isadded10">
     <div class="popup-overlay" id="popupOverlay">
@@ -244,12 +246,14 @@
           <br>
 
           <label for="usr">Exam Name:</label>
-          <input type="text" class="form-control" id="examname" (blur)="validateUsername()">
+          <input type="text" class="form-control" id="examname" (blur)="validExamName()"
+            [(ngModel)]="QadditionAdditionForm.examname">
           <small class="text-danger" *ngIf="usernameValidationMessage">{{usernameValidationMessage}}</small><br>
           <br>
 
           <label for="select-grade">Select Grade:</label>
-          <select class="form-control" id="select-grade" name="select-grade" (blur)=validateGrade() >
+          <select class="form-control" id="select-grade" name="select-grade" (blur)="validGrade()"
+            [(ngModel)]="QadditionAdditionForm.grade">
 
             <option>K1</option>
             <option>K2</option>

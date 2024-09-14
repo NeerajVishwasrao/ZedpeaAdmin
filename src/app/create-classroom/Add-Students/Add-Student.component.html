@@ -60,7 +60,8 @@
         <input type="text" class="form-control" id="studentid" [(ngModel)]="newStudent.studentId">
 
         <label for="selectgrade">Select Grade:</label>
-        <select class="form-control" id="selectgrade" [(ngModel)]="newStudent.grade" (blur)=validateGrade()>
+        <select class="form-control" id="selectgrade" [(ngModel)]="newStudent.grade" (blur)="validateGrade()">
+          <option>select</option>
           <option>K1</option>
           <option>K2</option>
           <option>STD1</option>

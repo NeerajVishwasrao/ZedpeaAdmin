@@ -24,7 +24,7 @@
 /* Styles for the Questions section */
 .questions-container {
   min-height: 550px; /* Adjust this height as needed */
-  overflow-y: auto;  /* Enables vertical scrolling */
+  /* overflow-y: auto;  Enables vertical scrolling */
 }
 
 
@@ -210,4 +210,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+
+
+
+
+
+
+
+
+
 
