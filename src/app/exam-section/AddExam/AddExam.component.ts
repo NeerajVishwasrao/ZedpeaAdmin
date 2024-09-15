@@ -36,19 +36,18 @@ export class CreateExamComponent {
   showQNO: boolean = false;
   popupMessage: any;
   isPopupVisible: any;
+
   canclebiggerthan10warning() {
     this.biggerthan10 = false
   }
+
   saved: boolean = false;
   biggerthan10: boolean = false;
 
   router = inject(Router)
   serviveExamSection = inject(ServiceExamSectionService)
-
-
+  
   itterator: number = 0;
-
-
   new_created_q: question[] = [];
   filteredQuestions: question[] = [];
   questiondatabase: question[] = [];
@@ -293,7 +292,7 @@ export class CreateExamComponent {
 
   selectedGrade: string = '';
   gradeValidationMessage: string = '';
-  
+
   validGrade(): boolean {
     if (!this.QadditionAdditionForm.grade) {
       this.gradeValidationMessage = 'Grade is required';

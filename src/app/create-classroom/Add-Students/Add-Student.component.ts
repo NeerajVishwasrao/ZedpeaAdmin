@@ -97,7 +97,7 @@ export class CreateStudentComponent {
 
 
   validateGrade(): boolean {
-    if (this.selectedGrade == "select") {
+    if (!this.newStudent.grade) {
       this.gradeValidationMessage = 'Grade is required';
       return false;
     } else {
@@ -118,7 +118,7 @@ export class CreateStudentComponent {
 
 
 
-    if (this.validateStudentName() && this.validatePassword() && this.validateUsername() && this.validateGrade()) {
+    if (this.validateStudentName() && this.validateGrade() && this.validateUsername() && this.validatePassword()) {
       this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
         .subscribe(data => {
           this.message = data.message;
@@ -142,7 +142,7 @@ interface StudentObj {
   studentId: string,
   studentName: string,
   grade: string,
-username: string,
+  username: string,
   passkey: string,
   leagueId: string
 }

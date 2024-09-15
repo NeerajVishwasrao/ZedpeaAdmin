@@ -8,7 +8,7 @@
         <!-- Buttons visible on larger screens -->
         <div class="d-none d-lg-flex">
 
-          <button class="btn btn-outline-success me-2 custom-btn" (click)="Goto_Students()"type="button">
+          <button class="btn btn-outline-success me-2 custom-btn" (click)="Goto_Students()" type="button">
             Students <i class="badge badge-pill badge-light">&#9733;</i>
           </button>
 
@@ -16,8 +16,8 @@
             Add Student <i class="badge badge-pill badge-light">+</i>
           </button>
 
-          <button class="btn btn-outline-success me-2 custom-btn"  (click)="Goto_Exmas()" type="button">
-          Exams <i class="badge badge-pill badge-primary">&#9733;</i>
+          <button class="btn btn-outline-success me-2 custom-btn" (click)="Goto_Exmas()" type="button">
+            Exams <i class="badge badge-pill badge-primary">&#9733;</i>
           </button>
 
           <button class="btn btn-outline-success me-2 custom-btn" (click)="Goto_AddExams()" type="button">
@@ -34,12 +34,12 @@
             Menu
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" (click)="Goto_Students()">Students 
-              <i class="badge badge-pill badge-light">10</i></a></li>
-            <li><a class="dropdown-item" (click)="Goto_Exmas()">Exams 
-              <i class="badge badge-pill badge-primary"></i></a></li>
-            <li><a class="dropdown-item" (click)="Goto_AddExams()">Add Exam 
-              <i class="badge badge-pill badge-light">+</i></a></li>
+            <li><a class="dropdown-item" (click)="Goto_Students()">Students
+                <i class="badge badge-pill badge-light">10</i></a></li>
+            <li><a class="dropdown-item" (click)="Goto_Exmas()">Exams
+                <i class="badge badge-pill badge-primary"></i></a></li>
+            <li><a class="dropdown-item" (click)="Goto_AddExams()">Add Exam
+                <i class="badge badge-pill badge-light">+</i></a></li>
           </ul>
         </div>
       </div>
@@ -49,11 +49,12 @@
 
 
   <!-- Enroll Students -->
-  <div class="card custom-card mt-4"  style="background-color:  #f5f3f1;">
+  <div class="card custom-card mt-4" style="background-color:  #f5f3f1;">
     <div class="card-body">
       <div class="form-group">
         <label for="studname">Student Name:</label>
-        <input type="text" class="form-control" id="studname" [(ngModel)]="newStudent.studentName" (blur)="validateStudentName()">
+        <input type="text" class="form-control" id="studname" [(ngModel)]="newStudent.studentName"
+          (blur)="validateStudentName()">
         <small class="text-danger" *ngIf="nameValidationMessage">{{nameValidationMessage}}</small><br>
 
         <label for="rollnumber">Roll Number:</label>
@@ -61,7 +62,6 @@
 
         <label for="selectgrade">Select Grade:</label>
         <select class="form-control" id="selectgrade" [(ngModel)]="newStudent.grade" (blur)="validateGrade()">
-          <option>select</option>
           <option>K1</option>
           <option>K2</option>
           <option>STD1</option>
@@ -70,19 +70,19 @@
         <small class="text-danger" *ngIf="gradeValidationMessage">{{gradeValidationMessage}}</small> <br>
 
         <label for="susername">Username:</label>
-        <input type="text" class="form-control" id="susername" [(ngModel)]="newStudent.username" (blur)="validateUsername()">
+        <input type="text" class="form-control" id="susername" [(ngModel)]="newStudent.username"
+          (blur)="validateUsername()">
         <small class="text-danger" *ngIf="usernameValidationMessage">{{usernameValidationMessage}}</small><br>
 
         <label for="spassword">Password:</label>
-        <input type="text" class="form-control" id="spassword" [(ngModel)]="newStudent.passkey" (blur)="validatePassword()">
+        <input type="text" class="form-control" id="spassword" [(ngModel)]="newStudent.passkey"
+          (blur)="validatePassword()">
         <small class="text-danger" *ngIf="passwordValidationMessage">{{passwordValidationMessage}}</small>
-    </div>
       </div>
-
-      <button type="button" class="btn mybutton" (click)="saveSelectedStudents()">{{message}}</button>
-      <small [ngClass]="iscorrect?'text-success':'text-danger'" *ngIf="ValidationResult">{{ValidationResult}}</small>
-
     </div>
+
+    <button type="button" class="btn mybutton" (click)="saveSelectedStudents()">{{message}}</button>
+    <small [ngClass]="iscorrect?'text-success':'text-danger'" *ngIf="ValidationResult">{{ValidationResult}}</small>
+
   </div>
-
-
+</div>
