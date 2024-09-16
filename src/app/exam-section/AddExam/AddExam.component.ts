@@ -126,10 +126,14 @@ export class CreateExamComponent {
     this.searchtext2 = ""
   }
 
+
   itterator2 = 0
 
-  Add_this_Q(idq: any) {
+idq:any
+idForQuetion:any
 
+  Add_this_Q(idq: any) {
+console.log(this.idq)
     ++this.itterator2
     this.showQNO = true;
     if (this.isadded10 == false) {
@@ -165,8 +169,22 @@ export class CreateExamComponent {
       else if (demo == "isadded10") {
         this.isadded10 = true;
       }
-      console.log("question adding method calling" + idq);
 
+     
+      // code for disable button after adding quetion
+    this.idForQuetion=idq 
+
+     if(this.idForQuetion && document.getElementById(idq)){
+      const button = document.getElementById(this.idForQuetion) as HTMLButtonElement
+      console.log("--",this.idForQuetion)   
+
+      if (button){     
+        button.innerText='This Quetion is Added'
+        button.disabled=true     
+      }
+     }
+    
+     console.log("question adding method calling" + idq);
       for (let index = 0; index < this.questiondatabase.length; index++) {
         if (idq == this.questiondatabase[index].qnumber) {
           this.new_created_q[this.itterator++] = this.questiondatabase[index]
@@ -179,6 +197,8 @@ export class CreateExamComponent {
     }
 
   }
+
+
 
 
   CQArray: question[][] = []
@@ -306,6 +326,13 @@ export class CreateExamComponent {
 
 
 
+//button disble after adding a question
+
+
+
+
+
+
 
 
   isScrolledDown: boolean = false;
@@ -365,3 +392,4 @@ interface NewExamObj {
   q9: string,
   q10: string
 }
+

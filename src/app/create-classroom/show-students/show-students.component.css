@@ -7,3 +7,22 @@
   }
 
 
+.card-img{
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+  border: 2px rgb(173, 152, 194) solid ;
+  border-radius: 2%;
+}
+
+h3,h2{
+  text-align: center;
+  justify-content: center;
+}
+
+h3:hover{
+  color: rgb(141, 149, 196);
+  text-shadow: #f0f0f5;
+  cursor: pointer;
+}

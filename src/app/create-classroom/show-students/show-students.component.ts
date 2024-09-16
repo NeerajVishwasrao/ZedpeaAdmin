@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
+import { NgFor,NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-show-students',
   standalone: true,
-  imports: [FormsModule, NgFor],
+  imports: [FormsModule, NgFor,NgIf,RouterLink],
   templateUrl: './show-students.component.html',
   styleUrl: './show-students.component.css'
 })

@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-show-created-test',
   standalone: true,
-  imports: [RouterLink, NgFor],
+  imports: [RouterLink, NgFor,NgIf],
   templateUrl: './ShowExams.component.html',
   styleUrl: './ShowExams.component.css'
 })

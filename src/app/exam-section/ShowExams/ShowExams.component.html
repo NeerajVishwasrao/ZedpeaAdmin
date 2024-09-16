@@ -48,14 +48,14 @@
     </div>
   </nav>
 </div>
-  <h3 style="text-align: center;">Saved exams </h3>
-
-
+  <!-- <h3 style="text-align: center;">Saved exams </h3> -->
 
   <div class="container mt-5">
     <div class="card shadow-sm mx-auto" style="max-width: 1000px;">
       <div class="card-body" style="min-height: 500px; overflow-y: auto; background-color: #f5f3f1;">
-        <div class="row">
+
+
+        <div class="row" *ngIf="examsList.length > 0" >
           <div class="col-sm-12 mb-4" *ngFor="let exam of examsList">
             <div class="card exam-card shadow-sm h-100">
               <div class="row g-0">
@@ -82,6 +82,17 @@
             </div>
           </div>
         </div>
+
+          <div *ngIf="examsList.length === 0">
+            <h2>Exam not found</h2>
+
+            <img src="/assets/nocontent.png" class="card-img" alt="...">
+         
+            
+            <h3 [routerLink]="['/Exam-Center/AddExam']">click here to Add Exam </h3>
+            
+          </div>
+
       </div>
     </div>
   </div>
