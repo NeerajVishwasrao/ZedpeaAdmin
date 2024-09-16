@@ -5,7 +5,7 @@
         "sub": "eng",
         "template": "1",
         "question": "323",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "sub": "math",
         "template": "2",
         "question": "3",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
 
     },
     {
@@ -22,7 +22,7 @@
         "sub": "eng",
         "template": "4",
         "question": "23",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
 
     },
     {
@@ -31,7 +31,7 @@
         "sub": "evs",
         "template": "3",
         "question": "1",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
 
     },
     {
@@ -40,7 +40,7 @@
         "sub": "mar",
         "template": "1",
         "question": "87",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
 
     },
     {
@@ -49,7 +49,7 @@
         "sub": "mar",
         "template": "4",
         "question": "56",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
 
     },
     {
@@ -58,7 +58,7 @@
         "sub": "math",
         "template": "2",
         "question": "32",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
     },
     {
         "id": 8,
@@ -66,7 +66,7 @@
         "sub": "eng",
         "template": "1",
         "question": "2",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
 
     },
     {
@@ -75,7 +75,7 @@
         "sub": "eng",
         "template": "2",
         "question": "3",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
 
     },
     {
@@ -84,7 +84,7 @@
         "sub": "math",
         "template": "3",
         "question": "4",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
 
     },
     {
@@ -93,7 +93,7 @@
         "sub": "eng",
         "template": "3",
         "question": "4",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
 
     },
     {
@@ -102,7 +102,7 @@
         "sub": "math",
         "template": "3",
         "question": "4",
-        "img":"/assets/Demopictures/red-text-any-questions-paper-600nw-2312396111.webp"
+        "img":"/assets/anyquestions.png"
 
     }
 ]
