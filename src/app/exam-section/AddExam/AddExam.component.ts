@@ -134,7 +134,7 @@ idq:any
 idForQuetion:any
 
   Add_this_Q(idq: any) {
-console.log(this.idq)
+// console.log(this.idq)
     ++this.itterator2
     this.showQNO = true;
     if (this.isadded10 == false) {
@@ -173,9 +173,12 @@ console.log(this.idq)
 
      
       // code for disable button after adding quetion
+      
     this.idForQuetion=idq 
-
+    console.log(this.idForQuetion)
+   
      if(this.idForQuetion && document.getElementById(idq)){
+
       const button = document.getElementById(this.idForQuetion) as HTMLButtonElement
       console.log("--",this.idForQuetion)   
 
