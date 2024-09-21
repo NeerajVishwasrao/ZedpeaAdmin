@@ -4,11 +4,12 @@ import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgFor,NgIf } from '@angular/common';
+import { LoaderComponent } from '../../loader/loader.component';
 
 @Component({
   selector: 'app-show-students',
   standalone: true,
-  imports: [FormsModule, NgFor,NgIf,RouterLink],
+  imports: [FormsModule, NgFor,NgIf,RouterLink,LoaderComponent],
   templateUrl: './show-students.component.html',
   styleUrl: './show-students.component.css'
 })
@@ -59,12 +60,11 @@ export class ShowStudentsComponent {
     this.http.post<any>('https://zedpea.co.in/api/students.php', this.leagueUser)
       .subscribe(
         (data: any) => {
-          this.studentList 
-          // = data;
+          // this.studentList  = data;
         }
       );
   }
-
+ 
 }
 
 interface user {

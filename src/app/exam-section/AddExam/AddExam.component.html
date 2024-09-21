@@ -405,7 +405,8 @@
   </div> -->
   <div class="row">
     <div class="questions-section" style="background-color: #f5f3f1; padding: 20px;">
-      <div class="questions-container">
+      <div class="questions-container" style="justify-content: center;">
+
         <div class="card" *ngFor="let Qcontainer of filteredQuestions">
           <div class="position-relative">
             <img src="/assets/anyquestions.png" class="card-img-top" alt="...">
@@ -418,10 +419,10 @@
               <h5 class="card-title" style="margin: 0;">{{Qcontainer.title}} ({{Qcontainer.grade}})</h5>
               <span>{{Qcontainer.qsubject}}</span>
             </div>
-            
+
             <div class="card-text">
               <!-- {{Qcontainer.qsubject}}<br> -->
-               <!-- <div> {{Qcontainer.topic}}</div><br>
+              <!-- <div> {{Qcontainer.topic}}</div><br>
               <div> {{Qcontainer.qdesc}} </div>
                -->
               <!-- {{Qcontainer.author}} -->
@@ -436,24 +437,24 @@
                 </div>
               </div>
             </div>
-
-
-
-           
-
-
-
-
-
-
-
-
-            <button id="{{Qcontainer.qnumber}}" class="btn mybutton" type="button" (click)="Add_this_Q(Qcontainer.qnumber)">
+            <button id="{{Qcontainer.qnumber}}" class="btn mybutton" type="button"
+              (click)="Add_this_Q(Qcontainer.qnumber)">
               Add <i class="bi bi-arrow-up-square"></i>
             </button>
           </div>
         </div>
+
+
+
+        <div *ngIf="filteredQuestions.length==0">
+          <app-loader></app-loader>
+
+        </div>
+
+
+
       </div>
     </div>
+
   </div>
 </div>

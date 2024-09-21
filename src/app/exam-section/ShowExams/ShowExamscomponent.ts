@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
 import { NgFor, NgIf } from '@angular/common';
+import { LoaderComponent } from '../../loader/loader.component';
 
 @Component({
   selector: 'app-show-created-test',
   standalone: true,
-  imports: [RouterLink, NgFor,NgIf],
+  imports: [RouterLink, NgFor,NgIf,LoaderComponent],
   templateUrl: './ShowExams.component.html',
   styleUrl: './ShowExams.component.css'
 })
@@ -20,8 +21,7 @@ editTest(exam: any) {
   this.selectedExam = exam;
  }
 discardchanges() {
-    this.showPopup = false; 
-    
+    this.showPopup = false;  
   }
 
 deleteTest(_t36: any) {
@@ -71,8 +71,7 @@ throw new Error('Method not implemented.');
 
     this.serviceExamSection.getallexmass(this.leagueUser).subscribe(
       (data: any[]) => {
-        this.examsList;
-        // = data
+        //  this.examsList = data
       }
     )
 

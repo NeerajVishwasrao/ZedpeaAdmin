@@ -6,11 +6,12 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
 import { NewExam } from '../../service/exams.model';
 import { ReqQuestion, Question } from '../../service/questions.model';
+import { LoaderComponent } from '../../loader/loader.component';
 
 @Component({
   selector: 'app-create-exam',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf],
+  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf,LoaderComponent],
   templateUrl: './AddExam.component.html',
   styleUrl: './AddExam.component.css'
 })
@@ -96,7 +97,7 @@ export class CreateExamComponent {
     this.http.post<Question[]>("https://zedpea.co.in/api/questions.php", questionFilter).subscribe(data => {
       console.log(data)
       this.questiondatabase = data;
-      this.filteredQuestions = data;
+      // this.filteredQuestions = data;
     })
     // this.filterQuestions=this.questiondatabase
 
@@ -320,7 +321,6 @@ idForQuetion:any
   validGrade(): boolean {
     if (!this.QadditionAdditionForm.grade) {
       this.gradeValidationMessage = 'Grade is required';
-      console.log("invaliddfgdfg")
       return false
     } else {
       this.gradeValidationMessage = '';
