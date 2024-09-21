@@ -20,7 +20,8 @@ editTest(exam: any) {
   this.selectedExam = exam;
  }
 discardchanges() {
-    this.showPopup = false;  
+    this.showPopup = false; 
+    
   }
 
 deleteTest(_t36: any) {
