@@ -55,7 +55,9 @@
     <div class="container mt-4">
       <div class="card shadow-sm" style="width: 100%; max-width: 1000px; margin: auto;">
         <div class="card-body" style="min-height: 500px;  background-color:  #f5f3f1">
-          <div class="row">
+
+
+          <div class="row" *ngIf="studentList.length > 0">
             <div class="col-sm-6" *ngFor="let student of studentList">
               <div class="card mb-4 shadow-sm student-card exam-card">
                 <div class="row no-gutters">
@@ -83,28 +85,38 @@
                           🗑
                         </button>
                       </div>
-                  </div>
+                    </div>
 
                     <!-- <p class="d-inline-flex gap-1">
                         <button class="btn mybutton" type="button"  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                           (click)="Add_this_Student(student.id)"> Update </button>
                       </p> -->
 
-                      
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div *ngIf="studentList.length === 0">
+
+
+        
+            <h2>Students not found</h2>
+
+            <img src="/assets/nocontent.png" class="card-img" alt="...">
+         
+            <p></p>
+          
+            <h3 [routerLink]="['/Add-Student']">click here to Add Student </h3>
+          </div>
+
         </div>
       </div>
+
+    </div>
     </div>
 
 
-  </div>
 </div>
-
-
-
-
-

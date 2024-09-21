@@ -116,6 +116,17 @@
             </div>
           </div>
         </div>
+
+          <div *ngIf="examsList.length === 0">
+            <h2>Exam not found</h2>
+
+            <img src="/assets/nocontent.png" class="card-img" alt="...">
+         
+            
+            <h3 [routerLink]="['/Exam-Center/AddExam']">click here to Add Exam </h3>
+            
+          </div>
+
       </div>
     </div>
   </div>
