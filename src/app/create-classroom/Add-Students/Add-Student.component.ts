@@ -13,6 +13,33 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class CreateStudentComponent {
+
+  img_validation_msg: string = '';
+  isValidUpload: boolean = false
+  event: any = ''
+
+  uploadValidPic(event: any) {
+    if (event.target.files.length > 0) {
+      const file: File = event.target.files[0];
+
+      if (file.type == "image/jpeg" || file.type == "image/png") {
+        const formdata = new FormData();
+        formdata.append('file', file);
+
+        console.log(formdata)
+        this.img_validation_msg = ""
+        this.isValidUpload = true
+      } else {
+        this.img_validation_msg = " WRONG FILE !! Format should in JEPG or PNG"
+      }
+
+      // debugger;
+    } else {
+      this.img_validation_msg = "Select picture of Student"
+    }
+
+  }
+
   router = inject(Router);
   http = inject(HttpClient);
   ValidationResult: string = '';
@@ -116,9 +143,9 @@ export class CreateStudentComponent {
 
   saveSelectedStudents() {
 
+    if (this.validateStudentName() && this.validateGrade() && this.validateUsername() && this.validatePassword() && this.isValidUpload) {
 
-
-    if (this.validateStudentName() && this.validateGrade() && this.validateUsername() && this.validatePassword()) {
+      this.isValidUpload = false;
       this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
         .subscribe(data => {
           this.message = data.message;
@@ -132,6 +159,9 @@ export class CreateStudentComponent {
       console.log("else")
       this.ValidationResult = "Something Wrong";
       this.iscorrect = false
+      if (this.isValidUpload == false) {
+        this.img_validation_msg = "Please select the student pic"
+      }
     }
 
 

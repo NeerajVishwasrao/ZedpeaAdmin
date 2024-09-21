@@ -12,7 +12,8 @@
   margin: 0 auto;
   width: 100%;
   max-width: 500px;
-  border: 2px rgb(173, 152, 194) solid ;
+  /* border: 2px rgb(173, 152, 194) solid ; */
+
   border-radius: 2%;
 }
 

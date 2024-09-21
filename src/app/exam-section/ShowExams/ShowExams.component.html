@@ -48,52 +48,62 @@
     </div>
   </nav>
 </div>
-  <!-- <h3 style="text-align: center;">Saved exams </h3> -->
+<!-- <h3 style="text-align: center;">Saved exams </h3> -->
 
-  <div class="container mt-5">
-    <div class="card shadow-sm mx-auto" style="max-width: 1000px;">
-      <div class="card-body" style="min-height: 500px; overflow-y: auto; background-color: #f5f3f1;">
+<div class="container mt-5">
+  <div class="card shadow-sm mx-auto" style="max-width: 1000px; ">
+    <div class="card-body" style="min-height: 500px; overflow-y: auto; background-color: #f5f3f1; ">
 
 
-        <div class="row" *ngIf="examsList.length > 0" >
-          <div class="col-sm-12 mb-4" *ngFor="let exam of examsList">
-            <div class="card exam-card shadow-sm h-100">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="/assets/anyquestions.png"
-                    class="card-img-top rounded-start" alt="Exam Image">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body d-flex flex-column justify-content-between">
-                    <ul class="list-unstyled mb-4">
-                      <li><strong>Test Name: </strong> {{exam.pname}} ({{exam.grade}})</li>
-                      <li><strong>Test Grade: </strong>{{exam.practid}}</li>
-                      <li><strong>Test Description: </strong> {{exam.pdesc}}</li>
-                    </ul>
-                    <div class="btn-group">
-                      <button class="btn btn-outline-success me-2" type="button" (click)="Showsingletest(exam)">⋯ View</button>
-                      <button class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">↪</button>
-                      <button class="btn btn-outline-warning me-2" type="button" (click)="editTest(exam)">✏️</button>
-                      <button class="btn btn-outline-danger" type="button" (click)="deleteTest(exam)">🗑</button>
-                    </div>
+      <div class="row" *ngIf="examsList.length > 0">
+        <div class="col-sm-12 mb-4" *ngFor="let exam of examsList">
+          <div class="card exam-card shadow-sm h-100">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/assets/anyquestions.png" class="card-img-top rounded-start" alt="Exam Image">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <ul class="list-unstyled mb-4">
+                    <li><strong>Test Name: </strong> {{exam.pname}} ({{exam.grade}})</li>
+                    <li><strong>Test Grade: </strong>{{exam.practid}}</li>
+                    <li><strong>Test Description: </strong> {{exam.pdesc}}</li>
+                  </ul>
+                  <div class="btn-group">
+                    <button class="btn btn-outline-success me-2" type="button" (click)="Showsingletest(exam)">⋯
+                      View</button>
+                    <button class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">↪</button>
+                    <button class="btn btn-outline-warning me-2" type="button" (click)="editTest(exam)">✏️</button>
+                    <button class="btn btn-outline-danger" type="button" (click)="deleteTest(exam)">🗑</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-          <div *ngIf="examsList.length === 0">
-            <h2>Exam not found</h2>
+      <div *ngIf="examsList.length === 0">
+        <h2>Exam not found</h2>
 
-            <img src="/assets/nocontent.png" class="card-img" alt="...">
-         
-            
-            <h3 [routerLink]="['/Exam-Center/AddExam']">click here to Add Exam </h3>
-            
-          </div>
+        <!-- <img src="/assets/nocontent.png" class="card-img" alt="...">
+          -->
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="350" height="350">
+          <path fill="#0f766e" stroke="#0f766e" stroke-width="15" transform-origin="center"
+            d="m148 84.7 13.8-8-10-17.3-13.8 8a50 50 0 0 0-27.4-15.9v-16h-20v16A50 50 0 0 0 63 67.4l-13.8-8-10 17.3 13.8 8a50 50 0 0 0 0 31.7l-13.8 8 10 17.3 13.8-8a50 50 0 0 0 27.5 15.9v16h20v-16a50 50 0 0 0 27.4-15.9l13.8 8 10-17.3-13.8-8a50 50 0 0 0 0-31.7Zm-47.5 50.8a35 35 0 1 1 0-70 35 35 0 0 1 0 70Z">
+            <animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2s" values="0;120"
+              keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite"></animateTransform>
+          </path>
+        </svg>
+
+
+
+        <h3 [routerLink]="['/Exam-Center/AddExam']">click here to Add Exam </h3>
 
       </div>
+
     </div>
   </div>
-  
+</div>

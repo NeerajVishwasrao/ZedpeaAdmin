@@ -59,7 +59,8 @@ export class ShowStudentsComponent {
     this.http.post<any>('https://zedpea.co.in/api/students.php', this.leagueUser)
       .subscribe(
         (data: any) => {
-          this.studentList = data;
+          this.studentList 
+          // = data;
         }
       );
   }
