@@ -71,7 +71,7 @@ throw new Error('Method not implemented.');
 
     this.serviceExamSection.getallexmass(this.leagueUser).subscribe(
       (data: any[]) => {
-        //  this.examsList = data
+         this.examsList = data
       }
     )
 

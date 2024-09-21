@@ -97,7 +97,7 @@ export class CreateExamComponent {
     this.http.post<Question[]>("https://zedpea.co.in/api/questions.php", questionFilter).subscribe(data => {
       console.log(data)
       this.questiondatabase = data;
-      // this.filteredQuestions = data;
+      this.filteredQuestions = data;
     })
     // this.filterQuestions=this.questiondatabase
 
