@@ -11,13 +11,22 @@ import { NgFor, NgIf } from '@angular/common';
   styleUrl: './ShowExams.component.css'
 })
 export class ShowCreatedTestComponent {
+
+  showPopup: boolean = false;  
+selectedExam: any; 
+
+editTest(exam: any) {
+ this.showPopup = true;  
+  this.selectedExam = exam;
+ }
+discardchanges() {
+    this.showPopup = false;  
+  }
+
 deleteTest(_t36: any) {
 throw new Error('Method not implemented.');
 }
 shareTest(_t36: any) {
-throw new Error('Method not implemented.');
-}
-editTest(_t36: any) {
 throw new Error('Method not implemented.');
 }
 

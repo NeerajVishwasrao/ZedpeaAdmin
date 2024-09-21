@@ -353,7 +353,7 @@
   <h4 style="text-align: center;">Question Set</h4>
 
 
-  <div class="row">
+  <!-- <div class="row">
     <div class="questions-section" style=" background-color: #f5f3f1;">
       <div class="questions-container" style="justify-content: center;">
         <div class="card " style="width: 15rem; height: 22rem;" *ngFor="let Qcontainer of filteredQuestions">
@@ -367,17 +367,17 @@
               <li>Template- {{Qcontainer.template}}</li>
               <li>subject.- {{Qcontainer.qsubject}}</li>
               <li>Topic.- {{Qcontainer.topic}}</li>
-              <li>Discription.- {{Qcontainer.description}}</li>
+              <li>Discription.- {{Qcontainer.qdesc}}</li>
               <li>author.- {{Qcontainer.author}}</li>
             </p>
-            <!-- <p class="d-inline-flex gap-1"> -->
+           <p class="d-inline-flex gap-1"> 
 
 
             <button class="btn mybutton"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               id="{{Qcontainer.qnumber}}" type="button" (click)="Add_this_Q(Qcontainer.qnumber)">Add
               Question</button>
-            <!-- </p> -->
+           </p> 
 
 
 
@@ -402,10 +402,58 @@
 
       </div>
     </div>
+  </div> -->
+  <div class="row">
+    <div class="questions-section" style="background-color: #f5f3f1; padding: 20px;">
+      <div class="questions-container">
+        <div class="card" *ngFor="let Qcontainer of filteredQuestions">
+          <div class="position-relative">
+            <img src="/assets/anyquestions.png" class="card-img-top" alt="...">
+            <div class="qnumber">
+              {{Qcontainer.qnumber}}
+            </div>
+          </div>
+          <div class="card-body">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h5 class="card-title" style="margin: 0;">{{Qcontainer.title}} ({{Qcontainer.grade}})</h5>
+              <span>{{Qcontainer.qsubject}}</span>
+            </div>
+            
+            <div class="card-text">
+              <!-- {{Qcontainer.qsubject}}<br> -->
+               <!-- <div> {{Qcontainer.topic}}</div><br>
+              <div> {{Qcontainer.qdesc}} </div>
+               -->
+              <!-- {{Qcontainer.author}} -->
+              <div class="container text-center">
+                <div class="row g-2">
+                  <div class="col-12">
+                    <div class="p-1">{{Qcontainer.topic}}</div>
+                  </div>
+                  <div class="col-12">
+                    <div class="p-1">{{Qcontainer.qdesc}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
 
+           
+
+
+
+
+
+
+
+
+            <button id="{{Qcontainer.qnumber}}" class="btn mybutton" type="button" (click)="Add_this_Q(Qcontainer.qnumber)">
+              Add <i class="bi bi-arrow-up-square"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
 </div>

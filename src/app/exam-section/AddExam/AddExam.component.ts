@@ -4,6 +4,8 @@ import { Component, HostListener, inject, NgModule } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
+import { NewExam } from '../../service/exams.model';
+import { ReqQuestion, Question } from '../../service/questions.model';
 
 @Component({
   selector: 'app-create-exam',
@@ -48,9 +50,9 @@ export class CreateExamComponent {
   serviveExamSection = inject(ServiceExamSectionService)
   
   itterator: number = 0;
-  new_created_q: question[] = [];
-  filteredQuestions: question[] = [];
-  questiondatabase: question[] = [];
+  new_created_q: Question[] = [];
+  filteredQuestions: Question[] = [];
+  questiondatabase: Question[] = [];
   http = inject(HttpClient);
   searchtext: any = '';
   searchtext1: string = '';
@@ -84,15 +86,14 @@ export class CreateExamComponent {
     //   this.user = JSON.parse(objUprofile)['league_name'];
     // }
 
-    var demoobj: Qdata = {
-      qSubject: "Marathi",
-      author: "kalpi",
+    var questionFilter: ReqQuestion = {
+      subject: "Marathi",
+      author: "sarika",
       grade: "k1",
-      qType: ""
     }
 
     console.log("before http get")
-    this.http.post<question[]>("https://zedpea.co.in/api/questions.php", demoobj).subscribe(data => {
+    this.http.post<Question[]>("https://zedpea.co.in/api/questions.php", questionFilter).subscribe(data => {
       console.log(data)
       this.questiondatabase = data;
       this.filteredQuestions = data;
@@ -133,7 +134,7 @@ idq:any
 idForQuetion:any
 
   Add_this_Q(idq: any) {
-console.log(this.idq)
+// console.log(this.idq)
     ++this.itterator2
     this.showQNO = true;
     if (this.isadded10 == false) {
@@ -172,9 +173,12 @@ console.log(this.idq)
 
      
       // code for disable button after adding quetion
+      
     this.idForQuetion=idq 
-
+    console.log(this.idForQuetion)
+   
      if(this.idForQuetion && document.getElementById(idq)){
+
       const button = document.getElementById(this.idForQuetion) as HTMLButtonElement
       console.log("--",this.idForQuetion)   
 
@@ -201,7 +205,7 @@ console.log(this.idq)
 
 
 
-  CQArray: question[][] = []
+  CQArray: Question[][] = []
 
   savenewquestionindex: number = 0
   savenewquestion() {
@@ -231,7 +235,7 @@ console.log(this.idq)
   }
 
   message: any = 'Push';
-  newExam: NewExamObj =
+  newExam: NewExam =
     {
       "leagueId": "104",
       "examTitle": "Maths Type 1",
@@ -327,14 +331,6 @@ console.log(this.idq)
 
 
 //button disble after adding a question
-
-
-
-
-
-
-
-
   isScrolledDown: boolean = false;
 
   @HostListener('window:scroll', [])
@@ -357,39 +353,9 @@ interface QadditionAdditionFormTemp {
   discreption: string
 }
 
-interface question {
-  qnumber: string
-  title: string
-  topic: string
-  description: string
-  diagram: string
-  template: string
-  grade: string
-  qsubject: string
-  author: string
-}
 
-interface Qdata {
-  qSubject: string,
-  author: string,
-  grade: string,
-  qType: string
-}
 
-interface NewExamObj {
-  leagueId: string,
-  examTitle: string,
-  description: string,
-  grade: string,
-  q1: string,
-  q2: string,
-  q3: string,
-  q4: string,
-  q5: string,
-  q6: string,
-  q7: string,
-  q8: string,
-  q9: string,
-  q10: string
-}
+
+
+
 
