@@ -27,9 +27,9 @@ export class ServiceExamSectionService {
     return this.behaviorsubject.asObservable();
 
   }
+  
 
-
-  students(user: studentdata) {
+  students(user: studentdata):Observable<any> {
 
     return this.http.post<any>('https://zedpea.co.in/api/students.php', user);
 
