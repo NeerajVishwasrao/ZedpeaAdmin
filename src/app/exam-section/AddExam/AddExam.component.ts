@@ -18,6 +18,7 @@ import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-butt
 })
 
 export class CreateExamComponent {
+isLoaderActive: boolean = true;
   closePopup() {
     throw new Error('Method not implemented.');
   }
@@ -68,7 +69,6 @@ export class CreateExamComponent {
   isadded11: any;
 
 
-
   addexamdisable: Boolean = true
   ngOnInit() {
     // let objUprofile = localStorage.getItem("uprofile");
@@ -84,9 +84,9 @@ export class CreateExamComponent {
 
     console.log("before http get")
     this.http.post<Question[]>("https://zedpea.co.in/api/questions.php", questionFilter).subscribe(data => {
-      console.log(data)
       this.questiondatabase = data;
       this.filteredQuestions = data;
+      this.isLoaderActive=false
     })
     // this.filterQuestions=this.questiondatabase
 

@@ -16,6 +16,7 @@ export class ShowCreatedTestComponent {
 
   showPopup: boolean = false;  
 selectedExam: any; 
+isLoaderActive: Boolean=true;
 
 editTest(exam: any) {
  this.showPopup = true;  
@@ -53,7 +54,6 @@ throw new Error('Method not implemented.');
     }
 
   ngOnInit(): void {
-
     let objUprofile = localStorage.getItem("uprofile");
     if (objUprofile != null) {
       this.leagueUser.leagueId = JSON.parse(objUprofile)['league_id'];
@@ -62,9 +62,9 @@ throw new Error('Method not implemented.');
     this.serviceExamSection.getallexmass(this.leagueUser).subscribe(
       (data: any[]) => {
          this.examsList = data
-      }
+         this.isLoaderActive=false
+        }
     )
-
   }
 
 

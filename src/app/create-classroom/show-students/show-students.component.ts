@@ -16,6 +16,7 @@ import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-butt
 })
 
 export class ShowStudentsComponent {
+isLoaderActive: boolean=true;
 
   openForm() {
     throw new Error('Method not implemented.');
@@ -52,6 +53,7 @@ export class ShowStudentsComponent {
       .subscribe(
         (data: any) => {
           this.studentList  = data;
+          this.isLoaderActive=false
         }
       );
   }

@@ -6,7 +6,7 @@
         <h2 class="navbar-brand"> 📚 </h2>
       </div>
       <!-- Memu Buttons  -->
-      <app-menu-buttons [Show_btn_AllExams]="true" ></app-menu-buttons>
+      <app-menu-buttons [Show_btn_AllExams]="true"></app-menu-buttons>
 
     </div>
   </nav>
@@ -52,13 +52,13 @@
                           <label for="usr"><strong>Test Name:</strong></label>
                           <input type="text" class="form-control" id="examname">
 
-                          <label for="usr"><strong >Test Grade:</strong></label>
+                          <label for="usr"><strong>Test Grade:</strong></label>
                           <input type="text" class="form-control" id="examname">
 
                           <label for="comment"><strong>Test Description:</strong></label>
                           <textarea class="form-control" rows="5" id="comment" name="text"
                             placeholder="Add Description"></textarea>
-                         
+
 
                           <div class="mb-3">
                             <label for="file" class="form-label"><strong>Upload Documents:</strong></label>
@@ -81,21 +81,27 @@
         </div>
       </div>
 
-      <div *ngIf="examsList.length === 0">
-        <h2>Exam not found</h2>
 
-        <!-- <img src="/assets/nocontent.png" class="card-img" alt="...">
-          -->
+      <!-- loader -->
+      <div *ngIf="isLoaderActive==true; else elseBlock">
 
-
-          <app-loader></app-loader>
-
-
-
-
-        <h3 [routerLink]="['/Exam-Center/AddExam']">click here to Add Exam </h3>
+        <app-loader></app-loader>
 
       </div>
+
+      <!-- This content is displayed if the condition is false -->
+      <ng-template #elseBlock>
+
+        <div *ngIf="examsList.length==0">
+
+          <h2>Exam not found</h2>
+          <img src="/assets/nocontent.png" class="card-img" alt="...">
+          <h3 [routerLink]="['/Exam-Center/AddExam']">click here to Add Exam </h3>
+
+        </div>
+
+      </ng-template>
+
 
     </div>
   </div>

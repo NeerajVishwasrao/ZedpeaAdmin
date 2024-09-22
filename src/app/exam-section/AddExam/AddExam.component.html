@@ -413,11 +413,19 @@
 
 
         <!-- loader -->
-        <div *ngIf="filteredQuestions.length==0">
+        <div *ngIf="isLoaderActive==true; else elseBlock">
+
           <app-loader></app-loader>
 
         </div>
 
+        <!-- This content is displayed if the condition is false -->
+        <ng-template #elseBlock>
+          <div *ngIf="filteredQuestions.length==0">
+            <img src="/assets/nocontent.png" class="card-img" alt="...">
+          </div>
+
+        </ng-template>
 
 
       </div>

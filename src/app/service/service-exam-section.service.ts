@@ -32,7 +32,6 @@ export class ServiceExamSectionService {
   students(user: studentdata):Observable<any> {
 
     return this.http.post<any>('https://zedpea.co.in/api/students.php', user);
-
   }
 
   mystudents() {

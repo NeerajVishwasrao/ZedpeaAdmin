@@ -5,10 +5,10 @@
         <div class="d-none d-lg-flex">
           <h2 class="navbar-brand"> 📚 </h2>
         </div>
-        
-      <!-- Memu Buttons  -->
-      <app-menu-buttons [Show_btn_All_Stu]="true"></app-menu-buttons>
-       
+
+        <!-- Memu Buttons  -->
+        <app-menu-buttons [Show_btn_All_Stu]="true"></app-menu-buttons>
+
       </div>
     </nav>
   </div>
@@ -42,7 +42,7 @@
                       </ul>
 
                       <div class="d-flex justify-content-end">
-                        <button class="btn btn-outline-warning me-2" type="button" >
+                        <button class="btn btn-outline-warning me-2" type="button">
                           ✏️
                         </button>
                         <button class="btn btn-outline-danger" type="button">
@@ -63,22 +63,33 @@
             </div>
           </div>
 
-          <div *ngIf="studentList.length === 0">
 
 
-
-            <h2>Students not found</h2>
-            <!-- 
-            <img src="/assets/nocontent.png" class="card-img" alt="..."> -->
+          <div *ngIf="isLoaderActive==true; else elseBlock">
 
             <app-loader></app-loader>
 
-
-
-            <p></p>
-
-            <h3 [routerLink]="['/Add-Student']">click here to Add Student </h3>
           </div>
+
+          <!-- This content is displayed if the condition is false -->
+          <ng-template #elseBlock>
+            
+            <div *ngIf="studentList.length==0">
+
+              <h2>Students not found</h2>
+              <img src="/assets/nocontent.png" class="card-img" alt="...">
+              <h3 [routerLink]="['/Add-Student']">click here to Add Student </h3>
+
+            </div>
+
+          </ng-template>
+
+
+
+
+
+
+
 
         </div>
       </div>
