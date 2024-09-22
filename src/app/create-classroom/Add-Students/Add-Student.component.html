@@ -6,8 +6,8 @@
           <h2 class="navbar-brand"> 📚 </h2>
         </div>
 
-      <!-- Memu Buttons  -->
-      <app-menu-buttons [Show_btn_addStu]="true"></app-menu-buttons>
+        <!-- Memu Buttons  -->
+        <app-menu-buttons [Show_btn_addStu]="true"></app-menu-buttons>
 
 
       </div>
@@ -48,7 +48,7 @@
         <small class="text-danger" *ngIf="passwordValidationMessage">{{passwordValidationMessage}}</small>
         <br>
         <label for="Std_pic">Picture:</label>
-        <input type="file"  class="form-control" id="Std_pic" (change)="uploadValidPic($event)">
+        <input type="file" class="form-control" id="Std_pic" (change)="uploadValidPic($event)">
         <small class="text-danger" *ngIf="img_validation_msg">{{img_validation_msg}} </small>
       </div>
     </div>

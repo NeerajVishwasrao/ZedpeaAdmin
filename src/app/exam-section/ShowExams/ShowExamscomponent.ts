@@ -8,30 +8,30 @@ import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-butt
 @Component({
   selector: 'app-show-created-test',
   standalone: true,
-  imports: [RouterLink, NgFor,NgIf,LoaderComponent,MenuButtonsComponent],
+  imports: [RouterLink, NgFor, NgIf, LoaderComponent, MenuButtonsComponent],
   templateUrl: './ShowExams.component.html',
   styleUrl: './ShowExams.component.css'
 })
 export class ShowCreatedTestComponent {
 
-  showPopup: boolean = false;  
-selectedExam: any; 
-isLoaderActive: Boolean=true;
+  showPopup: boolean = false;
+  selectedExam: any;
+  isLoaderActive: Boolean = true;
 
-editTest(exam: any) {
- this.showPopup = true;  
-  this.selectedExam = exam;
- }
-discardchanges() {
-    this.showPopup = false;  
+  editTest(exam: any) {
+    this.showPopup = true;
+    this.selectedExam = exam;
+  }
+  discardchanges() {
+    this.showPopup = false;
   }
 
-deleteTest(_t36: any) {
-throw new Error('Method not implemented.');
-}
-shareTest(_t36: any) {
-throw new Error('Method not implemented.');
-}
+  deleteTest(_t36: any) {
+    throw new Error('Method not implemented.');
+  }
+  shareTest(_t36: any) {
+    throw new Error('Method not implemented.');
+  }
 
   addexamdisable: any;
   disexam: boolean = true;
@@ -61,9 +61,9 @@ throw new Error('Method not implemented.');
 
     this.serviceExamSection.getallexmass(this.leagueUser).subscribe(
       (data: any[]) => {
-         this.examsList = data
-         this.isLoaderActive=false
-        }
+        this.examsList = data
+        this.isLoaderActive = false
+      }
     )
   }
 

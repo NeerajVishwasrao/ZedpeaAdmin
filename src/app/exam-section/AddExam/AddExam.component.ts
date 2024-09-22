@@ -12,13 +12,13 @@ import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-butt
 @Component({
   selector: 'app-create-exam',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf,LoaderComponent,MenuButtonsComponent,TitleCasePipe],
+  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf, LoaderComponent, MenuButtonsComponent, TitleCasePipe],
   templateUrl: './AddExam.component.html',
   styleUrl: './AddExam.component.css'
 })
 
 export class CreateExamComponent {
-isLoaderActive: boolean = true;
+  isLoaderActive: boolean = true;
   closePopup() {
     throw new Error('Method not implemented.');
   }
@@ -39,7 +39,7 @@ isLoaderActive: boolean = true;
 
   router = inject(Router)
   serviveExamSection = inject(ServiceExamSectionService)
-  
+
   itterator: number = 0;
   new_created_q: Question[] = [];
   filteredQuestions: Question[] = [];
@@ -86,7 +86,7 @@ isLoaderActive: boolean = true;
     this.http.post<Question[]>("https://zedpea.co.in/api/questions.php", questionFilter).subscribe(data => {
       this.questiondatabase = data;
       this.filteredQuestions = data;
-      this.isLoaderActive=false
+      this.isLoaderActive = false
     })
     // this.filterQuestions=this.questiondatabase
 
@@ -120,11 +120,11 @@ isLoaderActive: boolean = true;
 
   itterator2 = 0
 
-idq:any
-idForQuetion:any
+  idq: any
+  idForQuetion: any
 
   Add_this_Q(idq: any) {
-// console.log(this.idq)
+    // console.log(this.idq)
     ++this.itterator2
     this.showQNO = true;
     if (this.isadded10 == false) {
@@ -161,24 +161,24 @@ idForQuetion:any
         this.isadded10 = true;
       }
 
-     
+
       // code for disable button after adding quetion
-      
-    this.idForQuetion=idq 
-    console.log(this.idForQuetion)
-   
-     if(this.idForQuetion && document.getElementById(idq)){
 
-      const button = document.getElementById(this.idForQuetion) as HTMLButtonElement
-      console.log("--",this.idForQuetion)   
+      this.idForQuetion = idq
+      console.log(this.idForQuetion)
 
-      if (button){     
-        button.innerText='This Quetion is Added'
-        button.disabled=true     
+      if (this.idForQuetion && document.getElementById(idq)) {
+
+        const button = document.getElementById(this.idForQuetion) as HTMLButtonElement
+        console.log("--", this.idForQuetion)
+
+        if (button) {
+          button.innerText = 'This Quetion is Added'
+          button.disabled = true
+        }
       }
-     }
-    
-     console.log("question adding method calling" + idq);
+
+      console.log("question adding method calling" + idq);
       for (let index = 0; index < this.questiondatabase.length; index++) {
         if (idq == this.questiondatabase[index].qnumber) {
           this.new_created_q[this.itterator++] = this.questiondatabase[index]
@@ -319,7 +319,7 @@ idForQuetion:any
 
 
 
-//button disble after adding a question
+  //button disble after adding a question
   isScrolledDown: boolean = false;
 
   @HostListener('window:scroll', [])

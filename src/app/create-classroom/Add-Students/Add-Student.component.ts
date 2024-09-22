@@ -87,7 +87,7 @@ export class CreateStudentComponent {
       this.passwordValidationMessage = 'Password must be at least 6 characters long';
       return false;
 
-    } else if (!/\d/.test(this.newStudent.passkey) || ! /[!@#$%^&*]/  .test(this.newStudent.passkey)) {
+    } else if (!/\d/.test(this.newStudent.passkey) || ! /[!@#$%^&*]/.test(this.newStudent.passkey)) {
       this.passwordValidationMessage = 'Password must contain at least one number and one special character';
       return false;
 
@@ -97,9 +97,9 @@ export class CreateStudentComponent {
 
     }
   }
-// ^ for starting , +$ for ending  this cheaks starting and ending char with [a-zA-Z] characters
+  // ^ for starting , +$ for ending  this cheaks starting and ending char with [a-zA-Z] characters
   validateStudentName(): boolean {
-    if (! /^[a-z A-Z]+$/ .test( this.newStudent.studentName)) {
+    if (! /^[a-z A-Z]+$/.test(this.newStudent.studentName)) {
       this.nameValidationMessage = 'The name must contain alphabets!';
       return false
     } else {
