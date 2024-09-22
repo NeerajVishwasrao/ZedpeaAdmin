@@ -1,18 +1,22 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgClass, NgFor } from '@angular/common';
+import { CommonModule, NgClass, NgFor } from '@angular/common';
 import { LoginService } from './login.service';
 import { LUser } from './luser.model';
+import { LoaderComponent } from '../Reusable-view/loader/loader.component';
+import { Loader2Component } from '../Reusable-view/loader-2/loader-2.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, NgFor, NgClass],
+  imports: [FormsModule,CommonModule, NgClass,LoaderComponent,Loader2Component],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+isLoaderActive: boolean=true;
+isLogging:  boolean=false;;
 togglePasswordVisibility() {
 this.showPassword = !this.showPassword}
   router = inject(Router);
@@ -30,6 +34,7 @@ showPassword: boolean=false;
         (res) => {
           console.log(res);
           this.leaguelist = res;
+          this.isLoaderActive=false
         }
       );
     }
@@ -49,7 +54,7 @@ showPassword: boolean=false;
 
 
   verify() {
-
+this.isLogging=true
     let user = <LUser>{};
     user = { 
       leagueName: this.LoginCredentials.email,
@@ -59,6 +64,7 @@ showPassword: boolean=false;
     this.loginService.myleague(user)
     .subscribe(
       (res) => {
+        this.isLogging=false
         console.log(res);
         this.response = res;
         if (this.response.length) {

@@ -372,7 +372,7 @@
   </div> -->
   <div class="row">
     <div class="questions-section" style="background-color: #f5f3f1; padding: 20px;">
-      <div class="questions-container">
+      <div class="questions-container" style="justify-content: center; ">
 
         <div class="card" *ngFor="let Qcontainer of filteredQuestions">
           <div class="position-relative">
@@ -413,7 +413,7 @@
 
 
         <!-- loader -->
-        <div *ngIf="isLoaderActive==true; else elseBlock">
+        <div *ngIf="isLoaderActive==true; else elseBlock" style="display: flex; justify-content: center;  ">
 
           <app-loader></app-loader>
 
