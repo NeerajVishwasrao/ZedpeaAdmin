@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
 
 @Component({
   selector: 'app-create-student',
   standalone: true,
-  imports: [NgFor, NgIf, FormsModule, NgClass],
+  imports: [NgFor, NgIf, FormsModule, NgClass, MenuButtonsComponent],
   templateUrl: './Add-Student.component.html',
   styleUrls: ['./Add-Student.component.css']
 })
@@ -44,17 +45,6 @@ export class CreateStudentComponent {
   http = inject(HttpClient);
   ValidationResult: string = '';
 
-  Goto_Students() {
-    this.router.navigateByUrl("Show-Student")
-  }
-
-  Goto_Exmas() {
-    this.router.navigateByUrl("Exam-Center/ShowExam")
-  }
-
-  Goto_AddExams() {
-    this.router.navigateByUrl("Exam-Center/AddExam")
-  }
 
   isnewstudent: boolean = false;
   message: any = 'Save';

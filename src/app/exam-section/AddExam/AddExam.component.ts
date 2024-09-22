@@ -6,12 +6,13 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
 import { NewExam } from '../../service/exams.model';
 import { ReqQuestion, Question } from '../../service/questions.model';
-import { LoaderComponent } from '../../loader/loader.component';
+import { LoaderComponent } from '../../Reusable-view/loader/loader.component';
+import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
 
 @Component({
   selector: 'app-create-exam',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf,LoaderComponent],
+  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf,LoaderComponent,MenuButtonsComponent],
   templateUrl: './AddExam.component.html',
   styleUrl: './AddExam.component.css'
 })
@@ -23,18 +24,6 @@ export class CreateExamComponent {
   popupVisible: boolean = false;
 
 
-  goto_Exams() {
-    this.router.navigateByUrl("Exam-Center/ShowExam")
-
-  }
-  goto_AddStudent() {
-
-    this.router.navigateByUrl("Add-Student")
-
-  }
-  goto_Students() {
-    this.router.navigateByUrl("Show-Student")
-  }
 
   showQNO: boolean = false;
   popupMessage: any;

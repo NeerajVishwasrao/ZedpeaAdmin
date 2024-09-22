@@ -1,0 +1,66 @@
+
+
+
+<!-- Buttons visible on larger screens -->
+
+<div class="d-none d-lg-flex">
+
+  <button
+    [ngClass]="Show_btn_All_Stu?'btn  btn-outline-secondary me-2 custom-no-border':'btn btn-outline-success me-2 custom-btn'"
+    (click)="Goto_Students()" [disabled]="Show_btn_All_Stu" type="button">
+    Students <i
+      [ngClass]=" Show_btn_All_Stu?'badge badge-pill badge-light':'badge badge-pill badge-primary'">&#9733;</i>
+  </button>
+
+  <button
+    [ngClass]="Show_btn_addStu?'btn  btn-outline-secondary me-2 custom-no-border':'btn btn-outline-success me-2 custom-btn'"
+    (click)="Goto_AddStudents()" [disabled]="Show_btn_addStu" type="button">
+    Add Student <i [ngClass]=" Show_btn_addStu?'badge badge-pill badge-light':'badge badge-pill badge-primary'">+</i>
+  </button>
+
+  <button
+    [ngClass]="Show_btn_AllExams?'btn  btn-outline-secondary me-2 custom-no-border':'btn btn-outline-success me-2 custom-btn'"
+    (click)="Goto_Exmas()" [disabled]="Show_btn_AllExams" type="button">
+    Exams <i [ngClass]=" Show_btn_AllExams?'badge badge-pill badge-light':'badge badge-pill badge-primary'">&#9733;</i>
+  </button>
+
+  <button
+    [ngClass]="Show_btn_AddExam?'btn  btn-outline-secondary me-2 custom-no-border':'btn btn-outline-success me-2 custom-btn'"
+    (click)="Goto_AddExmas()" [disabled]="Show_btn_AddExam" type="button">
+    Add Exam <i [ngClass]=" Show_btn_AddExam?'badge badge-pill badge-light':'badge badge-pill badge-primary'">+</i>
+  </button>
+
+</div>
+
+
+
+<!-- Dropdown visible on smaller screens -->
+
+<div class="dropdown d-lg-none">
+
+  <button class="btn btn-outline-success dropdown-toggle custom-btnSmall" type="button" id="dropdownMenuButton"
+    data-bs-toggle="dropdown" aria-expanded="false"
+    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+    Menu
+  </button>
+
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+    <li><a *ngIf="!Show_btn_All_Stu" class="dropdown-item" (click)="Goto_Students()">Students <i
+          class="badge badge-pill badge-light">10</i></a>
+    </li>
+    <li><a *ngIf="!Show_btn_addStu" class="dropdown-item" (click)="Goto_AddStudents()">Add Student <i
+          class="badge badge-pill badge-primary"></i></a>
+    </li>
+    <li><a *ngIf="!Show_btn_AddExam" class="dropdown-item" (click)="Goto_AddExmas()">Add Exam <i
+          class="badge badge-pill badge-light">+</i></a>
+    </li>
+    <li><a *ngIf="!Show_btn_AllExams" class="dropdown-item" (click)="Goto_Exmas()">Exams <i
+          class="badge badge-pill badge-light">+</i></a>
+    </li>
+
+  </ul>
+<br>
+<br>
+</div>

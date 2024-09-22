@@ -2,12 +2,13 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
 import { NgFor, NgIf } from '@angular/common';
-import { LoaderComponent } from '../../loader/loader.component';
+import { LoaderComponent } from '../../Reusable-view/loader/loader.component';
+import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
 
 @Component({
   selector: 'app-show-created-test',
   standalone: true,
-  imports: [RouterLink, NgFor,NgIf,LoaderComponent],
+  imports: [RouterLink, NgFor,NgIf,LoaderComponent,MenuButtonsComponent],
   templateUrl: './ShowExams.component.html',
   styleUrl: './ShowExams.component.css'
 })
@@ -34,17 +35,6 @@ throw new Error('Method not implemented.');
   addexamdisable: any;
   disexam: boolean = true;
 
-  goto_AddExams() {
-    this.router.navigateByUrl("Exam-Center/AddExam")
-  }
-
-  goto_AddStudent() {
-    this.router.navigateByUrl("Add-Student")
-  }
-
-  goto_Students() {
-    this.router.navigateByUrl("Show-Student")
-  }
 
   Showsingletest(exam: any) {
     this.router.navigateByUrl("Show-single-exam");

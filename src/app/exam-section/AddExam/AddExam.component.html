@@ -4,42 +4,9 @@
       <div class="d-none d-lg-flex">
         <h2 class="navbar-brand"> 📚 </h2>
       </div>
-      <!-- Buttons visible on larger screens -->
-      <div class="d-none d-lg-flex">
 
-        <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_Students()" type="button">
-          Students <i class="badge badge-pill badge-light">&#9733;</i>
-        </button>
-
-        <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_AddStudent()" type="button">
-          Add Student <i class="badge badge-pill badge-light">+</i>
-        </button>
-
-        <button class="btn btn-outline-success me-2 custom-btn" (click)="goto_Exams()" type="button">
-          Exams <i class="badge badge-pill badge-primary">&#9733;</i>
-        </button>
-
-        <button class="btn btn-outline-secondary me-2 custom-no-border" disabled="true" type="button">
-          Add Exam <i class="badge badge-pill badge-light">+</i>
-        </button>
-      </div>
-
-      <!-- Dropdown visible on smaller screens -->
-      <div class="dropdown d-lg-none">
-        <button class="btn btn-outline-success dropdown-toggle custom-btnSmall" type="button" id="dropdownMenuButton"
-          data-bs-toggle="dropdown" aria-expanded="false"
-          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-          Menu
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" (click)="goto_Students()">Students <i
-                class="badge badge-pill badge-light">10</i></a></li>
-          <li><a class="dropdown-item" (click)="goto_Exams()">Exams <i
-                class="badge badge-pill badge-primary">{{CQArray.length}}</i></a></li>
-          <li><a class="dropdown-item" (click)="goto_AddStudent()">Add Student <i
-                class="badge badge-pill badge-light">+</i></a></li>
-        </ul>
-      </div>
+      <!-- Memu Buttons  -->
+      <app-menu-buttons [Show_btn_AddExam]="true"></app-menu-buttons>
 
       <div class="ms-auto">
 

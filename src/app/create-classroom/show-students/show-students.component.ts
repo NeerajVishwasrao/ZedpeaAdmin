@@ -4,12 +4,13 @@ import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgFor,NgIf } from '@angular/common';
-import { LoaderComponent } from '../../loader/loader.component';
+import { LoaderComponent } from '../../Reusable-view/loader/loader.component';
+import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
 
 @Component({
   selector: 'app-show-students',
   standalone: true,
-  imports: [FormsModule, NgFor,NgIf,RouterLink,LoaderComponent],
+  imports: [FormsModule, NgFor,NgIf,RouterLink,LoaderComponent,MenuButtonsComponent],
   templateUrl: './show-students.component.html',
   styleUrl: './show-students.component.css'
 })
@@ -20,16 +21,6 @@ export class ShowStudentsComponent {
     throw new Error('Method not implemented.');
   }
 
-  goto_AddStudent() {
-    this.router.navigateByUrl("Add-Student")
-  }
-  goto_AddExams() {
-    this.router.navigateByUrl("Exam-Center/AddExam")
-  }
-
-  goto_Exmas() {
-    this.router.navigateByUrl("Exam-Center/ShowExam")
-  }
 
   disstudents: boolean = true;
   addexamdisable: any;
