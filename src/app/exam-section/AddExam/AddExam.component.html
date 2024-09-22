@@ -372,7 +372,7 @@
   </div> -->
   <div class="row">
     <div class="questions-section" style="background-color: #f5f3f1; padding: 20px;">
-      <div class="questions-container" >
+      <div class="questions-container">
 
         <div class="card" *ngFor="let Qcontainer of filteredQuestions">
           <div class="position-relative">
@@ -383,8 +383,8 @@
           </div>
           <div class="card-body">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-              <h5 class="card-title" style="margin: 0;">{{Qcontainer.title}} ({{Qcontainer.grade}})</h5>
-              <span>{{Qcontainer.qsubject}}</span>
+              <h5 class="card-title" style="margin: 0;">{{Qcontainer.title|titlecase}} ({{Qcontainer.grade}})</h5>
+              <span>{{Qcontainer.qsubject|titlecase}}</span>
             </div>
 
             <div class="card-text">
@@ -396,10 +396,10 @@
               <div class="container text-center">
                 <div class="row g-2">
                   <div class="col-12">
-                    <div class="p-1">{{Qcontainer.topic}}</div>
+                    <div class="p-1">{{Qcontainer.topic|titlecase}}</div>
                   </div>
                   <div class="col-12">
-                    <div class="p-1">{{Qcontainer.qdesc}}</div>
+                    <div class="p-1">{{Qcontainer.qdesc|titlecase}}</div>
                   </div>
                 </div>
               </div>
@@ -412,7 +412,7 @@
         </div>
 
 
-
+        <!-- loader -->
         <div *ngIf="filteredQuestions.length==0">
           <app-loader></app-loader>
 

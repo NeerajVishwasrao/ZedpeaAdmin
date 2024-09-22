@@ -1,4 +1,4 @@
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, HostListener, inject, NgModule } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
@@ -12,7 +12,7 @@ import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-butt
 @Component({
   selector: 'app-create-exam',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf,LoaderComponent,MenuButtonsComponent],
+  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf,LoaderComponent,MenuButtonsComponent,TitleCasePipe],
   templateUrl: './AddExam.component.html',
   styleUrl: './AddExam.component.css'
 })
