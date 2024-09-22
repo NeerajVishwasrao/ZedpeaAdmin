@@ -123,6 +123,8 @@ export class CreateStudentComponent {
   }
 
   ngOnInit(): void {
+    console.log("Lazy loaded add student")
+
     let objUprofile = localStorage.getItem("uprofile");
     if (objUprofile != null) {
       this.newStudent.leagueId = JSON.parse(objUprofile)['league_id'];

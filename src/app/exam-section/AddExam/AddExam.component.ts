@@ -71,6 +71,8 @@ export class CreateExamComponent {
 
   addexamdisable: Boolean = true
   ngOnInit() {
+    console.log("Lazy loaded add exam")
+
     // let objUprofile = localStorage.getItem("uprofile");
     // if (objUprofile != null) {
     //   this.user = JSON.parse(objUprofile)['league_name'];

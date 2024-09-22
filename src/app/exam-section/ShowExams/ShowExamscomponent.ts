@@ -54,6 +54,8 @@ export class ShowCreatedTestComponent {
     }
 
   ngOnInit(): void {
+    console.log("Lazy loaded add exam")
+
     let objUprofile = localStorage.getItem("uprofile");
     if (objUprofile != null) {
       this.leagueUser.leagueId = JSON.parse(objUprofile)['league_id'];

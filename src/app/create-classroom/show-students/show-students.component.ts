@@ -43,6 +43,7 @@ export class ShowStudentsComponent {
 
 
   ngOnInit(): void {
+    console.log("Lazy loaded show student")
 
     let objUprofile = localStorage.getItem("uprofile");
     if (objUprofile != null) {
