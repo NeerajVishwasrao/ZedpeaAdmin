@@ -25,10 +25,29 @@ export class AppComponent {
       this.titleuser = JSON.parse(objUprofile)['league_name'];
     }
   }
-  freezepage() {
+
+  H_threeline: boolean = true
+  V_threeline: boolean = false
+  menudesign(point: number) {
+    if (point == 1) {
+      this.V_threeline = true
+      this.H_threeline = false
+    } else {
+      this.V_threeline = false
+      this.H_threeline = true
+    }
+
+    this.isSidebarActive = !this.isSidebarActive;
+    console.log("isSidebarActive "+this.isSidebarActive)
+
     this.isfreeze = !this.isfreeze
-    console.log("isfreeze  " +this.isfreeze)
+    console.log("isfreeze is " +this.isfreeze)
   }
+
+ 
+
+ 
+
   router = inject(Router)
   isfreeze: boolean = false;
 
@@ -66,10 +85,7 @@ export class AppComponent {
     this.router.navigateByUrl("");
   }
 
-  toggleSidebar() {
-    this.isSidebarActive = !this.isSidebarActive;
-    console.log("isSidebarActive "+this.isSidebarActive)
-  }
+
   isExamCenterActive: boolean = false;
   IsClassroomActive: boolean = false;
 
@@ -84,17 +100,6 @@ export class AppComponent {
   
   }
 
-  H_threeline: boolean = true
-  V_threeline: boolean = false
-  menudesign(point: number) {
-    if (point == 1) {
-      this.V_threeline = true
-      this.H_threeline = false
-    } else {
-      this.V_threeline = false
-      this.H_threeline = true
-    }
-  }
   
   isSidebarActive = false; 
   // closeSidebar() {
