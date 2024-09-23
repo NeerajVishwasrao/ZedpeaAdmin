@@ -20,6 +20,7 @@
     "@angular/router": "^18.1.0",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "chart.js": "^4.4.4",
     "esbuild": "^0.23.0",
     "jquerry": "^0.0.1-security",
     "jquery": "^3.7.1",

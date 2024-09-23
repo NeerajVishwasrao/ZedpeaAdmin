@@ -26,6 +26,10 @@ export const routes: Routes = [
     {
         path:'Show-single-exam',loadChildren:()=>import('./exam-section/ShowExams/single-created-test/single-creted-test.module').then(m=>m.CretedTestModule),
         canActivate:[authZPGuard]
+    },
+    {
+        path:'annalysis-performance',loadChildren:()=>import('./exam-section/annalysis-performance/analysis-performance.module').then(m=>m.AnalysisPerformanceModule),
+        canActivate:[authZPGuard]
     }
    
 ];
