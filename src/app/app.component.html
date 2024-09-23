@@ -21,7 +21,7 @@
 
   <!-- Sidebar -->
 
-  <div class="w3-sidebar w3-bar-block sidebar-card" [ngClass]="{ active: isSidebarActive }">
+  <div class="w3-sidebar w3-bar-block sidebar-card" [ngClass]="{ active: isSidebarActive }" *ngIf="isSidebarActive">
     <div class="sidebar">
       <!-- Exam Section with Dropdown -->
       <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown('Exam-Center')">

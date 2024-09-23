@@ -1,4 +1,4 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component, HostListener, Inject, inject } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 import * as bootstrap from 'bootstrap'; // <-- Import Bootstrap JavaScript
@@ -57,7 +57,6 @@ export class AppComponent {
 
   student: any;
 
-  isSidebarActive = false;
   isDropdownActive = false;
 
 
@@ -94,9 +93,21 @@ export class AppComponent {
       this.H_threeline = true
     }
   }
+  
+  isSidebarActive = false; 
+  closeSidebar() {
+    this.isSidebarActive = false;
+  }
 
+  @HostListener('document:click', ['$event'])
+  onClick(event: Event) {
+    const clickedElement = event.target as HTMLElement;
+    const sidebarElement = document.querySelector('.w3-sidebar');
 
-
+    if (sidebarElement && !sidebarElement.contains(clickedElement)) {
+      this.closeSidebar();
+    }
+  }
 
   // studentdata() {
   //   this.router.navigateByUrl("/student")
