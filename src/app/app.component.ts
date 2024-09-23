@@ -27,6 +27,7 @@ export class AppComponent {
   }
   freezepage() {
     this.isfreeze = !this.isfreeze
+    console.log("isfreeze  " +this.isfreeze)
   }
   router = inject(Router)
   isfreeze: boolean = false;
@@ -67,6 +68,7 @@ export class AppComponent {
 
   toggleSidebar() {
     this.isSidebarActive = !this.isSidebarActive;
+    console.log("isSidebarActive "+this.isSidebarActive)
   }
   isExamCenterActive: boolean = false;
   IsClassroomActive: boolean = false;
@@ -95,9 +97,9 @@ export class AppComponent {
   }
   
   isSidebarActive = false; 
-  closeSidebar() {
-    this.isSidebarActive = false;
-  }
+  // closeSidebar() {
+  //   this.isSidebarActive = false;
+  // }
 
   @HostListener('document:click', ['$event'])
   onClick(event: Event) {
@@ -105,7 +107,10 @@ export class AppComponent {
     const sidebarElement = document.querySelector('.w3-sidebar');
 
     if (sidebarElement && !sidebarElement.contains(clickedElement)) {
-      this.closeSidebar();
+      this.isSidebarActive=false;
+      this.isfreeze=false;
+      console.log("isfreeze in hostlistner  " +this.isfreeze)
+
     }
   }
 
