@@ -63,18 +63,17 @@ export class LoginComponent {
     }
 
     this.loginService.myleague(user)
-      .subscribe(
-        (res) => {
-          this.isLogging = false
-          console.log(res);
-          this.response = res;
-          if (this.response.length) {
-            localStorage.setItem("uprofile", JSON.stringify(this.response[0]))
-            this.router.navigateByUrl("Exam-Center/AddExam")
-          } else {
-            alert("Invalid Credentials")
-          }
+      .subscribe((res) => {
+        this.isLogging = false
+        console.log(res);
+        this.response = res;
+        if (this.response.length) {
+          localStorage.setItem("uprofile", JSON.stringify(this.response[0]))
+          this.router.navigateByUrl("Exam-Center/AddExam")
+        } else {
+          alert("Invalid Credentials")
         }
+      }
       );
 
   }
