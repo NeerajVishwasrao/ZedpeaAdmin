@@ -14,18 +14,14 @@ import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-butt
 })
 export class ShowCreatedTestComponent {
 
-  showPopup: boolean = false;
   selectedExam: any;
   isLoaderActive: Boolean = true;
 
   editTest(exam: any) {
-    this.showPopup = true;
+   
     this.selectedExam = exam;
   }
-  discardchanges() {
-    this.showPopup = false;
-  }
-
+ 
   deleteTest(_t36: any) {
     throw new Error('Method not implemented.');
   }

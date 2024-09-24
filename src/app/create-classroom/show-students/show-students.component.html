@@ -42,13 +42,62 @@
                       </ul>
 
                       <div class="d-flex justify-content-end">
-                        <button class="btn btn-outline-warning me-2" type="button">
-                          ✏️
-                        </button>
+                        <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
+                          data-bs-target="#exampleModal" data-bs-whatever="@mdo" (click)="editTest()">✏️</button>
                         <button class="btn btn-outline-danger" type="button">
                           🗑
                         </button>
                       </div>
+
+
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Edit Student Form</strong></h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form>
+                                <div class="mb-3">
+                                  <label for="usr">Student Name:</label>
+                                  <input type="text" class="form-control" id="examname">
+
+                                  <label for="usr">Roll Number:</label>
+                                  <input type="text" class="form-control" id="examname">
+
+                                  <label for="selectgrade">Select Grade:</label>
+                                  <select class="form-control" id="selectgrade">
+                                    <option>K1</option>
+                                    <option>K2</option>
+                                    <option>STD1</option>
+                                    <option>STD2</option>
+                                  </select>
+
+                                  <label for="usr">Username:</label>
+                                  <input type="text" class="form-control" id="examname">
+
+                                  <label for="usr">Password:</label>
+                                  <input type="text" class="form-control" id="examname">
+
+                                  <label for="Std_pic">Picture:</label>
+                                  <input type="file" class="form-control" id="Std_pic">
+                                 
+
+                                </div>
+                              </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary">Save</button>
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
 
                     <!-- <p class="d-inline-flex gap-1">
