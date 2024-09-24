@@ -26,8 +26,8 @@ export class AppComponent {
     }
   }
 
-  H_threeline: boolean = true
-  V_threeline: boolean = false
+  H_threeline: boolean = false
+  V_threeline: boolean = true
   menudesign(point: number) {
     if (point == 1) {
       this.V_threeline = true
