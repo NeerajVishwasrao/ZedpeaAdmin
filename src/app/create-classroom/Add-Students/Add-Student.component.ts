@@ -22,17 +22,22 @@ export class CreateStudentComponent {
   uploadValidPic(event: any) {
     if (event.target.files.length > 0) {
       const file: File = event.target.files[0];
-
-      if (file.type == "image/jpeg" || file.type == "image/png") {
-        const formdata = new FormData();
-        formdata.append('file', file);
-
-        console.log(formdata)
-        this.img_validation_msg = ""
-        this.isValidUpload = true
+      debugger
+      if (file.size > 1000000) {
+        this.img_validation_msg = "Not accepted Size should less than 1 MB"
       } else {
-        this.img_validation_msg = " WRONG FILE !! Format should in JEPG or PNG"
+        if (file.type == "image/jpeg" || file.type == "image/png") {
+          const formdata = new FormData();
+          formdata.append('file', file);
+
+          console.log(formdata)
+          this.img_validation_msg = ""
+          this.isValidUpload = true
+        } else {
+          this.img_validation_msg = " WRONG FILE !! Format should in JEPG or PNG"
+        }
       }
+
 
       // debugger;
     } else {

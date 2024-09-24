@@ -11,8 +11,9 @@ import * as bootstrap from 'bootstrap'; // <-- Import Bootstrap JavaScript
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  title = 'Zedpea_Admin';
   titleuser = 'League';
+
   ngOnInit() {
     // Initialize responsive nav dropdowns
     var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
@@ -28,6 +29,7 @@ export class AppComponent {
 
   H_threeline: boolean = true
   V_threeline: boolean = false
+
   menudesign(point: number) {
     if (point == 1) {
       this.V_threeline = true
@@ -38,53 +40,21 @@ export class AppComponent {
     }
 
     this.isSidebarActive = !this.isSidebarActive;
-    console.log("isSidebarActive "+this.isSidebarActive)
+    console.log("isSidebarActive " + this.isSidebarActive)
 
     this.isfreeze = !this.isfreeze
-    console.log("isfreeze is " +this.isfreeze)
+    console.log("isfreeze is " + this.isfreeze)
   }
-
- 
-
- 
 
   router = inject(Router)
   isfreeze: boolean = false;
-
-  goto_createexam() {
-    this.router.navigateByUrl("Exam-Center/AddExam")
-  }
-
-
-
-  goTo_showcreatedtests() {
-    this.router.navigateByUrl("Exam-Center/ShowExam")
-  }
-  goto_analysis_performance() {
-    this.router.navigateByUrl("exam-section/analysis_performance")
-  }
-
-
-  goTo_showcreatedclassroom() {
-    this.router.navigateByUrl("Show-Student")
-
-  }
-
-  gotoAddStudent(){
-    this.router.navigateByUrl("Add-Student")
-
-  }
-
   student: any;
-
   isDropdownActive = false;
-
 
   logout() {
     localStorage.removeItem("uprofile");
     this.router.navigateByUrl("");
   }
-
 
   isExamCenterActive: boolean = false;
   IsClassroomActive: boolean = false;
@@ -97,14 +67,10 @@ export class AppComponent {
     else if (section == "ClassRoom") {
       this.IsClassroomActive = !this.IsClassroomActive
     }
-  
+
   }
 
-  
-  isSidebarActive = false; 
-  // closeSidebar() {
-  //   this.isSidebarActive = false;
-  // }
+  isSidebarActive = false;
 
   @HostListener('document:click', ['$event'])
   onClick(event: Event) {
@@ -112,14 +78,13 @@ export class AppComponent {
     const sidebarElement = document.querySelector('.w3-sidebar');
 
     if (sidebarElement && !sidebarElement.contains(clickedElement)) {
-      this.isSidebarActive=false;
-      this.isfreeze=false;
-      console.log("isfreeze in hostlistner  " +this.isfreeze)
+      this.isSidebarActive = false;
+      this.isfreeze = false;
+      this.V_threeline = false
+      this.H_threeline = true
+      console.log("isfreeze in hostlistner  " + this.isfreeze)
 
     }
   }
 
-  // studentdata() {
-  //   this.router.navigateByUrl("/student")
-  // }
 }

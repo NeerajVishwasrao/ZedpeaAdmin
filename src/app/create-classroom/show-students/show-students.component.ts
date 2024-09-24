@@ -16,6 +16,9 @@ import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-butt
 })
 
 export class ShowStudentsComponent {
+editTest() {
+throw new Error('Method not implemented.');
+}
   isLoaderActive: boolean = true;
 
   openForm() {
