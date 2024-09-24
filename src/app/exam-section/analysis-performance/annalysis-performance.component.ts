@@ -8,7 +8,7 @@ Chart.register(...registerables); //register all the controller it use
   standalone: true,
   imports: [],
   templateUrl: './analysis-performance.component.html',
-  styleUrl: './analysis-performance.component.css'
+  styleUrl: './annalysis-performance.component.css'
 })
 export class AnnalysisPerformanceComponent implements OnInit {
   public showChart: boolean = false; // Flag to control chart visibility
@@ -20,15 +20,21 @@ export class AnnalysisPerformanceComponent implements OnInit {
       labels: ['JAN', 'FEB', 'MAR', 'APRIL'],
       datasets: [
         {
-          label: 'Sales',
+          label: 'correct',
           data: ['467', '576', '572', '588'],
           backgroundColor: 'blue',
         },
         {
-          label: 'PAT',
+          label: 'worng',
           data: ['100', '120', '133', '134'],
           backgroundColor: 'red',
         },
+        {
+          label: 'not solved',
+          data: ['467', '576', '572', '588'],
+          backgroundColor: 'blue',
+        },
+       
       ]
 
     },
