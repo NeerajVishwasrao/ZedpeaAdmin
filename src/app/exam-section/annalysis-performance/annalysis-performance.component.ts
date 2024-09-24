@@ -1,52 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables); //register all the controller it use 
-
+import { showchartservice } from '../../service/showchart.service'; // Make sure this matches the updated class name
 
 @Component({
   selector: 'app-annalysis-performance',
   standalone: true,
   imports: [],
   templateUrl: './annalysis-performance.component.html',
-  styleUrl: './annalysis-performance.component.css'
+  styleUrl: './annalysis-performance.component.css',
+ 
 })
 export class AnnalysisPerformanceComponent implements OnInit {
-  public showChart: boolean = false; // Flag to control chart visibility
+ 
+ chart: any;  //make variable to store chart instance
 
-  public config: any = {
-    type: 'bar',// this denotes the type of chart
+constructor(private showchartservice:showchartservice){}
 
-    data: {
-      labels: ['JAN', 'FEB', 'MAR', 'APRIL'],
-      datasets: [
-        {
-          label: 'Sales',
-          data: ['467', '576', '572', '588'],
-          backgroundColor: 'blue',
-        },
-        {
-          label: 'PAT',
-          data: ['100', '120', '133', '134'],
-          backgroundColor: 'red',
-        },
-      ]
-
-    },
-    options: {
-      aspectRatio: 1,
-    },
-  };
-
-
-  chart: any;  //make variable
   ngOnInit(): void {
-    this.chart = new Chart('MyChart', this.config);
+    //fetch the chart data
+    this.showchartservice.fetchchart().subscribe((data: any)=>{
+      console.log("Data fetch:",data);
+      // this.chart=data;
+      // this.config=data;
+      // console.log("this.chart "+ this.chart.data.labels[0]);
+
+      //ctx (short for "context")
+      const ctx = document.getElementById('MyChart') as HTMLCanvasElement;
+
+      // Create the chart after getting data
+      this.chart = new Chart(ctx, {
+        type: "bar",//data.data.type
+        data: {
+          labels: data.data.students,
+          datasets: data.data.datasets,
+        },
+        options: {
+          responsive: true, //adjusts to different screen sizes automatically.
+          plugins: {        //customize built-in plugins
+            legend: {
+              position: 'top',  //the labels for datasets) at the top of the chart
+            },
+          },
+        },
+      });
+    },
+    (error) => {
+      console.error("Error fetching chart data: ", error);
+    }
+    );
+    }
   }
-
-  // displayChart() {
-  //   this.showChart = true; // Set flag to true
-  //   this.chart = new Chart('MyChart', this.config); // Create the chart
-  // }
-}
-
 
