@@ -8,8 +8,7 @@ import { showchartservice } from '../../service/showchart.service'; // Make sure
   standalone: true,
   imports: [],
   templateUrl: './analysis-performance.component.html',
-  styleUrl: './analysis-performance.component.css',
- 
+  styleUrl: './annalysis-performance.component.css'
 })
 export class AnnalysisPerformanceComponent implements OnInit {
  
