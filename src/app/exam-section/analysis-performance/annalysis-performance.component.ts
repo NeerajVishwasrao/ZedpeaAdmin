@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables); //register all the controller it use 
 import { showchartservice } from '../../service/showchart.service'; // Make sure this matches the updated class name
@@ -11,43 +11,110 @@ import { showchartservice } from '../../service/showchart.service'; // Make sure
   styleUrl: './annalysis-performance.component.css'
 })
 export class AnnalysisPerformanceComponent implements OnInit {
- 
- chart: any;  //make variable to store chart instance
+  Showchartservice=inject(showchartservice)
 
-constructor(private showchartservice:showchartservice){}
+  chart: any;  //make variable to store chart instance
+  chart2: any
+
 
   ngOnInit(): void {
-    //fetch the chart data
-    this.showchartservice.fetchchart().subscribe((data: any)=>{
-      console.log("Data fetch:",data);
-      // this.chart=data;
-      // this.config=data;
-      // console.log("this.chart "+ this.chart.data.labels[0]);
 
-      //ctx (short for "context")
-      const ctx = document.getElementById('MyChart') as HTMLCanvasElement;
+    this.AllStudnetMarks()
 
-      // Create the chart after getting data
+    this.AvrageSuccessrate();
+
+
+  }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  AllStudnetMarks() {
+    const ctx = document.getElementById('MyChart') as HTMLCanvasElement;
+
+    this.Showchartservice.fetchchart().subscribe((data: any) => {
+      console.log("Data fetch:", data);
+
       this.chart = new Chart(ctx, {
-        type: "bar",//data.data.type
+        type: "bar",
         data: {
           labels: data.data.students,
           datasets: data.data.datasets,
         },
         options: {
-          responsive: true, //adjusts to different screen sizes automatically.
-          plugins: {        //customize built-in plugins
+          responsive: true, 
+          plugins: {        
             legend: {
-              position: 'top',  //the labels for datasets) at the top of the chart
+              position: 'top',  
             },
           },
         },
       });
+
     },
-    (error) => {
-      console.error("Error fetching chart data: ", error);
-    }
+
+      (error) => {
+        console.error("Error fetching chart data: ", error);
+      }
     );
-    }
+
   }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+AvrageSuccessrate()
+{
+  const idchart2 = document.getElementById('cahrtSuccessRate') as HTMLCanvasElement;
+
+  this.chart2 = new Chart(
+    idchart2, {
+    type: 'bar',
+    data: {
+      labels: ['JAN', 'FEB', 'MAR', 'APRIL'],
+      datasets: [
+        {
+          label: 'Correct',
+          data: ['200', '300', '400', '420'],
+          backgroundColor: 'green',
+        },
+        {
+          label: 'wrong',
+          data: ['200', '140', '100', '80'],
+          backgroundColor: 'red',
+        },
+        {
+          label: 'Not solved',
+          data: ['100', '120', '133', '134'],
+          backgroundColor: 'gray',
+        },
+      ]
+    },
+    options: {
+      responsive: true, //adjusts to different screen sizes automatically.
+      plugins: {        //customize built-in plugins
+        legend: {
+          position: 'top',  //the labels for datasets) at the top of the chart
+        },
+      },
+    },
+  });
+
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+}
 

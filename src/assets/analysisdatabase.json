@@ -1,49 +1,86 @@
 {
     "data": {
         "students": [
-            "sayali",
-            "Akshada",
-            "Neeraj",
-            "ZEDPEA"
+            "Shrihari",
+            "rukhmini",
+            "mayuri",
+            "veer",
+            "ram",
+            "arjun",
+            "Shrihari",
+            "rukhmini",
+            "mayuri",
+            "veer",
+            "ram"
+           
+            
         ],
         "datasets": [
             {
                 "label": "eng",
                 "data": [
-                    18,
+                    23,
                     15,
                     10,
-                    7
+                    7,
+                    17,
+                    16,
+                    18,
+                    17,
+                    22,
+                    16,
+                    15
                 ],
                 "backgroundColor": "blue"
             },
             {
                 "label": "math",
                 "data": [
-                    14,
+                    24,
+                    17,
+                    16,
+                    18,
+                    17,
+                    18,
                     15,
-                    12,
-                    10
+                    10,
+                    7,
+                    17,
+                    16
                 ],
                 "backgroundColor": "red"
             },
             {
                 "label": "mar",
                 "data": [
-                    16,
+                    25,
                     10,
+                    7,
+                    17,
+                    16,
+                    18,
+                    17,
+                    18,
                     15,
-                    17
+                    10,
+                    7
                 ],
                 "backgroundColor": "green"
             },
             {
                 "label": "evs",
                 "data": [
+                    26,
+                    16,
+                    18,
                     17,
-                    11,
-                    17,
-                    13
+                    18,
+                    13,
+                    10,
+                    18,
+                    15,
+                    10,
+                    7
                 ],
                 "backgroundColor": "yellow"
             }
