@@ -20,7 +20,7 @@ export class ShowStudentsComponent {
   img_validation_msg: string = '';
   isValidUpload: boolean = false
   event: any = ''
-exam: any;
+  exam: any;
 
   uploadValidPic(event: any) {
     if (event.target.files.length > 0) {
@@ -29,7 +29,7 @@ exam: any;
       if (file.size > 1000000) {
         this.img_validation_msg = "Not accepted Size should less than 1 MB"
       }
-       else {
+      else {
         if (file.type == "image/jpeg" || file.type == "image/png") {
           const formdata = new FormData();
           formdata.append('file', file);
@@ -131,16 +131,16 @@ exam: any;
     }
   }
 
-  
+
   selectedStudent: any;
   isLoaderActive: Boolean = true;
 
   editStudent(student: any) {
-   
+
     this.selectedStudent = student;
   }
- 
- 
+
+
 
   openForm() {
     throw new Error('Method not implemented.');
@@ -152,7 +152,7 @@ exam: any;
   disexam: any;
 
   Studentdata: any;
-  
+
   serviceExamSection = inject(ServiceExamSectionService);
 
 
