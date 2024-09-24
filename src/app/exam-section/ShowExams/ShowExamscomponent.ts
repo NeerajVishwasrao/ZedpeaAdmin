@@ -14,6 +14,22 @@ import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-butt
 })
 export class ShowCreatedTestComponent {
 
+  EditExamForm = {
+    examname: ''
+  };
+
+
+
+testnameValidationMessage: any;
+
+  validTestName() {
+    if (!this.EditExamForm.examname || this.EditExamForm.examname.trim() === '') {
+      this.testnameValidationMessage = 'Test Name is required.';
+    } else {
+      this.testnameValidationMessage= '';
+    }
+  }
+
   selectedExam: any;
   isLoaderActive: Boolean = true;
 

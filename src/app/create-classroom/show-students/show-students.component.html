@@ -43,7 +43,7 @@
 
                       <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
-                          data-bs-target="#exampleModal" data-bs-whatever="@mdo" (click)="editTest()">✏️</button>
+                          data-bs-target="#exampleModal" data-bs-whatever="@mdo" (click)="editStudent(student)">✏️</button>
                         <button class="btn btn-outline-danger" type="button">
                           🗑
                         </button>
@@ -60,40 +60,47 @@
                                 aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                              <form>
-                                <div class="mb-3">
-                                  <label for="usr">Student Name:</label>
-                                  <input type="text" class="form-control" id="examname">
-
-                                  <label for="usr">Roll Number:</label>
-                                  <input type="text" class="form-control" id="examname">
-
-                                  <label for="selectgrade">Select Grade:</label>
-                                  <select class="form-control" id="selectgrade">
-                                    <option>K1</option>
-                                    <option>K2</option>
-                                    <option>STD1</option>
-                                    <option>STD2</option>
-                                  </select>
-
-                                  <label for="usr">Username:</label>
-                                  <input type="text" class="form-control" id="examname">
-
-                                  <label for="usr">Password:</label>
-                                  <input type="text" class="form-control" id="examname">
-
-                                  <label for="Std_pic">Picture:</label>
-                                  <input type="file" class="form-control" id="Std_pic">
-                                 
-
-                                </div>
-                              </form>
+                              <div class="form-group">
+                                <label for="studname">Student Name:</label>
+                                <input type="text" class="form-control" id="studname" [(ngModel)]="newStudent.studentName"
+                                  (blur)="validateStudentName()">
+                                <small class="text-danger" *ngIf="nameValidationMessage">{{nameValidationMessage}}</small><br>
+                        
+                                <label for="rollnumber">Roll Number:</label>
+                                <input type="text" class="form-control" id="studentid" [(ngModel)]="newStudent.studentId"><br>
+                        
+                                <label for="selectgrade">Select Grade:</label>
+                                <select class="form-control" id="selectgrade" [(ngModel)]="newStudent.grade" (blur)="validateGrade()">
+                                  <option>K1</option>
+                                  <option>K2</option>
+                                  <option>STD1</option>
+                                  <option>STD2</option>
+                                </select>
+                                <small class="text-danger" *ngIf="gradeValidationMessage">{{gradeValidationMessage}}</small> <br>
+                        
+                                <label for="susername">Username:</label>
+                                <input type="text" class="form-control" id="susername" [(ngModel)]="newStudent.username"
+                                  (blur)="validateUsername()">
+                                <small class="text-danger" *ngIf="usernameValidationMessage">{{usernameValidationMessage}}</small><br>
+                        
+                                <label for="password">Password:</label>
+                                <input type="text" class="form-control" id="password" [(ngModel)]="newStudent.passkey"
+                                  (blur)="validatePassword()">
+                                <small class="text-danger" *ngIf="passwordValidationMessage">{{passwordValidationMessage}}</small>
+                                <br>
+                                <label for="Std_pic">Picture:</label>
+                                <input type="file" class="form-control" id="Std_pic" (change)="uploadValidPic($event)">
+                                <small class="text-danger" *ngIf="img_validation_msg">{{img_validation_msg}} </small>
+                              </div>
                             </div>
+                        
                             <div class="modal-footer">
                               <button type="button" class="btn btn-primary">Save</button>
                               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-
+    
                             </div>
+                        
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -147,4 +154,3 @@
   </div>
 
 
-</div>

@@ -53,10 +53,11 @@
                           <form>
                             <div class="mb-3">
                               <label for="usr">Test Name:</label>
-                              <input type="text" class="form-control" id="examname">
+                              <input type="text" class="form-control" id="testname"  (blur)="validTestName()">
+                            <small class="text-danger" *ngIf="testnameValidationMessage">{{testnameValidationMessage}}</small><br>
 
                               <label for="usr">Test Grade:</label>
-                              <input type="text" class="form-control" id="examname">
+                              <input type="text" class="form-control" id="testgrade"><br>
 
                               <label for="comment">Test Description:</label>
                               <textarea class="form-control" rows="5" id="comment" name="text"

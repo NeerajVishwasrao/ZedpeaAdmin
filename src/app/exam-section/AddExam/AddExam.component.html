@@ -216,7 +216,7 @@
           <input type="text" class="form-control" id="examname" (blur)="validExamName()"
             [(ngModel)]="QadditionAdditionForm.examname">
           <small class="text-danger" *ngIf="usernameValidationMessage">{{usernameValidationMessage}}</small><br>
-          <br>
+        
 
           <label for="select-grade">Select Grade:</label>
           <select class="form-control" id="select-grade" name="select-grade" (blur)="validGrade()"
