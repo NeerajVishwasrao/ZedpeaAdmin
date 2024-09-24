@@ -23,6 +23,8 @@ export class AnnalysisPerformanceComponent implements OnInit {
 
     this.AvrageSuccessrate();
 
+    this.AvrageSubSuccessrate();
+
 
   }
 
@@ -70,9 +72,52 @@ AvrageSuccessrate()
 
   this.chart2 = new Chart(
     idchart2, {
+    type: 'line',
+    data: {
+      labels: ['JAN', 'FEB', 'MAR', 'APRIL','May',"June",'July','Aug'],
+      datasets: [
+        {
+          label: 'Correct',
+          data: ['200', '300', '400', '420','430','440','450','450'],
+          backgroundColor: 'green',
+        },
+        {
+          label: 'wrong',
+          data: ['200', '140', '100', '80','90','78','34','56'],
+          backgroundColor: 'red',
+        },
+        {
+          label: 'Not solved',
+          data: ['100', '120', '133', '134','100', '120', '133', '134'],
+          backgroundColor: 'gray',
+        },
+      ]
+    },
+    options: {
+      responsive: true, //adjusts to different screen sizes automatically.
+      plugins: {        //customize built-in plugins
+        legend: {
+          position: 'top',  //the labels for datasets) at the top of the chart
+        },
+      },
+    },
+  });
+
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+AvrageSubSuccessrate()
+{
+  const idchart = document.getElementById('cahrtSubSuccessRate') as HTMLCanvasElement;
+
+  this.chart2 = new Chart(
+    idchart, {
     type: 'bar',
     data: {
-      labels: ['JAN', 'FEB', 'MAR', 'APRIL'],
+      labels: ['english', 'math', 'marathi', 'evs'],
       datasets: [
         {
           label: 'Correct',
@@ -102,11 +147,6 @@ AvrageSuccessrate()
   });
 
 }
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 
 
