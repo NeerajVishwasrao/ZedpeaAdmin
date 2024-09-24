@@ -11,8 +11,9 @@ import * as bootstrap from 'bootstrap'; // <-- Import Bootstrap JavaScript
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  title = 'Zedpea_Admin';
   titleuser = 'League';
+
   ngOnInit() {
     // Initialize responsive nav dropdowns
     var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
@@ -47,31 +48,7 @@ export class AppComponent {
 
   router = inject(Router)
   isfreeze: boolean = false;
-
-  goto_createexam() {
-    this.router.navigateByUrl("Exam-Center/AddExam")
-  }
-
-  goTo_showcreatedtests() {
-    this.router.navigateByUrl("Exam-Center/ShowExam")
-  }
-
-  goto_analysis_performance() {
-    this.router.navigateByUrl("exam-section/analysis_performance")
-  }
-
-  goTo_showcreatedclassroom() {
-    this.router.navigateByUrl("Show-Student")
-
-  }
-
-  gotoAddStudent() {
-    this.router.navigateByUrl("Add-Student")
-
-  }
-
   student: any;
-
   isDropdownActive = false;
 
   logout() {
@@ -93,9 +70,7 @@ export class AppComponent {
 
   }
 
-
   isSidebarActive = false;
-
 
   @HostListener('document:click', ['$event'])
   onClick(event: Event) {

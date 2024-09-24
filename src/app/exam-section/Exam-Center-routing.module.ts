@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '', component: ExamSectionComponent,
     children: [
-      { path: "analysis_performance", loadChildren: () => import('./annalysis-performance/analysis-performance.module').then(m => m.AnalysisPerformanceModule) },
+      { path: "analysis_performance", loadChildren: () => import('./analysis-performance/analysis-performance.module').then(m => m.AnalysisPerformanceModule) },
       { path: "AddExam", loadChildren: () => import('./AddExam/AddExam.module').then(m => m.CreateExamModule) },
       { path: "ShowExam", loadChildren: () => import('./ShowExams/ShowExams.module').then(m => m.ShowcrtRoutingModuleModule) }
     ]

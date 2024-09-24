@@ -7,8 +7,8 @@ Chart.register(...registerables); //register all the controller it use
   selector: 'app-annalysis-performance',
   standalone: true,
   imports: [],
-  templateUrl: './annalysis-performance.component.html',
-  styleUrl: './annalysis-performance.component.css'
+  templateUrl: './analysis-performance.component.html',
+  styleUrl: './analysis-performance.component.css'
 })
 export class AnnalysisPerformanceComponent implements OnInit {
   public showChart: boolean = false; // Flag to control chart visibility
