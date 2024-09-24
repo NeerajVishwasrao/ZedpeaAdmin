@@ -1,45 +1,48 @@
 <div style="margin-top: 50px;">
-  <div style="margin-left: 30px; margin-right: 30px;">
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid justify-content-start">
-        <div class="d-none d-lg-flex">
-          <h2 class="navbar-brand"> 📚 </h2>
-        </div>
 
-        <!-- Memu Buttons  -->
-        <app-menu-buttons [Show_btn_All_Stu]="true"></app-menu-buttons>
 
+
+
+  <nav class="navbar bg-body-secondary">
+    <div class="container-fluid justify-content-start">
+      <div class="d-none d-lg-flex">
+        <h2 class="navbar-brand"> 📚 </h2>
       </div>
-    </nav>
-  </div>
-  <!-- Rest of your content remains unchanged -->
+
+      <!-- Memu Buttons  -->
+      <app-menu-buttons [Show_btn_All_Stu]="true"></app-menu-buttons>
+
+    </div>
+  </nav>
+</div>
+<!-- Rest of your content remains unchanged -->
 
 
-  <div style="margin-top: 50px; ">
-    <div class="container mt-4">
-      <div class="card shadow-sm" style="width: 100%; max-width: 1000px; margin: auto;">
-        <div class="card-body" style="min-height: 500px;  background-color:  #f5f3f1">
+<div style="margin-top: 50px; ">
+  <div class="container mt-4">
+    <div class="card shadow-sm" style="width: 100%; max-width: 1000px; margin: auto;">
+      <div class="card-body" style="min-height: 500px;  background-color:  #f5f3f1">
 
 
-          <div class="row" *ngIf="studentList.length > 0">
-            <div class="col-sm-6" *ngFor="let student of studentList">
-              <div class="card mb-4 shadow-sm student-card exam-card">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img src="/assets/dummy.jpg" class="card-img exam" alt="Student Image">
-                    <h5 class="text-center mt-2">{{student.student_name|titlecase}}</h5>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <ul class="list-unstyled">
-                        <li><strong>Id:</strong> {{student.stud}}</li>
-                        <li><strong>Grade:</strong> {{student.grade}}</li>
-                        <li><strong>Username:</strong> {{student.username}}</li>
-                        <li><strong>Reward:</strong> {{student.rewards}}</li>
-                        <li><strong> Package</strong> {{student.package}}</li>
+        <div class="row" *ngIf="studentList.length > 0">
+          <div class="col-sm-6" *ngFor="let student of studentList">
+            <div class="card mb-4 shadow-sm student-card exam-card">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="/assets/dummy.jpg" class="card-img exam" alt="Student Image">
+                  <h5 class="text-center mt-2">{{student.student_name|titlecase}}</h5>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <ul class="list-unstyled">
+                      <li><strong>Id:</strong> {{student.stud}}</li>
+                      <li><strong>Grade:</strong> {{student.grade}}</li>
+                      <li><strong>Username:</strong> {{student.username}}</li>
+                      <li><strong>Reward:</strong> {{student.rewards}}</li>
+                      <li><strong> Package</strong> {{student.package}}</li>
 
 
-                      </ul>
+                    </ul>
 
                       <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
@@ -104,41 +107,42 @@
                           </div>
                         </div>
                       </div>
-
                     </div>
 
-                    <!-- <p class="d-inline-flex gap-1">
+                  </div>
+
+                  <!-- <p class="d-inline-flex gap-1">
                         <button class="btn mybutton" type="button"  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                           (click)="Add_this_Student(student.id)"> Update </button>
                       </p> -->
 
 
-                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
 
 
-          <div *ngIf="isLoaderActive==true; else elseBlock" style="display: flex; justify-content: center;  ">
+        <div *ngIf="isLoaderActive==true; else elseBlock" style="display: flex; justify-content: center;  ">
 
-            <app-loader></app-loader>
+          <app-loader></app-loader>
+
+        </div>
+
+        <!-- This content is displayed if the condition is false -->
+        <ng-template #elseBlock>
+
+          <div *ngIf="studentList.length==0">
+
+            <h2>Students not found</h2>
+            <img src="/assets/nocontent.png" class="card-img" alt="...">
+            <h3 [routerLink]="['/Add-Student']">click here to Add Student </h3>
 
           </div>
 
-          <!-- This content is displayed if the condition is false -->
-          <ng-template #elseBlock>
-
-            <div *ngIf="studentList.length==0">
-
-              <h2>Students not found</h2>
-              <img src="/assets/nocontent.png" class="card-img" alt="...">
-              <h3 [routerLink]="['/Add-Student']">click here to Add Student </h3>
-
-            </div>
-
-          </ng-template>
+        </ng-template>
 
 
 
@@ -147,10 +151,11 @@
 
 
 
-        </div>
       </div>
-
     </div>
+
   </div>
+</div>
 
 
+ 

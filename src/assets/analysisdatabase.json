@@ -1,0 +1,52 @@
+{
+    "data": {
+        "students": [
+            "sayali",
+            "Akshada",
+            "Neeraj",
+            "ZEDPEA"
+        ],
+        "datasets": [
+            {
+                "label": "eng",
+                "data": [
+                    18,
+                    15,
+                    10,
+                    7
+                ],
+                "backgroundColor": "blue"
+            },
+            {
+                "label": "math",
+                "data": [
+                    14,
+                    15,
+                    12,
+                    10
+                ],
+                "backgroundColor": "red"
+            },
+            {
+                "label": "mar",
+                "data": [
+                    16,
+                    10,
+                    15,
+                    17
+                ],
+                "backgroundColor": "green"
+            },
+            {
+                "label": "evs",
+                "data": [
+                    17,
+                    11,
+                    17,
+                    13
+                ],
+                "backgroundColor": "yellow"
+            }
+        ]
+    }
+}

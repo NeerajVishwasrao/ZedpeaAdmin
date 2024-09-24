@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AnalysisPerformanceRoutingModule } from './analysis-performance-routing.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { AnalysisPerformanceRoutingModule } from './analysis-performance-routing
     AnalysisPerformanceRoutingModule
   ],
   exports:[
-    AnalysisPerformanceRoutingModule
+    AnalysisPerformanceRoutingModule,
+    
   ]
 })
 export class AnalysisPerformanceModule { }
