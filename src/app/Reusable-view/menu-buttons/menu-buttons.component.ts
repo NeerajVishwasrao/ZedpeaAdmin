@@ -22,12 +22,14 @@ export class MenuButtonsComponent {
     this.Show_btn_All_Stu = false
     this.Show_btn_addStu = false
     this.Show_btn_AllExams = false
+    this.Show_btn_AddExam = true
 
     this.router.navigateByUrl("Exam-Center/AddExam")
   }
 
   Goto_AddStudents() {
     this.Show_btn_All_Stu = false
+    this.Show_btn_addStu = true
     this.Show_btn_AllExams = false
     this.Show_btn_AddExam = false
 
@@ -37,12 +39,14 @@ export class MenuButtonsComponent {
   Goto_Exmas() {
     this.Show_btn_All_Stu = false
     this.Show_btn_addStu = false
+    this.Show_btn_AllExams = true
     this.Show_btn_AddExam = false
 
     this.router.navigateByUrl("Exam-Center/ShowExam")
   }
   
   Goto_Students() {
+    this.Show_btn_All_Stu = true
     this.Show_btn_addStu = false
     this.Show_btn_AllExams = false
     this.Show_btn_AddExam = false
