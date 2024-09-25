@@ -21,7 +21,7 @@ export class CreateStudentComponent {
     SelectGrade: new FormControl("", [Validators.required]),
     Username: new FormControl("", [Validators.required, Validators.minLength(6)]),
     Password: new FormControl("", [Validators.required, Validators.minLength(6), Validators.pattern(/[!@#$%^&*]/)]),
-    // Picture: new FormControl("", [Validators.required])
+     Picture: new FormControl("", [Validators.required])
   });
 
 
