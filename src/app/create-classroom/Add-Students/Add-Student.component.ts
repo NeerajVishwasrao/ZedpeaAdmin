@@ -1,19 +1,30 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgClass, NgFor, NgIf } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { JsonPipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
 
 @Component({
   selector: 'app-create-student',
   standalone: true,
-  imports: [NgFor, NgIf, FormsModule, NgClass, MenuButtonsComponent],
+  imports: [NgFor, NgIf, FormsModule, NgClass, MenuButtonsComponent, ReactiveFormsModule, JsonPipe],
   templateUrl: './Add-Student.component.html',
   styleUrls: ['./Add-Student.component.css']
 })
 
 export class CreateStudentComponent {
+
+  studentForm: FormGroup = new FormGroup({
+    StudentName: new FormControl("", [Validators.required, Validators.pattern(/^[a-z A-Z]+$/)]),
+    RollNumber: new FormControl("", [Validators.required]),
+    SelectGrade: new FormControl("", [Validators.required]),
+    Username: new FormControl("", [Validators.required, Validators.minLength(6)]),
+    Password: new FormControl("", [Validators.required, Validators.minLength(6), Validators.pattern(/[!@#$%^&*]/)]),
+    // Picture: new FormControl("", [Validators.required])
+  });
+
+
 
   img_validation_msg: string = '';
   isValidUpload: boolean = false
@@ -137,11 +148,17 @@ export class CreateStudentComponent {
   }
   iscorrect: Boolean = false
 
+
   saveSelectedStudents() {
+    if (this.studentForm.valid) {
 
-    if (this.validateStudentName() && this.validateGrade() && this.validateUsername() && this.validatePassword() && this.isValidUpload) {
+      this.newStudent.studentId = this.studentForm.get('RollNumber')?.value;
+      this.newStudent.studentName = this.studentForm.get('StudentName')?.value;
+      this.newStudent.grade = this.studentForm.get('SelectGrade')?.value;
+      this.newStudent.username = this.studentForm.get('Username')?.value;
+      this.newStudent.passkey = this.studentForm.get('Password')?.value;
+      this.newStudent.leagueId = '101';
 
-      this.isValidUpload = false;
       this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
         .subscribe(data => {
           this.message = data.message;
@@ -150,18 +167,20 @@ export class CreateStudentComponent {
 
         }
         );
+      debugger
     }
     else {
       console.log("else")
       this.ValidationResult = "Something Wrong";
       this.iscorrect = false
-      if (this.isValidUpload == false) {
-        this.img_validation_msg = "Please select the student pic"
-      }
+      debugger
     }
 
 
   }
+
+
+
 }
 
 interface StudentObj {
