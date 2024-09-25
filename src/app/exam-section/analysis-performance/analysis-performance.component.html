@@ -4,41 +4,72 @@
             <h2 class="navbar-brand"> 📚 </h2>
         </div>
 
-        Annalysis Performance
+        Analysis Performance
+        <app-menu-buttons style="margin-left: 10px;"></app-menu-buttons>
 
     </div>
 </nav>
-
-<div class="row" style="margin-top: 30px;">
-    <div class="col-sm-6">
-        All student Marks
-        <canvas id="MyChart"></canvas>
+<div style="background-color: #f5f3f1; border-radius: 4px;">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-sm-6">
+            <strong>Average All student Marks</strong>
+            BAR CHART
+            <canvas id="MyChart" style="background-color: #ffffff;"></canvas>
+        </div>
+        <div class="col-sm-6">
+            <strong>Average Performance of all Student's</strong>
+            (month wise) LINE CHART
+            <canvas id="cahrtSuccessRate"  style="background-color: #ffffff;"></canvas>
+        </div>
     </div>
-    <div class="col-sm-6">
-        Performance of all Student Month wise
-        <strong>(avrage)</strong>
-        <canvas id="cahrtSuccessRate"></canvas>
+
+
+
+    <div class="row" style="margin-top: 30px;">
+
+
+        <div class="col-sm-6">
+            <strong>Average Performance of all Student's </strong>
+            (sub wise) BAR CHART
+            <canvas id="cahrtSubSuccessRate"  style="background-color: #ffffff;"></canvas>
+        </div>
+
+        <div class="col-sm-3">
+            <strong>Average Time spent </strong>
+            (sub wisw) PIE CHART
+            <div>
+                <canvas id="piecahrtSubSuccessRate"  style="background-color: #ffffff;"></canvas>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <strong>Average Time spent </strong>
+            DOUGHNUT CHART
+            <canvas id="DoughnutpiecahrtSubSuccessRate"  style="background-color: #ffffff;"></canvas>
+        </div>
+
+    </div>
+
+
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-sm-6">
+            Performance of Zedpea Application <strong>(average)</strong> BUBBLE CHART <br>
+            <strong> x = Year</strong> <br>
+            <strong> y = Student performance</strong> <br>
+            <strong> radius = Amount of sales</strong>
+
+            <canvas id="BubblepiecahrtSubSuccessRate"  style="background-color: #ffffff;"></canvas>
+
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+
+
+        hello
+
     </div>
 </div>
-
-
-
-<div class="row" style="margin-top: 30px;">
-    <div class="col-sm-6">
-        Performance of all Student sub wise         <strong>(avrage)</strong>
-
-        <canvas id="cahrtSubSuccessRate"></canvas>
-    </div>
-    <div class="col-sm-6">
-        <!-- <strong>(avrage)</strong>
-        <canvas id="cahrtSuccessRate"></canvas> -->
-    </div>
-</div>
-<br>
-hello
-
-
-
 <!-- <video  width="340" height="180" controls autoplay>
     <source src="/assets/research.mp4" type="video/mp4">
     Your browser does not support the video tag.
