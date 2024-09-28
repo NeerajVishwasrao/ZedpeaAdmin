@@ -33,7 +33,9 @@
                   <div class="btn-group">
                     <button class="btn btn-outline-success me-2" type="button" (click)="Showsingletest(exam)">⋯
                       View</button>
-                    <button class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">↪</button>
+                    <button *ngIf="exam.shared > 0" class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">Share↪</button>
+                    <button *ngIf="exam.shared == 0" class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">Luanch</button>
+                    
                     <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
                       data-bs-target="#exampleModal" data-bs-whatever="@mdo" (click)="editTest(exam)">✏️</button>
                     <button class="btn btn-outline-danger" type="button" (click)="deleteTest(exam)">🗑</button>

@@ -34,11 +34,11 @@
                   <div class="col-md-8">
                     <div class="card-body">
                       <ul class="list-unstyled">
-                        <li><strong>Id:</strong> {{student.stud}}</li>
+                        <!-- <li><strong>Id:</strong> {{student.stud}}</li> -->
                         <li><strong>Grade:</strong> {{student.grade}}</li>
                         <li><strong>Username:</strong> {{student.username}}</li>
                         <li><strong>Reward:</strong> {{student.rewards}}</li>
-                        <li><strong> Package</strong> {{student.package}}</li>
+                        <li><strong>Package:</strong> {{student.package}}</li>
 
 
                       </ul>
@@ -73,7 +73,7 @@
 
                                 <label for="rollnumber">Roll Number:</label>
                                 <input type="text" class="form-control" id="studentid"
-                                  [(ngModel)]="newStudent.studentId"><br>
+                                  [(ngModel)]="newStudent.studentId" disabled><br>
 
                                 <label for="selectgrade">Select Grade:</label>
                                 <select class="form-control" id="selectgrade" [(ngModel)]="newStudent.grade"
