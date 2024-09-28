@@ -91,7 +91,13 @@
         <input type="file" formControlName="Picture" class="form-control" id="Std_pic">
         <div class="text-danger">
           <span *ngIf="studentForm.controls['Picture'].touched && studentForm.controls['Picture'].errors?.['required']">
-            This is Required
+            Picture is Required
+          </span>
+          <span *ngIf="studentForm.controls['Picture'].hasError('invalidFileType')">
+            File must be in JPEG or PNG format.
+          </span>
+          <span *ngIf="studentForm.controls['Picture'].hasError('invalidFileSize')">
+            File size must be less than 1 MB.
           </span>
         </div>
       </div>

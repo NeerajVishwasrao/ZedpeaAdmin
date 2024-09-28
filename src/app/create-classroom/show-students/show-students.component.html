@@ -53,8 +53,9 @@
                       </div>
 
 
+                      <!-- Enroll Students -->
                       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
+                        aria-hidden="true" [formGroup]="studentForm">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -65,47 +66,98 @@
                             </div>
                             <div class="modal-body">
                               <div class="form-group">
+
+                                <!--Student Name -->
                                 <label for="studname">Student Name:</label>
-                                <input type="text" class="form-control" id="studname"
-                                  [(ngModel)]="newStudent.studentName" (blur)="validateStudentName()">
-                                <small class="text-danger"
-                                  *ngIf="nameValidationMessage">{{nameValidationMessage}}</small><br>
+                                <input type="text" formControlName="StudentName" class="form-control" id="studname">
+                                <div class="text-danger">
+                                  <span
+                                    *ngIf="studentForm.controls['StudentName'].touched && studentForm.controls['StudentName'].errors?.['required']">
+                                    This is Required
+                                  </span>
+                                  <span *ngIf="studentForm.controls['StudentName'].errors?.['pattern']">
+                                    The name must contain alphabets!
+                                  </span>
+                                </div>
 
+                                <!--Roll Number -->
                                 <label for="rollnumber">Roll Number:</label>
-                                <input type="text" class="form-control" id="studentid"
-                                  [(ngModel)]="newStudent.studentId"><br>
+                                <input type="text" formControlName="RollNumber" class="form-control" id="rollnumber">
+                                <div class="text-danger">
+                                  <span
+                                    *ngIf="studentForm.controls['RollNumber'].touched && studentForm.controls['RollNumber'].errors?.['required']">
+                                    This is Required
+                                  </span>
+                                </div>
 
+                                <!--Select Grade -->
                                 <label for="selectgrade">Select Grade:</label>
-                                <select class="form-control" id="selectgrade" [(ngModel)]="newStudent.grade"
-                                  (blur)="validateGrade()">
+                                <select formControlName="SelectGrade" class="form-control" id="selectgrade">
                                   <option>K1</option>
                                   <option>K2</option>
                                   <option>STD1</option>
                                   <option>STD2</option>
                                 </select>
-                                <small class="text-danger"
-                                  *ngIf="gradeValidationMessage">{{gradeValidationMessage}}</small> <br>
+                                <div class="text-danger">
+                                  <span
+                                    *ngIf="studentForm.controls['SelectGrade'].touched && studentForm.controls['SelectGrade'].errors?.['required']">
+                                    This is Required
+                                  </span>
+                                </div>
 
+
+                                <!--Username-->
                                 <label for="susername">Username:</label>
-                                <input type="text" class="form-control" id="susername" [(ngModel)]="newStudent.username"
-                                  (blur)="validateUsername()">
-                                <small class="text-danger"
-                                  *ngIf="usernameValidationMessage">{{usernameValidationMessage}}</small><br>
+                                <input type="text" formControlName="Username" class="form-control" id="susername">
+                                <div class="text-danger">
+                                  <span
+                                    *ngIf="studentForm.controls['Username'].touched && studentForm.controls['Username'].errors?.['required']">
+                                    This is Required
+                                  </span>
+                                  <span *ngIf="studentForm.controls['Username'].errors?.['minlength']">
+                                    Username must be at least 6 characters long
+                                  </span>
+                                </div>
 
+                                <!--Password-->
                                 <label for="password">Password:</label>
-                                <input type="text" class="form-control" id="password" [(ngModel)]="newStudent.passkey"
-                                  (blur)="validatePassword()">
-                                <small class="text-danger"
-                                  *ngIf="passwordValidationMessage">{{passwordValidationMessage}}</small>
-                                <br>
+                                <input type="password" formControlName="Password" class="form-control" id="password">
+                                <div class="text-danger">
+                                  <span
+                                    *ngIf="studentForm.controls['Password'].touched && studentForm.controls['Password'].errors?.['required']">
+                                    This is Required
+                                  </span>
+                                  <span *ngIf="studentForm.controls['Password'].errors?.['minlength']">
+                                    Password must be at least 6 characters long
+                                  </span>
+                                  <span *ngIf="studentForm.controls['Password'].errors?.['pattern']">
+                                    Password must contain at least one number and one special character
+                                  </span>
+                                </div>
+
+                                <!--Picture-->
                                 <label for="Std_pic">Picture:</label>
-                                <input type="file" class="form-control" id="Std_pic" (change)="uploadValidPic($event)">
-                                <small class="text-danger" *ngIf="img_validation_msg">{{img_validation_msg}} </small>
+                                <input type="file" formControlName="Picture" class="form-control" id="Std_pic">
+                                <div class="text-danger">
+                                  <span
+                                    *ngIf="studentForm.controls['Picture'].touched && studentForm.controls['Picture'].errors?.['required']">
+                                    This is Required
+                                  </span>
+                                  <span *ngIf="studentForm.controls['Picture'].hasError('invalidFileType')">
+                                    File must be in JPEG or PNG format.
+                                  </span>
+                                  <span *ngIf="studentForm.controls['Picture'].hasError('invalidFileSize')">
+                                    File size must be less than 1 MB.
+                                  </span>
+                                </div>
                               </div>
                             </div>
 
+
+
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-primary">Save</button>
+                              <button type="button" class="btn btn-success" (click)="saveStudent()">{{message}}</button>
+
                               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 
                             </div>
@@ -118,10 +170,6 @@
 
                 </div>
 
-                <!-- <p class="d-inline-flex gap-1">
-                        <button class="btn mybutton" type="button"  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                          (click)="Add_this_Student(student.id)"> Update </button>
-                      </p> -->
 
 
               </div>

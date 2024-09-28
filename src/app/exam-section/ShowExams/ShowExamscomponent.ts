@@ -4,31 +4,30 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 import { NgFor, NgIf } from '@angular/common';
 import { LoaderComponent } from '../../Reusable-view/loader/loader.component';
 import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-show-created-test',
   standalone: true,
-  imports: [RouterLink, NgFor, NgIf, LoaderComponent, MenuButtonsComponent],
+  imports: [RouterLink, NgFor, NgIf, LoaderComponent, MenuButtonsComponent,ReactiveFormsModule],
   templateUrl: './ShowExams.component.html',
   styleUrl: './ShowExams.component.css'
 })
 export class ShowCreatedTestComponent {
+saveTest() {
+throw new Error('Method not implemented.');
+}
+
+  TestForm: FormGroup = new FormGroup({
+    TestName: new FormControl("", [Validators.required]),
+    TestDescription: new FormControl("", [Validators.required]),
+   
+  });
 
   EditExamForm = {
     examname: ''
   };
 
-
-
-testnameValidationMessage: any;
-
-  validTestName() {
-    if (!this.EditExamForm.examname || this.EditExamForm.examname.trim() === '') {
-      this.testnameValidationMessage = 'Test Name is required.';
-    } else {
-      this.testnameValidationMessage= '';
-    }
-  }
 
   selectedExam: any;
   isLoaderActive: Boolean = true;
