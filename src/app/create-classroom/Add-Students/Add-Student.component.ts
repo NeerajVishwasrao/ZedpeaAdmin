@@ -91,36 +91,32 @@ export class CreateStudentComponent {
 
 
   saveSelectedStudents() {
+    let objUprofile = localStorage.getItem("uprofile");
     if (this.studentForm.valid) {
-
       this.newStudent.studentId = this.studentForm.get('RollNumber')?.value;
       this.newStudent.studentName = this.studentForm.get('StudentName')?.value;
       this.newStudent.grade = this.studentForm.get('SelectGrade')?.value;
       this.newStudent.username = this.studentForm.get('Username')?.value;
       this.newStudent.passkey = this.studentForm.get('Password')?.value;
-      this.newStudent.leagueId = '101';
+      if (objUprofile != null) {
+        this.newStudent.leagueId = JSON.parse(objUprofile)['league_id'];
+      }
 
       this.http.post<any>('https://zedpea.co.in/api/newstudent.php', this.newStudent)
         .subscribe(data => {
           this.message = data.message;
           this.iscorrect = true
           this.ValidationResult = "Data Inserted Successfully ";
-
         }
         );
-      debugger
     }
     else {
-      console.log("else")
       this.ValidationResult = "Something Wrong";
       this.iscorrect = false
-      debugger
     }
 
 
   }
-
-
 
 }
 
