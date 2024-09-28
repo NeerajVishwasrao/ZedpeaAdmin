@@ -1,27 +1,26 @@
-import { NgClass, NgFor, NgIf, TitleCasePipe } from '@angular/common';
+import { JsonPipe, NgClass, NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, HostListener, inject, NgModule } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
+import { Component, ElementRef, HostListener, inject, NgModule, ViewChild, viewChild } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, NgModel, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
 import { NewExam } from '../../service/exams.model';
 import { ReqQuestion, Question } from '../../service/questions.model';
 import { LoaderComponent } from '../../Reusable-view/loader/loader.component';
 import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
+import { Modal } from 'bootstrap';  // Import the specific Modal class
 
 @Component({
   selector: 'app-create-exam',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf, LoaderComponent, MenuButtonsComponent, TitleCasePipe],
+  imports: [ FormsModule,  NgFor, RouterLink, RouterOutlet, NgClass, NgIf, LoaderComponent, MenuButtonsComponent, TitleCasePipe,ReactiveFormsModule,JsonPipe],
   templateUrl: './AddExam.component.html',
   styleUrl: './AddExam.component.css'
 })
 
 export class CreateExamComponent {
   isLoaderActive: boolean = true;
-  closePopup() {
-    throw new Error('Method not implemented.');
-  }
+ 
   popupVisible: boolean = false;
 
 
@@ -119,11 +118,10 @@ export class CreateExamComponent {
     this.searchtext2 = ""
   }
 
-
   itterator2 = 0
-
   idq: any
   idForQuetion: any
+  @ViewChild('AddExamForm') OpenAddExamPopup?:ElementRef
 
   Add_this_Q(idq: any) {
     // console.log(this.idq)
@@ -161,6 +159,9 @@ export class CreateExamComponent {
       }
       else if (demo == "isadded10") {
         this.isadded10 = true;
+          const modelpopup = new Modal(this.OpenAddExamPopup?.nativeElement)   
+          modelpopup.show();        
+        
       }
 
 
@@ -198,15 +199,15 @@ export class CreateExamComponent {
 
 
   CQArray: Question[][] = []
-
+  QAFvallidationMSG:string=''
   savenewquestionindex: number = 0
   savenewquestion() {
+    console.log("in save new question")
     //When you add a new array to CQArray, ensure that you are adding a new instance of the array, not modifying an existing one.
     // Use the spread operator to create a new instance of new_created_q [... this.new_created_q]
-    if (this.validExamName() && this.validGrade()) {
+    if (this.QadditionAdditionForm.valid) {
 
       this.popupVisible = true;
-      this.router.navigateByUrl("examdetail")
 
       this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
       console.log(this.CQArray);
@@ -214,6 +215,9 @@ export class CreateExamComponent {
       this.new_created_q = [];
       this.itterator = 0
       this.toggleAll(2);
+    }
+    else{
+       this.QAFvallidationMSG="Something wrong"
     }
 
 
@@ -285,39 +289,39 @@ export class CreateExamComponent {
 
   usernameValidationMessage: string = ""
 
-  QadditionAdditionForm: QadditionAdditionFormTemp =
-    {
-      examname: "",
-      grade: "",
-      discreption: ""
-    }
+  QadditionAdditionForm: FormGroup = new FormGroup( {
+    examname: new FormControl("",Validators.required),
+    grade: new FormControl("",Validators.required),
+    discreption: new FormControl("",Validators.maxLength(100))
+  })
+   
 
-  validExamName(): boolean {
-    if (!this.QadditionAdditionForm.examname) {
-      this.usernameValidationMessage = 'Name is required';
-      return false
-    } else if (this.QadditionAdditionForm.examname.length < 4) {
-      this.usernameValidationMessage = 'Username must be at least 4 characters long';
-      return false
+  // validExamName(): boolean {
+  //   if (!this.QadditionAdditionForm.examname) {
+  //     this.usernameValidationMessage = 'Name is required';
+  //     return false
+  //   } else if (this.QadditionAdditionForm.examname.length < 4) {
+  //     this.usernameValidationMessage = 'Username must be at least 4 characters long';
+  //     return false
 
-    } else {
-      this.usernameValidationMessage = '';
-      return true
-    }
-  }
+  //   } else {
+  //     this.usernameValidationMessage = '';
+  //     return true
+  //   }
+  // }
 
-  selectedGrade: string = '';
-  gradeValidationMessage: string = '';
+  // selectedGrade: string = '';
+  // gradeValidationMessage: string = '';
 
-  validGrade(): boolean {
-    if (!this.QadditionAdditionForm.grade) {
-      this.gradeValidationMessage = 'Grade is required';
-      return false
-    } else {
-      this.gradeValidationMessage = '';
-      return true
-    }
-  }
+  // validGrade(): boolean {
+  //   if (!this.QadditionAdditionForm.grade) {
+  //     this.gradeValidationMessage = 'Grade is required';
+  //     return false
+  //   } else {
+  //     this.gradeValidationMessage = '';
+  //     return true
+  //   }
+  // }
 
 
 
