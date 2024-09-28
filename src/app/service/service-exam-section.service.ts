@@ -43,6 +43,12 @@ export class ServiceExamSectionService {
 
   }
 
+  shareCounter(pid:string) {
+    // Increase share counter
+    return this.http.get<any>('https://zedpea.co.in/api/exams.php?practid='+pid);
+  }
+
+
   //student level Quiz
   addexamq(qset: FireQset):Observable<any> {
 

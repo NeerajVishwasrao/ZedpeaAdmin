@@ -74,12 +74,17 @@ throw new Error('Method not implemented.');
   deleteTest(_t36: any) {
     throw new Error('Method not implemented.');
   }
-  shareTest(selectedExam: any) {
+
+  shareTest(_t36: any) {
+    throw new Error('Method not implemented.');
+  }
+
+  launchTest(selectedExam: any, ei: any) {
 
     this.quizObj = {
       "pid": selectedExam.practid,
       "pname": selectedExam.pname,
-      "desc": selectedExam.desc,
+      "desc": selectedExam.pdesc,
       "grade": selectedExam.grade,
       "img": "images/numbers.png",
       "mentor": this.uprofile['league_name'],
@@ -89,16 +94,25 @@ throw new Error('Method not implemented.');
     this.quiz = 
     {
       "leagueid": this.uprofile['league_id'],
-      "grade": this.quizObj.grade,
+      "grade": this.quizObj.grade.toLowerCase(),
       "newquiz": this.quizObj
     };
+
+    this.examsList[ei].shared = -1;
 
     this.serviceExamSection.addassignment(this.quiz).subscribe(
       (data: any) => {
         this.message = data;
-        this.isLoaderActive = false;
       }
     )
+
+    this.serviceExamSection.shareCounter(selectedExam.practid).subscribe(
+      (data: any) => {
+        this.message = data;
+        this.examsList[ei].shared = 1;
+      }
+    )
+    
   }
 
   addexamdisable: any;

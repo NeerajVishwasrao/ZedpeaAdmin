@@ -17,7 +17,7 @@
 
 
       <div class="row" *ngIf="examsList.length > 0">
-        <div class="col-sm-12 mb-4" *ngFor="let exam of examsList">
+        <div class="col-sm-12 mb-4" *ngFor="let exam of examsList;index as ei;">
           <div class="card exam-card shadow-sm h-100">
             <div class="row g-0">
               <div class="col-md-4">
@@ -34,7 +34,8 @@
                     <button class="btn btn-outline-success me-2" type="button" (click)="Showsingletest(exam)">⋯
                       View</button>
                     <button *ngIf="exam.shared > 0" class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">Share↪</button>
-                    <button *ngIf="exam.shared == 0" class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">Luanch</button>
+                    <button *ngIf="exam.shared == 0" class="btn btn-outline-primary me-2" type="button" (click)="launchTest(exam, ei)">Launch <i class="bi bi-rocket-takeoff"></i></button>
+                    <button *ngIf="exam.shared < 0" class="btn btn-outline-primary me-2" type="button" disabled> <i class="bi bi-rocket-takeoff"></i>...</button>
                     
                     <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
                       data-bs-target="#exampleModal" data-bs-whatever="@mdo" (click)="editTest(exam)">✏️</button>
