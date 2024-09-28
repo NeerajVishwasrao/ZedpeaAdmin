@@ -38,3 +38,16 @@ export interface UpdateQuestion {
   qstatus: string,
   comments: string
 }
+
+export interface FireQuestion {
+  status: string,
+  sessionid: string
+}
+
+export interface FireQset {
+  userid: string,
+  pid: string,
+  date: string,
+  status: string,
+  qset: FireQuestion[]
+}

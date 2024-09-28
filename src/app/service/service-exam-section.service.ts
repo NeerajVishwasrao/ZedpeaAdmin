@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { studentdata } from '../create-classroom/Add-Students/Add-Student.model';
+import { FireNewExam, FireNewQuiz } from './exams.model';
+import { FireQset, FireQuestion } from './questions.model';
 
 
 @Injectable({
@@ -41,7 +43,17 @@ export class ServiceExamSectionService {
 
   }
 
+  //student level Quiz
+  addexamq(qset: FireQset):Observable<any> {
 
+    return this.http.post<any>('http://localhost:8080/api/add-examq', qset);
+  }
+
+  //league level Quiz
+  addassignment(quiz: FireNewExam):Observable<any> {
+
+    return this.http.post<any>('http://localhost:8080/api/add-assignment', quiz);
+  }
 
   constructor() { }
 

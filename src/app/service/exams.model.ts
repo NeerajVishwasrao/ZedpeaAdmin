@@ -14,3 +14,22 @@ export interface NewExam {
     q9: string,
     q10: string
   }
+
+  export interface FireNewQuiz {
+    pid: string,
+    pname: string,
+    desc: string,
+    grade: string,
+    img: string,
+    mentor: string,
+    status: string,
+    subject: string
+  }
+
+  export interface FireNewExam {
+    leagueid: string,
+    grade: string,
+    newquiz: FireNewQuiz
+  }
+
+

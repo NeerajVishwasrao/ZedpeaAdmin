@@ -4,23 +4,56 @@ import { ServiceExamSectionService } from '../../service/service-exam-section.se
 import { NgFor, NgIf } from '@angular/common';
 import { LoaderComponent } from '../../Reusable-view/loader/loader.component';
 import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FireNewExam, FireNewQuiz } from '../../service/exams.model';
+import { FireQset, FireQuestion } from '../../service/questions.model';
 
 @Component({
   selector: 'app-show-created-test',
   standalone: true,
-  imports: [RouterLink, NgFor, NgIf, LoaderComponent, MenuButtonsComponent],
+  imports: [RouterLink, NgFor, NgIf, LoaderComponent, MenuButtonsComponent,ReactiveFormsModule],
   templateUrl: './ShowExams.component.html',
   styleUrl: './ShowExams.component.css'
 })
 export class ShowCreatedTestComponent {
+saveTest() {
+throw new Error('Method not implemented.');
+}
+
+  TestForm: FormGroup = new FormGroup({
+    TestName: new FormControl("", [Validators.required]),
+    TestDescription: new FormControl("", [Validators.required]),
+   
+  });
 
   EditExamForm = {
     examname: ''
   };
 
+  leagueUser: user =
+    {
+      leagueId: "101"
+    }
 
+  quizObj: FireNewQuiz =
+    {
+      "pid": "112",
+      "pname": "mt112",
+      "desc": " Maths 1",
+      "grade": "K1",
+      "img": "images/numbers.png",
+      "mentor": "Kalpi",
+      "status": "Start",
+      "subject": "Maths"
+    }
+  quiz: FireNewExam =
+    {
+      "leagueid": "kalpi",
+      "grade": "k1",
+      "newquiz": this.quizObj
+    };
 
-testnameValidationMessage: any;
+  testnameValidationMessage: any;
 
   validTestName() {
     if (!this.EditExamForm.examname || this.EditExamForm.examname.trim() === '') {
@@ -41,8 +74,31 @@ testnameValidationMessage: any;
   deleteTest(_t36: any) {
     throw new Error('Method not implemented.');
   }
-  shareTest(_t36: any) {
-    throw new Error('Method not implemented.');
+  shareTest(selectedExam: any) {
+
+    this.quizObj = {
+      "pid": selectedExam.practid,
+      "pname": selectedExam.pname,
+      "desc": selectedExam.desc,
+      "grade": selectedExam.grade,
+      "img": "images/numbers.png",
+      "mentor": this.uprofile['league_name'],
+      "status": "Start",
+      "subject": ""
+    }
+    this.quiz = 
+    {
+      "leagueid": this.uprofile['league_id'],
+      "grade": this.quizObj.grade,
+      "newquiz": this.quizObj
+    };
+
+    this.serviceExamSection.addassignment(this.quiz).subscribe(
+      (data: any) => {
+        this.message = data;
+        this.isLoaderActive = false;
+      }
+    )
   }
 
   addexamdisable: any;
@@ -55,15 +111,13 @@ testnameValidationMessage: any;
 
   }
 
-  index: number = 1
-  examsList: any[] = []
+  index: number = 1;
+  message: string = "";
+  examsList: any[] = [];
   router = inject(Router);
   serviceExamSection = inject(ServiceExamSectionService);
 
-  leagueUser: user =
-    {
-      leagueId: "101"
-    }
+  uprofile: any;
 
   ngOnInit(): void {
     console.log("Lazy loaded add exam")
@@ -71,6 +125,7 @@ testnameValidationMessage: any;
     let objUprofile = localStorage.getItem("uprofile");
     if (objUprofile != null) {
       this.leagueUser.leagueId = JSON.parse(objUprofile)['league_id'];
+      this.uprofile = JSON.parse(objUprofile);
     }
 
     this.serviceExamSection.getallexmass(this.leagueUser).subscribe(

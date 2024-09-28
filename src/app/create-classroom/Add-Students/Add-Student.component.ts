@@ -21,7 +21,7 @@ export class CreateStudentComponent {
     SelectGrade: new FormControl("", [Validators.required]),
     Username: new FormControl("", [Validators.required, Validators.minLength(6)]),
     Password: new FormControl("", [Validators.required, Validators.minLength(6), Validators.pattern(/[!@#$%^&*]/)]),
-    Picture: new FormControl("", [Validators.required])
+    Picture: new FormControl("", [Validators.required, this.pictureValidator ])
   });
 
 
@@ -29,33 +29,26 @@ export class CreateStudentComponent {
   img_validation_msg: string = '';
   isValidUpload: boolean = false
   event: any = ''
+  
 
-  uploadValidPic(event: any) {
-    if (event.target.files.length > 0) {
-      const file: File = event.target.files[0];
-      debugger
-      if (file.size > 1000000) {
-        this.img_validation_msg = "Not accepted Size should less than 1 MB"
-      } else {
-        if (file.type == "image/jpeg" || file.type == "image/png") {
-          const formdata = new FormData();
-          formdata.append('file', file);
+  pictureValidator(control: FormControl): { [key: string]: any } | null {
+  const file = control.value;
 
-          console.log(formdata)
-          this.img_validation_msg = ""
-          this.isValidUpload = true
-        } else {
-          this.img_validation_msg = " WRONG FILE !! Format should in JEPG or PNG"
-        }
-      }
+  if (!file) return null;
 
-
-      // debugger;
-    } else {
-      this.img_validation_msg = "Select picture of Student"
-    }
-
+  const validFileType = file.type === "image/jpeg" || file.type === "image/png";
+  if (!validFileType) {
+    return { invalidFileType: true }; 
   }
+
+  const maxSize = 1000000; // 1 MB
+  if (file.size > maxSize) {
+    return { invalidFileSize: true }; 
+  }
+
+  return null;
+}
+
 
   router = inject(Router);
   http = inject(HttpClient);

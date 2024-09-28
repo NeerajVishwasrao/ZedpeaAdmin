@@ -33,14 +33,15 @@
                   <div class="btn-group">
                     <button class="btn btn-outline-success me-2" type="button" (click)="Showsingletest(exam)">⋯
                       View</button>
-                    <button class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">↪</button>
+                    <button *ngIf="exam.shared > 0" class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">Share↪</button>
+                    <button *ngIf="exam.shared == 0" class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">Luanch</button>
+                    
                     <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
                       data-bs-target="#exampleModal" data-bs-whatever="@mdo" (click)="editTest(exam)">✏️</button>
                     <button class="btn btn-outline-danger" type="button" (click)="deleteTest(exam)">🗑</button>
                   </div>
 
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -48,30 +49,33 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          <form>
+                          <form [formGroup]="TestForm"> <!-- Move formGroup here -->
                             <div class="mb-3">
-                              <label for="usr">Test Name:</label>
-                              <input type="text" class="form-control" id="testname"  (blur)="validTestName()">
-                            <small class="text-danger" *ngIf="testnameValidationMessage">{{testnameValidationMessage}}</small><br>
-
-                              <label for="usr">Test Grade:</label>
-                              <input type="text" class="form-control" id="testgrade"><br>
-
+                              <label for="testname">Test Name:</label>
+                              <input type="text" formControlName="TestName" class="form-control" id="testname">
+                              <div class="text-danger" *ngIf="TestForm.controls['TestName'].invalid && TestForm.controls['TestName'].touched" >
+                                Test name is required.
+                              </div>
+                  
+                              <label for="testgrade">Test Grade:</label>
+                              <input type="text" formControlName="TestGrade" class="form-control" id="testgrade"><br>
+                  
                               <label for="comment">Test Description:</label>
-                              <textarea class="form-control" rows="5" id="comment" name="text"
-                                placeholder="Add Description"></textarea>
-
+                              <textarea formControlName="TestDescription" class="form-control" rows="5" id="comment" placeholder="Add Description"></textarea>
+                              <div class="text-danger" *ngIf="TestForm.controls['TestDescription'].invalid && TestForm.controls['TestDescription'].touched" >
+                                Test Description is required.
+                              </div>
                             </div>
                           </form>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-primary">Save</button>
+                          <button type="button" class="btn btn-primary" [disabled]="TestForm.invalid" (click)="saveTest()">Save</button>
                           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-
                         </div>
                       </div>
                     </div>
                   </div>
+                  
                 </div>
               </div>
             </div>
