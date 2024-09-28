@@ -69,7 +69,7 @@ export class LoginComponent {
         this.response = res;
         if (this.response.length) {
           localStorage.setItem("uprofile", JSON.stringify(this.response[0]))
-          this.router.navigateByUrl("Exam-Center/analysis_performance")
+          this.router.navigateByUrl("Exam-Center/AddExam")
         } else {
           alert("Invalid Credentials")
         }

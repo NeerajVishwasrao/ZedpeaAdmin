@@ -195,37 +195,6 @@ export class CreateExamComponent {
   }
 
 
-
-
-  CQArray: Question[][] = []
-
-  savenewquestionindex: number = 0
-  savenewquestion() {
-    //When you add a new array to CQArray, ensure that you are adding a new instance of the array, not modifying an existing one.
-    // Use the spread operator to create a new instance of new_created_q [... this.new_created_q]
-    if (this.validExamName() && this.validGrade()) {
-
-      this.popupVisible = true;
-      this.router.navigateByUrl("examdetail")
-
-      this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
-      console.log(this.CQArray);
-      this.serviveExamSection.Add_this_Q(this.CQArray);
-      this.new_created_q = [];
-      this.itterator = 0
-      this.toggleAll(2);
-    }
-
-
-  }
-
-
-
-  showcreatedtests() {
-    this.router.navigateByUrl("exam-section/ShowExams")
-
-  }
-
   message: any = 'Push';
   newExam: NewExam =
     {
@@ -245,17 +214,58 @@ export class CreateExamComponent {
       "q10": "mt01_q10"
     }
 
+  CQArray: Question[][] = []
 
-  pushNewExam() {
-    let objUprofile = localStorage.getItem("uprofile");
-    if (objUprofile != null) {
-      this.newExam.leagueId = JSON.parse(objUprofile)['league_id'];
+  savenewquestionindex: number = 0
+  saveNewExam() {
+    //When you add a new array to CQArray, ensure that you are adding a new instance of the array, not modifying an existing one.
+    // Use the spread operator to create a new instance of new_created_q [... this.new_created_q]
+    if (this.validExamName() && this.validGrade()) {
+
+      this.popupVisible = true;
+      // this.router.navigateByUrl("examdetail")
+
+      this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
+      console.log(this.CQArray);
+      this.serviveExamSection.Add_this_Q(this.CQArray);
+
+      let objUprofile = localStorage.getItem("uprofile");
+      if (objUprofile != null) {
+        this.newExam.leagueId = JSON.parse(objUprofile)['league_id'];
+        this.newExam = {
+          "leagueId": this.newExam.leagueId,
+          "examTitle": this.QadditionAdditionForm.examname,
+          "description":  this.QadditionAdditionForm.discreption,
+          "grade": this.QadditionAdditionForm.grade,
+          "q1": this.CQArray[0][0].qnumber,
+          "q2": this.CQArray[0][1].qnumber,
+          "q3": this.CQArray[0][2].qnumber,
+          "q4": this.CQArray[0][3].qnumber,
+          "q5": this.CQArray[0][4].qnumber,
+          "q6": this.CQArray[0][5].qnumber,
+          "q7": this.CQArray[0][6].qnumber,
+          "q8": this.CQArray[0][7].qnumber,
+          "q9": this.CQArray[0][8].qnumber,
+          "q10":this.CQArray[0][9].qnumber
+        }
+      }
+  
+      this.http.post<any>("https://zedpea.co.in/api/newexam.php", this.newExam)
+        .subscribe(data => {
+          this.message = data.message;
+        })
+
+      this.new_created_q = [];
+      this.itterator = 0
+      this.toggleAll(2);
     }
 
-    this.http.post<any>("https://zedpea.co.in/api/newexam.php", this.newExam)
-      .subscribe(data => {
-        this.message = data.message;
-      })
+
+  }
+
+  showcreatedtests() {
+    this.router.navigateByUrl("exam-section/ShowExams")
+
   }
 
   toggleAll(discardindexis1: number) {

@@ -231,16 +231,12 @@
 
 
           <label for="comment">Description:</label>
-          <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Add Description"></textarea>
+          <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Add Description"
+          [(ngModel)]="QadditionAdditionForm.discreption"></textarea>
           <br>
 
           <button type="button" [ngClass]="isadded10?'btn btn-info': 'btn btn-light'"
-            (click)="savenewquestion()">Save</button>
-
-
-
-          <button type="button" [ngClass]="isadded10?'btn btn-danger': 'btn btn-light'"
-            (click)="pushNewExam()">{{message}}</button>
+            (click)="saveNewExam()">Save</button>
 
           <button type="button" class="btn btn-secondary" (click)="toggleAll(1)">Discard</button>
 
