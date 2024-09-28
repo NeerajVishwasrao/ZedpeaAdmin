@@ -11,19 +11,19 @@ import { FireQset, FireQuestion } from '../../service/questions.model';
 @Component({
   selector: 'app-show-created-test',
   standalone: true,
-  imports: [RouterLink, NgFor, NgIf, LoaderComponent, MenuButtonsComponent,ReactiveFormsModule],
+  imports: [RouterLink, NgFor, NgIf, LoaderComponent, MenuButtonsComponent, ReactiveFormsModule],
   templateUrl: './ShowExams.component.html',
   styleUrl: './ShowExams.component.css'
 })
 export class ShowCreatedTestComponent {
-saveTest() {
-throw new Error('Method not implemented.');
-}
+  saveTest() {
+    throw new Error('Method not implemented.');
+  }
 
   TestForm: FormGroup = new FormGroup({
     TestName: new FormControl("", [Validators.required]),
     TestDescription: new FormControl("", [Validators.required]),
-   
+
   });
 
   EditExamForm = {
@@ -53,13 +53,62 @@ throw new Error('Method not implemented.');
       "newquiz": this.quizObj
     };
 
+  sharingTest: any = {
+    "userid": "s111",
+    "pid": "mr111",
+    "date": "29072024",
+    "status": "Start",
+    "qset": [
+      {
+        "sessionid": "ub01",
+        "status": "alert-dark"
+      },
+      {
+        "sessionid": "ub02",
+        "status": "alert-dark"
+      },
+      {
+        "sessionid": "ub03",
+        "status": "alert-dark"
+      },
+      {
+        "sessionid": "ub04",
+        "status": "alert-dark"
+      },
+      {
+        "sessionid": "ub05",
+        "status": "alert-dark"
+      },
+      {
+        "sessionid": "ub06",
+        "status": "alert-dark"
+      },
+      {
+        "sessionid": "ub07",
+        "status": "alert-dark"
+      },
+      {
+        "sessionid": "ub08",
+        "status": "alert-dark"
+      },
+      {
+        "sessionid": "ub09",
+        "status": "alert-dark"
+      },
+      {
+        "sessionid": "ub10",
+        "status": "alert-dark"
+      }
+    ]
+  }
+
   testnameValidationMessage: any;
 
   validTestName() {
     if (!this.EditExamForm.examname || this.EditExamForm.examname.trim() === '') {
       this.testnameValidationMessage = 'Test Name is required.';
     } else {
-      this.testnameValidationMessage= '';
+      this.testnameValidationMessage = '';
     }
   }
 
@@ -67,16 +116,71 @@ throw new Error('Method not implemented.');
   isLoaderActive: Boolean = true;
 
   editTest(exam: any) {
-   
+
     this.selectedExam = exam;
   }
- 
+
   deleteTest(_t36: any) {
     throw new Error('Method not implemented.');
   }
 
-  shareTest(_t36: any) {
-    throw new Error('Method not implemented.');
+  shareTest(selectedExam: any) {
+
+    this.sharingTest = {
+      "userid": "s111",
+      "pid": selectedExam.practid,
+      "date": "29072024",
+      "status": "Start",
+      "qset": [
+        {
+          "sessionid": selectedExam.q1,
+          "status": "alert-dark"
+        },
+        {
+          "sessionid": selectedExam.q2,
+          "status": "alert-dark"
+        },
+        {
+          "sessionid": selectedExam.q3,
+          "status": "alert-dark"
+        },
+        {
+          "sessionid": selectedExam.q4,
+          "status": "alert-dark"
+        },
+        {
+          "sessionid": selectedExam.q5,
+          "status": "alert-dark"
+        },
+        {
+          "sessionid": selectedExam.q6,
+          "status": "alert-dark"
+        },
+        {
+          "sessionid": selectedExam.q7,
+          "status": "alert-dark"
+        },
+        {
+          "sessionid": selectedExam.q8,
+          "status": "alert-dark"
+        },
+        {
+          "sessionid": selectedExam.q9,
+          "status": "alert-dark"
+        },
+        {
+          "sessionid": selectedExam.q10,
+          "status": "alert-dark"
+        }
+      ]
+    }
+
+    this.serviceExamSection.addexamq(this.sharingTest).subscribe(
+      (data: any) => {
+        this.message = data;
+      }
+    )
+
   }
 
   launchTest(selectedExam: any, ei: any) {
@@ -91,7 +195,7 @@ throw new Error('Method not implemented.');
       "status": "Start",
       "subject": ""
     }
-    this.quiz = 
+    this.quiz =
     {
       "leagueid": this.uprofile['league_id'],
       "grade": this.quizObj.grade.toLowerCase(),
@@ -112,7 +216,7 @@ throw new Error('Method not implemented.');
         this.examsList[ei].shared = 1;
       }
     )
-    
+
   }
 
   addexamdisable: any;

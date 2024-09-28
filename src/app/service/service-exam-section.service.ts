@@ -57,7 +57,7 @@ export class ServiceExamSectionService {
 
   //league level Quiz
   addassignment(quiz: FireNewExam):Observable<any> {
-
+    //return JSON.parse('{"message":"practid added."}');
     return this.http.post<any>('http://localhost:8080/api/add-assignment', quiz);
   }
 
