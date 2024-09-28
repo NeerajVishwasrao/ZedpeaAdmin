@@ -80,28 +80,26 @@
             *ngIf="studentForm.controls['Password'].touched && studentForm.controls['Password'].errors?.['required']">
             This is Required
           </span>
-          <span *ngIf="studentForm.controls['Password'].errors?.['minlength']">
+          <span *ngIf="studentForm.controls['Password'].errors?.['minlength'] else elsepart">
             Password must be at least 6 characters long
           </span>
-          <span *ngIf="studentForm.controls['Password'].errors?.['pattern']">
-            Password must contain at least one number and one special character
-          </span>
+          <ng-template #elsepart>
+            <span *ngIf="studentForm.controls['Password'].errors?.['pattern']">
+              Password must contain at least one number and one special character
+            </span>
+          </ng-template>
+
         </div>
 
         <!-- Picture -->
         <label for="Std_pic">Picture:</label>
-        <input type="file" formControlName="Picture" class="form-control" id="Std_pic"
-          (change)="uploadValidPic($event)">
+        <input type="file" (change)="uploadValidPic($event)" formControlName="Picture" class="form-control"
+          id="Std_pic">
         <div class="text-danger">
           <span *ngIf="studentForm.controls['Picture'].touched && studentForm.controls['Picture'].errors?.['required']">
             Picture is Required
           </span>
-          <span *ngIf="studentForm.controls['Picture'].hasError('invalidFileType')">
-            File must be in JPEG or PNG format.
-          </span>
-          <span *ngIf="studentForm.controls['Picture'].hasError('invalidFileSize')">
-            File size must be less than 1 MB.
-          </span>
+
           <span *ngIf="img_validation_msg">{{img_validation_msg}}</span>
         </div>
       </div>
