@@ -12,47 +12,7 @@
     </div>
   </nav>
 
-  <!-- Enroll Students -->
-  <!-- <div class="card custom-card mt-4" style="background-color:  #f5f3f1;">
-  <div class="card-body">
-    <div class="form-group">
-      <label for="studname">Student Name:</label>
-      <input type="text" class="form-control" id="studname" [(ngModel)]="newStudent.studentName"
-        (blur)="validateStudentName()">
-      <small class="text-danger" *ngIf="nameValidationMessage">{{nameValidationMessage}}</small><br>
 
-      <label for="rollnumber">Roll Number:</label>
-      <input type="text" class="form-control" id="studentid" [(ngModel)]="newStudent.studentId">
-
-      <label for="selectgrade">Select Grade:</label>
-      <select class="form-control" id="selectgrade" [(ngModel)]="newStudent.grade" (blur)="validateGrade()">
-        <option>K1</option>
-        <option>K2</option>
-        <option>STD1</option>
-        <option>STD2</option>
-      </select>
-      <small class="text-danger" *ngIf="gradeValidationMessage">{{gradeValidationMessage}}</small> <br>
-
-      <label for="susername">Username:</label>
-      <input type="text" class="form-control" id="susername" [(ngModel)]="newStudent.username"
-        (blur)="validateUsername()">
-      <small class="text-danger" *ngIf="usernameValidationMessage">{{usernameValidationMessage}}</small><br>
-
-      <label for="password">Password:</label>
-      <input type="text" class="form-control" id="password" [(ngModel)]="newStudent.passkey"
-        (blur)="validatePassword()">
-      <small class="text-danger" *ngIf="passwordValidationMessage">{{passwordValidationMessage}}</small>
-      <br>
-      <label for="Std_pic">Picture:</label>
-      <input type="file" class="form-control" id="Std_pic" (change)="uploadValidPic($event)">
-      <small class="text-danger" *ngIf="img_validation_msg">{{img_validation_msg}} </small>
-    </div>
-  </div>
-
-  <button type="button" class="btn mybutton" (click)="saveSelectedStudents()">{{message}}</button>
-  <small [ngClass]="iscorrect?'text-success':'text-danger'" *ngIf="ValidationResult">{{ValidationResult}}</small>
-
-</div> -->
 
   <!-- Enroll Students -->
   <div class="card custom-card mt-4" style="background-color:  #f5f3f1;" [formGroup]="studentForm">
@@ -118,9 +78,9 @@
             *ngIf="studentForm.controls['Password'].touched && studentForm.controls['Password'].errors?.['required']">
             This is Required
           </span>
-          <!-- <span *ngIf="studentForm.controls['Password'].errors?.['minlength']">
+          <span *ngIf="studentForm.controls['Password'].errors?.['minlength']">
             Password must be at least 6 characters long
-          </span> -->
+          </span>
           <span *ngIf="studentForm.controls['Password'].errors?.['pattern']">
             Password must contain at least one number and one special character
           </span>
@@ -129,11 +89,11 @@
         <!-- Picture -->
         <label for="Std_pic">Picture:</label>
         <input type="file" formControlName="Picture" class="form-control" id="Std_pic">
-        <!-- <div class="text-danger">
+        <div class="text-danger">
           <span *ngIf="studentForm.controls['Picture'].touched && studentForm.controls['Picture'].errors?.['required']">
             This is Required
           </span>
-        </div> -->
+        </div>
       </div>
     </div>
 

@@ -21,7 +21,7 @@ export class CreateStudentComponent {
     SelectGrade: new FormControl("", [Validators.required]),
     Username: new FormControl("", [Validators.required, Validators.minLength(6)]),
     Password: new FormControl("", [Validators.required, Validators.minLength(6), Validators.pattern(/[!@#$%^&*]/)]),
-     Picture: new FormControl("", [Validators.required])
+    Picture: new FormControl("", [Validators.required])
   });
 
 
@@ -78,65 +78,6 @@ export class CreateStudentComponent {
   usernameValidationMessage: string = '';
   passwordValidationMessage: string = '';
 
-  validateUsername(): boolean {
-    if (!this.newStudent.username) {
-      this.usernameValidationMessage = 'Username is required';
-      return false;
-
-    } else if (this.newStudent.username.length < 4) {
-      this.usernameValidationMessage = 'Username must be at least 4 characters long';
-      return false;
-
-    } else {
-      this.usernameValidationMessage = '';
-      return true
-
-    }
-  }
-
-  validatePassword(): boolean {
-    if (!this.newStudent.passkey) {
-      this.passwordValidationMessage = 'Password is required';
-      return false;
-
-    } else if (this.newStudent.passkey.length < 6) {
-      this.passwordValidationMessage = 'Password must be at least 6 characters long';
-      return false;
-
-    } else if (!/\d/.test(this.newStudent.passkey) || ! /[!@#$%^&*]/.test(this.newStudent.passkey)) {
-      this.passwordValidationMessage = 'Password must contain at least one number and one special character';
-      return false;
-
-    } else {
-      this.passwordValidationMessage = '';
-      return true
-
-    }
-  }
-  // ^ for starting , +$ for ending  this cheaks starting and ending char with [a-zA-Z] characters
-  validateStudentName(): boolean {
-    if (! /^[a-z A-Z]+$/.test(this.newStudent.studentName)) {
-      this.nameValidationMessage = 'The name must contain alphabets!';
-      return false
-    } else {
-      this.nameValidationMessage = '';
-      return true
-    }
-  }
-
-  selectedGrade: string = '';
-  gradeValidationMessage: string = '';
-
-
-  validateGrade(): boolean {
-    if (!this.newStudent.grade) {
-      this.gradeValidationMessage = 'Grade is required';
-      return false;
-    } else {
-      this.gradeValidationMessage = '';
-      return true;
-    }
-  }
 
   ngOnInit(): void {
     console.log("Lazy loaded add student")
