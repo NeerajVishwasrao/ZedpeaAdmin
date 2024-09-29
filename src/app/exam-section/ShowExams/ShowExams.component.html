@@ -34,7 +34,7 @@
                     <button class="btn btn-outline-success me-2" type="button" (click)="Showsingletest(exam)">⋯
                       View</button>
                     <button *ngIf="exam.shared > 0" class="btn btn-outline-primary me-2" type="button" 
-                      data-bs-toggle="modal" data-bs-target="#shareWithModal" data-bs-whatever="@mdo" (click)="shareTest(ei)">Share↪</button>
+                      data-bs-toggle="modal" data-bs-target="#shareWithModal" data-bs-whatever="@mdo" (click)="shareTest(exam)">Share↪</button>
                     <button *ngIf="exam.shared == 0" class="btn btn-outline-primary me-2" type="button" (click)="launchTest(exam, ei)">Launch <i class="bi bi-rocket-takeoff"></i></button>
                     <button *ngIf="exam.shared < 0" class="btn btn-outline-primary me-2" type="button" disabled> <i class="bi bi-rocket-takeoff"></i>...</button>
                     
@@ -116,8 +116,8 @@
             </div>
             <div class="modal-body">
 
-                <div >
-                  <label for="testname"></label>
+                <div *ngIf="message" class="alert alert-info">
+                  <label>{{message}}</label>
                 </div>
 
                 <div class="form-check" class="mb-3" *ngFor="let student of studentList">
