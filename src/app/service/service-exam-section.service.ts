@@ -36,6 +36,10 @@ export class ServiceExamSectionService {
     return this.http.post<any>('https://zedpea.co.in/api/students.php', user);
   }
 
+  getstudents(leagueUser: user){
+    return this.http.post<any>('https://zedpea.co.in/api/students.php', leagueUser);
+  }
+
   mystudents() {
     // this is just the HTTP call, 
     console.log("in login service")

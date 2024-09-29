@@ -33,7 +33,8 @@
                   <div class="btn-group">
                     <button class="btn btn-outline-success me-2" type="button" (click)="Showsingletest(exam)">⋯
                       View</button>
-                    <button *ngIf="exam.shared > 0" class="btn btn-outline-primary me-2" type="button" (click)="shareTest(exam)">Share↪</button>
+                    <button *ngIf="exam.shared > 0" class="btn btn-outline-primary me-2" type="button" 
+                      data-bs-toggle="modal" data-bs-target="#shareWithModal" data-bs-whatever="@mdo" (click)="shareTest(ei)">Share↪</button>
                     <button *ngIf="exam.shared == 0" class="btn btn-outline-primary me-2" type="button" (click)="launchTest(exam, ei)">Launch <i class="bi bi-rocket-takeoff"></i></button>
                     <button *ngIf="exam.shared < 0" class="btn btn-outline-primary me-2" type="button" disabled> <i class="bi bi-rocket-takeoff"></i>...</button>
                     
@@ -42,40 +43,6 @@
                     <button class="btn btn-outline-danger" type="button" (click)="deleteTest(exam)">🗑</button>
                   </div>
 
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Edit Exam Form</strong></h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <form [formGroup]="TestForm"> <!-- Move formGroup here -->
-                            <div class="mb-3">
-                              <label for="testname">Test Name:</label>
-                              <input type="text" formControlName="TestName" class="form-control" id="testname">
-                              <div class="text-danger" *ngIf="TestForm.controls['TestName'].invalid && TestForm.controls['TestName'].touched" >
-                                Test name is required.
-                              </div>
-                  
-                              <!-- <label for="testgrade">Test Grade:</label>
-                              <input type="text" formControlName="TestGrade" class="form-control" id="testgrade"><br> -->
-                  
-                              <label for="comment">Test Description:</label>
-                              <textarea formControlName="TestDescription" class="form-control" rows="5" id="comment" placeholder="Add Description"></textarea>
-                              <div class="text-danger" *ngIf="TestForm.controls['TestDescription'].invalid && TestForm.controls['TestDescription'].touched" >
-                                Test Description is required.
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" [disabled]="TestForm.invalid" (click)="saveTest()">Save</button>
-                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   
                 </div>
               </div>
@@ -105,6 +72,66 @@
 
       </ng-template>
 
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Edit Exam Form</strong></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="TestForm"> <!-- Move formGroup here -->
+                <div class="mb-3">
+                  <label for="testname">Test Name:</label>
+                  <input type="text" formControlName="TestName" class="form-control" id="testname">
+                  <div class="text-danger" *ngIf="TestForm.controls['TestName'].invalid && TestForm.controls['TestName'].touched" >
+                    Test name is required.
+                  </div>
+      
+                  <!-- <label for="testgrade">Test Grade:</label>
+                  <input type="text" formControlName="TestGrade" class="form-control" id="testgrade"><br> -->
+      
+                  <label for="comment">Test Description:</label>
+                  <textarea formControlName="TestDescription" class="form-control" rows="5" id="comment" placeholder="Add Description"></textarea>
+                  <div class="text-danger" *ngIf="TestForm.controls['TestDescription'].invalid && TestForm.controls['TestDescription'].touched" >
+                    Test Description is required.
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" [disabled]="TestForm.invalid" (click)="saveTest()">Save</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="shareWithModal" tabindex="-1" aria-labelledby="shareWithModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Assign to <i class="bi bi-person-lines-fill"></i></strong></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div >
+                  <label for="testname"></label>
+                </div>
+
+                <div class="form-check" class="mb-3" *ngFor="let student of studentList">
+                  <input type="checkbox" class="form-check-input" (click)="sendTest(student.stud)">
+                  <label class="form-check-label"><i class="bi bi-arrow-right-short"></i> {{student.student_name}}</label>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>

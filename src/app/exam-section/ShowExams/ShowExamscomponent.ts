@@ -124,6 +124,15 @@ export class ShowCreatedTestComponent {
     throw new Error('Method not implemented.');
   }
 
+  sendTest(studentid: any) {
+    this.sharingTest.userid = studentid;
+    this.serviceExamSection.addexamq(this.sharingTest).subscribe(
+      (data: any) => {
+        this.message = data;
+      }
+    )
+  }
+
   shareTest(selectedExam: any) {
 
     this.sharingTest = {
@@ -174,12 +183,6 @@ export class ShowCreatedTestComponent {
         }
       ]
     }
-
-    this.serviceExamSection.addexamq(this.sharingTest).subscribe(
-      (data: any) => {
-        this.message = data;
-      }
-    )
 
   }
 
@@ -232,6 +235,7 @@ export class ShowCreatedTestComponent {
   index: number = 1;
   message: string = "";
   examsList: any[] = [];
+  studentList: any[] = [];
   router = inject(Router);
   serviceExamSection = inject(ServiceExamSectionService);
 
@@ -252,6 +256,14 @@ export class ShowCreatedTestComponent {
         this.isLoaderActive = false
       }
     )
+
+    this.serviceExamSection.getstudents(this.leagueUser).subscribe(
+        (data: any) => {
+          this.studentList = data;
+          this.isLoaderActive = false
+        }
+      )
+  
   }
 
 
