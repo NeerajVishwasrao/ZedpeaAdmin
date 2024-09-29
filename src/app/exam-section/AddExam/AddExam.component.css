@@ -17,13 +17,13 @@
 
 /* Styles for the Added Questions section */
 .added-questions-section {
-  min-height: 700px; /* Adjust this height as needed */
+  min-height: 700px;
   overflow-y: auto;  /* Enables vertical scrolling */
 }
 
 /* Styles for the Questions section */
 .questions-container {
-  min-height: 550px; /* Adjust this height as needed */
+  min-height: 550px;
   /* overflow-y: auto;  Enables vertical scrolling */
 }
 
@@ -31,25 +31,59 @@
 /* Mobile view adjustments */
 @media (max-width: 768px) {
   .search-container {
-    flex-direction: column;     width: 100%; 
-    margin-left: 0; 
-  }
+      flex-direction: column;
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .search-box {
+      width: 100%;
+    }
+  
+    /* Styles for the Added Questions section */
+    .added-questions-section {
+      max-height: 700px;
+      overflow-y: auto;
+      /* Enables vertical scrolling */
+    }
+  
+    /* Styles for the Questions section */
+    .questions-container {
+      max-height: 400px;
+      overflow-y: auto;  /* Enables vertical scrolling */
+    }
 
-  .search-box {
-    width: 100%; /* Full width for each input box on mobile */
-  }
-
-  /* Styles for the Added Questions section */
-.added-questions-section {
-  max-height: 700px; /* Adjust this height as needed */
-  overflow-y: auto;  /* Enables vertical scrolling */
-}
-
-/* Styles for the Questions section */
-.questions-container {
-  max-height: 400px; /* Adjust this height as needed */
-  overflow-y: auto;  /* Enables vertical scrolling */
-}
+    .main-content {
+      flex-direction: column; 
+    }
+  
+    .questions-section,
+    .added-questions-section {
+      margin-bottom: 15px;
+    }
+  
+    .card {
+      width: 100%; 
+      margin-left: 0; 
+    }
+  
+    .card-img-top {
+      height: 100px;
+    }
+  
+    .card-title {
+      font-size: 13px;
+    }
+  
+    .card-text li {
+      font-size: 11px;
+    }
+  
+    .table th,
+    .table td {
+      font-size: 11px;
+      padding: 6px;
+    }
 }
 
 .main-content {
@@ -157,47 +191,6 @@
   font-size: 12px;
 }
 
-
-@media (max-width: 768px) {
- 
-  .main-content {
-    flex-direction: column; 
-  }
-
-  .questions-section,
-  .added-questions-section {
-    margin-bottom: 15px;
-  }
-
-  
-  .card {
-    width: 100%; 
-    margin-left: 0; 
-  }
-
-  .card-img-top {
-    height: 100px;
-  }
-
-  
-  .card-title {
-    font-size: 13px;
-  }
-
-  .card-text li {
-    font-size: 11px;
-  }
-
-  .table th,
-  .table td {
-    font-size: 11px;
-    padding: 6px;
-  }
-  
-
-}
-
-
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -221,15 +214,6 @@
   text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
 .qnumber {
   position: absolute;
   top: 10px;
@@ -240,8 +224,6 @@
   padding: 2px 5px;
   border-radius: 5px;
 }
-
-
 
 .card-text{
   /* border: 2px rgb(182, 181, 184) solid; */
@@ -259,8 +241,3 @@
 .p-1:hover{
   background-color: rgba(224, 191, 191, 0.6);
 }
-
-
-/* #button{
-  width: 98%;
-} */
