@@ -168,6 +168,15 @@
   }
   
 
+  .toast-body {
+    font-size: 1.25rem; 
+    font-weight: bold;
+}
+
+.toast-body span {
+    color: #333;
+    margin-right: 5px; /* Adds spacing between time units */
+}
 
 
 

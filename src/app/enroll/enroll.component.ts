@@ -22,8 +22,17 @@ export class EnrollComponent {
     Password: new FormControl("", [Validators.required, Validators.minLength(6), Validators.pattern(/[!@#$%^&*]/)]),
     // Picture: new FormControl("", [Validators.required])
   });
+  activeSection: string = '';
 
-
+  scrollToSection(section: string) {
+    this.activeSection = section;
+    // Add smooth scrolling functionality
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  
 
   img_validation_msg: string = '';
   isValidUpload: boolean = false

@@ -1,0 +1,9 @@
+.rule {
+    border-bottom: 1px solid #dee2e6; /* Light gray border */
+    padding-bottom: 15px; /* Space below each rule */
+    margin-bottom: 15px; /* Space above each rule */
+}
+
+.rule:last-child {
+    border-bottom: none; /* Remove border from the last rule */
+}
