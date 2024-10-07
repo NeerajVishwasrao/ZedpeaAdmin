@@ -22,6 +22,7 @@ goback() {
   examsectionservice=inject(ServiceExamSectionService)
 
 ngOnInit(){
+  console.log("shwosdfsssssssssss");
   this.examsectionservice.returnShowonetest().subscribe((val)=>{
      this.question=val
      console.log("shwosdfsssssssssss  "+val)

@@ -1,14 +1,14 @@
 <!-- {{Qcontainer}} -->
-  <nav class="navbar bg-body-secondary">
-    <div class="container-fluid justify-content-start">
-      <div class="d-none d-lg-flex">
-        <h2 class="navbar-brand"> 📚 </h2>
-      </div>
-      <!-- Memu Buttons  -->
-      <app-menu-buttons [Show_btn_AllExams]="true"></app-menu-buttons>
-
+<nav class="navbar bg-body-secondary">
+  <div class="container-fluid justify-content-start">
+    <div class="d-none d-lg-flex">
+      <h2 class="navbar-brand"> 📚 </h2>
     </div>
-  </nav>
+    <!-- Memu Buttons  -->
+    <app-menu-buttons [Show_btn_AllExams]="true"></app-menu-buttons>
+
+  </div>
+</nav>
 <!-- <h3 style="text-align: center;">Saved exams </h3> -->
 
 <div class="container mt-5">
@@ -26,24 +26,27 @@
               <div class="col-md-8">
                 <div class="card-body d-flex flex-column justify-content-between">
                   <ul class="list-unstyled mb-4">
-                    <li><strong>Test Name: </strong> {{exam.pname}} ({{exam.grade}})</li>
+                    <li><strong>Test Name: </strong> {{exam.pname|titlecase}} ({{exam.grade}})</li>
                     <li><strong>Test Grade: </strong>{{exam.practid}}</li>
                     <li><strong>Test Description: </strong> {{exam.pdesc}}</li>
                   </ul>
                   <div class="btn-group">
                     <button class="btn btn-outline-success me-2" type="button" (click)="Showsingletest(exam)">⋯
                       View</button>
-                    <button *ngIf="exam.shared > 0" class="btn btn-outline-primary me-2" type="button" 
-                      data-bs-toggle="modal" data-bs-target="#shareWithModal" data-bs-whatever="@mdo" (click)="shareTest(exam)">Share↪</button>
-                    <button *ngIf="exam.shared == 0" class="btn btn-outline-primary me-2" type="button" (click)="launchTest(exam, ei)">Launch <i class="bi bi-rocket-takeoff"></i></button>
-                    <button *ngIf="exam.shared < 0" class="btn btn-outline-primary me-2" type="button" disabled> <i class="bi bi-rocket-takeoff"></i>...</button>
-                    
+                    <button *ngIf="exam.shared > 0" class="btn btn-outline-primary me-2" type="button"
+                      data-bs-toggle="modal" data-bs-target="#shareWithModal" data-bs-whatever="@mdo"
+                      (click)="shareTest(exam)">Share↪</button>
+                    <button *ngIf="exam.shared == 0" class="btn btn-outline-primary me-2" type="button"
+                      (click)="launchTest(exam, ei)">Launch <i class="bi bi-rocket-takeoff"></i></button>
+                    <button *ngIf="exam.shared < 0" class="btn btn-outline-primary me-2" type="button" disabled> <i
+                        class="bi bi-rocket-takeoff"></i>...</button>
+
                     <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
                       data-bs-target="#exampleModal" data-bs-whatever="@mdo" (click)="editTest(exam)">✏️</button>
                     <button class="btn btn-outline-danger" type="button" (click)="deleteTest(exam)">🗑</button>
                   </div>
 
-                  
+
                 </div>
               </div>
             </div>
@@ -72,58 +75,98 @@
 
       </ng-template>
 
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+
+
+
+
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        data-bs-backdrop="static">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Edit Exam Form</strong></h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                (click)="closeReset()"></button>
             </div>
             <div class="modal-body">
               <form [formGroup]="TestForm"> <!-- Move formGroup here -->
                 <div class="mb-3">
                   <label for="testname">Test Name:</label>
+
                   <input type="text" formControlName="TestName" class="form-control" id="testname">
-                  <div class="text-danger" *ngIf="TestForm.controls['TestName'].invalid && TestForm.controls['TestName'].touched" >
-                    Test name is required.
+                  <div class="text-danger"
+                    *ngIf="TestForm.controls['TestName'].invalid && TestForm.controls['TestName'].touched">
+                    {{ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
                   </div>
-      
-                  <!-- <label for="testgrade">Test Grade:</label>
-                  <input type="text" formControlName="TestGrade" class="form-control" id="testgrade"><br> -->
-      
+
+                  <label for="testgrade">Test Grade:</label>
+                  <select class="form-control" id="select-grade" formControlName="TestGrade">
+                    <option>K1</option>
+                    <option>K2</option>
+                    <option>STD1</option>
+                    <option>STD2</option>
+                  </select>
+                  <div class="text-danger"
+                    *ngIf="TestForm.controls['TestGrade'].invalid && TestForm.controls['TestGrade'].touched">
+                    {{ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
+                  </div>
                   <label for="comment">Test Description:</label>
-                  <textarea formControlName="TestDescription" class="form-control" rows="5" id="comment" placeholder="Add Description"></textarea>
-                  <div class="text-danger" *ngIf="TestForm.controls['TestDescription'].invalid && TestForm.controls['TestDescription'].touched" >
-                    Test Description is required.
+                  <textarea formControlName="TestDescription" class="form-control" rows="5" id="comment"
+                    placeholder="Add Description"></textarea>
+                  <div class="text-danger"
+                    *ngIf="TestForm.controls['TestDescription'].errors?.['maxlength'] && TestForm.controls['TestDescription'].touched">
+                    {{ConstantDB.VALIDATION_MSG.MAX_DESC_LENGTH}}
                   </div>
                 </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" [disabled]="TestForm.invalid" (click)="saveTest()">Save</button>
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+
+              <span (click)="cheakAllCredentials()">
+                <button type="button" class="btn btn-primary" [disabled]="TestForm.invalid"
+                  data-bs-dismiss="modal">Save</button>
+              </span>
+
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeReset()">Close</button>
+              <br><br>
             </div>
           </div>
+          <span class="text-danger" *ngIf="TestForm.invalid&&TestForm.touched">
+            <b>*Fill Required data</b>
+          </span>
+
         </div>
       </div>
 
-      <div class="modal fade" id="shareWithModal" tabindex="-1" aria-labelledby="shareWithModalLabel" aria-hidden="true">
+
+
+
+
+      <div class="modal fade" id="shareWithModal" tabindex="-1" aria-labelledby="shareWithModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Assign to <i class="bi bi-person-lines-fill"></i></strong></h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Assign to <i
+                    class="bi bi-person-lines-fill"></i></strong></h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
             </div>
             <div class="modal-body">
 
-                <div *ngIf="message" class="alert alert-info">
-                  <label>{{message}}</label>
-                </div>
+              <div *ngIf="message" class="alert alert-info">
+                <label>{{message}}</label>
+              </div>
 
-                <div class="form-check" class="mb-3" *ngFor="let student of studentList">
-                  <input type="checkbox" class="form-check-input" (click)="sendTest(student.stud)">
-                  <label class="form-check-label"><i class="bi bi-arrow-right-short"></i> {{student.student_name}}</label>
-                </div>
+              <div class="form-check" class="mb-3" *ngFor="let student of studentList">
+                <input type="checkbox" class="form-check-input" (click)="sendTest(student.stud)">
+                <label class="form-check-label"><i class="bi bi-arrow-right-short"></i>
+                  {{student.student_name}}</label>
+              </div>
 
             </div>
             <div class="modal-footer">
@@ -133,6 +176,6 @@
         </div>
       </div>
 
+
     </div>
   </div>
-</div>

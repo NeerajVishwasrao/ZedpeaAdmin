@@ -5,16 +5,19 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { HttpClient } from '@angular/common/http';
 import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
 import { NgxImageCompressService } from 'ngx-image-compress';
+import { ConstantDB } from '../../Contant/constant';
 
 @Component({
   selector: 'app-create-student',
   standalone: true,
-  imports: [NgFor, NgIf, FormsModule, NgClass, MenuButtonsComponent, ReactiveFormsModule, JsonPipe,],
+  imports: [NgFor, NgIf, FormsModule, NgClass, MenuButtonsComponent, ReactiveFormsModule, JsonPipe],
   templateUrl: './Add-Student.component.html',
   styleUrls: ['./Add-Student.component.css']
 })
 
 export class CreateStudentComponent {
+
+  ConstantDB = ConstantDB
 
   studentForm: FormGroup = new FormGroup({
     StudentName: new FormControl("", [Validators.required, Validators.pattern(/^[a-z A-Z]+$/)]),
@@ -33,20 +36,22 @@ export class CreateStudentComponent {
   compressedImage: string = ''
   NgxImageCompressService = inject(NgxImageCompressService)
 
- 
+
+
   uploadValidPic(event: any) {
     if (event.target.files.length > 0) {
       const file: File = event.target.files[0];
 
       // Validate file type (only JPEG or PNG)
       if (file.type === 'image/jpeg' || file.type === 'image/png') {
-        
+
         // Validate file size (less than 1MB)
         if (file.size < 1000000) {
           console.log('File size is less than 1 MB');
           console.log('Original File Size:', file.size, 'bytes');  // Log original file size
 
           const reader = new FileReader();
+          reader.readAsDataURL(file); // Load file as Base64
 
           reader.onload = (e: any) => {
             // Compress the file once it's loaded
@@ -72,22 +77,24 @@ export class CreateStudentComponent {
             this.img_validation_msg = '';
           };
 
-          reader.readAsDataURL(file); // Load file as Base64
         } else {
-          this.img_validation_msg = 'File size should be less than 1 MB';
+          this.img_validation_msg = ConstantDB.VALIDATION_MSG.IMG_SIZE_LIMIT;
+
         }
       } else {
-        this.img_validation_msg = 'Wrong file format! Only JPEG or PNG are accepted.';
+        this.img_validation_msg = ConstantDB.VALIDATION_MSG.IMG_FORMAT;
       }
     } else {
-      this.img_validation_msg = 'Please select a picture of the student.';
+      this.img_validation_msg = ConstantDB.VALIDATION_MSG.SELECT_PIC;
     }
   }
 
   // Function to convert base64 to Blob
   base64ToBlob(base64: string, mime: string): Blob {
     const byteString = window.atob(base64);
+    //Create an empty buffer to hold the binary data (using ArrayBuffer).
     const arrayBuffer = new ArrayBuffer(byteString.length);
+    //Provide a way to manipulate and access the data as a series of bytes (using Uint8Array).
     const uint8Array = new Uint8Array(arrayBuffer);
 
     for (let i = 0; i < byteString.length; i++) {
@@ -113,7 +120,7 @@ export class CreateStudentComponent {
   // Function to send compressed image to the server
   uploadImage(formData: FormData) {
     console.log(formData)
-   
+
   }
 
 
@@ -150,6 +157,9 @@ export class CreateStudentComponent {
       this.newStudent.leagueId = JSON.parse(objUprofile)['league_id'];
     }
   }
+
+
+
   iscorrect: Boolean = false
 
 
@@ -170,12 +180,12 @@ export class CreateStudentComponent {
         .subscribe(data => {
           this.message = data.message;
           this.iscorrect = true
-          this.ValidationResult = "Data Inserted Successfully ";
+          this.ValidationResult = ConstantDB.VALIDATION_MSG.DATA_SEND_SUCCESSFULLY;
         }
         );
     }
     else {
-      this.ValidationResult = "Something Wrong";
+      this.ValidationResult = ConstantDB.VALIDATION_MSG.SOMETHING_WRONG;
       this.iscorrect = false
     }
 

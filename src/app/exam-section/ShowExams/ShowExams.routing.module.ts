@@ -4,7 +4,12 @@ import { ShowCreatedTestComponent } from './ShowExamscomponent';
 
 const routes: Routes = [
 
-  {path:"",component:ShowCreatedTestComponent}
+  {
+    path: "", component: ShowCreatedTestComponent,
+
+  }
+
+  
 ];
 
 @NgModule({

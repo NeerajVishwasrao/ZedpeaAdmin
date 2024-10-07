@@ -4,14 +4,12 @@
       <div class="d-none d-lg-flex">
         <h2 class="navbar-brand"> 📚 </h2>
       </div>
-
       <!-- Memu Buttons  -->
       <app-menu-buttons [Show_btn_addStu]="true"></app-menu-buttons>
 
 
     </div>
   </nav>
-
 
 
 
@@ -27,10 +25,10 @@
         <div class="text-danger">
           <span
             *ngIf="studentForm.controls['StudentName'].touched && studentForm.controls['StudentName'].errors?.['required']">
-            This is Required
+            {{ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
           </span>
           <span *ngIf="studentForm.controls['StudentName'].errors?.['pattern']">
-            The name must contain alphabets!
+            {{ConstantDB.VALIDATION_MSG.NAME_SHOULD_ALPHABATES}}
           </span>
         </div>
 
@@ -40,7 +38,7 @@
         <div class="text-danger">
           <span
             *ngIf="studentForm.controls['RollNumber'].touched && studentForm.controls['RollNumber'].errors?.['required']">
-            This is Required
+            {{ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
           </span>
         </div>
 
@@ -55,7 +53,7 @@
         <div class="text-danger">
           <span
             *ngIf="studentForm.controls['SelectGrade'].touched && studentForm.controls['SelectGrade'].errors?.['required']">
-            This is Required
+            {{ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
           </span>
         </div>
 
@@ -65,10 +63,10 @@
         <div class="text-danger">
           <span
             *ngIf="studentForm.controls['Username'].touched && studentForm.controls['Username'].errors?.['required']">
-            This is Required
+            {{ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
           </span>
           <span *ngIf="studentForm.controls['Username'].errors?.['minlength']">
-            Username must be at least 6 characters long
+            {{ConstantDB.VALIDATION_MSG.USERNM_MIN_LENGTH}}
           </span>
         </div>
 
@@ -78,14 +76,13 @@
         <div class="text-danger">
           <span
             *ngIf="studentForm.controls['Password'].touched && studentForm.controls['Password'].errors?.['required']">
-            This is Required
-          </span>
+            {{ConstantDB.VALIDATION_MSG.THIS_IS_REQ}} </span>
           <span *ngIf="studentForm.controls['Password'].errors?.['minlength'] else elsepart">
-            Password must be at least 6 characters long
+            {{ConstantDB.VALIDATION_MSG.PASS_MIN_LENGTH}}
           </span>
           <ng-template #elsepart>
             <span *ngIf="studentForm.controls['Password'].errors?.['pattern']">
-              Password must contain at least one number and one special character
+              {{ConstantDB.VALIDATION_MSG.PASS_PATTERN}}
             </span>
           </ng-template>
 
@@ -97,7 +94,7 @@
           id="Std_pic">
         <div class="text-danger">
           <span *ngIf="studentForm.controls['Picture'].touched && studentForm.controls['Picture'].errors?.['required']">
-            Picture is Required
+            {{ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
           </span>
 
           <span *ngIf="img_validation_msg">{{img_validation_msg}}</span>
@@ -114,3 +111,21 @@
 
 
 </div>
+
+
+
+<!-- 
+<div class="coundown d-flex justify-content-between align-items-baseline">
+  <p>Days</p>
+  <p class="ml- mr-2">Hours</p>
+  <p>Minu</p>
+  <p class="ml-2">Sec</p>
+</div>
+
+<div class="coundown d-flex justify-content-between align-items-baseline">
+  <p id="days"></p>
+  <p id="hours"></p>
+  <p id="mins"></p>
+  <p id="seconds"></p>
+</div>
+ -->
