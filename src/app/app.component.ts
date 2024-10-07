@@ -38,6 +38,8 @@ export class AppComponent {
   ngAfterViewInit() {
     this.mytimer(); // Call timer on component initialization
     setInterval(() => this.mytimer(), 1000); //
+
+    
   }
 
   timershow: boolean = false;
