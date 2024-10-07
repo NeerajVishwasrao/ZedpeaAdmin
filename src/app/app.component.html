@@ -24,45 +24,89 @@
 
 
       <!-- Exam Section with Dropdown -->
-      <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown('Exam-Center')">
+      <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown('Exam-Center')"
+      data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title="View Exam Center">
         Exam Center
       </div>
 
       <div style="background-color: rgb(245, 219, 159)" *ngIf="isExamCenterActive">
-        <div class="innernav w3-bar-item" routerLink="Exam-Center/AddExam" (click)="menudesign(2)">
+        <div class="innernav w3-bar-item" routerLink="Exam-Center/AddExam" (click)="menudesign(2)"
+        data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title="Add Exam from here">
           Add Exam
         </div>
-        <div class="innernav w3-bar-item" routerLink="Exam-Center/ShowExam" (click)="menudesign(2)">
+        <div class="innernav w3-bar-item" routerLink="Exam-Center/ShowExam" (click)="menudesign(2)"
+        data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title="show exam of the students">
           Show Exam
         </div>
       </div>
 
 
       <!-- Students Section with Dropdown -->
-      <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown('ClassRoom')">
+      <div class="w3-bar-item w3-button dropdown-toggle" (click)="toggleDropdown('ClassRoom')"
+      data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title="Classroom of the students">
         Classroom
       </div>
 
       <div style="background-color: rgb(245, 219, 159)" *ngIf="IsClassroomActive">
-        <div class="innernav w3-bar-item" (click)="menudesign(2)" routerLink="Add-Student">
+        <div class="innernav w3-bar-item" (click)="menudesign(2)" routerLink="Add-Student"
+        data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title="Enrollments of the studnets">
           Enrollment
         </div>
-        <div class="innernav w3-bar-item" (click)="menudesign(2)" routerLink="Show-Student">
+        <div class="innernav w3-bar-item" (click)="menudesign(2)" routerLink="Show-Student"
+        data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title="Students information">
           Students
         </div>
       </div>
 
 
-      <div class="w3-bar-item w3-button" routerLink="Exam-Center/analysis_performance" (click)="menudesign(2)">
+      <div class="w3-bar-item w3-button" routerLink="Exam-Center/analysis_performance" (click)="menudesign(2)"
+      data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title="Performance analysis of the students">
         Performance Analysis</div>
 
-      <div class="w3-bar-item w3-button" routerLink="timetable">Timetable</div>
+      <div class="w3-bar-item w3-button" routerLink="timetable"
+      data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title=" see Timetable of the students">Timetable</div>
 
-      <div class="w3-bar-item w3-button" routerLink="attendance">Attendance</div>
+      <div class="w3-bar-item w3-button" routerLink="attendance"
+      data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title="Attendance of the students">Attendance</div>
 
-      <div class="w3-bar-item w3-button" routerLink="plans">Pricing & Plans</div>
+      <div class="w3-bar-item w3-button" routerLink="plans"
+      data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title="Pricing& plans">Pricing & Plans</div>
 
-      <div class="btn btn-danger logout-btn" (click)="logout()" (click)="menudesign(2)">
+      <div class="btn btn-danger logout-btn" (click)="logout()" (click)="menudesign(2)"
+      data-bs-toggle="tooltip"
+     data-bs-placement="top"
+     data-bs-custom-class="custom-tooltip"
+     title="Logout">
         Logout
       </div>
 

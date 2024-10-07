@@ -5,28 +5,42 @@
 
 <div class="d-none d-lg-flex" >
 
+  
+
   <button
     [ngClass]="Show_btn_All_Stu?'btn  btn-outline-secondary me-2 custom-no-border':'btn btn-outline-success me-2 custom-btn'"
-    (click)="Goto_Students()" [disabled]="Show_btn_All_Stu" type="button">
+    (click)="Goto_Students()" [disabled]="Show_btn_All_Stu" type="button"
+    data-bs-toggle="tooltip"
+    data-bs-placement="top"
+    title="View all students">
     Students <i
       [ngClass]=" Show_btn_All_Stu?'badge badge-pill badge-light':'badge badge-pill badge-primary'">&#9733;</i>
   </button>
 
   <button
     [ngClass]="Show_btn_addStu?'btn  btn-outline-secondary me-2 custom-no-border':'btn btn-outline-success me-2 custom-btn'"
-    (click)="Goto_AddStudents()" [disabled]="Show_btn_addStu" type="button">
+    (click)="Goto_AddStudents()" [disabled]="Show_btn_addStu" type="button"
+    data-bs-toggle="tooltip"
+    data-bs-placement="top"
+    title="Add students">
     Add Student <i [ngClass]=" Show_btn_addStu?'badge badge-pill badge-light':'badge badge-pill badge-primary'">+</i>
   </button>
 
   <button
     [ngClass]="Show_btn_AllExams?'btn  btn-outline-secondary me-2 custom-no-border':'btn btn-outline-success me-2 custom-btn'"
-    (click)="Goto_Exmas()" [disabled]="Show_btn_AllExams" type="button">
+    (click)="Goto_Exmas()" [disabled]="Show_btn_AllExams" type="button"
+    data-bs-toggle="tooltip"
+    data-bs-placement="top"
+    title="View Exams">
     Exams <i [ngClass]=" Show_btn_AllExams?'badge badge-pill badge-light':'badge badge-pill badge-primary'">&#9733;</i>
   </button>
 
   <button
     [ngClass]="Show_btn_AddExam?'btn  btn-outline-secondary me-2 custom-no-border':'btn btn-outline-success me-2 custom-btn'"
-    (click)="Goto_AddExmas()" [disabled]="Show_btn_AddExam" type="button">
+    (click)="Goto_AddExmas()" [disabled]="Show_btn_AddExam" type="button"
+    data-bs-toggle="tooltip"
+    data-bs-placement="top"
+    title="Add exams">
     Add Exam <i [ngClass]=" Show_btn_AddExam?'badge badge-pill badge-light':'badge badge-pill badge-primary'">+</i>
   </button>
 

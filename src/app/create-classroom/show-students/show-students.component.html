@@ -28,9 +28,13 @@
               <div class="card mb-4 shadow-sm student-card exam-card">
                 <div class="row no-gutters">
                   <div class="col-md-4">
-                    <img src="/assets/dummy.jpg" class="card-img exam" alt="Student Image">
+                    <img src="/assets/dummy.jpg" class="card-img exam img-thumbnail" alt="Student Image">
                     <h5 class="text-center mt-2">{{student?.student_name|titlecase}}</h5>
                   </div>
+
+
+
+                  
                   <div class="col-md-8">
                     <div class="card-body">
                       <ul class="list-unstyled">
@@ -44,11 +48,11 @@
                       </ul>
 
                       <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-outline-warning me-2 " data-bs-toggle="modal"
                           data-bs-target="#exampleModal" data-bs-whatever="@mdo"
                           (click)="editStudent(student)">✏️</button>
-                        <button class="btn btn-outline-danger" type="button">
-                          🗑
+                        <button class="btn btn-outline-danger bi bi-trash" type="button">
+                        
                         </button>
                       </div>
 
@@ -190,7 +194,7 @@
             <div *ngIf="studentList.length==0">
 
               <h2>Students not found</h2>
-              <img src="/assets/nocontent.png" class="card-img" alt="...">
+              <img src="/assets/nocontent.png" class="card-img img-thumbnail" alt="...">
               <h3 [routerLink]="['/Add-Student']">click here to Add Student </h3>
 
             </div>

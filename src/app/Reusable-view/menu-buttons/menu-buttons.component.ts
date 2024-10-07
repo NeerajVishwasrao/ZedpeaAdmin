@@ -1,6 +1,7 @@
 import { NgClass, NgIf } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { Tooltip } from 'bootstrap';
 
 @Component({
   selector: 'app-menu-buttons',
