@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { EnrollComponent } from './enroll/enroll.component';
 import { authZPGuard } from './auth-zp.guard';
-import { CreateStudentComponent } from './create-classroom/Add-Students/Add-Student.component';
-import { ShowStudentsComponent } from './create-classroom/show-students/show-students.component';
+
 
 export const routes: Routes = [
 
@@ -14,7 +14,9 @@ export const routes: Routes = [
     {
         path:'',component:LoginComponent,
     },
-
+    {
+        path:'enroll/:id',component:EnrollComponent,
+    },
     {
         path:'Add-Student',loadChildren:()=>import('./create-classroom/Add-Students/Add-Student.module').then(m=>m.CreateClassroomModule),
         canActivate:[authZPGuard]
@@ -23,5 +25,9 @@ export const routes: Routes = [
         path:'Show-Student',loadChildren:()=>import('./create-classroom/show-students/show-student.module').then(m=>m.ShowStudentModule),
         canActivate:[authZPGuard]
     },
+    // {
+    //     path:'Show-single-exam',loadChildren:()=>import('./exam-section/ShowExams/single-created-test/single-creted-test.module').then(m=>m.CretedTestModule),
+    //     canActivate:[authZPGuard]
+    // },
    
 ];

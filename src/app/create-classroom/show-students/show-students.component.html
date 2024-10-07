@@ -57,7 +57,7 @@
                       </div>
 
 
-                    
+
                     </div>
                   </div>
 
@@ -69,143 +69,155 @@
             </div>
 
 
-            
-          </div>
-
-  <!-- Enroll Students -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Edit Student Form</strong>
-        </h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"
-          aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group" [formGroup]="studentForm">
-
-          <!--Student Name -->
-          <label for="studname">Student Name:</label>
-          <input type="text" formControlName="StudentName" class="form-control" id="studname">
-          <div class="text-danger">
-            <span
-              *ngIf="studentForm.controls['StudentName'].touched && studentForm.controls['StudentName'].errors?.['required']">
-              This is Required
-            </span>
-            <span *ngIf="studentForm.controls['StudentName'].errors?.['pattern']">
-              The name must contain alphabets!
-            </span>
-          </div>
-
-          <!--Roll Number -->
-          <label for="rollnumber">Roll Number:</label>
-          <input type="text" class="form-control" id="studentid"
-           formControlName="RollNumber"><br>
-
-          <label for="selectgrade">Select Grade:</label>
-          <select formControlName="SelectGrade" class="form-control" id="selectgrade">
-            <option>K1</option>
-            <option>K2</option>
-            <option>STD1</option>
-            <option>STD2</option>
-          </select>
-          <div class="text-danger">
-            <span
-              *ngIf="studentForm.controls['SelectGrade'].touched && studentForm.controls['SelectGrade'].errors?.['required']">
-              This is Required
-            </span>
-          </div>
-
-
-          <!--Username-->
-          <label for="susername">Username:</label>
-          <input type="text" formControlName="Username" class="form-control" id="susername">
-          <div class="text-danger">
-            <span
-              *ngIf="studentForm.controls['Username'].touched && studentForm.controls['Username'].errors?.['required']">
-              This is Required
-            </span>
-            <span *ngIf="studentForm.controls['Username'].errors?.['minlength']">
-              Username must be at least 6 characters long
-            </span>
-          </div>
-
-          <!--Password-->
-          <label for="password">Password:</label>
-          <input type="password" formControlName="Password" class="form-control" id="password">
-          <div class="text-danger">
-            <span
-              *ngIf="studentForm.controls['Password'].touched && studentForm.controls['Password'].errors?.['required']">
-              This is Required
-            </span>
-            <span *ngIf="studentForm.controls['Password'].errors?.['minlength']">
-              Password must be at least 6 characters long
-            </span>
-            <span *ngIf="studentForm.controls['Password'].errors?.['pattern']">
-              Password must contain at least one number and one special character
-            </span>
-          </div>
-
-          <!--Picture-->
-          <label for="Std_pic">Picture:</label>
-          <input type="file" formControlName="Picture" class="form-control" id="Std_pic">
-          <div class="text-danger">
-            <span
-              *ngIf="studentForm.controls['Picture'].touched && studentForm.controls['Picture'].errors?.['required']">
-              This is Required
-            </span>
-            <span *ngIf="studentForm.controls['Picture'].hasError('invalidFileType')">
-              File must be in JPEG or PNG format.
-            </span>
-            <span *ngIf="studentForm.controls['Picture'].hasError('invalidFileSize')">
-              File size must be less than 1 MB.
-            </span>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="saveStudent()">{{message}}</button>
-
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-
-          <div *ngIf="isLoaderActive==true; else elseBlock" style="display: flex; justify-content: center;  ">
-
-            <app-loader></app-loader>
 
           </div>
 
-          <!-- This content is displayed if the condition is false -->
-          <ng-template #elseBlock>
+          <!-- Enroll Students -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            data-bs-backdrop="static">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Edit Student Form</strong>
+                  </h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="closeReset()"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group" [formGroup]="studentForm">
 
-            <div *ngIf="studentList.length==0">
+                    <!--Student Name -->
+                    <label for="studname">Student Name:</label>
+                    <input type="text" formControlName="StudentName" class="form-control" id="studname">
+                    <div class="text-danger">
+                      <span
+                        *ngIf="studentForm.controls['StudentName'].touched && studentForm.controls['StudentName'].errors?.['required']">
+                        {{ ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
+                      </span>
+                      <span *ngIf="studentForm.controls['StudentName'].errors?.['pattern']">
+                        {{ ConstantDB.VALIDATION_MSG.NAME_SHOULD_ALPHABATES}}
+                      </span>
+                    </div>
 
-              <h2>Students not found</h2>
-              <img src="/assets/nocontent.png" class="card-img img-thumbnail" alt="...">
-              <h3 [routerLink]="['/Add-Student']">click here to Add Student </h3>
+                    <!--Roll Number -->
+                    <label for="rollnumber">Roll Number:</label>
+                    <input type="text" class="form-control" id="studentid" formControlName="RollNumber"><br>
+                    <div class="text-danger">
+                      <span
+                        *ngIf="studentForm.controls['RollNumber'].touched && studentForm.controls['RollNumber'].errors?.['required']">
+                        {{ ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
+                      </span>
+                    </div>
+
+                    <!-- grade -->
+                    <label for="selectgrade">Select Grade:</label>
+                    <select formControlName="SelectGrade" class="form-control" id="selectgrade">
+                      <option>K1</option>
+                      <option>K2</option>
+                      <option>STD1</option>
+                      <option>STD2</option>
+                    </select>
+                    <div class="text-danger">
+                      <span
+                        *ngIf="studentForm.controls['SelectGrade'].touched && studentForm.controls['SelectGrade'].errors?.['required']">
+                        {{ ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
+                      </span>
+                    </div>
+
+
+                    <!--Username-->
+                    <label for="susername">Username:</label>
+                    <input type="text" formControlName="Username" class="form-control" id="susername">
+                    <div class="text-danger">
+                      <span
+                        *ngIf="studentForm.controls['Username'].touched && studentForm.controls['Username'].errors?.['required']">
+                        {{ ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
+                      </span>
+                      <span *ngIf="studentForm.controls['Username'].errors?.['minlength']">
+                        {{ ConstantDB.VALIDATION_MSG.USERNM_MIN_LENGTH}}
+                      </span>
+                    </div>
+
+                    <!--Password-->
+                    <label for="password">Password:</label>
+                    <input type="password" formControlName="Password" class="form-control" id="password">
+                    <div class="text-danger">
+                      <span
+                        *ngIf="studentForm.controls['Password'].touched && studentForm.controls['Password'].errors?.['required']">
+                        {{ ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
+                      </span>
+                      <span *ngIf="studentForm.controls['Password'].errors?.['minlength']">
+                        {{ ConstantDB.VALIDATION_MSG.PASS_MIN_LENGTH}}
+                      </span>
+                      <span *ngIf="studentForm.controls['Password'].errors?.['pattern']">
+                        {{ ConstantDB.VALIDATION_MSG.PASS_PATTERN}}
+                      </span>
+                    </div>
+
+                    <!--Picture-->
+                    <label for="Std_pic">Picture:</label>
+                    <input type="file" formControlName="Picture" class="form-control" id="Std_pic"
+                      (change)="uploadValidPic($event)">
+                    <div class="text-danger">
+                      <span
+                        *ngIf="studentForm.controls['Picture'].touched && studentForm.controls['Picture'].errors?.['required']">
+                        {{ ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
+                      </span>
+
+                      <span *ngIf="studentForm.invalid&&studentForm.touched">{{img_validation_msg}}
+                      </span>
+                    </div>
+                  </div>
+
+
+                  <!-- submit -->
+                  <div class="modal-footer">
+                    <span (click)="cheakAllCredentials()">
+                      <button [disabled]="studentForm.invalid" type="button" class="btn btn-success"
+                        data-bs-dismiss="modal">{{message}}</button>
+                    </span>
+
+                    <!-- close -->
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                      (click)="closeReset()">Close</button>
+
+                  </div>
+
+                </div>
+              </div>
+
+              <span class="text-danger" *ngIf="studentForm.invalid&&studentForm.touched"><b>*Fill Required
+                  Data</b></span>
 
             </div>
 
-          </ng-template>
 
 
+
+            <div *ngIf="isLoaderActive==true; else elseBlock" style="display: flex; justify-content: center;  ">
+
+              <app-loader></app-loader>
+
+            </div>
+
+            <!-- This content is displayed if the condition is false -->
+            <ng-template #elseBlock>
+
+              <div *ngIf="studentList.length==0">
+
+                <h2>Students not found</h2>
+                <img src="/assets/nocontent.png" class="card-img" alt="...">
+                <h3 [routerLink]="['/Add-Student']">click here to Add Student </h3>
+
+              </div>
+
+            </ng-template>
+
+
+          </div>
         </div>
+
+
       </div>
-
-
     </div>
   </div>
-</div>

@@ -1,30 +1,43 @@
 import { NgClass, NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, HostListener, inject, NgModule } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
+import { Component, ElementRef, HostListener,  inject,   ViewChild } from '@angular/core';
+import { FormControl, FormGroup, FormsModule,  ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
 import { NewExam } from '../../service/exams.model';
 import { ReqQuestion, Question } from '../../service/questions.model';
 import { LoaderComponent } from '../../Reusable-view/loader/loader.component';
 import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
+import { Modal } from 'bootstrap'; // This is for Bootstrap 5
+import { ConstantDB } from '../../Contant/constant';
 
 @Component({
   selector: 'app-create-exam',
   standalone: true,
-  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf, LoaderComponent, MenuButtonsComponent, TitleCasePipe],
+  imports: [NgFor, FormsModule, RouterLink, RouterOutlet, NgClass, NgIf, LoaderComponent, MenuButtonsComponent, TitleCasePipe, ReactiveFormsModule],
   templateUrl: './AddExam.component.html',
   styleUrl: './AddExam.component.css'
 })
 
 export class CreateExamComponent {
+ConstantDB = ConstantDB
+  
+  cheakAllCredentials() {
+    if (this.QadditionAdditionForm.invalid) {
+      this.QadditionAdditionForm.markAllAsTouched()
+    } else {
+
+      this.QadditionAdditionForm.markAsUntouched()
+      this.saveNewExam()
+      this.QadditionAdditionForm.reset()
+
+    }
+  }
   isLoaderActive: boolean = true;
   closePopup() {
     throw new Error('Method not implemented.');
   }
   popupVisible: boolean = false;
-
-
 
   showQNO: boolean = false;
   popupMessage: any;
@@ -95,6 +108,14 @@ export class CreateExamComponent {
   }
 
 
+  usernameValidationMessage: string = ""
+
+  QadditionAdditionForm: FormGroup = new FormGroup({
+    examname: new FormControl("", Validators.required),
+    grade: new FormControl("", Validators.required),
+    discreption: new FormControl("", Validators.maxLength(300))
+  })
+
 
   filterQuestions() {
     console.log("getting  called")
@@ -120,10 +141,14 @@ export class CreateExamComponent {
   }
 
 
-  itterator2 = 0
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+  itterator2 = 0
   idq: any
   idForQuetion: any
+  @ViewChild('AddExamForm') addExamFormElement?: ElementRef
+
 
   Add_this_Q(idq: any) {
     // console.log(this.idq)
@@ -134,6 +159,8 @@ export class CreateExamComponent {
       var demo = "isadded" + ++this.qarrayadder;
       if (demo == "isadded1") {
         this.isadded1 = true;
+
+
 
       } else if (demo == "isadded2") {
         this.isadded2 = true;
@@ -161,8 +188,11 @@ export class CreateExamComponent {
       }
       else if (demo == "isadded10") {
         this.isadded10 = true;
-      }
 
+        const modelpopup = new Modal(this.addExamFormElement?.nativeElement);
+        modelpopup.show();
+
+      }
 
       // code for disable button after adding quetion
 
@@ -195,38 +225,45 @@ export class CreateExamComponent {
   }
 
 
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   message: any = 'Push';
   newExam: NewExam =
     {
-      "leagueId": "104",
-      "examTitle": "Maths Type 1",
-      "description": "AUG test for K1 Maths",
-      "grade": "k1",
-      "q1": "mt01_q1",
-      "q2": "mt01_q2",
-      "q3": "mt01_q3",
-      "q4": "mt01_q4",
-      "q5": "mt01_q5",
-      "q6": "mt01_q6",
-      "q7": "mt01_q7",
-      "q8": "mt01_q8",
-      "q9": "mt01_q9",
-      "q10": "mt01_q10"
+      leagueId: "104",
+      examTitle: "Maths Type 1",
+      description: "AUG test for K1 Maths",
+      grade: "k1",
+      q1: "mt01_q1",
+      q2: "mt01_q2",
+      q3: "mt01_q3",
+      q4: "mt01_q4",
+      q5: "mt01_q5",
+      q6: "mt01_q6",
+      q7: "mt01_q7",
+      q8: "mt01_q8",
+      q9: "mt01_q9",
+      q10: "mt01_q10"
     }
+
+  savenewquestionindex: number = 0
+
 
   CQArray: Question[][] = []
 
-  savenewquestionindex: number = 0
+
   saveNewExam() {
+    console.log("save method called")
     //When you add a new array to CQArray, ensure that you are adding a new instance of the array, not modifying an existing one.
     // Use the spread operator to create a new instance of new_created_q [... this.new_created_q]
-    if (this.validExamName() && this.validGrade()) {
+    if (this.QadditionAdditionForm.valid) {
 
-      this.popupVisible = true;
-      // this.router.navigateByUrl("examdetail")
 
-      this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
-      console.log(this.CQArray);
+
+
+      // this.CQArray[this.savenewquestionindex++] = [...this.new_created_q];
+      this.CQArray[0] = [...this.new_created_q];
+
       this.serviveExamSection.Add_this_Q(this.CQArray);
 
       let objUprofile = localStorage.getItem("uprofile");
@@ -234,9 +271,11 @@ export class CreateExamComponent {
         this.newExam.leagueId = JSON.parse(objUprofile)['league_id'];
         this.newExam = {
           "leagueId": this.newExam.leagueId,
-          "examTitle": this.QadditionAdditionForm.examname,
-          "description":  this.QadditionAdditionForm.discreption,
-          "grade": this.QadditionAdditionForm.grade,
+          // "examTitle": this.QadditionAdditionForm.controls['examname']?.value,
+
+          "examTitle": this.QadditionAdditionForm.get('examname')?.value,
+          "description": this.QadditionAdditionForm.get('discreption')?.value,
+          "grade": this.QadditionAdditionForm.get('grade')?.value,
           "q1": this.CQArray[0][0].qnumber,
           "q2": this.CQArray[0][1].qnumber,
           "q3": this.CQArray[0][2].qnumber,
@@ -246,29 +285,54 @@ export class CreateExamComponent {
           "q7": this.CQArray[0][6].qnumber,
           "q8": this.CQArray[0][7].qnumber,
           "q9": this.CQArray[0][8].qnumber,
-          "q10":this.CQArray[0][9].qnumber
+          "q10": this.CQArray[0][9].qnumber
         }
       }
-  
+
       this.http.post<any>("https://zedpea.co.in/api/newexam.php", this.newExam)
         .subscribe(data => {
           this.message = data.message;
         })
+      this.saved = !this.saved;
 
-      this.new_created_q = [];
+      this.QadditionAdditionForm.reset()
+
       this.itterator = 0
-      this.toggleAll(2);
+
+
     }
+    else {
 
-
+      this.QadditionAdditionForm.markAllAsTouched()
+    }
   }
+
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
   showcreatedtests() {
     this.router.navigateByUrl("exam-section/ShowExams")
 
   }
 
-  toggleAll(discardindexis1: number) {
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+  toggleAll(show: string) {
+    this.CQArray[0] = [...this.new_created_q];
+
+    for (let index = 0; index <= 9; index++) {
+      const button = document.getElementById(this.CQArray[0][index].qnumber) as HTMLButtonElement
+      if (button) {
+        button.innerHTML = 'Add <i class="bi bi-arrow-up-square"></i>';
+        button.disabled = false
+      }
+    }
+
+    console.log("toggle the data")
     this.isadded1 = false
     this.isadded2 = false
     this.isadded3 = false
@@ -284,52 +348,15 @@ export class CreateExamComponent {
     this.new_created_q = [];
     this.itterator = 0
     this.itterator2 = 0
-    if (discardindexis1 != 1) {
+    if (show == "toggle secondary poppup") {
       this.saved = !this.saved;
 
     }
 
-
+    this.QadditionAdditionForm.reset();
 
   }
-
-  usernameValidationMessage: string = ""
-
-  QadditionAdditionForm: QadditionAdditionFormTemp =
-    {
-      examname: "",
-      grade: "",
-      discreption: ""
-    }
-
-  validExamName(): boolean {
-    if (!this.QadditionAdditionForm.examname) {
-      this.usernameValidationMessage = 'Name is required';
-      return false
-    } else if (this.QadditionAdditionForm.examname.length < 4) {
-      this.usernameValidationMessage = 'Username must be at least 4 characters long';
-      return false
-
-    } else {
-      this.usernameValidationMessage = '';
-      return true
-    }
-  }
-
-  selectedGrade: string = '';
-  gradeValidationMessage: string = '';
-
-  validGrade(): boolean {
-    if (!this.QadditionAdditionForm.grade) {
-      this.gradeValidationMessage = 'Grade is required';
-      return false
-    } else {
-      this.gradeValidationMessage = '';
-      return true
-    }
-  }
-
-
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   //button disble after adding a question
   isScrolledDown: boolean = false;
@@ -338,21 +365,12 @@ export class CreateExamComponent {
   onWindowScroll(): void {
     if (window.scrollY > 180) {
       this.isScrolledDown = true;
-      console.log('Page is scrolled down');
     } else {
       this.isScrolledDown = false;
-      console.log('Page is at the top');
     }
   }
-
-
 }
 
-interface QadditionAdditionFormTemp {
-  examname: string
-  grade: string
-  discreption: string
-}
 
 
 

@@ -1,77 +1,87 @@
 <nav class="navbar bg-body-secondary ">
-    <div class="container-fluid justify-content-start ">
-        <div class="d-none d-lg-flex ">
+    <div class="container-fluid justify-content-start">
+        <div class="d-none d-lg-flex">
             <h2 class="navbar-brand"> 📚 </h2>
         </div>
-
         Analysis Performance
         <app-menu-buttons style="margin-left: 10px;"></app-menu-buttons>
-
     </div>
 </nav>
-<div style="background-color: #f5f3f1; border-radius: 4px;">
-    <div class="row" style="margin-top: 30px;">
-        <div class="col-sm-6">
-            <strong>Average All student Marks</strong>
-            BAR CHART
-            <canvas id="MyChart" style="background-color: #ffffff;"></canvas>
-        </div>
-        <div class="col-sm-6">
-            <strong>Average Performance of all Student's</strong>
-            (month wise) LINE CHART
-            <canvas id="cahrtSuccessRate"  style="background-color: #ffffff;"></canvas>
-        </div>
-    </div>
 
-
-
-    <div class="row" style="margin-top: 30px;">
-
-
-        <div class="col-sm-6">
-            <strong>Average Performance of all Student's </strong>
-            (sub wise) BAR CHART
-            <canvas id="cahrtSubSuccessRate"  style="background-color: #ffffff;"></canvas>
-        </div>
-
-        <div class="col-sm-3">
-            <strong>Average Time spent </strong>
-            (sub wisw) PIE CHART
-            <div>
-                <canvas id="piecahrtSubSuccessRate"  style="background-color: #ffffff;"></canvas>
+<!-- DESKTOP VIEW -->
+<div class="d-none d-lg-flex">
+    <div style="background-color: #f5f3f1; border-radius: 4px;">
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-sm-6">
+                <strong>Average All Student Marks</strong> BAR CHART
+                <canvas id="MyChart" style="background-color: #ffffff;"></canvas>
+            </div>
+            <div class="col-sm-6">
+                <strong>Average Performance of All Students</strong> (month wise) LINE CHART
+                <canvas id="cahrtSuccessRate" style="background-color: #ffffff;"></canvas>
             </div>
         </div>
 
-        <div class="col-sm-3">
-            <strong>Average Time spent </strong>
-            DOUGHNUT CHART
-            <canvas id="DoughnutpiecahrtSubSuccessRate"  style="background-color: #ffffff;"></canvas>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-sm-6">
+                <strong>Average Performance of All Students</strong> (sub wise) BAR CHART
+                <canvas id="cahrtSubSuccessRate" style="background-color: #ffffff;"></canvas>
+            </div>
+            <div class="col-sm-3">
+                <strong>Average Time Spent</strong> (sub wise) PIE CHART
+                <canvas id="piecahrtSubSuccessRate" style="background-color: #ffffff;"></canvas>
+            </div>
+            <div class="col-sm-3">
+                <strong>Average Time Spent</strong> DOUGHNUT CHART
+                <canvas id="DoughnutpiecahrtSubSuccessRate" style="background-color: #ffffff;"></canvas>
+            </div>
         </div>
 
-    </div>
-
-
-    <div class="row" style="margin-top: 30px;">
-        <div class="col-sm-6">
-            Performance of Zedpea Application <strong>(average)</strong> BUBBLE CHART <br>
-            <strong> x = Year</strong> <br>
-            <strong> y = Student performance</strong> <br>
-            <strong> radius = Amount of sales</strong>
-
-            <canvas id="BubblepiecahrtSubSuccessRate"  style="background-color: #ffffff;"></canvas>
-
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-sm-6">
+                <strong>Performance of Zedpea Application</strong> BUBBLE CHART
+                <strong>x = Year, y = Student Performance, radius = Amount of Sales</strong>
+                <canvas id="BubblepiecahrtSubSuccessRate" style="background-color: #ffffff;"></canvas>
+            </div>
         </div>
-        <div class="col-sm-3">
-
-        </div>
-
-
-        hello
-
     </div>
 </div>
-<!-- <video  width="340" height="180" controls autoplay>
-    <source src="/assets/research.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
- -->
+
+<!-- MOBILE VIEW -->
+<div class="dropdown d-lg-none">
+    <div style="background-color: #f5f3f1; border-radius: 4px;">
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-sm-6">
+                <strong>Average All Student Marks</strong> BAR CHART
+                <canvas id="MyChartMobile" style="background-color: #ffffff;" width="250%" height="250%"></canvas>
+            </div>
+            <div class="col-sm-6">
+                <strong>Average Performance of All Students</strong> (month wise) LINE CHART
+                <canvas id="cahrtSuccessRateMobile" style="background-color: #ffffff;" width="250%" height="250%"></canvas>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-sm-6">
+                <strong>Average Performance of All Students</strong> (sub wise) BAR CHART
+                <canvas id="cahrtSubSuccessRateMobile" style="background-color: #ffffff;" width="250%" height="250%"></canvas>
+            </div>
+            <div class="col-sm-3">
+                <strong>Average Time Spent</strong> (sub wise) PIE CHART
+                <canvas id="piecahrtSubSuccessRateMobile" style="background-color: #ffffff;"></canvas>
+            </div>
+            <div class="col-sm-3">
+                <strong>Average Time Spent</strong> DOUGHNUT CHART
+                <canvas id="DoughnutpiecahrtSubSuccessRateMobile" style="background-color: #ffffff;"></canvas>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-sm-6">
+                <strong>Performance of Zedpea Application</strong> BUBBLE CHART
+                <strong>x = Year, y = Student Performance, radius = Amount of Sales</strong>
+                <canvas id="BubblepiecahrtSubSuccessRateMobile" style="background-color: #ffffff;" width="250%" height="250%"></canvas>
+            </div>
+        </div>
+    </div>
+</div>

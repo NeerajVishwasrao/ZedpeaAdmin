@@ -131,31 +131,15 @@
 
 
 
-<div class="row">
-  <div class="col-12">
-    <br>
-    <!-- <h2 style="text-align: center;"><span style="color: brown; ">{{user}}</span></h2> -->
-    <!-- <a type="button" class="btn btn-outline-primary" (click)="studentdata()">Students <i
-                  class="badge badge-pill badge-light">10</i></a>
-
-          <a type="button" class="btn btn-outline-primary">Exams <i
-                  class="badge badge-pill badge-primary">{{CQArray.length}}</i></a>
-          <a type="button" class="btn btn-outline-primary">Add Exam <i class="badge badge-pill badge-light">+</i></a> -->
-  </div>
-</div>
-
-
-
-
 <div *ngIf="saved;">
   <div class="popup-overlay" id="popupOverlay">
     <div class="popup-content">
       <strong>Exam Saved Successfully!</strong>
-      <button class="btn btn-primary close-btn" (click)="toggleAll(2)">Close</button>
+      <button class="btn btn-primary close-btn" (click)="toggleAll('toggle secondary poppup')">Close</button>
     </div>
   </div>
 </div>
-
+<br>
 <div class="d-none d-lg-flex">
 
   <div class="alert alert-warning alert-dismissible fade show  " *ngIf="isScrolledDown"
@@ -200,171 +184,11 @@
 </div>
 
 
-<div class="form-group" *ngIf="isadded10">
-  <div class="popup-overlay" id="popupOverlay">
-    <!-- <div class="popup-content"> -->
-
-    <div class="card" style="width: 40rem; height: 32rem;background-color:  #f5f3f1;">
-      <div class="card-body">
-        <div class="card-header">
-          <strong>10 Qustions Added</strong>
-        </div>
-        <br>
-
-        <label for="usr">Exam Name:</label>
-        <input type="text" class="form-control" id="examname" (blur)="validExamName()"
-          [(ngModel)]="QadditionAdditionForm.examname">
-        <small class="text-danger" *ngIf="usernameValidationMessage">{{usernameValidationMessage}}</small><br>
-      
-
-        <label for="select-grade">Select Grade:</label>
-        <select class="form-control" id="select-grade" name="select-grade" (blur)="validGrade()"
-          [(ngModel)]="QadditionAdditionForm.grade">
-
-          <option>K1</option>
-          <option>K2</option>
-          <option>STD1</option>
-          <option>STD2</option>
-        </select>
-        <small class="text-danger" *ngIf="gradeValidationMessage">{{gradeValidationMessage}}</small>
-        <br>
 
 
-        <label for="comment">Description:</label>
-        <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Add Description"
-        [(ngModel)]="QadditionAdditionForm.discreption"></textarea>
-        <br>
-
-        <button type="button" [ngClass]="isadded10?'btn btn-info': 'btn btn-light'"
-          (click)="saveNewExam()">Save</button>
-
-        <button type="button" class="btn btn-secondary" (click)="toggleAll(1)">Discard</button>
-
-      </div>
-    </div>
-
-
-
-  </div>
-</div>
-
-<!-- <div class="row">
-
-      <div class="col-12">
-          <table>
-              <tr>
-
-                  <th>
-                      <div class="btn-group">
-                          <div class="input-group mb-3">
-                              <label class="input-group-text" for="inputGroupSelect01">Std</label>
-                              <select class="form-select" id="inputGroupSelect01" (change)="filterQuestions()"
-                                  [(ngModel)]="searchtext1">
-                                  <option value="" selected>🔍 All</option>
-                                  <option value="lkg">LKG</option>
-                                  <option value="ukg">UKG</option>
-                                  <option value="1">First</option>
-                                  <option value="2">Second</option>
-
-                              </select>
-                          </div>
-                      </div>
-                  </th>
-                  <th>
-                      <div class="btn-group">
-                          <div class="input-group mb-3">
-                              <label class="input-group-text" for="inputGroupSelect02">Sub</label>
-                              <select class="form-select" (change)="filterQuestions()" id="inputGroupSelect02"
-                                  [(ngModel)]="searchtext2">
-                                  <option value="" selected>🔍 All</option>
-                                  <option value="eng">English</option>
-                                  <option value="math">math</option>
-                                  <option value="mar">Marathi</option>
-                                  <option value="evs">EVS</option>
-
-                              </select>
-                          </div>
-                      </div>
-                  </th>
-                  <th>
-                      <div class="btn-group">
-                          <div class="input-group mb-3">
-                              <label class="input-group-text" for="inputGroupSelect03">Type</label>
-                              <select class="form-select" id="inputGroupSelect03" (change)="filterQuestions()"
-                                  [(ngModel)]="searchtext3">
-                                  <option value="" selected>🔍 All</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                  <option value="4">Four</option>
-                                  <option value="5">Five</option>
-
-                              </select>
-                          </div>
-                      </div>
-
-                  </th>
-                  <th>
-
-                  </th>
-
-              </tr>
-          </table>
-      </div>
-  </div> -->
 <h4 style="text-align: center;">Question Set</h4>
 
 
-<!-- <div class="row">
-  <div class="questions-section" style=" background-color: #f5f3f1;">
-    <div class="questions-container" style="justify-content: center;">
-      <div class="card " style="width: 15rem; height: 22rem;" *ngFor="let Qcontainer of filteredQuestions">
-        <img src="/assets/anyquestions.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{Qcontainer.title}}
-            ({{Qcontainer.grade}})
-          </h5>
-          <p class="card-text exam-card ">
-            <li>Qnumber- {{Qcontainer.qnumber}}</li>
-            <li>Template- {{Qcontainer.template}}</li>
-            <li>subject.- {{Qcontainer.qsubject}}</li>
-            <li>Topic.- {{Qcontainer.topic}}</li>
-            <li>Discription.- {{Qcontainer.qdesc}}</li>
-            <li>author.- {{Qcontainer.author}}</li>
-          </p>
-         <p class="d-inline-flex gap-1"> 
-
-
-          <button class="btn mybutton"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-            id="{{Qcontainer.qnumber}}" type="button" (click)="Add_this_Q(Qcontainer.qnumber)">Add
-            Question</button>
-         </p> 
-
-
-
-        </div>
-      </div>
-
-
-
-
-      <div *ngIf="filteredQuestions.length==0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="350" height="350">
-          <path fill="#0f766e" stroke="#0f766e" stroke-width="15" transform-origin="center"
-            d="m148 84.7 13.8-8-10-17.3-13.8 8a50 50 0 0 0-27.4-15.9v-16h-20v16A50 50 0 0 0 63 67.4l-13.8-8-10 17.3 13.8 8a50 50 0 0 0 0 31.7l-13.8 8 10 17.3 13.8-8a50 50 0 0 0 27.5 15.9v16h20v-16a50 50 0 0 0 27.4-15.9l13.8 8 10-17.3-13.8-8a50 50 0 0 0 0-31.7Zm-47.5 50.8a35 35 0 1 1 0-70 35 35 0 0 1 0 70Z">
-            <animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2s" values="0;120"
-              keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite"></animateTransform>
-          </path>
-        </svg>
-        
-
-      </div>
-
-
-    </div>
-  </div>
-</div> -->
 <div class="row">
   <div class="questions-section" style="background-color: #f5f3f1; padding: 20px;">
     <div class="questions-container" style="justify-content: center; ">
@@ -383,11 +207,7 @@
           </div>
 
           <div class="card-text">
-            <!-- {{Qcontainer.qsubject}}<br> -->
-            <!-- <div> {{Qcontainer.topic}}</div><br>
-            <div> {{Qcontainer.qdesc}} </div>
-             -->
-            <!-- {{Qcontainer.author}} -->
+
             <div class="container text-center">
               <div class="row g-2">
                 <div class="col-12">
@@ -424,6 +244,79 @@
 
 
     </div>
+  </div>
+
+</div>
+
+
+
+
+<div class="modal fade" id="exampleModal" #AddExamForm tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Test</h1>
+        <button type="button" (click)="toggleAll('not')" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form [formGroup]="QadditionAdditionForm">
+
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Test name:</label>
+            <input type="text" class="form-control" id="recipient-name" formControlName="examname">
+            <span class="text-danger"
+              *ngIf="QadditionAdditionForm.controls['examname'].touched && QadditionAdditionForm.controls['examname'].errors?.['required']">
+              {{ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
+            </span>
+          </div>
+
+          <div class="mb-3">
+            <label for="Grade-text" class="col-form-label">Grade:</label>
+            <select class="form-control" id="select-grade" formControlName="grade">
+              <option>K1</option>
+              <option>K2</option>
+              <option>STD1</option>
+              <option>STD2</option>
+            </select>
+            <span class="text-danger"
+              *ngIf="QadditionAdditionForm.controls['grade'].touched && QadditionAdditionForm.controls['grade'].errors?.['required'] ">
+              {{ConstantDB.VALIDATION_MSG.THIS_IS_REQ}}
+            </span>
+          </div>
+
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Discription:</label>
+
+            <textarea class="form-control" id="message-text" formControlName="discreption"></textarea>
+            <span style="color: red;"
+              *ngIf="QadditionAdditionForm.controls['discreption'].touched && QadditionAdditionForm.controls['discreption'].errors?.['maxlength']">
+              {{ConstantDB.VALIDATION_MSG.MAX_DESC_LENGTH}}
+            </span>
+          </div>
+
+        </form>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <span (click)="cheakAllCredentials()">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+            [disabled]="QadditionAdditionForm.invalid">Save
+            Test</button>
+        </span>
+        <button type="button" (click)="toggleAll('not')" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+    <span class="text-danger"
+      *ngIf="QadditionAdditionForm.invalid&&QadditionAdditionForm.touched"><b>{{ConstantDB.VALIDATION_MSG.FILL_REQ_DATA}}</b>
+    </span>
+
   </div>
 
 </div>

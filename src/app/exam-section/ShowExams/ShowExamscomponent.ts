@@ -1,28 +1,56 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ServiceExamSectionService } from '../../service/service-exam-section.service';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { LoaderComponent } from '../../Reusable-view/loader/loader.component';
 import { MenuButtonsComponent } from '../../Reusable-view/menu-buttons/menu-buttons.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FireNewExam, FireNewQuiz } from '../../service/exams.model';
-import { FireQset, FireQuestion } from '../../service/questions.model';
+import { ConstantDB } from '../../Contant/constant';
 
 @Component({
   selector: 'app-show-created-test',
   standalone: true,
-  imports: [RouterLink, NgFor, NgIf, LoaderComponent, MenuButtonsComponent, ReactiveFormsModule],
+  imports: [RouterLink, NgFor, NgIf, LoaderComponent, MenuButtonsComponent, ReactiveFormsModule, TitleCasePipe],
   templateUrl: './ShowExams.component.html',
   styleUrl: './ShowExams.component.css'
 })
 export class ShowCreatedTestComponent {
+  ConstantDB = ConstantDB;
+  closeReset() {
+    this.TestForm.reset();
+  }
+
+
+  cheakAllCredentials() {
+    if (this.TestForm.invalid) {
+      console.log("Invalid form")
+
+      this.TestForm.markAllAsTouched()
+    } else {
+
+      this.TestForm.markAsUntouched()
+      this.saveTest()
+      this.TestForm.reset();
+
+    }
+    console.log("form is valid")
+    // this.TestForm.reset()
+
+  }
+
+
+
   saveTest() {
-    throw new Error('Method not implemented.');
+    console.log("will save the filled data")
+
+
   }
 
   TestForm: FormGroup = new FormGroup({
     TestName: new FormControl("", [Validators.required]),
-    TestDescription: new FormControl("", [Validators.required]),
+    TestGrade: new FormControl("", [Validators.required]),
+    TestDescription: new FormControl("", [Validators.maxLength(300)]),
 
   });
 
@@ -227,8 +255,8 @@ export class ShowCreatedTestComponent {
 
 
   Showsingletest(exam: any) {
-    this.router.navigateByUrl("Show-single-exam");
-    this.serviceExamSection.sendOnetest(exam);
+    // this.router.navigateByUrl("Exam-Center/Show-single-exam");
+    // this.serviceExamSection.sendOnetest(exam);
 
   }
 
@@ -258,12 +286,12 @@ export class ShowCreatedTestComponent {
     )
 
     this.serviceExamSection.getstudents(this.leagueUser).subscribe(
-        (data: any) => {
-          this.studentList = data;
-          this.isLoaderActive = false
-        }
-      )
-  
+      (data: any) => {
+        this.studentList = data;
+        this.isLoaderActive = false
+      }
+    )
+
   }
 
 

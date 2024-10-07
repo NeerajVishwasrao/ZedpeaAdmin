@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreatedTestComponent } from './single-created-test.component';
 
 const routes: Routes = [
- { path: '', component: CreatedTestComponent}
-
+{
+  path:"",component:CreatedTestComponent
+}
 ];
 
 @NgModule({
