@@ -1,0 +1,295 @@
+<div style="margin-top: 50px;">
+  <!-- <nav class="navbar bg-body-secondary">
+      <div class="container-fluid justify-content-start">
+        <div class="d-none d-lg-flex">
+          <h2 class="navbar-brand"> 📚 </h2>
+        </div>
+      </div>
+    </nav> -->
+
+
+  <img class="mx-auto d-block" [src]="logo_url" alt="{{logo_url}}" style="width: 250px; height: 250px;">
+
+
+  <!-- Enroll Students -->
+  <div class="card custom-card mt-4" style="background-color:  #f5f3f1;" [formGroup]="studentForm">
+    <div class="card-body">
+      <div class="form-group">
+
+        <!-- Student Name -->
+        <label for="studname">Participant Name: </label>
+        <input type="text" formControlName="StudentName" class="form-control" id="studname">
+        <div class="text-danger">
+          <span
+            *ngIf="studentForm.controls['StudentName'].touched && studentForm.controls['StudentName'].errors?.['required']">
+            This is Required
+          </span>
+          <span *ngIf="studentForm.controls['StudentName'].errors?.['pattern']">
+            The name must contain alphabets!
+          </span>
+        </div>
+
+        <!-- Roll Number -->
+        <label for="rollnumber">Phone Number:</label>
+        <input type="text" formControlName="RollNumber" class="form-control" id="rollnumber">
+        <div class="text-danger">
+          <span
+            *ngIf="studentForm.controls['RollNumber'].touched && studentForm.controls['RollNumber'].errors?.['required']">
+            This is Required
+          </span>
+        </div>
+
+        <!-- Select Grade -->
+        <label for="selectgrade">Select Group:</label>
+        <select formControlName="SelectGrade" class="form-control" id="selectgrade">
+          <option value="A1">Little Champs (4 to 10 Years)</option>
+          <option value="B1">Explorar (Above 11)</option>
+        </select>
+        <div class="text-danger">
+          <span
+            *ngIf="studentForm.controls['SelectGrade'].touched && studentForm.controls['SelectGrade'].errors?.['required']">
+            This is Required
+          </span>
+        </div>
+
+        <!-- Username -->
+        <label for="susername">Username:</label>
+        <input type="text" formControlName="Username" class="form-control" id="susername">
+        <div class="text-danger">
+          <span
+            *ngIf="studentForm.controls['Username'].touched && studentForm.controls['Username'].errors?.['required']">
+            This is Required
+          </span>
+          <span *ngIf="studentForm.controls['Username'].errors?.['minlength']">
+            Username must be at least 6 characters long
+          </span>
+        </div>
+
+        <!-- Password -->
+        <label for="password">Password:</label>
+        <input type="password" formControlName="Password" class="form-control" id="password">
+        <div class="text-danger">
+          <span
+            *ngIf="studentForm.controls['Password'].touched && studentForm.controls['Password'].errors?.['required']">
+            This is Required
+          </span>
+          <span *ngIf="studentForm.controls['Password'].errors?.['minlength'] else elsepart">
+            Password must be at least 6 characters long
+          </span>
+          <ng-template #elsepart>
+            <span *ngIf="studentForm.controls['Password'].errors?.['pattern']">
+              Password must contain at least one number and one special character
+            </span>
+          </ng-template>
+
+        </div>
+
+        <!-- Picture -->
+        <!-- <label for="Std_pic">Picture:</label>
+          <input type="file" (change)="uploadValidPic($event)" formControlName="Picture" class="form-control"
+            id="Std_pic">
+          <div class="text-danger">
+            <span *ngIf="studentForm.controls['Picture'].touched && studentForm.controls['Picture'].errors?.['required']">
+              Picture is Required
+            </span>
+  
+            <span *ngIf="img_validation_msg">{{img_validation_msg}}</span>
+          </div> -->
+      </div>
+    </div>
+
+    <button type="button" [disabled]="message == 'Done'" class="btn mybutton"
+      (click)="saveSelectedStudents()">{{message}}</button>
+    <small [ngClass]="iscorrect?'text-success':'text-danger'" *ngIf="ValidationResult"
+      style="margin-top: 20px;">{{ValidationResult}}</small>
+  </div>
+
+  <a type="button" class="btn btn-link"> <i class="bi bi-info-square-fill" data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"> Rules</i></a>
+  <a type="button" class="btn btn-link"> <i class="bi bi-gift-fill" data-bs-toggle="modal"
+      data-bs-target="#exampleModal"> Rewards</i></a>
+
+
+
+
+</div>
+
+
+
+
+<!-- Modal Rules -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color: #004085;">
+          <figure>
+            <blockquote class="blockquote">
+              <p>Rules of Navratri Compitition</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              <cite title="Source Title">Zedpea.com</cite>
+            </figcaption>
+          </figure>
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body d-flex">
+        <!-- Navigation List -->
+        <nav class="col-3">
+          <div id="list-example" class="list-group">
+            <div class="list-group-item list-group-item-action" [ngClass]="{'active': activeSection === 'rule1'}"
+              (click)="scrollToSection('rule1')">
+              Rule 1 -</div>
+            <div class="list-group-item list-group-item-action" [ngClass]="{'active': activeSection === 'rule2'}"
+              (click)="scrollToSection('rule2')">
+              Rule 2 -</div>
+            <div class="list-group-item list-group-item-action" [ngClass]="{'active': activeSection === 'rule3'}"
+              (click)="scrollToSection('rule3')">
+              Rule 3 -</div>
+            <div class="list-group-item list-group-item-action" [ngClass]="{'active': activeSection === 'rule4'}"
+              (click)="scrollToSection('rule4')">
+              Rule 4 -</div>
+            <div class="list-group-item list-group-item-action" [ngClass]="{'active': activeSection === 'rule5'}"
+              (click)="scrollToSection('rule5')">
+              Rule 5 -</div>
+          </div>
+        </nav>
+
+        <div style="margin-left: 15px;">
+          <!-- Scrollable Content -->
+          <div class="col-11" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
+            tabindex="0" style="position: relative; height: 300px; overflow-y: auto;">
+            <mark>The event will run from October 3 to Dussehra. </mark> Each day's test will be available until 6 PM.
+            <br>
+            <br>
+            <div class="mb-3 rule" id="rule1">
+              <strong><em>1. Test Assignment:</em></strong>
+              <p><em><mark>One test</mark> will be assigned on every day during <mark> Navratri.</mark></em></p>
+            </div>
+
+            <div class="mb-3 rule" id="rule2">
+              <strong><em>2. Login Requirements:</em></strong>
+              <p><em>Students must <mark> log in </mark> with their username and password  to access the
+                  test. student need to attempt the test <mark> every day </mark> without skipping.</em></p>
+            </div>
+
+            <div class="mb-3 rule" id="rule3">
+              <strong><em>3. Scoring System:</em></strong>
+              <ul>
+                <li><em>Correct Answer: +10 points </em></li>
+                <li><em>Wrong Answer: -5 points</em></li>
+              </ul>
+            </div>
+
+            <div class="mb-3 rule" id="rule4">
+              <strong><em>4. Time Factor:</em></strong>
+              <p><em>If two or more students score the<mark> same </mark>,points the student who completed the test
+                  in<mark> less</mark> time will be ranked <mark>higher.</mark></em></p>
+            </div>
+
+            <div class="mb-3 rule" id="rule5">
+              <strong><em>5. Completion Requirement:</em></strong>
+              <p><em>Students<mark> must </mark> attempt tests on all<mark> 9 days </mark>of the Navratri to be eligible
+                  for prizes.</em></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary"
+          style="border-radius: 25px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);"
+          data-bs-dismiss="modal"><em>Understood</em></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Modal Rewards -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: green;">
+          <figure>
+            <blockquote class="blockquote">
+              <p>Rewards for Participation</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              <cite title="Source Title">Zedpea.com</cite>
+            </figcaption>
+          </figure>
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body d-flex">
+        <!-- Navigation List -->
+        <nav class="col-3">
+          <div id="list-example" class="list-group">
+            <div class="list-group-item list-group-item-action"
+              [ngClass]="{'active': activeSection === 'participation'}" (click)="scrollToSection('participation')">
+              Rule 1-</div>
+            <div class="list-group-item list-group-item-action"
+              [ngClass]="{'active': activeSection === 'topPerformers'}" (click)="scrollToSection('topPerformers')">
+              Rule 2 -</div>
+            <div class="list-group-item list-group-item-action"
+              [ngClass]="{'active': activeSection === 'prizeDistribution'}"
+              (click)="scrollToSection('prizeDistribution')"> Rule 3 -</div>
+            <div class="list-group-item list-group-item-action" [ngClass]="{'active': activeSection === 'conclusion'}"
+              (click)="scrollToSection('conclusion')"> Rule 4 -</div>
+          </div>
+        </nav>
+
+        <div style="margin-left: 15px;">
+          <!-- Scrollable Content -->
+          <div class="col-11" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
+            tabindex="0" style="position: relative; height: 300px; overflow-y: auto;">
+            <mark>All participants will receive rewards for their involvement in the event.</mark>
+            <br><br>
+
+            <div class="mb-3 rule" id="participation">
+              <strong><em>Participation Prize:</em></strong>
+              <p><em>All participants will receive one<mark>prize</mark>  for their involvement in the event.</em></p>
+            </div>
+
+            <div class="mb-3 rule" id="topPerformers">
+              <strong><em>Top Performers:</em></strong>
+              <p><em>The <mark>top 5 </mark> participants, based on their <mark>scores </mark>and <mark>completion times</mark>, will receive additional
+              prizes.</em></p>
+            </div>
+
+            <div class="mb-3 rule" id="prizeDistribution">
+              <strong><em>Prize Distribution:</em></strong>
+              <p><em>All prizes will be distributed on <mark>Dasara</mark> day.</em></p>
+            </div>
+
+            <div class="mb-3 rule" id="conclusion">
+              <strong><em>Conclusion:</em></strong>
+              <p><em>These rules ensure that every participant is acknowledged while also rewarding the <mark>top
+                  achievers.</mark></em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary"
+          style="border-radius: 25px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);"
+          data-bs-dismiss="modal"><em>Understood</em></button>
+      </div>
+    </div>
+  </div>
+</div>

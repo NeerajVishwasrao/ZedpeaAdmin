@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { EnrollComponent } from './enroll/enroll.component';
 import { authZPGuard } from './auth-zp.guard';
 
 
@@ -13,7 +14,9 @@ export const routes: Routes = [
     {
         path:'',component:LoginComponent,
     },
-
+    {
+        path:'enroll/:id',component:EnrollComponent,
+    },
     {
         path:'Add-Student',loadChildren:()=>import('./create-classroom/Add-Students/Add-Student.module').then(m=>m.CreateClassroomModule),
         canActivate:[authZPGuard]
