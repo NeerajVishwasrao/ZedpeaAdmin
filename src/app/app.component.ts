@@ -35,38 +35,37 @@ export class AppComponent {
     }
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.mytimer(); // Call timer on component initialization
     setInterval(() => this.mytimer(), 1000); //
   }
 
-timershow:boolean=true;
-mytimer()
-{
-  if(this.hours==0 && this.minutes==0 && this.seconds==0)
-    {
-    this.timershow=false;
-}
-  this.currentDate=new Date();
-  this.targetDate=new Date(2024,10,3);
-  this.cDateMillisecs=this.currentDate.getTime();
-  this.tDateMillisecs=this.targetDate.getTime();
-  
-  this.difference=this.tDateMillisecs - this.cDateMillisecs;
-  this.seconds=Math.floor(this.difference/1000);
-  this.minutes=Math.floor(this.seconds/60);
-  this.hours=Math.floor(this.minutes/60);
-// --------------------------------------------------------------------------
+  timershow: boolean = false;
+  mytimer() {
+    if (this.hours == 0 && this.minutes == 0 && this.seconds == 0) {
+      this.timershow = false;
+    }
+    else {
+      this.currentDate = new Date();
+      this.targetDate = new Date(2024, 10, 3);
+      this.cDateMillisecs = this.currentDate.getTime();
+      this.tDateMillisecs = this.targetDate.getTime();
 
-this.hours%= 24;
-this.minutes%= 60;
-this.seconds %=60;
+      this.difference = this.tDateMillisecs - this.cDateMillisecs;
+      this.seconds = Math.floor(this.difference / 1000);
+      this.minutes = Math.floor(this.seconds / 60);
+      this.hours = Math.floor(this.minutes / 60);
+      // --------------------------------------------------------------------------
 
-this.hours= this.hours<10? 0+this.hours:this.hours
-this.minutes= this.minutes<10? 0+this.minutes:this.minutes
-this.hours+=16
-}
+      this.hours %= 24;
+      this.minutes %= 60;
+      this.seconds %= 60;
 
+      this.hours = this.hours < 10 ? 0 + this.hours : this.hours
+      this.minutes = this.minutes < 10 ? 0 + this.minutes : this.minutes
+      this.hours += 16
+    }
+  }
   H_threeline: boolean = true
   V_threeline: boolean = false
 
