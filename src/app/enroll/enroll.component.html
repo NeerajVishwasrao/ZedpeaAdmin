@@ -128,7 +128,7 @@
         <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color: #004085;">
           <figure>
             <blockquote class="blockquote">
-              <p>Rules of Navratri Compitition</p>
+              <p>Rules of Dussehra Compitition</p>
             </blockquote>
             <figcaption class="blockquote-footer">
               <cite title="Source Title">Zedpea.com</cite>
@@ -154,9 +154,6 @@
             <div class="list-group-item list-group-item-action" [ngClass]="{'active': activeSection === 'rule4'}"
               (click)="scrollToSection('rule4')">
               Rule 4 -</div>
-            <div class="list-group-item list-group-item-action" [ngClass]="{'active': activeSection === 'rule5'}"
-              (click)="scrollToSection('rule5')">
-              Rule 5 -</div>
           </div>
         </nav>
 
@@ -164,18 +161,19 @@
           <!-- Scrollable Content -->
           <div class="col-11" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
             tabindex="0" style="position: relative; height: 300px; overflow-y: auto;">
-            <mark>The event will run from October 3 to Dussehra. </mark> Each day's test will be available until 6 PM.
+            The event will start on October 12 at <mark>12PM</mark> and will be available until <mark>3PM.</mark>
             <br>
             <br>
             <div class="mb-3 rule" id="rule1">
               <strong><em>1. Test Assignment:</em></strong>
-              <p><em><mark>One test</mark> will be assigned on every day during <mark> Navratri.</mark></em></p>
+              <p><em><mark>One quiz</mark> will be assigned on every day of <mark> Dussehra.</mark></em></p>
             </div>
 
             <div class="mb-3 rule" id="rule2">
-              <strong><em>2. Login Requirements:</em></strong>
-              <p><em>Students must <mark> log in </mark> with their username and password  to access the
-                  test. student need to attempt the test <mark> every day </mark> without skipping.</em></p>
+              <strong><em>2. How to play:</em></strong>
+              <p><em>Participants should login to <mark> zedpea.com </mark> with their username and password to access the
+                  quiz. Need to attempt <mark>all 10</mark> questions to be eligible
+                  for prizes.</em></p>
             </div>
 
             <div class="mb-3 rule" id="rule3">
@@ -187,15 +185,9 @@
             </div>
 
             <div class="mb-3 rule" id="rule4">
-              <strong><em>4. Time Factor:</em></strong>
-              <p><em>If two or more students score the<mark> same </mark>,points the student who completed the test
-                  in<mark> less</mark> time will be ranked <mark>higher.</mark></em></p>
-            </div>
-
-            <div class="mb-3 rule" id="rule5">
-              <strong><em>5. Completion Requirement:</em></strong>
-              <p><em>Students<mark> must </mark> attempt tests on all<mark> 9 days </mark>of the Navratri to be eligible
-                  for prizes.</em></p>
+              <strong><em>4. Tie breaker:</em></strong>
+              <p><em>If two or more participants score get <mark>same</mark>points then who completed the quiz
+                  <mark> earlier</mark> will be ranked <mark>higher.</mark></em></p>
             </div>
           </div>
 
@@ -212,19 +204,12 @@
 </div>
 
 
-
-
-
-
-
-
-
 <!-- Modal Rewards -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: green;">
+        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(197, 102, 24);">
           <figure>
             <blockquote class="blockquote">
               <p>Rewards for Participation</p>
@@ -243,15 +228,13 @@
           <div id="list-example" class="list-group">
             <div class="list-group-item list-group-item-action"
               [ngClass]="{'active': activeSection === 'participation'}" (click)="scrollToSection('participation')">
-              Rule 1-</div>
+              Appreciation</div>
             <div class="list-group-item list-group-item-action"
               [ngClass]="{'active': activeSection === 'topPerformers'}" (click)="scrollToSection('topPerformers')">
-              Rule 2 -</div>
+              Achievers</div>
             <div class="list-group-item list-group-item-action"
               [ngClass]="{'active': activeSection === 'prizeDistribution'}"
-              (click)="scrollToSection('prizeDistribution')"> Rule 3 -</div>
-            <div class="list-group-item list-group-item-action" [ngClass]="{'active': activeSection === 'conclusion'}"
-              (click)="scrollToSection('conclusion')"> Rule 4 -</div>
+              (click)="scrollToSection('prizeDistribution')"> Distribution</div>
           </div>
         </nav>
 
@@ -259,29 +242,22 @@
           <!-- Scrollable Content -->
           <div class="col-11" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
             tabindex="0" style="position: relative; height: 300px; overflow-y: auto;">
-            <mark>All participants will receive rewards for their involvement in the event.</mark>
+            All participants will receive rewards for their involvement in the event. <mark>Lets's have fun!!</mark>
             <br><br>
 
             <div class="mb-3 rule" id="participation">
-              <strong><em>Participation Prize:</em></strong>
-              <p><em>All participants will receive one<mark>prize</mark>  for their involvement in the event.</em></p>
+              <strong><em>Appreciation:</em></strong>
+              <p><em>All participants will receive <mark>gift</mark>  for their involvement in the event.</em></p>
             </div>
 
             <div class="mb-3 rule" id="topPerformers">
               <strong><em>Top Performers:</em></strong>
-              <p><em>The <mark>top 5 </mark> participants, based on their <mark>scores </mark>and <mark>completion times</mark>, will receive additional
-              prizes.</em></p>
+              <p><em>The <mark>top 10 </mark> participants within each league, based on their <mark>scores </mark>will get existing prizes.</em></p>
             </div>
 
             <div class="mb-3 rule" id="prizeDistribution">
               <strong><em>Prize Distribution:</em></strong>
-              <p><em>All prizes will be distributed on <mark>Dasara</mark> day.</em></p>
-            </div>
-
-            <div class="mb-3 rule" id="conclusion">
-              <strong><em>Conclusion:</em></strong>
-              <p><em>These rules ensure that every participant is acknowledged while also rewarding the <mark>top
-                  achievers.</mark></em></p>
+              <p><em>Winners will be announced on <mark>same day at 9PM</mark> and All prizes will be distributed through respected league organizers.</em></p>
             </div>
           </div>
         </div>
@@ -290,7 +266,7 @@
       <div class="modal-footer justify-content-center">
         <button type="button" class="btn btn-primary"
           style="border-radius: 25px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);"
-          data-bs-dismiss="modal"><em>Understood</em></button>
+          data-bs-dismiss="modal"><em>Hurray!!</em></button>
       </div>
     </div>
   </div>
